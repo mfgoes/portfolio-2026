@@ -296,3 +296,68 @@ img,
 svg {
     transition: none !important;
 }
+
+/* === CONSULTING PAGE === */
+/* Rate cards */
+[data-bs-theme="dark"] #rates-section {
+    background-color: #18181b !important;
+}
+
+[data-bs-theme="dark"] #rates-section .card {
+    background-color: #1a1a1f !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-bs-theme="dark"] #rates-section .card h4,
+[data-bs-theme="dark"] #rates-section .card h5 {
+    color: #e4e4e7 !important;
+}
+
+[data-bs-theme="dark"] #rates-section .card p,
+[data-bs-theme="dark"] #rates-section .card li {
+    color: #a1a1aa !important;
+}
+
+/* Keep purple card styling in dark mode */
+[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] {
+    background-color: #5856D6 !important;
+}
+
+[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] h4,
+[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] h5,
+[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] p,
+[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] li {
+    color: #ffffff !important;
+}
+
+/* Testimonials */
+[data-bs-theme="dark"] #testimonials-container .card {
+    background-color: #1a1a1f !important;
+}
+
+[data-bs-theme="dark"] #testimonials-container .card p {
+    color: #d4d4d8 !important;
+}
+
+[data-bs-theme="dark"] #testimonials-container .card .fw-bold {
+    color: #e4e4e7 !important;
+}
+
+/* Why Work With Me section */
+[data-bs-theme="dark"] .bg-muted {
+    background-color: #0d0d0f !important;
+}
+
+/* Contact CTA */
+[data-bs-theme="dark"] .bg-brand {
+    background-color: #18181b !important;
+}
+
+[data-bs-theme="dark"] #contact-cta-container .card {
+    background-color: #1a1a1f !important;
+}
+
+[data-bs-theme="dark"] #contact-cta-container .card h3,
+[data-bs-theme="dark"] #contact-cta-container .card p {
+    color: #e4e4e7 !important;
+}

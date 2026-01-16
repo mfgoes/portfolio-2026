@@ -1,8 +1,8 @@
 <footer class="py-4">
     <div class="container mt-4">
         <div class="row">
-            <!-- Projects Column -->
-            <div class="col-md-4">
+            <!-- Projects Column - hidden on mobile -->
+            <div class="col-md-4 d-none d-md-block">
                 <h5 class="text-light">Popular Projects</h5>
                 <ul class="list-unstyled">
                     <li><a href="postnl-ibac.html">PostNL: Business Onboarding</a></li>
@@ -10,30 +10,30 @@
                     <li><a href="mendix.html">Mendix: Internal Apps</a></li>
                 </ul>
             </div>
-            <!-- Articles Column -->
-            <div class="col-md-4">
+            <!-- Articles Column - hidden on mobile -->
+            <div class="col-md-4 d-none d-md-block">
                 <h5 class="text-light">Articles</h5>
                 <ul class="list-unstyled">
                     <li><a href="gamedev.html">Product Management in Game Development</a></li>
                 </ul>
             </div>
-            <!-- Connect Column -->
-            <div class="col-md-4">
+            <!-- Connect Column - always visible, centered on mobile -->
+            <div class="col-12 col-md-4 text-center text-md-start">
                 <h5 class="text-light">Connect</h5>
-                <ul class="list-unstyled">
-                    <li><a href="consulting.html">Consulting Rates</a></li>
-                    <li><a href="https://github.com/mfgoes" target="_blank">GitHub</a></li>
-                    <li><a href="mailto:mischavdgoes@gmail.com">Contact</a></li>
-                </ul>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3 mb-3">
+                    <a href="mailto:mischavdgoes@gmail.com" class="btn btn-outline-light btn-sm"><i class="fas fa-envelope me-1"></i>Email</a>
+                    <a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
+                </div>
+                <p class="text-secondary small">Looking to hire full-time? <a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank">Let's talk</a></p>
+                <p class="text-secondary small d-md-none"><a href="consulting.html">View consulting rates</a></p>
             </div>
         </div>
         <div class="text-center mt-2">
-            <button id="theme-toggle" class="btn btn-sm btn-outline-light mb-3">
+            <button id="theme-toggle" class="btn btn-link text-secondary btn-sm mb-1">
                 <i id="theme-icon-light" class="fas fa-sun" style="display: none;"></i>
                 <i id="theme-icon-dark" class="fas fa-moon"></i>
-                <span id="theme-text" class="ms-2">Dark Mode</span>
+                <span id="theme-text" class="ms-1 small">Dark Mode</span>
             </button>
-            <p class="mb-0 text-secondary">© 2026 Mischa vd Goes. All Rights Reserved.</p>
         </div>
     </div>
 </footer>

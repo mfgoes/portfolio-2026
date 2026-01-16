@@ -31,6 +31,11 @@ body.light-nav .navbar-toggler {
     border-color: rgba(0, 0, 0, 0.3);
 }
 
+body.light-nav .navbar-toggler-icon {
+    filter: invert(0);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 /* Override Bootstrap default blue with purple theme */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
@@ -155,6 +160,21 @@ body.light-nav .navbar-toggler {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    /* Ensure dropdown is collapsed by default on mobile */
+    .navbar-collapse .dropdown-menu {
+        display: none;
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        border: 1px solid rgba(110, 86, 207, 0.2);
+    }
+
+    /* Only show when Bootstrap adds .show class on click */
+    .navbar-collapse .dropdown-menu.show {
+        display: block;
+    }
+
     .project-dropdown {
         min-width: 100%;
         width: calc(100vw - 2rem);
@@ -166,14 +186,6 @@ body.light-nav .navbar-toggler {
         right: 1rem !important;
         position: static !important;
         transform: none !important;
-    }
-
-    .navbar-collapse .dropdown-menu {
-        position: static;
-        float: none;
-        width: auto;
-        margin-top: 0;
-        border: 1px solid rgba(110, 86, 207, 0.2);
     }
 
     .project-preview {
@@ -242,7 +254,7 @@ body.light-nav .navbar-toggler {
     }
 }
 
-/* Hover functionality for desktop */
+/* Hover functionality for desktop only (not mobile) */
 @media (min-width: 769px) {
     .nav-item.dropdown:hover .dropdown-menu {
         display: block;
