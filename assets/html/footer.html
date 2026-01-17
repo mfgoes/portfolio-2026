@@ -9,6 +9,12 @@
                     <li><a href="ffm.html">PostNL: B2B Aquisition</a></li>
                     <li><a href="mendix.html">Mendix: Internal Apps</a></li>
                 </ul>
+                <!-- Theme toggle aligned under Popular Projects on desktop -->
+                <button id="theme-toggle" class="btn btn-link text-secondary btn-sm mb-1 p-0">
+                    <i id="theme-icon-light" class="fas fa-sun" style="display: none;"></i>
+                    <i id="theme-icon-dark" class="fas fa-moon"></i>
+                    <span id="theme-text" class="ms-1 small">Dark Mode</span>
+                </button>
             </div>
             <!-- Articles Column - hidden on mobile -->
             <div class="col-md-4 d-none d-md-block">
@@ -21,19 +27,23 @@
             <div class="col-12 col-md-4 text-center text-md-start">
                 <h5 class="text-light">Connect</h5>
                 <div class="d-flex justify-content-center justify-content-md-start gap-3 mb-3">
-                    <a href="mailto:mischavdgoes@gmail.com" class="btn btn-outline-light btn-sm"><i class="fas fa-envelope me-1"></i>Email</a>
+                    <button id="copy-email-btn" class="btn btn-outline-light btn-sm position-relative">
+                        <i class="fas fa-envelope me-1"></i>Email
+                        <span id="copy-feedback" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style="display: none;">Copied!</span>
+                    </button>
                     <a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
                 </div>
                 <p class="text-secondary small">Looking to hire full-time? <a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank">Let's talk</a></p>
                 <p class="text-secondary small d-md-none"><a href="consulting.html">View consulting rates</a></p>
+                <!-- Theme toggle centered on mobile -->
+                <div class="d-md-none text-center mt-3">
+                    <button id="theme-toggle-mobile" class="btn btn-link text-secondary btn-sm mb-1">
+                        <i id="theme-icon-light-mobile" class="fas fa-sun" style="display: none;"></i>
+                        <i id="theme-icon-dark-mobile" class="fas fa-moon"></i>
+                        <span id="theme-text-mobile" class="ms-1 small">Dark Mode</span>
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="text-center mt-2">
-            <button id="theme-toggle" class="btn btn-link text-secondary btn-sm mb-1">
-                <i id="theme-icon-light" class="fas fa-sun" style="display: none;"></i>
-                <i id="theme-icon-dark" class="fas fa-moon"></i>
-                <span id="theme-text" class="ms-1 small">Dark Mode</span>
-            </button>
         </div>
     </div>
 </footer>

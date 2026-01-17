@@ -13,6 +13,7 @@ class ThemeManager {
         window.UXFolio.EventBus.waitForComponent('footer')
             .then(() => {
                 this.attachToggleListener();
+                this.attachEmailCopyListener();
                 this.updateToggleUI();
             })
             .catch(error => {
@@ -21,6 +22,7 @@ class ThemeManager {
                 const toggleBtn = document.getElementById('theme-toggle');
                 if (toggleBtn) {
                     this.attachToggleListener();
+                    this.attachEmailCopyListener();
                     this.updateToggleUI();
                 }
             });
@@ -54,23 +56,74 @@ class ThemeManager {
     }
 
     updateToggleUI() {
+        // Update desktop toggle
         const lightIcon = document.getElementById('theme-icon-light');
         const darkIcon = document.getElementById('theme-icon-dark');
         const text = document.getElementById('theme-text');
 
+        // Update mobile toggle
+        const lightIconMobile = document.getElementById('theme-icon-light-mobile');
+        const darkIconMobile = document.getElementById('theme-icon-dark-mobile');
+        const textMobile = document.getElementById('theme-text-mobile');
+
         if (this.currentTheme === 'dark') {
-            lightIcon.style.display = 'inline-block';
-            darkIcon.style.display = 'none';
-            text.textContent = 'Light Mode';
+            // Desktop
+            if (lightIcon) lightIcon.style.display = 'inline-block';
+            if (darkIcon) darkIcon.style.display = 'none';
+            if (text) text.textContent = 'Light Mode';
+
+            // Mobile
+            if (lightIconMobile) lightIconMobile.style.display = 'inline-block';
+            if (darkIconMobile) darkIconMobile.style.display = 'none';
+            if (textMobile) textMobile.textContent = 'Light Mode';
         } else {
-            lightIcon.style.display = 'none';
-            darkIcon.style.display = 'inline-block';
-            text.textContent = 'Dark Mode';
+            // Desktop
+            if (lightIcon) lightIcon.style.display = 'none';
+            if (darkIcon) darkIcon.style.display = 'inline-block';
+            if (text) text.textContent = 'Dark Mode';
+
+            // Mobile
+            if (lightIconMobile) lightIconMobile.style.display = 'none';
+            if (darkIconMobile) darkIconMobile.style.display = 'inline-block';
+            if (textMobile) textMobile.textContent = 'Dark Mode';
         }
     }
 
     attachToggleListener() {
-        document.getElementById('theme-toggle').addEventListener('click', () => this.toggleTheme());
+        const toggleBtn = document.getElementById('theme-toggle');
+        const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => this.toggleTheme());
+        }
+        if (toggleBtnMobile) {
+            toggleBtnMobile.addEventListener('click', () => this.toggleTheme());
+        }
+    }
+
+    attachEmailCopyListener() {
+        const emailBtn = document.getElementById('copy-email-btn');
+        const feedback = document.getElementById('copy-feedback');
+
+        if (emailBtn) {
+            emailBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText('mischavdgoes@gmail.com');
+
+                    // Show feedback
+                    if (feedback) {
+                        feedback.style.display = 'inline-block';
+
+                        // Hide after 2 seconds
+                        setTimeout(() => {
+                            feedback.style.display = 'none';
+                        }, 2000);
+                    }
+                } catch (err) {
+                    console.error('Failed to copy email:', err);
+                }
+            });
+        }
     }
 }
 
