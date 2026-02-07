@@ -497,6 +497,59 @@ section {
   margin-bottom: 1rem;
 }
 
+.feature-card {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #fafaf9;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: inherit;
+}
+.feature-card h6 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: inherit;
+}
+.feature-card p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+  color: #6b7280;
+}
+
+/* Compact Accordion */
+.accordion {
+  gap: 0;
+}
+
+.accordion .accordion-item {
+  margin-bottom: 8px;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.accordion .accordion-button {
+  padding: 16px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.accordion .accordion-button:not(.collapsed) {
+  background-color: rgba(88, 86, 214, 0.08);
+  color: #131417;
+}
+
+.accordion .accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(88, 86, 214, 0.25);
+  border-color: #5856D6;
+}
+
+.accordion .accordion-body {
+  padding: 16px 20px;
+}
+
 @media (max-width: 767px) {
   h1 {
     font-size: 2rem;

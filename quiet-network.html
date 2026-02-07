@@ -138,17 +138,57 @@
 		</div>
 	</section>
 
-	<!-- Opportunities -->
-	<section class="py-2">
+	<!-- The Opportunity -->
+	<section class="py-5">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
-					<h2>The opportunity</h2>
-					<p>Build a social platform that prioritizes meaningful conversation over metrics - a return to forum-style communities where content quality matters more than virality.
-					</p>
+				<div class="col-lg-8">
+					<h2>The Opportunity</h2>
+
+					<h5 class="mt-4 mb-2">User Problem</h5>
+					<p>People need private spaces to ask questions, share local information, and discuss interests without algorithmic feeds, permanent records, or exposure. Existing platforms (Facebook, Reddit, Discord) force you to choose: either join a massive public forum with bots and spam, or create a private chat without discoverability.</p>
+
+					<h5 class="mt-4 mb-3">How Quiet Network Works</h5>
 				</div>
 			</div>
-			<div class="row mt-3">
+
+			<div class="row mb-4">
+				<div class="col-md-6 col-lg-6 mb-3">
+					<div class="feature-card">
+						<h6 class="mb-2">Ephemeral Posts</h6>
+						<p>Posts expire after 48h/7d/30d. Remove the permanence problem — speak freely without creating a searchable record.</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 mb-3">
+					<div class="feature-card">
+						<h6 class="mb-2">Pseudonymous</h6>
+						<p>No profile pictures, bios, or follower counts. Participation isn't about personal brand, it's about conversation.</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 mb-3">
+					<div class="feature-card">
+						<h6 class="mb-2">Organized by Place/Interest</h6>
+						<p>Communities for neighborhoods and fan groups, not algorithm feeds. You see what's relevant, not what maximizes engagement.</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 mb-3">
+					<div class="feature-card">
+						<h6 class="mb-2">No Ads or Tracking</h6>
+						<p>The business model doesn't depend on extracting your attention or data. Privacy is the default.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-8">
+
+					<h5 class="mt-4 mb-2">User Segments</h5>
+					<p>Neighborhoods coordinating locally, fan communities avoiding Reddit moderation chaos, hobby groups replacing abandoned Facebook groups, and anyone needing to ask questions without digital permanence.</p>
+
+				</div>
+			</div>
+
+			<div class="row mt-5">
 				<div class="col-12">
 					<video src="assets/images/quiet-network/demo-account-creation.mp4" autoplay muted loop class="img-fluid rounded shadow-sm" style="max-width: 100%; display: block;"></video>
 				</div>
@@ -168,25 +208,57 @@
 					<p class="intro-highlight">
 						As the sole product owner and developer, I handled every aspect of bringing Quiet Network to life:
 					</p>
-					<h5 class="mt-4">Product Definition</h5>
-					<ul>
-						<li>Analyzed existing platforms (Reddit, Discord, traditional forums) to identify core value proposition</li>
-						<li>Created initial concept mockups in Figma to visualize user flows</li>
-						<li>Defined phased roadmap balancing ambition with realistic solo-dev timeline</li>
-					</ul>
-					<h5 class="mt-4">Technical Implementation</h5>
-					<ul>
-						<li>Selected Supabase for backend (authentication, database, real-time) to accelerate development</li>
-						<li>Built React frontend with Tailwind CSS for rapid UI iteration</li>
-						<li>Implemented responsive design supporting mobile-first usage patterns</li>
-						<li>Deployed via Vercel for continuous deployment workflow</li>
-					</ul>
-					<h5 class="mt-4">Project Management</h5>
-					<ul>
-						<li>Structured work into discrete phases using Notion task board</li>
-						<li>Prioritized features based on core user journey (signup → post → engage)</li>
-						<li>Made scope trade-offs to ship functional product vs. feature creep</li>
-					</ul>
+					<div class="accordion mt-4" id="roleAccordion">
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#productDefinition" aria-expanded="true" aria-controls="productDefinition">
+									Product Definition
+								</button>
+							</h2>
+							<div id="productDefinition" class="accordion-collapse collapse show" data-bs-parent="#roleAccordion">
+								<div class="accordion-body">
+									<ul class="mb-0">
+										<li>Analyzed existing platforms (Reddit, Discord, traditional forums) to identify core value proposition</li>
+										<li>Created initial concept mockups in Figma to visualize user flows</li>
+										<li>Defined phased roadmap balancing ambition with realistic solo-dev timeline</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalImplementation" aria-expanded="false" aria-controls="technicalImplementation">
+									Technical Implementation
+								</button>
+							</h2>
+							<div id="technicalImplementation" class="accordion-collapse collapse" data-bs-parent="#roleAccordion">
+								<div class="accordion-body">
+									<ul class="mb-0">
+										<li>Selected Supabase for backend (authentication, database, real-time) to accelerate development</li>
+										<li>Built React frontend with Tailwind CSS for rapid UI iteration</li>
+										<li>Implemented responsive design supporting mobile-first usage patterns</li>
+										<li>Deployed via Vercel for continuous deployment workflow</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectManagement" aria-expanded="false" aria-controls="projectManagement">
+									Project Management
+								</button>
+							</h2>
+							<div id="projectManagement" class="accordion-collapse collapse" data-bs-parent="#roleAccordion">
+								<div class="accordion-body">
+									<ul class="mb-0">
+										<li>Structured work into discrete phases using Notion task board</li>
+										<li>Prioritized features based on core user journey (signup → post → engage)</li>
+										<li>Made scope trade-offs to ship functional product vs. feature creep</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -247,7 +319,7 @@
 				<div class="col-lg-8">
 					<h2 class="text-center mb-4">Conclusion</h2>
 					<p class="mb-4">
-						Quiet Network demonstrates my ability to take a product from concept to deployment independently - exactly the end-to-end ownership required in product management roles.
+						Quiet Network represents a full-cycle product development effort - from initial concept through design, implementation, and deployment.
 					</p>
 					<h5 class="mb-3">Key Takeaways:</h5>
 					<ul>
@@ -256,6 +328,12 @@
 						<li>Learned modern web technologies through hands-on implementation</li>
 						<li>Practiced product planning discipline using structured task management</li>
 					</ul>
+					
+					<div class="mt-4 pt-3 border-top">
+						<p class="mb-2"><strong>Live Demo:</strong> <a href="https://quiet-network.vercel.app/" target="_blank" rel="noopener noreferrer">quiet-network.vercel.app</a></p>
+						<p class="mb-2"><strong>Source Code:</strong> <a href="https://github.com/mfgoes/quiet-network" target="_blank" rel="noopener noreferrer">github.com/mfgoes/quiet-network</a></p>
+						<p class="mb-0"><strong>Tech Stack:</strong> React, Supabase, Tailwind CSS, Vercel</p>
+					</div>
 				</div>
 			</div>
 		</div>

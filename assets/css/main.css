@@ -123,20 +123,42 @@ footer h5 {
   font-size: 1em;
   color: white;
 }
-footer p, footer a {
+footer p {
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #DADADA;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+footer a:not(.btn) {
   text-decoration: none;
   font-size: 0.9em;
+  font-weight: 300;
   color: #DADADA;
-  line-height: 2.3em;
   transition: 0.3s;
 }
-footer p:hover, footer a:hover {
+
+footer a:not(.btn):hover {
   color: white;
   text-decoration: underline;
-  transition: 0.3s;
 }
-footer p {
-  line-height: 1.2em;
+
+footer ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer .btn-link:not(#theme-toggle):not(#theme-toggle-mobile) {
+  padding-left: 0;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #DADADA;
+  text-decoration: none;
+}
+
+footer .btn-link:not(#theme-toggle):not(#theme-toggle-mobile):hover {
+  color: white;
+  text-decoration: none;
 }
 
 .emoji-bullet-list {
