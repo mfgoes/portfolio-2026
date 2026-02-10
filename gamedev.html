@@ -32,256 +32,84 @@
 	<div id="navbar-container"></div>
 
 
-	<!-- Section 1: Header with Image and Details -->
-	<section class="py-5">
+	<!-- Header Section -->
+	<section class="py-4">
 		<div class="container">
 			<div class="row">
-				<!-- Left Column: Title and Image -->
-				<div class="col-lg-9 mb-4 mb-lg-0">
-					<!-- Title Section -->
-					<div class="mb-4 text-left">
-						<h2 class="display-4 fw-light"><strong>Kosmograd:</strong> Product Management in Game Development</h2>
-					</div>
-					<!-- Subtitle and Image - Centered -->
-					<div class="text-left">
-						<h5 class="subtitle text-muted mb-4 fw-normal">Building a Soviet lunar colony RTS: Product strategy, iteration roadmaps, and leveraging AI tools for solo development</h5>
-						<img src="assets/images/articles/screenshot.png" class="img-fluid shadow-sm" alt="Kosmograd gameplay" style="max-height: 600px; object-fit: cover;">
-					</div>
+				<div class="col-lg-9 mb-3">
+					<h2 class="display-4 fw-light">Kosmograd: Solo-Building a Soviet Lunar RTS</h2>
+					<p class="mb-2">Kosmograd is a Soviet-themed lunar colony survival RTS I'm building solo in <a href="https://godotengine.org/" target="_blank" class="text-primary">Godot 4.3+</a>. Manage oxygen-starved cosmonauts, construct pressurized habitats, and balance power grids during the Cold War space race. Think RimWorld's emergent chaos meets Command & Conquer's base-building with Oxygen Not Included's survival pressure.</p>
+					<p class="text-muted mb-3"><strong>Status:</strong> 70% complete • Targeting Q2 2026 Steam release under <a href="https://mfgoes.github.io/redshiftlabs/" target="_blank" class="text-muted">Redshift Labs</a></p>
+					<img src="assets/images/articles/sketch-kosmo.jpg" class="img-fluid shadow-sm mb-3" alt="Kosmograd gameplay">
 				</div>
-
-				<!-- Right Sidebar: Metadata -->
 				<div class="col-lg-3">
-					<div class="mb-4">
-						<h6 class="fw-bold mb-3">Focus Areas</h6>
-						<p class="mb-1">Product Strategy</p>
-						<p class="mb-1">Roadmap Planning</p>
-						<p class="mb-1">Scope Management</p>
-						<p class="mb-1">AI-Assisted Development</p>
-					</div>
-					<div class="mb-4">
-						<h6 class="fw-bold mb-3">Timeline</h6>
-						<p class="mb-0">2025 - Present</p>
-					</div>
-					<div class="mb-4">
-						<h6 class="fw-bold mb-3">Role</h6>
-						<p class="mb-0">Solo Developer & PM</p>
-					</div>
-					<div class="mb-4">
-						<h6 class="fw-bold mb-3">Tools</h6>
-						<p class="mb-1">Godot Engine</p>
+					<div class="mb-3">
+						<h6 class="fw-bold mb-2">Tools</h6>
+						<p class="mb-1">Godot 4.3+</p>
 						<p class="mb-1">Claude Code</p>
 					</div>
+					<div class="mb-3">
+						<h6 class="fw-bold mb-2">Timeline</h6>
+						<p class="mb-0">2025 - Q2 2026</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-
-	<!-- Section: Current State -->
-	<section class="py-5 intro-section">
+	<!-- The Problem -->
+	<section class="py-3 bg-light">
 		<div class="container">
-		<div class="row align-items-center">
-			<div class="col-md-12 mb-4 mb-md-0">
-
-			<h2>The Challenge: Balancing Vision with Constraints</h2>
-			<p class="intro-highlight">
-				Solo project managing a real-time strategy game. The core challenge: delivering a compelling experience within aggressive timeline and resource constraints.
-			</p>
-			<p>
-				This project mirrors real-world product management: systems work technically, but require strategic iteration to achieve user engagement. Building something functional is different from building something people want to use.
-			</p>
-
-			</div>
-		</div>
+			<h3 class="mb-3">The Problem</h3>
+			<p class="mb-2">RTS games aren't solo projects. They demand interconnected systems—pathfinding AI, resource economies, combat balance—that AAA studios assign to entire teams. Add part-time development and zero art budget, and scope management becomes critical.</p>
+			<p class="mb-2"><strong>Core challenges:</strong></p>
+			<ul class="mb-2">
+				<li><strong>System complexity:</strong> Unit movement → power consumption → oxygen production → worker assignments. Break one, cascade failure.</li>
+				<li><strong>Visual constraints:</strong> No 3D artist means stylized 2D and creative camera work.</li>
+				<li><strong>Difficulty balancing:</strong> Too hard = frustration. Too easy = boring.</li>
+				<li><strong>Scope creep:</strong> Every "cool idea" adds 40 hours. Ice mining? Vehicles? Fire hazards? All deferred.</li>
+			</ul>
+			<p>Studied RimWorld, Total War, C&C, and ONI to make smart UX decisions that create fun without hand-holding.</p>
 		</div>
 	</section>
 
-	<!-- Product Strategy -->
-	<section class="py-5 bg-light">
+	<!-- What Got Built -->
+	<section class="py-3">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<h2>Product Strategy: Replayability Over Feature Bloat</h2>
-					<p>After December's development sprint, a critical insight emerged: the game works but playthroughs feel identical. Players follow quest instructions linearly without meaningful decisions.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it green">
-						<h3>Core Insight</h3>
-						<p>Make existing systems interesting before adding new ones</p>
-						<p class="text-muted">Shifted from feature addition to variance creation</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it green">
-						<h3>Priority Pivot</h3>
-						<p>Variance in experience beats system complexity</p>
-						<p class="text-muted">Deferred ice resources, vehicles, and fire hazards</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it green">
-						<h3>Portfolio Focus</h3>
-						<p>Target: Playable demo by January 30, 2025</p>
-						<p class="text-muted">Constrained scope to maximize learning showcase</p>
-					</div>
-				</div>
-			</div>
+			<h3 class="mb-3">What Got Built</h3>
+			<p class="mb-2">Shipped the core loop end-to-end using Godot's node system, GDScript, and Claude Code for technical acceleration.</p>
+			<p class="mb-2"><strong>Key systems:</strong></p>
+			<ul class="mb-2">
+				<li>Worker assignment (drag colonists between mining/construction/research)</li>
+				<li>Grid-based building with oxygen radius visualization</li>
+				<li>Survival pressure via oxygen + power management</li>
+				<li>Quest framework for guidance without railroading</li>
+			</ul>
+			<p class="mb-2"><strong>Critical pivot:</strong> Early playtesting showed everything worked but felt identical. Players followed linear quest paths with no meaningful choices.</p>
+			<p><strong>Solution:</strong> Stopped adding features. Made existing systems interesting. Deferred new resources/vehicles to Q2. Focused on variance—randomized starts, branching quests, exploration incentives before base commitment.</p>
 		</div>
 	</section>
 
-	<!-- Roadmap Planning -->
-	<section class="py-5">
+	<!-- What's Next -->
+	<section class="py-3 bg-light">
 		<div class="container">
-			<div class="row">
-				<div class="col-12 text-center mb-4">
-					<h2>Structured Roadmap Planning</h2>
-					<p>Applied PM frameworks to solo game development: weekly sprints with measurable success metrics</p>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-xl-3 mb-4">
-					<div class="post-it blue">
-						<h3>Week 1: Onboarding</h3>
-						<p><strong>Goal:</strong> Reduce early drop-off</p>
-						<p>Address 80% Day 3 survival rate through softer difficulty curve and variance.</p>
-						<p class="text-muted"><em>Metric: Two playthroughs feel different</em></p>
-					</div>
-				</div>
-				<div class="col-md-6 col-xl-3 mb-4">
-					<div class="post-it blue">
-						<h3>Week 2: Exploration</h3>
-						<p><strong>Goal:</strong> Core engagement mechanic</p>
-						<p>Force strategic decision-making before committing to layout choices.</p>
-						<p class="text-muted"><em>Metric: Players explore before building</em></p>
-					</div>
-				</div>
-				<div class="col-md-6 col-xl-3 mb-4">
-					<div class="post-it blue">
-						<h3>Week 3: Player Agency</h3>
-						<p><strong>Goal:</strong> Strategic choices</p>
-						<p>Transform linear flow into branching paths based on player situation.</p>
-						<p class="text-muted"><em>Metric: 50%+ variance in paths</em></p>
-					</div>
-				</div>
-				<div class="col-md-6 col-xl-3 mb-4">
-					<div class="post-it blue">
-						<h3>Week 4: Portfolio Ready</h3>
-						<p><strong>Goal:</strong> Showcase-ready state</p>
-						<p>Polish and capture materials for portfolio presentation.</p>
-						<p class="text-muted"><em>Deliverable: Demo video + case study</em></p>
-					</div>
-				</div>
-			</div>
+			<h3 class="mb-3">What's Next</h3>
+			<p class="mb-2">Refining for Q2 2026 Steam launch. The core works; now it needs to feel alive.</p>
+			<p class="mb-2"><strong>Current focus:</strong></p>
+			<ul class="mb-2">
+				<li>Transform checklist quests into branching narratives with tradeoffs</li>
+				<li>Resource variance that forces scouting before settling</li>
+				<li>Environmental storytelling (abandoned Soviet equipment, cosmonaut logs, Cold War radio)</li>
+				<li>More playtesting, balance passes, Steam page, trailer</li>
+			</ul>
+			<p class="mb-0">Then ship it.</p>
 		</div>
 	</section>
-
-	<!-- Claude Code Integration -->
-	<section class="py-5 bg-white">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-md-6 mb-4 mb-md-0">
-					<h2>Leveraging AI for Accelerated Execution</h2>
-					<p>
-						Managing both product strategy and technical execution required force multipliers. Integrated Claude Code to maintain velocity while staying focused on strategic decisions.
-					</p>
-
-					<p class="text-muted">
-						This approach mirrors modern product development: humans define strategy and validate outcomes, while AI tools accelerate implementation. The result is faster iteration cycles without sacrificing product vision.
-					</p>
-				</div>
-				<div class="col-md-6">
-					<div class="bg-light p-4 rounded-3">
-						<h5 class="mb-3">Workflow</h5>
-						<ol class="mb-0">
-							<li class="mb-2"><strong>Define:</strong> Requirements and success criteria</li>
-							<li class="mb-2"><strong>Collaborate:</strong> AI-assisted implementation</li>
-							<li class="mb-2"><strong>Validate:</strong> Measure against metrics</li>
-							<li class="mb-2"><strong>Iterate:</strong> Refine based on user behavior</li>
-						</ol>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Scope Management -->
-	<section class="py-5 bg-light">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-md-12">
-					<h2>Scope Management: What Got Deferred and Why</h2>
-					<p>
-						Critical PM skill: knowing what not to build. The January roadmap explicitly deferred features to Q2 based on impact vs. complexity analysis.
-					</p>
-				</div>
-			</div>
-			<div class="row mt-4 justify-content-center">
-				<div class="col-md-6 col-lg-5 mb-4">
-					<div class="post-it yellow">
-						<h3>Deferred Features</h3>
-						<p><strong>Why:</strong> Complexity without addressing core engagement</p>
-						<p class="text-muted">New resource systems, vehicles, and hazards pushed to Q2. Focus on making existing mechanics compelling first.</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-5 mb-4">
-					<div class="post-it yellow">
-						<h3>Impact vs. Effort</h3>
-						<p><strong>Decision Framework:</strong> High-impact, low-complexity first</p>
-						<p class="text-muted">Prioritized randomization and player choice over new systems requiring extensive testing.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<!-- Key Learnings -->
-	<section class="py-5 bg-white">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 text-center mb-4">
-					<h2>Product Management Learnings</h2>
-					<p>Applying PM discipline to creative projects yields clearer outcomes and faster iteration</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it green">
-						<h3>Metrics Over Feelings</h3>
-						<p>Define success criteria upfront: "80% first-time survival to Day 3" beats "make it more fun"</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it green">
-						<h3>Constraint-Driven Innovation</h3>
-						<p>30-day portfolio deadline forced strategic cuts that improved focus</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it green">
-						<h3>AI as Force Multiplier</h3>
-						<p>Claude Code enabled solo dev to maintain product velocity without sacrificing quality</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 
 	<!-- CTA Section -->
-	<section class="py-5 bg-light">
+	<section class="py-4">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<h2>Try the Prototype</h2>
-					<p>
-						Experience the current build and see the product roadmap in action. The game is in early development, showcasing iterative PM principles applied to creative projects.
-					</p>
-					<a href="https://mischa.itch.io/kosmograd" target="_blank" class="btn btn-primary btn-lg mt-3">Play Web Version</a>
-				</div>
-			</div>
+			<a href="https://mischa.itch.io/kosmograd" target="_blank" class="btn btn-primary btn-lg">Try the current build →</a>
 		</div>
 	</section>
 
