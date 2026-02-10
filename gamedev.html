@@ -14,6 +14,25 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+	<!-- Bluesky Embed -->
+	<script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
+
+	<style>
+		/* Bluesky embed styling */
+		.bsky-feed-container {
+			max-height: 400px;
+			overflow-y: auto;
+		}
+
+		/* Hide profile pictures in bsky-embed */
+		bsky-embed::part(avatar),
+		bsky-embed .avatar,
+		bsky-embed img[alt*="avatar"],
+		bsky-embed img[alt*="profile"] {
+			display: none !important;
+		}
+	</style>
+
 	<!-- Basic Meta -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -39,18 +58,35 @@
 				<div class="col-lg-9 mb-3">
 					<h2 class="display-4 fw-light">Kosmograd: Solo-Building a Lunar RTS</h2>
 					<p class="mb-2">Kosmograd is a casual lunar colony survival RTS I'm building solo in Godot 4.3+. Manage oxygen-starved cosmonauts, construct pressurized habitats, and balance power grids during the Cold War space race. Think RimWorld's emergent chaos meets Command & Conquer's base-building with Oxygen Not Included's survival pressure.</p>
-					<p class="text-muted mb-3"><strong>Status:</strong> 70% complete • Targeting Q2 2026 Steam release under <a href="https://mfgoes.github.io/redshiftlabs/" target="_blank" class="text-muted">Redshift Labs</a></p>
+					<div class="mb-3">
+						<div class="d-flex flex-wrap align-items-center gap-3 mb-2">
+							<div class="d-flex align-items-center gap-2">
+								<i class="fas fa-tasks text-secondary"></i>
+								<span class="small"><strong>70% Complete</strong></span>
+							</div>
+							<div class="d-flex align-items-center gap-2">
+								<i class="fas fa-calendar-alt text-secondary"></i>
+								<span class="small">Q2 2026 Target</span>
+							</div>
+						</div>
+						<div class="progress" style="height: 4px;">
+							<div class="progress-bar" role="progressbar" style="width: 70%; background-color: #5856D6;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
 					<img src="assets/images/articles/sketch-kosmo.jpg" class="img-fluid shadow-sm mb-3" alt="Kosmograd gameplay">
 				</div>
 				<div class="col-lg-3">
-					<div class="mb-3">
-						<h6 class="fw-bold mb-2">Tools</h6>
-						<p class="mb-1">Godot 4.3+</p>
-						<p class="mb-1">Claude Code</p>
+					<div class="mb-4">
+						<h6 class="fw-bold mb-2">Why Godot over Unity?</h6>
+						<p class="small mb-1">No licensing surprises. Gentler learning curve coming from GameMaker. Export flexibility for fast web prototypes.</p>
+					</div>
+					<div class="mb-4">
+						<h6 class="fw-bold mb-2">Market Research</h6>
+						<p class="small mb-1">RTS is underserved on Steam (2% of releases vs. 15% platformers). Lower competition, niche hungry for fresh takes.</p>
 					</div>
 					<div class="mb-3">
-						<h6 class="fw-bold mb-2">Timeline</h6>
-						<p class="mb-0">2025 - Q2 2026</p>
+						<h6 class="fw-bold mb-2">Development Scope</h6>
+						<p class="small mb-0">18-month part-time build. Feature-locked to ship on schedule with planned marketing runway.</p>
 					</div>
 				</div>
 			</div>
@@ -60,6 +96,7 @@
 	<!-- The Problem -->
 	<section class="py-3 bg-light">
 		<div class="container">
+			<div style="max-width: 800px;">
 			<h3 class="mb-3">Why RTS Games Are Hard </h3>
 			<p class="mb-2">RTS games demand interconnected systems, pathfinding, resource economies, (often) combat balance—that studios usually assign to entire teams. Add part-time development and zero art budget, and scope management becomes critical.</p>
 			<p class="mb-2"><strong>Core challenges:</strong></p>
@@ -70,46 +107,108 @@
 				<li><strong>Scope creep:</strong> Every "cool idea" adds 40 hours. Ice mining? Vehicles? Fire hazards? All deferred.</li>
 			</ul>
 			<p>Studied RimWorld, Total War, C&C, and ONI to make smart UX decisions that create fun without hand-holding.</p>
+			</div>
 		</div>
 	</section>
 
 	<!-- What Got Built -->
 	<section class="py-3">
 		<div class="container">
+			<div style="max-width: 800px;">
 			<h3 class="mb-3">What I Shipped</h3>
-			<p class="mb-2">Shipped the core loop end-to-end using Godot's node system, GDScript, and Claude Code for technical acceleration.</p>
+			<p class="mb-3">Shipped the core loop end-to-end using Godot's node system, GDScript, and Claude Code for technical acceleration.</p>
 			<p class="mb-2"><strong>Key systems:</strong></p>
-			<ul class="mb-2">
-				<li>Worker assignment (drag colonists between mining/construction/research)</li>
-				<li>Grid-based building with oxygen radius visualization</li>
-				<li>Survival pressure via oxygen + power management</li>
-				<li>Quest framework for guidance without railroading</li>
-			</ul>
+			<div class="row g-3 mb-3">
+				<div class="col-md-6">
+					<div class="p-3 border rounded" style="background-color: #f8f9fa;">
+						<div class="d-flex align-items-start gap-2">
+							<i class="fas fa-check-circle text-success mt-1"></i>
+							<div>
+								<h6 class="mb-1 fw-bold">Worker Assignment</h6>
+								<p class="small text-muted mb-0">Drag colonists between mining/construction/research</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="p-3 border rounded" style="background-color: #f8f9fa;">
+						<div class="d-flex align-items-start gap-2">
+							<i class="fas fa-check-circle text-success mt-1"></i>
+							<div>
+								<h6 class="mb-1 fw-bold">Grid-Based Building</h6>
+								<p class="small text-muted mb-0">Oxygen radius visualization for habitat placement</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="p-3 border rounded" style="background-color: #f8f9fa;">
+						<div class="d-flex align-items-start gap-2">
+							<i class="fas fa-check-circle text-success mt-1"></i>
+							<div>
+								<h6 class="mb-1 fw-bold">Survival Pressure</h6>
+								<p class="small text-muted mb-0">Balance oxygen production and power grids</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="p-3 border rounded" style="background-color: #f8f9fa;">
+						<div class="d-flex align-items-start gap-2">
+							<i class="fas fa-check-circle text-success mt-1"></i>
+							<div>
+								<h6 class="mb-1 fw-bold">Quest Framework</h6>
+								<p class="small text-muted mb-0">Guidance without railroading player decisions</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<p class="mb-2"><strong>Critical pivot:</strong> Early playtesting showed everything worked but felt identical. Players followed linear quest paths with no meaningful choices.</p>
 			<p><strong>Solution:</strong> Stopped adding features. Made existing systems interesting. Deferred new resources/vehicles to Q2. Focused on variance—randomized starts, branching quests, exploration incentives before base commitment.</p>
+			</div>
 		</div>
 	</section>
 
 	<!-- What's Next -->
 	<section class="py-3 bg-light">
 		<div class="container">
-			<h3 class="mb-3">What's Next</h3>
-			<p class="mb-2">Refining for Q2 2026 Steam launch. The core works; now it needs to feel alive.</p>
-			<p class="mb-2"><strong>Current focus:</strong></p>
-			<ul class="mb-2">
-				<li>Transform checklist quests into immersive narrative with tradeoffs</li>
-				<li>Resource variance that forces scouting</li>
-				<li>Environmental storytelling (abandoned equipment, cosmonaut logs, artifacts)</li>
-				<li>More playtesting, balance passes, Steam page, trailer</li>
-			</ul>
-			<p class="mb-0">Then ship it.</p>
+			<div class="row">
+				<div class="col-lg-8">
+					<h3 class="mb-3">What's Next</h3>
+					<p class="mb-2">Refining for Q2 2026 Steam launch. The core works; now it needs to feel alive.</p>
+					<p class="mb-2"><strong>Current focus:</strong></p>
+					<ul class="mb-2">
+						<li>Transform checklist quests into immersive narrative with tradeoffs</li>
+						<li>Resource variance that forces scouting</li>
+						<li>Environmental storytelling (abandoned equipment, cosmonaut logs, artifacts)</li>
+						<li>More playtesting, balance passes, Steam page, trailer</li>
+					</ul>
+					<p class="mb-0">Then ship it.</p>
+				</div>
+				<div class="col-lg-4">
+					<h6 class="fw-bold mb-3">Development Updates</h6>
+					<div class="bsky-feed-container">
+						<bsky-embed
+							id="bskyEmbed"
+							limit="2"
+							mode="light"
+							username="mishotofu.bsky.social">
+						</bsky-embed>
+					</div>
+					<p class="text-muted mt-2 small">
+						<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" class="text-muted">Follow on Bluesky →</a>
+					</p>
+				</div>
+			</div>
 		</div>
 	</section>
 
 	<!-- CTA Section -->
 	<section class="py-4">
-		<div class="container">
+		<div class="container text-center">
 			<a href="https://mischa.itch.io/kosmograd" target="_blank" class="btn btn-primary btn-lg">Try the current build →</a>
+			<p class="text-muted small mt-3 mb-0">Publishing as <a href="https://mfgoes.github.io/redshiftlabs/" target="_blank" class="text-muted">Redshift Labs</a></p>
 		</div>
 	</section>
 

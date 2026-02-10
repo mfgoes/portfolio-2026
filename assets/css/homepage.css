@@ -15,6 +15,7 @@ body {
   height: 100vh;
   z-index: 1;
   pointer-events: auto;
+  will-change: opacity;
 }
 
 #dithering-canvas canvas {

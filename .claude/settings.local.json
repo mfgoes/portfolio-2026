@@ -4,7 +4,12 @@
       "Bash(grep:*)",
       "Bash(git add:*)",
       "Bash(find:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:mfgoes.github.io)",
+      "Bash(curl:*)",
+      "Bash(npx sass:*)"
     ]
   }
 }

@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!overlay || !workSection) return;
 
+    // Add will-change for GPU acceleration
+    overlay.style.willChange = 'opacity';
+
     function handleScroll() {
         const workSectionTop = workSection.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
@@ -39,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 
     // Run once on load
     handleScroll();
