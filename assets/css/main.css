@@ -30,10 +30,14 @@ h1 {
   margin-bottom: 1.5rem;
   color: inherit;
   font-optical-sizing: auto;
-  text-align: center;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Center h1 only on the homepage hero */
+body.dark-nav h1 {
+  text-align: center;
 }
 
 @keyframes fadeInUp {

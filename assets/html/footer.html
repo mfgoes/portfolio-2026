@@ -1,49 +1,50 @@
-<footer class="py-4">
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Projects Column - hidden on mobile -->
-            <div class="col-md-4 d-none d-md-block">
-                <h5 class="text-light">Popular Projects</h5>
-                <ul class="list-unstyled">
-                    <li><a href="postnl-ibac.html">PostNL: Business Onboarding</a></li>
-                    <li><a href="ffm.html">PostNL: B2B Aquisition</a></li>
+<footer class="site-footer">
+    <div class="container">
+        <div class="row g-5 py-5">
+            <!-- Projects -->
+            <div class="col-6 col-md-3">
+                <p class="footer-col-label">Projects</p>
+                <ul class="footer-links">
+                    <li><a href="postnl-ibac.html">B2B Onboarding and Care (PostNL)</a></li>
+                    <li><a href="ffm.html">Capturing the SMB market (PostNL)</a></li>
                     <li><a href="mendix.html">Mendix: Internal Apps</a></li>
                 </ul>
-                <!-- Theme toggle aligned under Popular Projects on desktop -->
-                <button id="theme-toggle" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
-                    <i id="theme-icon-light" class="fas fa-sun" style="display: none;"></i>
-                    <i id="theme-icon-dark" class="fas fa-moon"></i>
-                    <span id="theme-text" class="ms-1 small">Dark Mode</span>
-                </button>
             </div>
-            <!-- Articles Column - hidden on mobile -->
-            <div class="col-md-4 d-none d-md-block">
-                <h5 class="text-light">Articles</h5>
-                <ul class="list-unstyled">
+            <!-- Articles -->
+            <div class="col-6 col-md-3">
+                <p class="footer-col-label">Articles</p>
+                <ul class="footer-links">
                     <li><a href="gamedev.html">Game Development</a></li>
+                    <li><a href="devboard.html">DevBoard</a></li>
+                    <li><a href="quiet-network-article.html">Quiet Network</a></li>
                 </ul>
             </div>
-            <!-- Connect Column - always visible, centered on mobile -->
-            <div class="col-12 col-md-4 text-center text-md-start">
-                <h5 class="text-light">Connect</h5>
-                <div class="d-flex justify-content-center justify-content-md-start gap-3 mb-3">
-                    <a id="copy-email-btn" style="cursor: pointer; position: relative;">
-                       Email
-                        <span id="copy-feedback" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style="display: none;">Copied!</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank">LinkedIn</a>
-                </div>
-                <p class="small">Looking to hire full-time? <a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank">Let's talk</a></p>
-                <p class="small d-md-none"><a href="consulting.html">View consulting rates</a></p>
-                <!-- Theme toggle centered on mobile -->
-                <div class="d-md-none text-center mt-3">
-                    <button id="theme-toggle-mobile" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
-                        <i id="theme-icon-light-mobile" class="fas fa-sun" style="display: none;"></i>
-                        <i id="theme-icon-dark-mobile" class="fas fa-moon"></i>
-                        <span id="theme-text-mobile" class="ms-1 small">Dark Mode</span>
-                    </button>
-                </div>
+            <!-- Connect -->
+            <div class="col-12 col-md-3">
+                <p class="footer-col-label">Connect</p>
+                <ul class="footer-links">
+                    <li>
+                        <a id="copy-email-btn" style="cursor: pointer; position: relative;">
+                            Email
+                            <span id="copy-feedback" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style="display: none; font-size: 0.7rem;">Copied!</span>
+                        </a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener">Bluesky</a></li>
+                </ul>
             </div>
+            <!-- Theme toggle -->
+            <div class="col-12 col-md-3 d-flex align-items-start justify-content-md-end">
+                <button id="theme-toggle" class="footer-theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+                    <i id="theme-icon-light" class="fas fa-sun" style="display: none;"></i>
+                    <i id="theme-icon-dark" class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Mischa van der Goes &nbsp;·&nbsp; Product Manager &amp; Indie Developer</span>
         </div>
     </div>
 </footer>
+

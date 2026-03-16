@@ -11,27 +11,12 @@
 	<link rel="stylesheet" href="assets/css/custom.css" />
 	<link rel="stylesheet" href="assets/css/navbar.css" />
 	<link rel="stylesheet" href="assets/css/theme-dark.css" />
+	<link rel="stylesheet" href="assets/css/article.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<!-- Bluesky Embed -->
 	<script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
-
-	<style>
-		/* Bluesky embed styling */
-		.bsky-feed-container {
-			max-height: 400px;
-			overflow-y: auto;
-		}
-
-		/* Hide profile pictures in bsky-embed */
-		bsky-embed::part(avatar),
-		bsky-embed .avatar,
-		bsky-embed img[alt*="avatar"],
-		bsky-embed img[alt*="profile"] {
-			display: none !important;
-		}
-	</style>
 
 	<!-- Basic Meta -->
 	<meta charset="UTF-8">
@@ -51,53 +36,92 @@
 	<div id="navbar-container"></div>
 
 
-	<!-- Header Section -->
-	<section class="py-4">
+	<!-- Article Header -->
+	<section class="py-5"">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-9 mb-3">
-					<h2 class="display-4 fw-light">Kosmograd: Solo-Building a Lunar RTS</h2>
-					<p class="mb-2">Kosmograd is a casual lunar colony survival RTS I'm building solo in Godot 4.3+. Manage oxygen-starved cosmonauts, construct pressurized habitats, and balance power grids during the Cold War space race. Think RimWorld's emergent chaos meets Command & Conquer's base-building with Oxygen Not Included's survival pressure.</p>
-					<div class="mb-3">
-						<div class="d-flex flex-wrap align-items-center gap-3 mb-2">
-							<div class="d-flex align-items-center gap-2">
-								<i class="fas fa-tasks text-secondary"></i>
-								<span class="small"><strong>70% Complete</strong></span>
-							</div>
-							<div class="d-flex align-items-center gap-2">
-								<i class="fas fa-calendar-alt text-secondary"></i>
-								<span class="small">Q2 2026 Target</span>
-							</div>
-						</div>
-						<div class="progress" style="height: 4px;">
-							<div class="progress-bar" role="progressbar" style="width: 70%; background-color: #5856D6;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>
+				<!-- Article content -->
+				<div class="col-lg-8 col-xl-8 mb-4">
+					<div class="article-meta">
+						<i class="far fa-clock"></i>
+						<span>March 2026</span>
 					</div>
-					<img src="assets/images/articles/sketch-kosmo.jpg" class="img-fluid shadow-sm mb-3" alt="Kosmograd gameplay">
+
+					<h1 class="article-title">Kosmograd: Solo-Building a Lunar RTS</h1>
+					<p class="article-subtitle">What shipping a strategy game solo teaches you about product management</p>
+
+					<div class="article-tags">
+						<span class="article-tag">Game Development</span>
+						<span class="article-tag">Product Management</span>
+						<span class="article-tag">Agentic Coding</span>
+					</div>
+
+					<p class="mb-3">A casual lunar colony survival RTS I'm building solo in Godot 4.3+. Manage oxygen-starved cosmonauts, construct pressurized habitats, and balance power grids during the Cold War space race. Think RimWorld's emergent chaos meets Command & Conquer's base-building with Oxygen Not Included's survival pressure.</p>
+
+					
+				<video class="img-fluid rounded" autoplay loop muted playsinline>
+					<source src="assets/images/articles/m2-res_1080p.mp4" type="video/mp4">
+				</video>
 				</div>
-				<div class="col-lg-3">
-					<div class="mb-4">
-						<h6 class="fw-bold mb-2">Why Godot over Unity?</h6>
-						<p class="small mb-1">No licensing surprises. Gentler learning curve coming from GameMaker. Export flexibility for fast web prototypes.</p>
+
+				<!-- Share sidebar -->
+				<div class="col-lg-3 col-xl-3 offset-lg-1">
+					<div class="article-sidebar-sticky">
+					<div class="share-sidebar mb-3">
+						<h6>SHARE THIS ARTICLE</h6>
+						<div class="share-icons mb-3">
+							<a href="mailto:?subject=Kosmograd%3A%20Solo-Building%20a%20Lunar%20RTS&body=https://mischavdgoes.com/gamedev.html" class="share-icon-btn email" title="Share via Email" aria-label="Share via email">
+								<i class="fas fa-envelope"></i>
+							</a>
+							<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mischavdgoes.com/gamedev.html" target="_blank" rel="noopener" class="share-icon-btn linkedin" title="Share on LinkedIn" aria-label="Share on LinkedIn">
+								<i class="fab fa-linkedin-in"></i>
+							</a>
+							<a href="https://twitter.com/intent/tweet?url=https://mischavdgoes.com/gamedev.html&text=Kosmograd%3A%20Solo-Building%20a%20Lunar%20RTS" target="_blank" rel="noopener" class="share-icon-btn twitter" title="Share on X" aria-label="Share on X">
+								<i class="fab fa-x-twitter"></i>
+							</a>
+							<a href="https://www.reddit.com/submit?url=https://mischavdgoes.com/gamedev.html&title=Kosmograd%3A%20Solo-Building%20a%20Lunar%20RTS" target="_blank" rel="noopener" class="share-icon-btn reddit" title="Share on Reddit" aria-label="Share on Reddit">
+								<i class="fab fa-reddit-alien"></i>
+							</a>
+						</div>
+
+						<div class="share-divider"></div>
+
+						<a href="#" class="share-link" onclick="navigator.clipboard.writeText(window.location.href); this.innerHTML='<i class=\'fas fa-check\'></i> Copied!'; setTimeout(()=>this.innerHTML='<i class=\'fas fa-link\'></i> Copy link', 2000); return false;">
+							<i class="fas fa-link"></i> Copy link
+						</a>
+
+						<div class="share-divider"></div>
+
+						<p class="small text-muted mb-1" style="font-size: 0.8rem;">Published by</p>
+						<p class="small fw-semibold mb-0" style="color: #333;">Mischa van der Goes</p>
+						<p class="small text-muted mb-0" style="font-size: 0.8rem;">PM & Indie Developer</p>
 					</div>
-					<div class="mb-4">
-						<h6 class="fw-bold mb-2">Market Research</h6>
-						<p class="small mb-1">RTS is underserved on Steam (2% of releases vs. 15% platformers). Lower competition, niche hungry for fresh takes.</p>
+
+					<div class="bsky-sidebar-box">
+						<div class="bsky-sidebar-header">
+							<span class="bsky-sidebar-label">Dev feed</span>
+							<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener" class="bsky-sidebar-handle">@mishotofu.bsky.social</a>
+						</div>
+						<div class="bsky-feed-container">
+							<bsky-embed
+								id="bskyEmbed"
+								limit="2"
+								mode="light"
+								username="mishotofu.bsky.social">
+							</bsky-embed>
+						</div>
 					</div>
-					<div class="mb-3">
-						<h6 class="fw-bold mb-2">Development Scope</h6>
-						<p class="small mb-0">18-month part-time build. Feature-locked to ship on schedule with planned marketing runway.</p>
-					</div>
+					</div> <!-- /.article-sidebar-sticky -->
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- The Problem -->
-	<section class="py-3 bg-light">
+	<section class="py-4">
 		<div class="container">
 			<div style="max-width: 800px;">
-			<h3 class="mb-3">Why RTS Games Are Hard </h3>
+			<h3 class="mb-3">The complexity of RTS</h3>
 			<p class="mb-2">RTS games demand interconnected systems, pathfinding, resource economies, (often) combat balance—that studios usually assign to entire teams. Add part-time development and zero art budget, and scope management becomes critical.</p>
 			<p class="mb-2"><strong>Core challenges:</strong></p>
 			<ul class="mb-2">
@@ -108,11 +132,13 @@
 			</ul>
 			<p>Studied RimWorld, Total War, C&C, and ONI to make smart UX decisions that create fun without hand-holding.</p>
 			</div>
+			
 		</div>
+		
 	</section>
 
 	<!-- What Got Built -->
-	<section class="py-3">
+	<section class="py-4">
 		<div class="container">
 			<div style="max-width: 800px;">
 			<h3 class="mb-3">What I Shipped</h3>
@@ -120,7 +146,7 @@
 			<p class="mb-2"><strong>Key systems:</strong></p>
 			<div class="row g-3 mb-3">
 				<div class="col-md-6">
-					<div class="p-3 border rounded" style="background-color: #f8f9fa;">
+					<div class="p-3 border rounded">
 						<div class="d-flex align-items-start gap-2">
 							<i class="fas fa-check-circle text-success mt-1"></i>
 							<div>
@@ -131,7 +157,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="p-3 border rounded" style="background-color: #f8f9fa;">
+					<div class="p-3 border rounded">
 						<div class="d-flex align-items-start gap-2">
 							<i class="fas fa-check-circle text-success mt-1"></i>
 							<div>
@@ -142,7 +168,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="p-3 border rounded" style="background-color: #f8f9fa;">
+					<div class="p-3 border rounded">
 						<div class="d-flex align-items-start gap-2">
 							<i class="fas fa-check-circle text-success mt-1"></i>
 							<div>
@@ -153,7 +179,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="p-3 border rounded" style="background-color: #f8f9fa;">
+					<div class="p-3 border rounded">
 						<div class="d-flex align-items-start gap-2">
 							<i class="fas fa-check-circle text-success mt-1"></i>
 							<div>
@@ -171,84 +197,61 @@
 	</section>
 
 	<!-- What's Next -->
-	<section class="py-3 bg-light">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<h3 class="mb-3">What's Next</h3>
-					<p class="mb-2">Refining for Q2 2026 Steam launch. The core works; now it needs to feel alive.</p>
-					<p class="mb-2"><strong>Current focus:</strong></p>
-					<ul class="mb-2">
-						<li>Transform checklist quests into immersive narrative with tradeoffs</li>
-						<li>Resource variance that forces scouting</li>
-						<li>Environmental storytelling (abandoned equipment, cosmonaut logs, artifacts)</li>
-						<li>More playtesting, balance passes, Steam page, trailer</li>
-					</ul>
-					<p class="mb-0">Then ship it.</p>
-				</div>
-				<div class="col-lg-4">
-					<h6 class="fw-bold mb-3">Development Updates</h6>
-					<div class="bsky-feed-container">
-						<bsky-embed
-							id="bskyEmbed"
-							limit="2"
-							mode="light"
-							username="mishotofu.bsky.social">
-						</bsky-embed>
-					</div>
-					<p class="text-muted mt-2 small">
-						<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" class="text-muted">Follow on Bluesky →</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- CTA Section -->
 	<section class="py-4">
-		<div class="container text-center">
-			<a href="https://mischa.itch.io/kosmograd" target="_blank" class="btn btn-primary btn-lg">Try the current build →</a>
-			<p class="text-muted small mt-3 mb-0">Publishing as <a href="https://mfgoes.github.io/redshiftlabs/" target="_blank" class="text-muted">Redshift Labs</a></p>
+		<div class="container">
+			<div style="max-width: 800px;">
+				<h3 class="mb-3">What's Next</h3>
+				<p class="mb-2">Refining for Q2 2026 Steam launch. The core works; now it needs to feel alive.</p>
+				<p class="mb-2"><strong>Current focus:</strong></p>
+				<ul class="mb-3">
+					<li>Transform checklist quests into immersive narrative with tradeoffs</li>
+					<li>Resource variance that forces scouting</li>
+					<li>Environmental storytelling (abandoned equipment, cosmonaut logs, artifacts)</li>
+					<li>More playtesting, balance passes, Steam page, trailer</li>
+				</ul>
+				<a href="https://mischa.itch.io/kosmograd" target="_blank" class="btn btn-dark">Play now</a>
+			</div>
 		</div>
 	</section>
 
 
-	<!-- Section - Up Next -->
-	<section class="bg-white py-4">
-	<div class="container">
-		<!-- Horizontal line above the section -->
-		<hr class="section-line">
-
-		<div class="up-next-header mb-4">
-			<h3>Similar</h3>
-		</div>
-
-		<div class="up-next-list">
-			<div class="up-next-item mb-4">
-				<img src="assets/images/thumbnails/thumb_ibac.jpg" class="up-next-thumb rounded" alt="PostNL IBAC project">
-				<div class="up-next-content">
-					<h4 class="mb-2">PostNL IBAC</h4>
-					<p class="mb-2">Product strategy and iterative development for B2B onboarding.</p>
-					<a href="postnl-ibac.html" class="text-primary">View Project</a>
+	<!-- Related Articles (news style) -->
+	<div class="related-articles-section">
+		<div class="container">
+			<h2>Related content</h2>
+			<div class="row g-4">
+				<div class="col-md-6">
+					<div class="related-card">
+						<img src="assets/images/thumbnails/thumbnail_ibac2.jpg" class="related-card-img" alt="PostNL IBAC project">
+						<div class="related-card-meta">
+							<i class="far fa-clock"></i>
+							<span>2025</span>
+							<span>•</span>
+							<span class="related-card-category">Product Management</span>
+						</div>
+						<a href="postnl-ibac.html" class="related-card-title">PostNL IBAC: B2B Onboarding at Scale</a>
+						<p class="related-card-excerpt">Product strategy and iterative development for a B2B customer onboarding platform serving thousands of business clients.</p>
+					</div>
 				</div>
-			</div>
-
-			<div class="up-next-item mb-4">
-				<img src="assets/images/tasteradar/Tasteradar - Filters2.jpg" class="up-next-thumb rounded" alt="Tasteradar project">
-				<div class="up-next-content">
-					<h4 class="mb-2">Tasteradar</h4>
-					<p class="mb-2">Startup product management: From MVP to 500+ users.</p>
-					<a href="tasteradar.html" class="text-primary">View Project</a>
+				<div class="col-md-6">
+					<div class="related-card">
+						<img src="assets/images/articles/devboard/animated_preview.gif" class="related-card-img" alt="DevBoard whiteboard tool">
+						<div class="related-card-meta">
+							<i class="far fa-clock"></i>
+							<span>March 2026</span>
+							<span>•</span>
+							<span class="related-card-category">Developer Tools</span>
+						</div>
+						<a href="devboard.html" class="related-card-title">DevBoard: A Whiteboard That Stays Out of Your Way</a>
+						<p class="related-card-excerpt">Building a lightweight, offline-first infinite canvas for developers — no accounts, no backend, opens in under a second.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
-	<!-- Section 7: Get in touch snippet -->
-	<div id="contact-cta-container"></div>
 
-	<!-- Section - Footer -->
-	<div id="footer-container"></div>
+	<!-- Article Footer (news style) -->
+	<div id="article-footer-container"></div>
 
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -265,11 +268,10 @@
 	<script src="js/core/event-bus.js"></script>
 	<script src="js/core/component-loader.js"></script>
 
-	<!--set up snippets>-->
+	<!--set up snippets-->
 	<script src="assets/components/navbar.js"></script>
-	<script src="assets/components/contact-cta.js"></script>
-	<script src="assets/components/footer.js"></script>
+	<script src="assets/components/article-footer.js"></script>
 	<script src="js/theme-toggle.js"></script>
-	<script src="js/slider-handling.js"></script> <!--ensures carousel active state is correctly styled-->
+	<script src="js/slider-handling.js"></script>
 </body>
 </html>

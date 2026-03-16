@@ -9,22 +9,15 @@ class ThemeManager {
     init() {
         this.applyTheme(this.currentTheme, false);
 
-        // Wait for footer component to load (event-driven, no polling)
-        window.UXFolio.EventBus.waitForComponent('footer')
+        // Wait for theme-toggle button to appear in DOM (works regardless of which component loads it)
+        window.UXFolio.Utils.waitForElement('#theme-toggle')
             .then(() => {
                 this.attachToggleListener();
                 this.attachEmailCopyListener();
                 this.updateToggleUI();
             })
             .catch(error => {
-                console.error('Footer did not load:', error);
-                // Fallback: still try to attach if element exists
-                const toggleBtn = document.getElementById('theme-toggle');
-                if (toggleBtn) {
-                    this.attachToggleListener();
-                    this.attachEmailCopyListener();
-                    this.updateToggleUI();
-                }
+                console.error('Theme toggle button did not appear:', error);
             });
     }
 

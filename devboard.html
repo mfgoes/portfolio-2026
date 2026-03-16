@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html data-bs-theme="light">
+
+<head>
+	<title>Mischa vd Goes - DevBoard</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/custom.css" />
+	<link rel="stylesheet" href="assets/css/navbar.css" />
+	<link rel="stylesheet" href="assets/css/theme-dark.css" />
+	<link rel="stylesheet" href="assets/css/article.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<!-- Bluesky Embed -->
+	<script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
+
+	<!-- Basic Meta -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="author" content="Mischa vd Goes">
+	<meta name="description" content="DevBoard: a lightweight FigJam-style infinite canvas for solo devs and small teams. No accounts, no backend — everything lives in your browser.">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/Favicon.jpg">
+
+</head>
+<body class="light-nav">
+	<!-- Navbar -->
+	<div id="navbar-container"></div>
+
+	<!-- Article Header -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<!-- Article content -->
+				<div class="col-lg-8 col-xl-8 mb-4">
+					<div class="article-meta">
+						<i class="far fa-clock"></i>
+						<span>March 2026</span>
+					</div>
+
+					<h1 class="article-title">DevBoard: A Whiteboard That Stays Out of Your Way</h1>
+					<p class="article-subtitle">Building a lightweight, offline-first infinite canvas for developers who think visually</p>
+
+					<div class="article-tags">
+						<span class="article-tag">Side Project</span>
+						<span class="article-tag">Developer Tools</span>
+						<span class="article-tag">Agentic Coding</span>
+					</div>
+
+					<p class="mb-4">If you use FigJam or Miro to map out your thoughts, you know the friction — accounts, cloud sync, loading screens. DevBoard is what I built instead: a distraction-free whiteboard that opens instantly, works offline, and lives entirely in your browser. No account required.</p>
+
+					<img src="assets/images/articles/devboard/animated_preview.gif" class="img-fluid rounded" alt="DevBoard in action">
+				</div>
+
+				<!-- Share sidebar -->
+				<div class="col-lg-3 col-xl-3 offset-lg-1">
+					<div class="article-sidebar-sticky">
+						<div class="share-sidebar mb-3">
+							<h6>SHARE THIS ARTICLE</h6>
+							<div class="share-icons mb-3">
+								<a href="mailto:?subject=DevBoard%3A%20A%20Whiteboard%20That%20Stays%20Out%20of%20Your%20Way&body=https://mischavdgoes.com/devboard.html" class="share-icon-btn email" title="Share via Email" aria-label="Share via email">
+									<i class="fas fa-envelope"></i>
+								</a>
+								<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mischavdgoes.com/devboard.html" target="_blank" rel="noopener" class="share-icon-btn linkedin" title="Share on LinkedIn" aria-label="Share on LinkedIn">
+									<i class="fab fa-linkedin-in"></i>
+								</a>
+								<a href="https://twitter.com/intent/tweet?url=https://mischavdgoes.com/devboard.html&text=DevBoard%3A%20A%20Whiteboard%20That%20Stays%20Out%20of%20Your%20Way" target="_blank" rel="noopener" class="share-icon-btn twitter" title="Share on X" aria-label="Share on X">
+									<i class="fab fa-x-twitter"></i>
+								</a>
+								<a href="https://www.reddit.com/submit?url=https://mischavdgoes.com/devboard.html&title=DevBoard%3A%20A%20Whiteboard%20That%20Stays%20Out%20of%20Your%20Way" target="_blank" rel="noopener" class="share-icon-btn reddit" title="Share on Reddit" aria-label="Share on Reddit">
+									<i class="fab fa-reddit-alien"></i>
+								</a>
+							</div>
+
+							<div class="share-divider"></div>
+
+							<a href="#" class="share-link" onclick="navigator.clipboard.writeText(window.location.href); this.innerHTML='<i class=\'fas fa-check\'></i> Copied!'; setTimeout(()=>this.innerHTML='<i class=\'fas fa-link\'></i> Copy link', 2000); return false;">
+								<i class="fas fa-link"></i> Copy link
+							</a>
+
+							<div class="share-divider"></div>
+
+							<p class="small text-muted mb-1" style="font-size: 0.8rem;">Published by</p>
+							<p class="small fw-semibold mb-0" style="color: #333;">Mischa van der Goes</p>
+							<p class="small text-muted mb-0" style="font-size: 0.8rem;">PM & Indie Developer</p>
+						</div>
+
+						<div class="bsky-sidebar-box">
+							<div class="bsky-sidebar-header">
+								<span class="bsky-sidebar-label">Dev feed</span>
+								<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener" class="bsky-sidebar-handle">@mishotofu.bsky.social</a>
+							</div>
+							<div class="bsky-feed-container">
+								<bsky-embed
+									id="bskyEmbed"
+									limit="2"
+									mode="light"
+									username="mishotofu.bsky.social">
+								</bsky-embed>
+							</div>
+						</div>
+					</div> <!-- /.article-sidebar-sticky -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why I built it -->
+	<section class="py-4">
+		<div class="container">
+			<div style="max-width: 800px;">
+				<h3 class="mb-3">Why another whiteboard?</h3>
+				<p class="mb-2">Most whiteboard tools are built for teams presenting to stakeholders — not for a solo dev at 11pm trying to untangle a gnarly system design. They're slow to open, require sign-in, and default to a polished, presentation-ready canvas that fights against rough, fast thinking.</p>
+				<p class="mb-0">DevBoard started as a single HTML file I could run anywhere. The constraint — no backend, no build step, no accounts — turned out to be the feature. It loads in under a second. You close the tab; your board is still there next time.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- What's in it -->
+	<section class="py-4">
+		<div class="container">
+			<div style="max-width: 800px;">
+				<h3 class="mb-3">What's in v1</h3>
+				<p class="mb-3">Everything you need to think out loud, nothing you don't.</p>
+				<div class="row g-3 mb-3">
+					<div class="col-md-6">
+						<div class="p-3 border rounded">
+							<div class="d-flex align-items-start gap-2">
+								<i class="fas fa-check-circle text-success mt-1"></i>
+								<div>
+									<h6 class="mb-1 fw-bold">Infinite canvas</h6>
+									<p class="small text-muted mb-0">Pan, zoom, dot grid — no boundaries on your thinking</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="p-3 border rounded">
+							<div class="d-flex align-items-start gap-2">
+								<i class="fas fa-check-circle text-success mt-1"></i>
+								<div>
+									<h6 class="mb-1 fw-bold">Sticky notes</h6>
+									<p class="small text-muted mb-0">Color, edit, resize, copy/paste — full keyboard shortcuts</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="p-3 border rounded">
+							<div class="d-flex align-items-start gap-2">
+								<i class="fas fa-check-circle text-success mt-1"></i>
+								<div>
+									<h6 class="mb-1 fw-bold">Smart connectors</h6>
+									<p class="small text-muted mb-0">Bezier curves that snap between notes</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="p-3 border rounded">
+							<div class="d-flex align-items-start gap-2">
+								<i class="fas fa-check-circle text-success mt-1"></i>
+								<div>
+									<h6 class="mb-1 fw-bold">Offline first</h6>
+									<p class="small text-muted mb-0">Everything persists in your browser — no account, no sync</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<img src="assets/images/articles/devboard/main.png" class="img-fluid rounded mb-3" alt="DevBoard sticky notes and canvas">
+
+				<p class="small text-muted mb-0"><strong>Keyboard shortcuts:</strong> &nbsp;<kbd>V</kbd> Select &nbsp; <kbd>H</kbd> Pan &nbsp; <kbd>S</kbd> Sticky &nbsp; <kbd>L</kbd> Line &nbsp; <kbd>⌘C</kbd> / <kbd>⌘V</kbd> Copy/Paste</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Going desktop -->
+	<section class="py-4">
+		<div class="container">
+			<div style="max-width: 800px;">
+				<h3 class="mb-3">Going native</h3>
+				<p class="mb-2">The biggest milestone in this update: DevBoard is no longer browser-only. Native desktop builds are now live for <strong>Mac (Apple Silicon)</strong> and <strong>Windows</strong> — a portable <code>.exe</code> you can run without an installer.</p>
+				<p class="mb-0">Because the app was built to be self-contained from day one, going offline-native required almost no architectural changes. The constraint paid off.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- What changed -->
+	<section class="py-4">
+		<div class="container">
+			<div style="max-width: 800px;">
+				<h3 class="mb-3">What changed in this update</h3>
+				<p class="mb-3">A lot of the "that's annoying" moments got fixed in this pass.</p>
+				<ul class="mb-3">
+					<li><strong>Undo/Redo</strong> — <kbd>Ctrl+Z</kbd> / <kbd>Shift+Z</kbd>. Finally mess up with confidence.</li>
+					<li><strong>Context-sensitive toolbar</strong> — the toolbar now shows only what's relevant. Select a sticky: get color swatches. Select text: get font options.</li>
+					<li><strong>Shapes & text blocks</strong> — rectangles, diamonds, ellipses, and free-text labels for proper diagrams.</li>
+					<li><strong>Sections</strong> — group items into labeled areas to keep large boards navigable.</li>
+					<li><strong>Fixed the blinking editor</strong> — the background of a note no longer disappears when you type into it.</li>
+				</ul>
+				<p class="mb-3"><strong>Coming next:</strong> pen/draw tool, export to PNG, multiplayer (maybe).</p>
+				<img src="assets/images/articles/devboard/secondary.png" class="img-fluid rounded" alt="DevBoard context toolbar">
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-4">
+		<div class="container">
+			<div style="max-width: 800px;">
+				<a href="https://mischa.itch.io/devboard" target="_blank" class="btn btn-dark">Try Demo</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Related Articles -->
+	<div class="related-articles-section">
+		<div class="container">
+			<h2>Related content</h2>
+			<div class="row g-4">
+				<div class="col-md-6">
+					<div class="related-card">
+						<img src="assets/images/articles/screenshot_noUI.png" class="related-card-img" alt="Kosmograd game">
+						<div class="related-card-meta">
+							<i class="far fa-clock"></i>
+							<span>March 2026</span>
+							<span>•</span>
+							<span class="related-card-category">Game Development</span>
+						</div>
+						<a href="gamedev.html" class="related-card-title">Kosmograd: Solo-Building a Lunar RTS</a>
+						<p class="related-card-excerpt">What shipping a strategy game solo teaches you about product management — scope, pivots, and the moment you stop adding features.</p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="related-card">
+						<img src="assets/images/thumbnails/thumbnail_ibac2.jpg" class="related-card-img" alt="PostNL IBAC project">
+						<div class="related-card-meta">
+							<i class="far fa-clock"></i>
+							<span>2025</span>
+							<span>•</span>
+							<span class="related-card-category">Product Management</span>
+						</div>
+						<a href="postnl-ibac.html" class="related-card-title">PostNL IBAC: B2B Onboarding at Scale</a>
+						<p class="related-card-excerpt">Product strategy and iterative development for a B2B customer onboarding platform serving thousands of business clients.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Article Footer -->
+	<div id="article-footer-container"></div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script src="js/main.js"></script>
+	<script src="js/core/utils.js"></script>
+	<script src="js/core/event-bus.js"></script>
+	<script src="js/core/component-loader.js"></script>
+	<script src="assets/components/navbar.js"></script>
+	<script src="assets/components/article-footer.js"></script>
+	<script src="js/theme-toggle.js"></script>
+	<script src="js/slider-handling.js"></script>
+</body>
+</html>
