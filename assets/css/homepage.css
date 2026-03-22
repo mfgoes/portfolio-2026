@@ -3,8 +3,14 @@ body {
   padding: 0;
   background: #ffffff;
   background-attachment: fixed;
-  color: #212529;
+  color: #1a1a1f;
   position: relative;
+}
+
+[data-bs-theme=dark] body,
+body.theme-dark {
+  background: #131317;
+  color: white;
 }
 
 #dithering-canvas {
@@ -12,9 +18,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  z-index: 1;
-  pointer-events: auto;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
   will-change: opacity;
 }
 
@@ -22,85 +28,78 @@ body {
   display: block;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(111, 206, 250, 0.12) 0%, rgba(138, 103, 235, 0.134) 25%, rgba(34, 67, 57, 0.1) 50%, rgba(88, 86, 214, 0.2) 75%, rgba(45, 65, 94, 0.12) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .content {
   position: relative;
   z-index: 2; /* Ensures the content stays above the overlay */
-  pointer-events: none; /* Allow clicks to pass through to canvas below */
-}
-
-/* Re-enable pointer events for interactive elements */
-.content a,
-.content button,
-.content input,
-.content select,
-.content textarea,
-.content .card,
-.content .btn,
-.content .accordion-button {
-  pointer-events: auto;
-}
-
-/* Navbar styling for light theme homepage */
-#navbar-container {
-  position: relative;
-  z-index: 10;
-  pointer-events: none; /* Allow clicks to pass through to canvas */
-}
-
-/* Re-enable pointer events for navbar interactive elements */
-#navbar-container .navbar,
-#navbar-container a,
-#navbar-container button {
-  pointer-events: auto;
 }
 
 .navbar-dark {
   background-color: transparent;
+  border-bottom: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar-dark .container {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme=dark] .navbar-dark .container {
+  border-bottom-color: #2e2e46;
+}
+
+.company-logo {
+  filter: invert(1);
+}
+
+[data-bs-theme=dark] .company-logo {
+  filter: none;
 }
 
 .navbar-dark .navbar-brand,
 .navbar-dark .nav-link {
-  color: #212529 !important;
+  color: #1a1a1f !important;
 }
 
-.navbar-dark .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(33, 37, 41, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+.navbar-dark .nav-link:hover {
+  color: #5856D6 !important;
 }
 
-.navbar-dark .navbar-toggler {
-  border-color: rgba(33, 37, 41, 0.1);
+[data-bs-theme=dark] .navbar-dark .navbar-brand,
+[data-bs-theme=dark] .navbar-dark .nav-link {
+  color: #fff !important;
 }
 
-/* Company logos - invert for light theme */
-.company-logo {
-  filter: invert(1) brightness(0.9);
-}
-
-/* Services Section Styles */
-.section-spacing {
-  padding: 80px 0;
-}
-
-.services-card {
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  padding: 48px 32px;
-  height: 100%;
-}
-
-.services-icon {
-  width: 80px;
-  height: 80px;
-}
-
-.services-title {
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-
-.services-text {
-  line-height: 1.6;
-  font-size: 0.95rem;
+[data-bs-theme=dark] .navbar-dark .nav-link:hover {
+  color: #818cf8 !important;
 }

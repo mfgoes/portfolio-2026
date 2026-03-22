@@ -1,8 +1,81 @@
+.services-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.services-icon-wrap svg {
+  flex-shrink: 0;
+}
+
+.ic-indigo {
+  background: rgba(99, 102, 241, 0.12);
+  color: #818cf8;
+}
+
+.ic-purple {
+  background: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+}
+
+.ic-sky {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+}
+
+.ic-green {
+  background: rgba(74, 222, 128, 0.12);
+  color: #4ade80;
+}
+
+.ic-teal {
+  background: rgba(45, 212, 191, 0.12);
+  color: #2dd4bf;
+}
+
+.ic-orange {
+  background: rgba(251, 146, 60, 0.12);
+  color: #fb923c;
+}
+
+.ic-pink {
+  background: rgba(244, 114, 182, 0.12);
+  color: #f472b6;
+}
+
+.ic-yellow {
+  background: rgba(250, 204, 21, 0.12);
+  color: #facc15;
+}
+
+.ic-cyan {
+  background: rgba(34, 211, 238, 0.12);
+  color: #22d3ee;
+}
+
+.ic-lime {
+  background: rgba(163, 230, 53, 0.12);
+  color: #a3e635;
+}
+
+.ic-violet {
+  background: rgba(139, 92, 246, 0.12);
+  color: #a78bfa;
+}
+
+.ic-slate {
+  background: rgba(148, 163, 184, 0.12);
+  color: #94a3b8;
+}
+
 .label-outline {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #2e2e2e;
   border-radius: 16px;
   padding: 4px 10px;
-  color: #6c757d;
+  color: #868686;
 }
 
 #toggle-view-btn {
@@ -40,10 +113,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   border-radius: 16px 16px 0 0;
 }
 #cards-view .card .card-body {
@@ -54,46 +125,65 @@
   gap: 10px;
 }
 #cards-view .card .card-body h1, #cards-view .card .card-body h2, #cards-view .card .card-body h4, #cards-view .card .card-body h5 {
-  color: #212529;
+  color: #1a1a1f;
 }
 #cards-view .card .card-body p {
-  color: #6c757d;
+  color: #555;
 }
 #cards-view .card .card-link {
   text-decoration: none;
   color: inherit;
 }
 #cards-view .card .card-link:hover .card-arrow {
-  background-color: #212529;
+  background-color: #5856D6;
   margin-right: 0;
   transition: 0.3s;
 }
 #cards-view .card .card-link:hover .card-arrow svg {
   transform: translateX(0px);
-  fill: #ffffff;
+  fill: #1A1B1F;
 }
 #cards-view .card .card-arrow {
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #eeeef0;
   margin-top: 10px;
   padding: 10px;
   border-radius: 10px;
   transition: 0.3s;
 }
 #cards-view .card .card-arrow svg {
-  fill: #212529;
+  fill: #1a1a1f;
   transition: transform 0.5s ease;
 }
 #cards-view .card:hover {
-  background-color: #f8f9fa;
+  background-color: #f0f0f2;
   transition: 0.3s;
+}
+
+.services-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 48px 32px;
+  height: 100%;
+  text-align: left;
+}
+.services-card .services-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #1a1a1f;
+}
+.services-card .services-text {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #555;
 }
 
 .testimonials {
   width: 100%;
   margin-bottom: 20px;
-  background-color: #0f0f11;
-  border: 1px solid #2e2e2e;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   display: flex;
   flex-direction: column;

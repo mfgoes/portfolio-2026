@@ -1,10 +1,16 @@
 body {
     margin: 0;
     padding: 0;
-    background: #1e1e20;
+    background: #ffffff;
     background-attachment: fixed;
-    color: white;
+    color: #1a1a1f;
     position: relative;
+  }
+
+  [data-bs-theme="dark"] body,
+  body.theme-dark {
+    background: #131317;
+    color: white;
   }
 
   #dithering-canvas {
@@ -14,7 +20,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    pointer-events: auto;
+    pointer-events: none;
     will-change: opacity;
   }
 
@@ -22,6 +28,7 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+    pointer-events: none;
   }
 
   .overlay {
@@ -66,6 +73,45 @@ body {
 
   .navbar-dark {
     background-color: transparent;
+    border-bottom: none;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .container {
+      padding-top: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  [data-bs-theme="dark"] .navbar-dark .container {
+    border-bottom-color: #2e2e46;
+  }
+
+  // Light mode: invert white logos to dark
+  .company-logo {
+    filter: invert(1);
+  }
+  [data-bs-theme="dark"] .company-logo {
+    filter: none;
+  }
+
+  // Light mode: darken navbar text
+  .navbar-dark .navbar-brand,
+  .navbar-dark .nav-link {
+    color: #1a1a1f !important;
+  }
+  .navbar-dark .nav-link:hover {
+    color: #5856D6 !important;
+  }
+
+  // Dark mode: revert to white
+  [data-bs-theme="dark"] .navbar-dark .navbar-brand,
+  [data-bs-theme="dark"] .navbar-dark .nav-link {
+    color: #fff !important;
+  }
+  [data-bs-theme="dark"] .navbar-dark .nav-link:hover {
+    color: #818cf8 !important;
   }
 
   

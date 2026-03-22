@@ -1,5 +1,5 @@
 // Import fonts from Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@500&family=Onest:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@500&family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
 // Define border radius variables
 $border-radius-large: 16px;
@@ -36,16 +36,22 @@ $shadow-medium: 0 4px 16px rgba(0,0,0,0.15);
 }
 h1, h2, h3, h4, h5 {
 	font-family: "Geologica", sans-serif;
-	font-weight: 500;
+	font-weight: 700;
+	letter-spacing: -0.02em;
 }
 
 h1 {
+	font-family: "JetBrains Mono", monospace;
 	font-size: clamp(2rem, 4vw, 3.5rem);
 	line-height: 1.1;
+	letter-spacing: -0.03em;
 	margin-bottom: 1.5rem;
 	color: inherit;
 	font-optical-sizing: auto;
 	text-align: center;
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
 	opacity: 0;
 	transform: translateY(20px);
 	animation: fadeInUp 0.8s ease-out forwards;
@@ -57,15 +63,30 @@ h1 {
 		transform: translateY(0);
 	}
 }
+
 h2 {
 	font-size: clamp(1.5rem, 3vw, 2.25rem);
+	letter-spacing: -0.025em;
 	margin-bottom: 1rem;
 }
 
 h3 {
 	font-size: clamp(1.125rem, 2vw, 1.375rem);
 	line-height: 1.3;
+	letter-spacing: -0.015em;
 	margin-bottom: 0.75rem;
+}
+
+// Section eyebrow label — matches DevBoard landing style
+.section-eyebrow {
+	display: block;
+	font-family: "Onest", sans-serif;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: $brand-color;
+	margin-bottom: 0.6rem;
 }
 
 // Standardized button styles
@@ -206,19 +227,26 @@ form {
 }
 
 .navbar-container {
-	z-index: 10; /* Ensures the content stays above the overlay */
+	position: relative;
+	z-index: 10;
 }
 
 .nav-item {
-	font-family: "Onest", sans-serif;
-	font-weight: 300;
+	font-family: "JetBrains Mono", monospace;
+	font-weight: 400;
+	font-size: 0.85em;
 }
 
 .navbar-dark {
 	background-color: $brand-black;
+
+	.container {
+		max-width: 1000px;
+	}
 }
 .navbar-brand {
 	font-size: 1em;
+	font-family: "JetBrains Mono", monospace;
 	font-family: "Onest", sans-serif;
 	font-weight: 600;
 }
