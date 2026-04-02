@@ -91,6 +91,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/article.css" />
     <link rel="stylesheet" href="assets/css/custom.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/theme-dark.css" />
@@ -100,7 +101,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 
-<body class="light-nav">
+<body class="dark-nav">
 	<!-- Navbar -->
 	<div id="navbar-container"></div>
 
@@ -110,37 +111,22 @@
 		<div class="container">
 			<div class="row align-items-center py-2">
 				<div class="col-md-6 position-relative">
-					<!-- Carousel -->
-					<div id="carouselExample" class="carousel slide" data-bs-ride="false"> <!-- Disable autoplay -->
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img src="assets/images/about/pic-reddoor.JPG" class="d-block w-100 img-fluid square-carousel-img" alt="Mischa vd Goes">
-							</div>
-							
-						</div>
-					</div>
+					<img src="assets/images/thumbnails/quiet-network-thumb.png" class="d-block w-100 img-fluid square-carousel-img" alt="Mischa vd Goes">
 				</div>
 
 				<!-- Text and Details -->
 				<div class="col-md-6 text-start mt-2 pb-2">
-					<h1>Turn Acquisition Flows Into Conversion Machines</h1>
-					<p class="subtitle lead">Optimize acquisition flows, boost conversions, and build data-driven experimentation cultures. Proven impact from enterprise (PostNL, Mendix).
-					</p>
-					<p class="text-sm">Available part-time. Discovery calls available Fridays, weekends, or evenings.</p>
-
-						<!-- Added buttons for Call to Action -->
+					<h1>Boost Conversions: Fix your acquisition flows and elevate your UX</h1>
+					<p class="subtitle lead">Optimize flows, strengthen your USPs, and build data-informed experimentation cultures.</p>
+					<div class="article-tags">
+						<span class="article-tag">Available part-time</span>
+					</div>
 					<div class="mt-4">
 						<a href="#rates-section" class="btn btn-primary me-2">See rates</a>
-						<a href="index.html#case-studies" class="btn btn-outline-dark">
-							Case studies
-						</a>
+						<a href="index.html#case-studies" class="btn btn-outline-dark">Case studies</a>
 					</div>
 				</div>
-				
-				
-				
 			</div>
-			
 		</div>
 	</section>
 
@@ -201,7 +187,10 @@
             
             <!-- Package 2: Experimentation Boost -->
             <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-0 text-white" style="background-color: #5856D6;">
+                <div class="card h-100 shadow-sm border-0 text-white position-relative" style="background-color: #5856D6;">
+                    <div class="position-absolute top-0 start-50 translate-middle">
+                        <span class="badge rounded-pill" style="background-color: #e4e4e4; color: #5856D6; font-size: 0.75rem; padding: 6px 14px;">Most popular</span>
+                    </div>
                     <div class="card-body text-center py-4">
                         <h4 class="card-title">Experimentation Boost</h4>
                         <h5 class="mb-3">€1,500 – €2,500</h5>
@@ -237,7 +226,7 @@
         </div>
         
         <div class="text-center mt-5">
-            <p class="lead">Custom/hourly options available (€60–100/hour). Let's discuss your needs!</p>
+            <p class="">Custom/hourly options available (€60–100/hour). Let's discuss your needs!</p>
         </div>
     </div>
 </section>
@@ -245,20 +234,36 @@
 <!-- Why Me / Proof Section -->
 <section class="py-5 bg-muted">
     <div class="container">
-        <h2 class="text-center mb-5">Why Work With Me?</h2>
+        <h2 class="text-center mb-2">Why Work With Me?</h2>
+        <p class="text-center text-muted mb-5">A few things that make working together easy.</p>
         <div class="row align-items-center">
-            <div class="col-md-6">
-                <ul class="list-unstyled fs-5">
-                    <li class="mb-4"><strong>Proven Business Impact:</strong> Delivered 15%+ conversion increases at enterprise scale (PostNL).</li>
-                    <li class="mb-4"><strong>Data-Driven & Product-Minded:</strong> Strong focus on metrics, experimentation, and cross-functional collaboration.</li>
-                    <li class="mb-4"><strong>Enterprise to Startup Fit:</strong> Experience in high-traffic B2B flows (PostNL) + design systems for complex apps</li>
-                    <li><strong>Technical Expertise:</strong> Hands-on with tools like Mendix or Godot for E2E products — I understand building from 0→1.</li>
+            <div class="col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex align-items-start gap-3">
+                        <span class="text-success fs-5 mt-1">&#10003;</span>
+                        <span><strong>Real results at scale.</strong> 15%+ conversion lifts at PostNL, across millions of users.</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start gap-3">
+                        <span class="text-success fs-5 mt-1">&#10003;</span>
+                        <span><strong>Startups to enterprise.</strong> Worked with solo founders and large cross-functional teams. I adapt fast.</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start gap-3">
+                        <span class="text-success fs-5 mt-1">&#10003;</span>
+                        <span><strong>Game development background.</strong> Shipped experiences in Godot. Games sharpen UX instincts like nothing else.</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start gap-3">
+                        <span class="text-success fs-5 mt-1">&#10003;</span>
+                        <span><strong>Data-driven by default.</strong> I test, measure, and iterate. No assumptions.</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start gap-3">
+                        <span class="text-success fs-5 mt-1">&#10003;</span>
+                        <span><strong>Technical fluency.</strong> Hands-on with Mendix, Godot, and low-code stacks. I speak dev.</span>
+                    </li>
                 </ul>
-				<a href="index.html#case-studies" class="btn btn-primary">View case studies</a>
+                <a href="index.html#case-studies" class="btn btn-primary mt-2">View case studies</a>
             </div>
             <div class="col-md-6">
-                <img src="assets/images/MessageGen Hero2.jpg" alt="Impact Metrics Visualization" class="img-fluid img-rounded shadow"> <!-- Replace with a chart or screenshot of metrics -->
-                <!--<p class="text-muted text-center mt-3">Real results from real projects</p>-->
+                <img src="assets/images/thumbnails/strawberry.jpg" alt="Impact Metrics Visualization" class="img-fluid img-rounded shadow">
             </div>
         </div>
     </div>

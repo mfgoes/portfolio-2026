@@ -63,19 +63,9 @@ body.theme-dark {
 }
 
 .navbar-dark {
-  background-color: transparent;
-  border-bottom: none;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-.navbar-dark .container {
-  padding-top: 18px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-[data-bs-theme=dark] .navbar-dark .container {
-  border-bottom-color: #2e2e46;
+  background-color: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 .company-logo {

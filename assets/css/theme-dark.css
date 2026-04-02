@@ -20,30 +20,7 @@
 }
 
 /* === NAVBAR IN DARK MODE === */
-/* Light nav pages should have dark navbar in dark mode */
-[data-bs-theme="dark"] body.light-nav .navbar {
-    background-color: rgba(13, 13, 15, 0.95);
-    backdrop-filter: blur(10px);
-}
-
-[data-bs-theme="dark"] body.light-nav .navbar-brand,
-[data-bs-theme="dark"] body.light-nav .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
-}
-
-[data-bs-theme="dark"] body.light-nav .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-[data-bs-theme="dark"] body.light-nav .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-/* Homepage navbar */
-[data-bs-theme="dark"] .navbar-dark .navbar-brand,
-[data-bs-theme="dark"] .navbar-dark .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
-}
+/* Handled by navbar.css via [data-bs-theme="dark"] body.dark-nav rules */
 
 /* === CARDS === */
 [data-bs-theme="dark"] #cards-view .card {
@@ -83,9 +60,9 @@
 }
 
 /* === COMPANY LOGOS === */
-/* Remove invert filter in dark mode (logos are already light) */
+/* Invert black logos to white in dark mode */
 [data-bs-theme="dark"] .company-logo {
-    filter: invert(0) brightness(1);
+    filter: invert(1) brightness(2);
 }
 
 /* === HEADINGS & TEXT === */
@@ -351,11 +328,12 @@ svg {
 
 /* Contact CTA */
 [data-bs-theme="dark"] .bg-brand {
-    background-color: #18181b !important;
+    background-color: #3d3ca1 !important;
 }
 
 [data-bs-theme="dark"] #contact-cta-container .card {
     background-color: #1a1a1f !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
 }
 
 [data-bs-theme="dark"] #contact-cta-container .card h3,
@@ -386,4 +364,27 @@ svg {
 
 [data-bs-theme="dark"] .accordion .accordion-button:focus {
     box-shadow: 0 0 0 0.25rem rgba(88, 86, 214, 0.25);
+}
+
+/* === SIDE PROJECT CARDS === */
+[data-bs-theme="dark"] .project-arrow {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] .project-arrow svg {
+    fill: #e4e4e7;
+}
+
+[data-bs-theme="dark"] .side-project-link:hover .project-arrow {
+    background-color: #5856D6;
+}
+
+[data-bs-theme="dark"] .side-project-link:hover .project-arrow svg {
+    fill: #ffffff;
+}
+
+/* === ACCORDION CHEVRONS === */
+[data-bs-theme="dark"] .accordion-button {
+    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2371717a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2371717a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }

@@ -4,6 +4,10 @@
 	overflow-y: auto;
 }
 
+[data-bs-theme="dark"] .bsky-feed-container {
+	background-color: #1a1a1a;
+}
+
 bsky-embed::part(avatar),
 bsky-embed .avatar,
 bsky-embed img[alt*="avatar"],
@@ -274,6 +278,93 @@ bsky-embed img[alt*="profile"] {
 	border-top: 1px solid #2a2a2a;
 	padding-top: 1.25rem;
 	margin-top: 0.5rem;
+}
+
+/* Dark mode support */
+[data-bs-theme="dark"] .article-meta {
+	color: #999;
+}
+
+[data-bs-theme="dark"] .article-meta i {
+	color: #888;
+}
+
+[data-bs-theme="dark"] .article-title {
+	color: #fff;
+}
+
+[data-bs-theme="dark"] .article-subtitle {
+	color: #aaa;
+}
+
+[data-bs-theme="dark"] .article-tag {
+	color: #7c7aff;
+	background-color: rgba(124, 122, 255, 0.15);
+}
+
+[data-bs-theme="dark"] .share-sidebar {
+	background-color: #2a2a2a;
+}
+
+[data-bs-theme="dark"] .share-sidebar h6 {
+	color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .share-divider {
+	background-color: #444;
+}
+
+[data-bs-theme="dark"] .bsky-sidebar-box {
+	border-color: #444;
+}
+
+[data-bs-theme="dark"] .bsky-sidebar-header {
+	background-color: #2a2a2a;
+	border-bottom-color: #444;
+}
+
+[data-bs-theme="dark"] .bsky-sidebar-label {
+	color: #aaa;
+}
+
+[data-bs-theme="dark"] .bsky-sidebar-handle {
+	color: #777;
+}
+
+[data-bs-theme="dark"] .bsky-sidebar-handle:hover {
+	color: #aaa;
+}
+
+[data-bs-theme="dark"] .related-card-meta {
+	color: #999;
+}
+
+[data-bs-theme="dark"] .related-card-category {
+	color: #888;
+}
+
+[data-bs-theme="dark"] .related-card-title {
+	color: #fff;
+}
+
+[data-bs-theme="dark"] .related-card-title:hover {
+	color: #ccc;
+}
+
+[data-bs-theme="dark"] .related-card-excerpt {
+	color: #aaa;
+}
+
+[data-bs-theme="dark"] .related-articles-section {
+	border-top-color: #444;
+}
+
+[data-bs-theme="dark"] .related-articles-section h2 {
+	color: #fff;
+}
+
+[data-bs-theme="dark"] .bg-light {
+	background-color: #1a1a1a !important;
 }
 
 @media (max-width: 767px) {

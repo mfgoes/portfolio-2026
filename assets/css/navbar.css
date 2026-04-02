@@ -1,25 +1,10 @@
 /* Navbar Component Styles */
 
-/* Dark mode navbar (for homepage with dark hero) */
-body.dark-nav .navbar {
-    background-color: transparent;
-}
-
-body.dark-nav .navbar-brand,
-body.dark-nav .nav-link {
-}
-
-body.dark-nav .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-body.dark-nav .navbar-toggler-icon {
-    filter: invert(1);
-}
-
-/* Light mode navbar (for case study pages) */
+/* Navbar — light nav (article pages) */
 body.light-nav .navbar {
-    background-color: #ffffff;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: border-bottom-color 0.4s ease;
 }
 
 body.light-nav .navbar-brand,
@@ -32,8 +17,69 @@ body.light-nav .navbar-toggler {
 }
 
 body.light-nav .navbar-toggler-icon {
-    filter: invert(0);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+[data-bs-theme="dark"] body.light-nav .navbar {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-bs-theme="dark"] body.light-nav .navbar-brand,
+[data-bs-theme="dark"] body.light-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-bs-theme="dark"] body.light-nav .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-bs-theme="dark"] body.light-nav .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Navbar — dark nav (homepage) */
+body.dark-nav .navbar {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: border-bottom-color 0.4s ease;
+}
+
+body.dark-nav .navbar-brand,
+body.dark-nav .nav-link {
+    color: rgba(0, 0, 0, 0.8) !important;
+}
+
+body.dark-nav .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-nav .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Navbar — dark mode */
+[data-bs-theme="dark"] body.dark-nav .navbar {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-bs-theme="dark"] body.dark-nav .navbar-brand,
+[data-bs-theme="dark"] body.dark-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-bs-theme="dark"] body.dark-nav .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-bs-theme="dark"] body.dark-nav .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Homepage-only: fade border on scroll (JS adds .nav-scrolled class) */
+body.dark-nav .navbar.nav-scrolled {
+    border-bottom-color: transparent;
 }
 
 /* Override Bootstrap default blue with purple theme */

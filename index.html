@@ -53,7 +53,7 @@
 	<!-- HEADER SECTION - Introduction -->
 	<section class="section-spacing">
 		<div class="container">
-			<h1>Hi, I'm Mischa<br>Creating business value by solving the right user problems</h1>
+			<h1 class="text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">Hi, I'm Mischa<br>Creating business value by solving the right user problems</h1>
 	<p class="text-center text-muted mt-3">Translating user pain points into actionable roadmaps and measurable ROI.</p>
 			<div class="d-grid gap-3 d-sm-flex justify-content-sm-center mt-4">
 				<a href="#work-section" class="btn btn-primary px-4">
@@ -96,7 +96,7 @@
 	</div>
 
 	<!-- PORTFOLIO SECTION - Jumbatron -->
-	<div id="work-section" class="container col-xxl-8 section-spacing">
+	<div id="work-section" class="container section-spacing">
     <div class="container" id="case-studies">
 
 		<h3 class="text-dark mb-4 text-center">Case Studies</h3>
@@ -132,30 +132,36 @@
 			<p class="text-muted mb-5">I optimize product metrics through user-centered design and data-driven experimentation.</p>
 			<div class="row g-4 justify-content-center">
 				<div class="col-lg-4 col-md-6">
-					<div class="services-card">
-						<div class="services-icon-wrap ic-indigo">
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="18" height="7" rx="1"></rect></svg>
+					<div class="card services-card">
+						<div class="text-center mb-4">
+							<img src="assets/icons/usp1.png" alt="Product-focused UX design" style="width: 64px; height: 64px; object-fit: contain;">
 						</div>
-						<h5 class="services-title">Product-focused UX design</h5>
-						<p class="services-text">I design B2B interfaces that drive measurable business outcomes.</p>
+						<div class="card-body p-0">
+							<h5 class="text-dark mb-3 services-title">Product-focused UX design</h5>
+							<p class="text-muted services-text">I design B2B interfaces that drive measurable business outcomes.</p>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
-					<div class="services-card">
-						<div class="services-icon-wrap ic-purple">
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"></circle><circle cx="18" cy="6" r="2"></circle><circle cx="12" cy="18" r="2"></circle><path d="M8 6h8M6 8v4a6 6 0 006 6M18 8v4a6 6 0 01-6 6"></path></svg>
+					<div class="card services-card">
+						<div class="text-center mb-4">
+							<img src="assets/icons/usp2.png" alt="Product development bridge" style="width: 64px; height: 64px; object-fit: contain;">
 						</div>
-						<h5 class="services-title">Product development bridge</h5>
-						<p class="services-text">Streamline design-to-development workflows through systematic documentation and cross-functional collaboration.</p>
+						<div class="card-body p-0">
+							<h5 class="text-dark mb-3 services-title">Product development bridge</h5>
+							<p class="text-muted services-text">Streamline design-to-development workflows through systematic documentation and cross-functional collaboration.</p>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
-					<div class="services-card">
-						<div class="services-icon-wrap ic-teal">
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+					<div class="card services-card">
+						<div class="text-center mb-4">
+							<img src="assets/icons/usp3.png" alt="Growth through experimentation" style="width: 64px; height: 64px; object-fit: contain;">
 						</div>
-						<h5 class="services-title">Growth through experimentation</h5>
-						<p class="services-text">Build testing culture and optimize key metrics through structured experimentation and stakeholder alignment.</p>
+						<div class="card-body p-0">
+							<h5 class="text-dark mb-3 services-title">Growth through experimentation</h5>
+							<p class="text-muted services-text">Build testing culture and optimize key metrics through structured experimentation and stakeholder alignment.</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -167,30 +173,45 @@
 		<h3 class="text-center mb-2">Beyond the portfolio</h3>
 		<p class="text-center mb-5 services-text">Side projects and dev writing</p>
 		<div class="row g-4 justify-content-center">
-			<div class="col-12 col-md-6 col-lg-5">
-				<a href="gamedev.html" class="text-decoration-none">
+			<div class="col-12 col-md-6 col-lg-4">
+				<a href="gamedev.html" class="text-decoration-none side-project-link">
 					<div class="services-card h-100">
 						<p class="services-text small mb-2 text-uppercase fw-semibold" style="letter-spacing: 0.05em;">Game Dev</p>
 						<h5 class="services-title mb-2">Kosmograd Development</h5>
 						<p class="services-text mb-0">Building an indie space strategy game — design process, engine decisions, and devlog updates.</p>
+						<div class="project-arrow">
+							<svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6.34863 15.4998C5.79635 15.4998 5.34863 15.9476 5.34863 16.4998C5.34863 17.0521 5.79635 17.4998 6.34863 17.4998L6.34863 15.4998ZM30.0557 17.207C30.4463 16.8164 30.4463 16.1833 30.0557 15.7927L23.6918 9.42878C23.3013 9.03826 22.6681 9.03826 22.2776 9.42878C21.887 9.81931 21.887 10.4525 22.2776 10.843L27.9344 16.4998L22.2776 22.1567C21.887 22.5472 21.887 23.1804 22.2776 23.5709C22.6681 23.9614 23.3013 23.9614 23.6918 23.5709L30.0557 17.207ZM6.34863 17.4998L29.3486 17.4998L29.3486 15.4998L6.34863 15.4998L6.34863 17.4998Z"/>
+							</svg>
+						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-12 col-md-6 col-lg-5">
-				<a href="devboard.html" class="text-decoration-none">
+			<div class="col-12 col-md-6 col-lg-4">
+				<a href="devboard.html" class="text-decoration-none side-project-link">
 					<div class="services-card h-100">
 						<p class="services-text small mb-2 text-uppercase fw-semibold" style="letter-spacing: 0.05em;">Tool</p>
 						<h5 class="services-title mb-2">DevBoard</h5>
 						<p class="services-text mb-0">A lightweight FigJam-style infinite canvas for solo devs. No accounts, no backend — everything lives in your browser.</p>
+						<div class="project-arrow">
+							<svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6.34863 15.4998C5.79635 15.4998 5.34863 15.9476 5.34863 16.4998C5.34863 17.0521 5.79635 17.4998 6.34863 17.4998L6.34863 15.4998ZM30.0557 17.207C30.4463 16.8164 30.4463 16.1833 30.0557 15.7927L23.6918 9.42878C23.3013 9.03826 22.6681 9.03826 22.2776 9.42878C21.887 9.81931 21.887 10.4525 22.2776 10.843L27.9344 16.4998L22.2776 22.1567C21.887 22.5472 21.887 23.1804 22.2776 23.5709C22.6681 23.9614 23.3013 23.9614 23.6918 23.5709L30.0557 17.207ZM6.34863 17.4998L29.3486 17.4998L29.3486 15.4998L6.34863 15.4998L6.34863 17.4998Z"/>
+							</svg>
+						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-12 col-md-6 col-lg-5">
-				<a href="quiet-network-article.html" class="text-decoration-none">
+			<div class="col-12 col-md-6 col-lg-4">
+				<a href="quiet-network-article.html" class="text-decoration-none side-project-link">
 					<div class="services-card h-100">
 						<p class="services-text small mb-2 text-uppercase fw-semibold" style="letter-spacing: 0.05em;">Social App</p>
 						<h5 class="services-title mb-2">Quiet Network</h5>
 						<p class="services-text mb-0">A calm, ephemeral community platform for neighborhoods and interest groups — no ads, no algorithms, no permanent record.</p>
+						<div class="project-arrow">
+							<svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6.34863 15.4998C5.79635 15.4998 5.34863 15.9476 5.34863 16.4998C5.34863 17.0521 5.79635 17.4998 6.34863 17.4998L6.34863 15.4998ZM30.0557 17.207C30.4463 16.8164 30.4463 16.1833 30.0557 15.7927L23.6918 9.42878C23.3013 9.03826 22.6681 9.03826 22.2776 9.42878C21.887 9.81931 21.887 10.4525 22.2776 10.843L27.9344 16.4998L22.2776 22.1567C21.887 22.5472 21.887 23.1804 22.2776 23.5709C22.6681 23.9614 23.3013 23.9614 23.6918 23.5709L30.0557 17.207ZM6.34863 17.4998L29.3486 17.4998L29.3486 15.4998L6.34863 15.4998L6.34863 17.4998Z"/>
+							</svg>
+						</div>
 					</div>
 				</a>
 			</div>
