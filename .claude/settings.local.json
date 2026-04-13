@@ -9,7 +9,11 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:mfgoes.github.io)",
       "Bash(curl:*)",
-      "Bash(npx sass:*)"
+      "Bash(npx sass:*)",
+      "Bash(ls *.html)",
+      "Bash(staticrypt --version)",
+      "Bash(npx staticrypt:*)",
+      "Bash(git show:*)"
     ]
   }
 }
