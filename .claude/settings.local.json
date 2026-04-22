@@ -13,7 +13,9 @@
       "Bash(ls *.html)",
       "Bash(staticrypt --version)",
       "Bash(npx staticrypt:*)",
-      "Bash(git show:*)"
+      "Bash(git show:*)",
+      "Bash(git show *)",
+      "Bash(shasum -a 256)"
     ]
   }
 }
