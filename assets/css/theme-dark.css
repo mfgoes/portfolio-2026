@@ -388,3 +388,78 @@ svg {
     --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2371717a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
     --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2371717a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
+
+/* === CASE STUDY HEADER + SIDEBAR (dark) === */
+[data-bs-theme="dark"] .case-header__lede {
+    color: #a1a1aa;
+}
+
+[data-bs-theme="dark"] .case-meta-label {
+    color: #fafafa;
+}
+
+[data-bs-theme="dark"] .case-meta-value {
+    color: #a1a1aa;
+}
+
+[data-bs-theme="dark"] .case-toc {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .case-toc__label {
+    color: #71717a;
+}
+
+[data-bs-theme="dark"] .case-toc__list {
+    border-left-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .case-toc__link {
+    color: #a1a1aa;
+}
+
+[data-bs-theme="dark"] .case-toc__link:hover {
+    color: #fafafa;
+}
+
+[data-bs-theme="dark"] .case-toc__link.is-active {
+    color: #fafafa;
+    border-left-color: #8b89e8;
+}
+
+/* === RELATED CASE STUDIES (dark) === */
+[data-bs-theme="dark"] .related-projects {
+    background-color: #0d0d0f;
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-bs-theme="dark"] .related-projects__eyebrow {
+    color: #8b89e8;
+}
+
+[data-bs-theme="dark"] .related-card {
+    background-color: #1a1a1f;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-bs-theme="dark"] .related-card:hover,
+[data-bs-theme="dark"] .related-card:focus-visible {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    border-color: rgba(139, 137, 232, 0.4);
+}
+
+[data-bs-theme="dark"] .related-card__title {
+    color: #fafafa;
+}
+
+[data-bs-theme="dark"] .related-card__desc {
+    color: #a1a1aa;
+}
+
+[data-bs-theme="dark"] .related-card__eyebrow {
+    color: #71717a;
+}
+
+[data-bs-theme="dark"] .related-card__cta {
+    color: #8b89e8;
+}
