@@ -41,7 +41,7 @@
 					<p class="case-header__lede">How optimized discovery flows generated €5M in new B2B revenue for PostNL</p>
 					<img src="assets/images/FFM/banner_ffm.png" class="img-fluid case-header__banner" alt="PostNL B2B Acquisition">
 				</div>
-				<div class="col-lg-4 col-md-5">
+				<div class="col-lg-4 col-md-5 case-sidebar-slot">
 					<aside class="case-sidebar">
 						<div class="case-sidebar__meta">
 							<div class="case-meta-group">
@@ -369,31 +369,74 @@
 	<script src="js/theme-toggle.js"></script>
 	<script src="js/slider-handling.js"></script> <!--ensures carousel active state is correctly styled-->
 
-	<!-- Case study TOC scrollspy -->
+	<!-- Case study sidebar pin + TOC scrollspy -->
 	<script>
 		(function () {
+			const slot = document.querySelector('.case-sidebar-slot');
+			const sidebar = document.querySelector('.case-sidebar');
+			const stopEl = document.querySelector('.related-projects');
 			const links = Array.from(document.querySelectorAll('.case-toc__link'));
-			if (!links.length || !('IntersectionObserver' in window)) return;
 
-			const sections = links
-				.map(link => document.querySelector(link.getAttribute('href')))
-				.filter(Boolean);
-			if (!sections.length) return;
+			// ---- TOC scrollspy ----
+			if (links.length && 'IntersectionObserver' in window) {
+				const sections = links
+					.map(link => document.querySelector(link.getAttribute('href')))
+					.filter(Boolean);
 
-			const setActive = id => {
-				links.forEach(link => {
-					link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
-				});
+				if (sections.length) {
+					const setActive = id => {
+						links.forEach(link => {
+							link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+						});
+					};
+
+					const observer = new IntersectionObserver(entries => {
+						const visible = entries
+							.filter(e => e.isIntersecting)
+							.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+						if (visible) setActive(visible.target.id);
+					}, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+					sections.forEach(section => observer.observe(section));
+				}
+			}
+
+			// ---- Sticky-past-parent pin ----
+			if (!slot || !sidebar || !stopEl) return;
+
+			const PIN_OFFSET = 80; // px from viewport top when pinned
+			let raf = null;
+
+			const measure = () => {
+				const rect = slot.getBoundingClientRect();
+				sidebar.style.setProperty('--case-sidebar-width', rect.width + 'px');
+				sidebar.style.left = rect.left + 'px';
 			};
 
-			const observer = new IntersectionObserver(entries => {
-				const visible = entries
-					.filter(e => e.isIntersecting)
-					.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-				if (visible) setActive(visible.target.id);
-			}, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+			const update = () => {
+				raf = null;
+				if (window.innerWidth < 992) {
+					sidebar.classList.remove('is-pinned');
+					sidebar.style.removeProperty('left');
+					return;
+				}
+				const slotTop = slot.getBoundingClientRect().top;
+				const stopTop = stopEl.getBoundingClientRect().top;
+				// Pin when the slot's natural top has scrolled above the offset,
+				// unpin again when the related-projects section is close to the offset.
+				const shouldPin = slotTop <= PIN_OFFSET && stopTop > PIN_OFFSET + 200;
+				sidebar.classList.toggle('is-pinned', shouldPin);
+				if (shouldPin) measure();
+				else sidebar.style.removeProperty('left');
+			};
 
-			sections.forEach(section => observer.observe(section));
+			const schedule = () => {
+				if (raf === null) raf = requestAnimationFrame(update);
+			};
+
+			window.addEventListener('scroll', schedule, { passive: true });
+			window.addEventListener('resize', () => { measure(); schedule(); });
+			update();
 		})();
 	</script>
 </body>

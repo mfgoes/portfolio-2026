@@ -597,17 +597,45 @@ section {
 }
 
 .case-sidebar {
-  position: sticky;
-  top: 6rem;
   padding-top: 4.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
+
+/* Reserve the sidebar's slot so nothing reflows when it goes fixed */
+.case-sidebar-slot {
+  position: relative;
+  min-height: 1px;
+}
+
+.case-sidebar.is-pinned {
+  position: fixed;
+  top: 5rem;
+  width: var(--case-sidebar-width, 260px);
+  padding-top: 0;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.case-sidebar.is-pinned::-webkit-scrollbar {
+  width: 4px;
+}
+.case-sidebar.is-pinned::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+
 @media (max-width: 991px) {
   .case-sidebar {
-    position: static;
     padding-top: 0;
+  }
+  .case-sidebar.is-pinned {
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
   }
 }
 
