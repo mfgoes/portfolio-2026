@@ -2,3 +2,24 @@
 @import url("cards.css"); /*specifically for the homepage*/
 @import url("project-page.css"); /*specifically for the project page*/
 @import url("footer.css");
+
+/* Consulting page */
+.company-logo-wrap {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.company-logo-wrap .company-logo {
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+  opacity: 0.75;
+}
+
+#quick-inquiry .card {
+  max-width: 640px;
+  margin: 0 auto;
+}
