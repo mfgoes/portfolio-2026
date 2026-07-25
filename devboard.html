@@ -56,7 +56,7 @@
 				</div>
 
 				<!-- Share sidebar -->
-				<div class="col-lg-3 col-xl-3 offset-lg-1">
+				<div class="col-lg-4 col-xl-3 offset-xl-1">
 					<div class="article-sidebar-sticky">
 						<div class="share-sidebar mb-3">
 							<h6>SHARE THIS ARTICLE</h6>
@@ -88,7 +88,7 @@
 							<p class="small text-muted mb-0" style="font-size: 0.8rem;">PM & Indie Developer</p>
 						</div>
 
-						<div class="bsky-sidebar-box">
+						<div class="bsky-sidebar-box d-none d-lg-block">
 							<div class="bsky-sidebar-header">
 								<span class="bsky-sidebar-label">Dev feed</span>
 								<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener" class="bsky-sidebar-handle">@mishotofu.bsky.social</a>
@@ -98,7 +98,8 @@
 									id="bskyEmbed"
 									limit="2"
 									mode="light"
-									username="mishotofu.bsky.social">
+									username="mishotofu.bsky.social"
+									custom-styles="@media (min-width: 992px) and (max-width: 1199.98px) { :host { --base-text-size: 0.88rem; } .avatar, img[alt*='avatar'], img[alt*='profile'] { width: 40px !important; height: 40px !important; min-width: 40px !important; min-height: 40px !important; } }">
 								</bsky-embed>
 							</div>
 						</div>
@@ -252,6 +253,27 @@
 			</div>
 		</div>
 	</div>
+
+	<section class="py-4 d-lg-none">
+		<div class="container">
+			<div style="max-width: 800px;">
+				<div class="bsky-sidebar-box">
+					<div class="bsky-sidebar-header">
+						<span class="bsky-sidebar-label">Dev feed</span>
+						<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener" class="bsky-sidebar-handle">@mishotofu.bsky.social</a>
+					</div>
+					<div class="bsky-feed-container">
+						<bsky-embed
+							id="bskyEmbedMobile"
+							limit="2"
+							mode="light"
+							username="mishotofu.bsky.social">
+						</bsky-embed>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- Article Footer -->
 	<div id="article-footer-container"></div>

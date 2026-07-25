@@ -52,6 +52,24 @@ bsky-embed img[alt*="profile"] {
 	padding: 0.5rem 0.25rem;
 }
 
+.bsky-sidebar-box bsky-embed {
+	display: block;
+	width: 100%;
+	font-size: 0.95rem;
+	line-height: 1.45;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.bsky-sidebar-box .bsky-feed-container {
+		padding-left: 0.4rem;
+		padding-right: 0.4rem;
+	}
+
+	.bsky-sidebar-box bsky-embed {
+		font-size: 0.92rem;
+	}
+}
+
 /* Article header */
 .article-meta {
 	color: #666;
