@@ -1,0 +1,31 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "http-server",
+        "/Users/mischavandergoes/Documents/GitHub/portfolio-2026",
+        "-p",
+        "4173",
+        "-c-1"
+      ],
+      "port": 4173
+    },
+    {
+      "name": "portfolio-recreate",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "http-server",
+        "/Users/mischavandergoes/Documents/GitHub/portfolio-2026",
+        "-p",
+        "4190",
+        "-c-1"
+      ],
+      "port": 4190
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<title>AuditON prototype (recreated)</title>
+	<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="auditon.css">
+</head>
+<body>
+	<!--
+		AuditON screens, recreated in HTML/CSS from the original Mendix designs
+		for the portfolio case study (mendix.html). All names and data are fictional.
+
+		URL parameters:
+		  screen = audits | home | control | insights | login
+		  ev     = E01 | E02 | E03   (control screen: opens the evidence panel)
+		  tab    = upload | chat     (which panel tab is open)
+	-->
+	<div class="ao">
+		<header class="ao-top">
+			<button class="ao-icon-btn" type="button" aria-label="Menu" data-icon="menu"></button>
+			<a class="ao-brand" href="?screen=audits"><span class="ao-mx">mx</span>AuditON</a>
+			<span class="ao-top-spacer"></span>
+			<button class="ao-icon-btn" type="button" aria-label="Help" data-icon="help"></button>
+			<button class="ao-icon-btn" type="button" aria-label="Account" data-icon="user"></button>
+		</header>
+		<main id="view"></main>
+	</div>
+	<script src="auditon.js"></script>
+</body>
+</html>
