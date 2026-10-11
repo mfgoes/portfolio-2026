@@ -1,4 +1,4 @@
-/* ===== Consulting page =====
+/* ===== Home, Consulting and About pages =====
    Opt in with <body class="co-page">. Tokens and base type come from editorial.css.
    Display-scale serif type, mono labels, hairline rows.
    Motion lives in js/consulting.js and is disabled for reduced-motion users.
@@ -131,7 +131,7 @@
 
 @media (min-width: 992px) {
 	.co-logos-grid {
-		grid-template-columns: 12rem repeat(4, 1fr);
+		grid-template-columns: max-content repeat(4, 1fr);
 	}
 
 	.co-page .co-logos .co-eyebrow {
@@ -492,6 +492,307 @@
 	}
 }
 
+/* ---------- About: hero ---------- */
+.co-page .co-display--xl {
+	font-size: clamp(4rem, 15vw, 12rem);
+	line-height: 0.9;
+	letter-spacing: -0.05em;
+}
+
+.co-about-intro {
+	display: grid;
+	gap: 2rem;
+}
+
+.co-page .co-portrait--wide img {
+	aspect-ratio: 3 / 2;
+}
+
+@media (min-width: 992px) {
+	.co-about-intro {
+		grid-template-columns: 5fr 7fr;
+		column-gap: clamp(2rem, 5vw, 5rem);
+		align-items: end;
+	}
+
+	.co-page .co-about-intro > .co-lede {
+		margin-bottom: 0;
+	}
+}
+
+/* ---------- About: figures ---------- */
+.co-figures {
+	list-style: none;
+	margin: 0 0 clamp(3rem, 6vw, 5rem);
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 2rem 1.5rem;
+}
+
+.co-figure {
+	border-top: 1px solid var(--cs-ink);
+	padding-top: 1rem;
+}
+
+.co-page .co-figure-value {
+	font-family: var(--cs-serif);
+	font-size: clamp(2.75rem, 6vw, 5rem);
+	line-height: 1;
+	letter-spacing: -0.045em;
+	font-variant-numeric: lining-nums tabular-nums;
+	color: var(--cs-ink);
+	margin: 0 0 0.75rem;
+}
+
+.co-page .co-banner img {
+	aspect-ratio: 21 / 9;
+}
+
+@media (min-width: 768px) {
+	.co-figures {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+/* ---------- About: experience ---------- */
+.co-xp {
+	border-bottom: 1px solid var(--cs-line);
+}
+
+.co-xp-item {
+	border-top: 1px solid var(--cs-line);
+}
+
+.co-xp-item summary {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0.4rem 1.5rem;
+	align-items: baseline;
+	padding: clamp(1.25rem, 2.5vw, 2rem) 0;
+	cursor: pointer;
+	list-style: none;
+}
+
+.co-xp-item summary::-webkit-details-marker {
+	display: none;
+}
+
+.co-xp-item summary:focus-visible {
+	outline: 2px solid var(--cs-accent);
+	outline-offset: 4px;
+}
+
+.co-xp-years {
+	grid-column: 1 / -1;
+	font-family: var(--cs-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+}
+
+.co-xp-role {
+	font-family: var(--cs-serif);
+	font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+	line-height: 1.05;
+	letter-spacing: -0.025em;
+	color: var(--cs-ink);
+	transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Plus that turns into a minus when the row is open */
+.co-xp-toggle {
+	position: relative;
+	align-self: center;
+	width: 1rem;
+	height: 1rem;
+}
+
+.co-xp-toggle::before,
+.co-xp-toggle::after {
+	content: "";
+	position: absolute;
+	inset: 50% 0 auto 0;
+	height: 1px;
+	background: var(--cs-ink);
+	transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.co-xp-toggle::after {
+	transform: rotate(90deg);
+}
+
+.co-xp-item[open] .co-xp-toggle::after {
+	transform: none;
+}
+
+.co-xp-body {
+	padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+	max-width: 44em;
+}
+
+.co-xp-item[open] > .co-xp-body {
+	animation: co-open 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes co-open {
+	from { opacity: 0; transform: translateY(-8px); }
+	to   { opacity: 1; transform: none; }
+}
+
+.co-page .co-xp-body p {
+	margin: 0 0 0.6rem;
+}
+
+.co-page .co-xp-body ul {
+	list-style: none;
+	margin: 0 0 1.25rem;
+	padding: 0;
+}
+
+.co-page .co-xp-body ul:last-child {
+	margin-bottom: 0;
+}
+
+.co-page .co-xp-body li {
+	position: relative;
+	padding: 0.3rem 0 0.3rem 1.4rem;
+	line-height: 1.55;
+	color: var(--cs-muted);
+}
+
+.co-page .co-xp-body li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 1.05em;
+	width: 0.7rem;
+	height: 1px;
+	background: var(--cs-muted);
+}
+
+@media (min-width: 768px) {
+	.co-xp-item summary {
+		grid-template-columns: 11rem minmax(0, 1fr) auto;
+	}
+
+	.co-xp-years {
+		grid-column: auto;
+	}
+
+	.co-xp-body {
+		margin-left: calc(11rem + 1.5rem);
+	}
+
+	.co-xp-item summary:hover .co-xp-role {
+		transform: translateX(0.5rem);
+	}
+}
+
+/* ---------- Home ---------- */
+.co-page .co-hero--home {
+	padding: clamp(4rem, 11vw, 9rem) 0 clamp(4rem, 9vw, 7rem);
+}
+
+.co-page .co-hero--home .co-display {
+	font-size: clamp(2.6rem, 7.4vw, 6.75rem);
+	max-width: 13em;
+}
+
+.co-links {
+	border-bottom: 1px solid var(--cs-line);
+}
+
+.co-page .co-link-row {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0.5rem 1.5rem;
+	align-items: baseline;
+	padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+	border-top: 1px solid var(--cs-line);
+	color: inherit;
+	text-decoration: none;
+}
+
+.co-link-kind {
+	grid-column: 1 / -1;
+	font-family: var(--cs-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+}
+
+.co-link-title {
+	font-family: var(--cs-serif);
+	font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+	line-height: 1.05;
+	letter-spacing: -0.025em;
+	color: var(--cs-ink);
+	transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.co-link-text {
+	grid-column: 1 / -1;
+	font-size: 1.05rem;
+	line-height: 1.6;
+	color: var(--cs-muted);
+	max-width: 30em;
+}
+
+.co-link-arrow {
+	grid-row: 2;
+	grid-column: 2;
+	font-size: 1.5rem;
+	line-height: 1;
+	color: var(--cs-ink);
+	transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.co-page .co-link-row:focus-visible {
+	outline: 2px solid var(--cs-accent);
+	outline-offset: 4px;
+}
+
+@media (min-width: 992px) {
+	.co-page .co-link-row {
+		grid-template-columns: 9rem 4fr 5fr auto;
+	}
+
+	.co-link-kind,
+	.co-link-text {
+		grid-column: auto;
+	}
+
+	.co-link-arrow {
+		grid-row: auto;
+		grid-column: auto;
+	}
+
+	.co-link-row:hover .co-link-title {
+		transform: translateX(0.5rem);
+	}
+
+	.co-link-row:hover .co-link-arrow {
+		transform: translateX(0.4rem);
+	}
+}
+
+.co-xp-sub {
+	display: block;
+	font-family: var(--cs-sans);
+	font-size: 0.95rem;
+	line-height: 1.4;
+	letter-spacing: 0;
+	color: var(--cs-muted);
+	margin-top: 0.4rem;
+}
+
+.co-page .co-xp-group {
+	margin: clamp(2.5rem, 5vw, 4rem) 0 1.25rem;
+}
+
 /* ---------- Motion ---------- */
 .co-js .co-reveal {
 	opacity: 0;
@@ -514,8 +815,9 @@
 	display: inline-block;
 	overflow: hidden;
 	vertical-align: top;
-	padding: 0 0.08em 0.16em 0;
-	margin: 0 -0.08em -0.16em 0;
+	/* Room for ascenders, descenders and italic overhang, which tight line-heights would clip */
+	padding: 0.14em 0.08em 0.16em 0;
+	margin: -0.14em -0.08em -0.16em 0;
 }
 
 .co-w > span {
@@ -592,6 +894,10 @@
 	}
 
 	.co-marquee.is-running .co-marquee-track {
+		animation: none;
+	}
+
+	.co-xp-item[open] > .co-xp-body {
 		animation: none;
 	}
 }

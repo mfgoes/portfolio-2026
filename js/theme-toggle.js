@@ -2,6 +2,7 @@ class ThemeManager {
     constructor() {
         this.THEME_KEY = 'uxfolio-theme';
         // First-time users always get light mode
+        // js/theme-init.js has already saved a ?theme= override from the URL, if there was one
         this.currentTheme = localStorage.getItem(this.THEME_KEY) || 'light';
         this.init();
     }
@@ -115,6 +116,13 @@ class ThemeManager {
                 } catch (err) {
                     console.error('Failed to copy email:', err);
                 }
+            });
+
+            // The link has no href, so give keyboard users the same action
+            emailBtn.addEventListener('keydown', (e) => {
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                e.preventDefault();
+                emailBtn.click();
             });
         }
     }

@@ -2,6 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
+	<script src="js/theme-init.js"></script>
 	<title>About | Mischa vd Goes</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,146 +44,188 @@
 	<meta name="twitter:image" content="assets/images/about/LUV02016.jpg">
 
 	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
+	<link rel="stylesheet" href="assets/css/consulting.css?v=8" />
+	<!-- Set before first paint so animated elements don't flash in their final state -->
+	<script>document.documentElement.classList.add('co-js');</script>
 </head>
-<body class="dark-nav">
+<body class="dark-nav co-page">
 	<!-- Navbar -->
 	<div id="navbar-container"></div>
 
-	
-	<!-- Section 1: Header with Image and Details -->
-	<section class="py-5">
+	<!-- Section 1: Hero -->
+	<section class="co-hero">
 		<div class="container">
-			<div class="row align-items-center g-5">
-				<div class="col-md-5">
-					<img src="assets/images/about/LUV02016.jpg" class="img-fluid rounded shadow-sm" alt="Mischa vd Goes" style="object-fit: cover; width: 100%;">
-				</div>
-				<div class="col-md-7">
-					<h1 class="mb-4">Meet Mischa</h1>
-					<p class="text-muted">UX Designer with 6+ years of experience creating data-driven digital experiences. From designing enterprise applications to leading experimentation culture, I combine design thinking with measurable business impact to deliver solutions that users love and businesses value.</p>
-				</div>
+			<p class="co-eyebrow co-reveal">About / UX designer</p>
+			<h1 class="co-display co-display--xl" data-split>Meet <em>Mischa</em></h1>
+			<div class="co-about-intro">
+				<p class="co-lede co-reveal" style="--co-delay: 0.35s">UX Designer with 6+ years of experience creating data-driven digital experiences. From designing enterprise applications to leading experimentation culture, I combine design thinking with measurable business impact to deliver solutions that users love and businesses value.</p>
+				<figure class="co-portrait co-portrait--wide co-clip">
+					<img src="assets/images/about/LUV02016.jpg" alt="Mischa vd Goes">
+				</figure>
 			</div>
 		</div>
 	</section>
 
-
-
-	<!-- Section 3: Current Role -->
-	<section class="py-5 bg-paper">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-md-6">
-					<h2>Currently at PostNL</h2>
-					<p>As a UX Designer, I'm redesigning high-traffic business acquisition flows and driving a culture of experimentation. Through 50+ data-driven tests, I've helped scale A/B testing volume by 150% while achieving a 15% increase in account creations and 12-point NPS boost.</p>
-				</div>
-				<div class="col-md-6">
-					<img src="assets/images/postnl-landscape.jpg" alt="UX Design Work" class="img-fluid img-rounded">
-				</div>
+	<!-- Decorative type band -->
+	<div class="co-marquee" aria-hidden="true">
+		<div class="co-marquee-track">
+			<div class="co-marquee-group">
+				<span>Design</span><span>Experimentation</span><span>Development</span><span>Design</span><span>Experimentation</span><span>Development</span>
 			</div>
 		</div>
-	</section>
-	
-	<!-- Services -->
-	<div id="services-container" class=""></div>
+	</div>
 
-
-	<!-- Section 2: Experience Timeline -->
-	<section id="specs" class="py-5 bg-white">
+	<!-- Current Role -->
+	<section class="co-section">
 		<div class="container">
-			<h2 class="text-dark text-center mb-4">Professional Experience</h2>
-			<div class="accordion" id="experienceAccordion">
-				
+			<div class="co-head">
+				<p class="co-eyebrow"><span class="co-num">01</span>Now</p>
+				<h2 data-split>Currently at PostNL</h2>
+			</div>
+			<p class="co-statement" data-scrub>As a UX Designer, I'm redesigning high-traffic business acquisition flows and driving a culture of experimentation. Through 50+ data-driven tests, I've helped scale A/B testing volume by 150% while achieving a 15% increase in account creations and 12-point NPS boost.</p>
+			<ul class="co-figures">
+				<li class="co-figure co-reveal">
+					<p class="co-figure-value"><span data-count-from="0" data-count-to="50">50</span>+</p>
+					<p class="co-stat-label">Data-driven tests</p>
+				</li>
+				<li class="co-figure co-reveal" style="--co-delay: 0.1s">
+					<p class="co-figure-value"><span data-count-from="0" data-count-to="150">150</span>%</p>
+					<p class="co-stat-label">More A/B testing volume</p>
+				</li>
+				<li class="co-figure co-reveal" style="--co-delay: 0.2s">
+					<p class="co-figure-value"><span data-count-from="0" data-count-to="15">15</span>%</p>
+					<p class="co-stat-label">Increase in account creations</p>
+				</li>
+				<li class="co-figure co-reveal" style="--co-delay: 0.3s">
+					<p class="co-figure-value">+<span data-count-from="0" data-count-to="12">12</span></p>
+					<p class="co-stat-label">NPS points</p>
+				</li>
+			</ul>
+			<figure class="co-portrait co-banner co-clip">
+				<img src="assets/images/postnl-landscape.jpg" alt="PostNL advertising on a building">
+			</figure>
+		</div>
+	</section>
+
+	<!-- What I bring -->
+	<section class="co-section">
+		<div class="container">
+			<div class="co-head">
+				<p class="co-eyebrow"><span class="co-num">02</span>Strengths</p>
+				<h2 data-split>What I bring to your team</h2>
+				<p class="co-head-note co-reveal" style="--co-delay: 0.3s">I optimize product metrics through user-centered design and data-driven experimentation.</p>
+			</div>
+			<ul class="co-why">
+				<li class="co-why-row co-reveal">
+					<h3 class="co-why-lead">Product-focused UX design</h3>
+					<p>I design B2B interfaces that drive measurable business outcomes.</p>
+				</li>
+				<li class="co-why-row co-reveal">
+					<h3 class="co-why-lead">Product development bridge</h3>
+					<p>Streamline design-to-development workflows through systematic documentation and cross-functional collaboration.</p>
+				</li>
+				<li class="co-why-row co-reveal">
+					<h3 class="co-why-lead">Growth through experimentation</h3>
+					<p>Build testing culture and optimize key metrics through structured experimentation and stakeholder alignment.</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- Experience Timeline -->
+	<section id="specs" class="co-section">
+		<div class="container">
+			<div class="co-head">
+				<p class="co-eyebrow"><span class="co-num">03</span>Experience</p>
+				<h2 data-split>Professional Experience</h2>
+			</div>
+			<div class="co-xp">
 				<!-- Current Role -->
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="headingPostNL">
-						<a class="accordion-button show text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostNL" aria-expanded="true" aria-controls="collapsePostNL">
-							<span class="me-3 text-dark text-uppercase">2024 - Present</span> UX Designer at PostNL
-						</a>
-					</h2>
-					<div id="collapsePostNL" class="accordion-collapse collapse show" aria-labelledby="headingPostNL" data-bs-parent="#experienceAccordion">
-						<div class="accordion-body">
-							<strong>Redesigning high-traffic business acquisition flows</strong><br>
-							• Drove UX experimentation culture by designing 50+ data-driven tests that scaled A/B testing volume by 150%<br>
-							• Achieved 15%+ increase in account creations by simplifying user flows (reduced from 37 to 17 clicks)<br>
-							• Boosted NPS by 12 points through targeted improvements for high-value client segments<br>
-							• Led usability research that aligned stakeholders on roadmap priorities<br>
-							• Streamlined cross-functional collaboration, reducing delivery time from 5 to 2 sprints
-						</div>
+				<details class="co-xp-item co-reveal" name="experience" open>
+					<summary>
+						<span class="co-xp-years">2024 – Present</span>
+						<span class="co-xp-role">UX Designer at PostNL</span>
+						<span class="co-xp-toggle" aria-hidden="true"></span>
+					</summary>
+					<div class="co-xp-body">
+						<p><strong>Redesigning high-traffic business acquisition flows</strong></p>
+						<ul>
+							<li>Drove UX experimentation culture by designing 50+ data-driven tests that scaled A/B testing volume by 150%</li>
+							<li>Achieved 15%+ increase in account creations by simplifying user flows (reduced from 37 to 17 clicks)</li>
+							<li>Boosted NPS by 12 points through targeted improvements for high-value client segments</li>
+							<li>Led usability research that aligned stakeholders on roadmap priorities</li>
+							<li>Streamlined cross-functional collaboration, reducing delivery time from 5 to 2 sprints</li>
+							<li>Introduced reusable shipment presets for SMB customers for mobile &amp; desktop, defining a three-phase roadmap with PMs and engineers</li>
+						</ul>
 					</div>
-				</div>
+				</details>
 
 				<!-- Mendix Role -->
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="headingMendix">
-						<a class="accordion-button collapsed text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMendix" aria-expanded="false" aria-controls="collapseMendix">
-							<span class="me-3 text-dark text-uppercase">2021 - 2023</span> UX Designer at Mendix
-						</a>
-					</h2>
-					<div id="collapseMendix" class="accordion-collapse collapse" aria-labelledby="headingMendix" data-bs-parent="#experienceAccordion">
-						<div class="accordion-body">
-							<strong>Designed enterprise applications for 10+ teams in Siemens and Mendix</strong><br>
-							• <strong>AuditON design lead:</strong> Led user research identifying compliance bottlenecks, designed streamlined workflow reducing error rates by 30%<br>
-							• <strong>Design System Growth:</strong> Created 10+ reusable components, increasing team productivity by 40%<br>
-							• <strong>Custom UI implementation:</strong> Shipped 10+ tailored applications using HTML/CSS overrides<br>
-							• Used HEART framework to measure improvements in task success and user satisfaction
-						</div>
+				<details class="co-xp-item co-reveal" name="experience">
+					<summary>
+						<span class="co-xp-years">2021 – 2023</span>
+						<span class="co-xp-role">UX Designer at Mendix</span>
+						<span class="co-xp-toggle" aria-hidden="true"></span>
+					</summary>
+					<div class="co-xp-body">
+						<p><strong>Designed enterprise applications for 10+ teams in Siemens and Mendix</strong></p>
+						<ul>
+							<li><strong>AuditON design lead:</strong> Led user research identifying compliance bottlenecks, designed streamlined workflow reducing error rates by 30%</li>
+							<li><strong>Design System Growth:</strong> Created 10+ reusable components, increasing team productivity by 40%</li>
+							<li><strong>Custom UI implementation:</strong> Shipped 10+ tailored applications using HTML/CSS overrides</li>
+							<li>Used HEART framework to measure improvements in task success and user satisfaction</li>
+						</ul>
 					</div>
-				</div>
+				</details>
 
 				<!-- Crowd Media Role -->
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="headingCrowd">
-						<a class="accordion-button collapsed text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCrowd" aria-expanded="false" aria-controls="collapseCrowd">
-							<span class="me-3 text-dark text-uppercase">2018 - 2020</span> Junior Visual Designer at Crowd Media
-						</a>
-					</h2>
-					<div id="collapseCrowd" class="accordion-collapse collapse" aria-labelledby="headingCrowd" data-bs-parent="#experienceAccordion">
-						<div class="accordion-body">
-							<strong>Creative production and campaign management</strong><br>
-							• Produced 100+ video ads for international brands with diverse audio/visual approaches<br>
-							• Designed high-converting landing pages for personalized customer segments<br>
-							• Implemented A/B testing to maximize conversion rates<br>
-							• Executed 10+ influencer campaigns with 1M+ combined reach for beauty/lifestyle clients
-						</div>
+				<details class="co-xp-item co-reveal" name="experience">
+					<summary>
+						<span class="co-xp-years">2018 – 2020</span>
+						<span class="co-xp-role">Junior Visual Designer at Crowd Media</span>
+						<span class="co-xp-toggle" aria-hidden="true"></span>
+					</summary>
+					<div class="co-xp-body">
+						<p><strong>Creative production and campaign management</strong></p>
+						<ul>
+							<li>Produced 100+ video ads for international brands with diverse audio/visual approaches</li>
+							<li>Designed high-converting landing pages for personalized customer segments</li>
+							<li>Implemented A/B testing to maximize conversion rates</li>
+							<li>Executed 10+ influencer campaigns with 1M+ combined reach for beauty/lifestyle clients</li>
+						</ul>
 					</div>
-				</div>
+				</details>
 
 				<!-- Internships -->
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="headingInternships">
-						<a class="accordion-button collapsed text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInternships" aria-expanded="false" aria-controls="collapseInternships">
-							<span class="me-3 text-dark text-uppercase">2016 - 2018</span> Internships & Early Experience
-						</a>
-					</h2>
-					<div id="collapseInternships" class="accordion-collapse collapse" aria-labelledby="headingInternships" data-bs-parent="#experienceAccordion">
-						<div class="accordion-body">
-							<strong>TravPro Mobile (Feb 2018 - Jun 2018)</strong><br>
-							• UX design thesis internship (Afstudeerstage)<br><br>
-							<strong>Mattmo Creative Agency (Sep 2016 - Jan 2017)</strong><br>
-							• Product packaging and design contributive internship (Meewerkstage)
-						</div>
+				<details class="co-xp-item co-reveal" name="experience">
+					<summary>
+						<span class="co-xp-years">2016 – 2018</span>
+						<span class="co-xp-role">Internships &amp; Early Experience</span>
+						<span class="co-xp-toggle" aria-hidden="true"></span>
+					</summary>
+					<div class="co-xp-body">
+						<p><strong>TravPro Mobile (Feb 2018 - Jun 2018)</strong></p>
+						<ul>
+							<li>UX design thesis internship (Afstudeerstage)</li>
+						</ul>
+						<p><strong>Mattmo Creative Agency (Sep 2016 - Jan 2017)</strong></p>
+						<ul>
+							<li>Product packaging and design contributive internship (Meewerkstage)</li>
+						</ul>
 					</div>
-				</div>
-			
+				</details>
 			</div>
 		</div>
 	</section>
 
-	
-
-	<!-- Section 7: Get in touch snippet -->
+	<!-- Get in touch snippet -->
 	<div id="contact-cta-container"></div>
 
 	<!-- Section - Footer -->
 	<div id="footer-container"></div>
 
-
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Include Bootstrap JS for the modal functionality -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 
 	<!-- Core utilities (load first - required by other scripts) -->
 	<script src="js/core/utils.js"></script>
@@ -192,9 +235,8 @@
 	<!--set up snippets>-->
 	<script src="assets/components/navbar.js"></script>
 	<script src="assets/components/contact-cta.js"></script>
-	<script src="assets/components/services-cards.js"></script>
 	<script src="assets/components/footer.js"></script>
 	<script src="js/theme-toggle.js"></script>
-	<script src="js/slider-handling.js"></script> <!--ensures carousel active state is correctly styled-->
+	<script src="js/consulting.js?v=1"></script>
 </body>
 </html>

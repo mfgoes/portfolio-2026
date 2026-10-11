@@ -2,7 +2,8 @@
 <html data-bs-theme="light">
 
 <head>
-	<title>Mischa</title>
+	<script src="js/theme-init.js"></script>
+	<title>Mischa vd Goes | UX Designer for B2B Growth &amp; Onboarding</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,7 +22,7 @@
 	<meta name="author" content="Mischa vd Goes">
 
 	<!-- Description -->
-	<meta name="description" content="">
+	<meta name="description" content="Portfolio of Mischa vd Goes, UX designer in Haarlem, NL. B2B acquisition and onboarding flows, backed by experiments: 2x conversion, 15%+ more accounts.">
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -31,21 +32,24 @@
 
 	<!-- Open Graph -->
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Mischa vd Goes | Portfolio">
-	<meta property="og:description" content="Creating innovative design solutions with a product mindset.">
-	<meta property="og:image" content="assets/images/mendix/public/assets/images/mendix/homepage.jpg">
+	<meta property="og:title" content="Mischa vd Goes | UX Designer for B2B Growth &amp; Onboarding">
+	<meta property="og:description" content="Portfolio of Mischa vd Goes, UX designer in Haarlem, NL. B2B acquisition and onboarding flows, backed by experiments: 2x conversion, 15%+ more accounts.">
+	<meta property="og:image" content="https://mfgoes.github.io/portfolio-2026/assets/images/mendix/homepage.jpg">
 	<meta property="og:url" content="https://mfgoes.github.io/portfolio-2026/">
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Mischa vd Goes Portfolio">
-	<meta name="twitter:description" content="Creating innovative design solutions with a product mindset.">
-	<meta name="twitter:image" content="assets/images/mendix/public/assets/images/mendix/homepage.jpg">
+	<meta name="twitter:title" content="Mischa vd Goes | UX Designer for B2B Growth &amp; Onboarding">
+	<meta name="twitter:description" content="Portfolio of Mischa vd Goes, UX designer in Haarlem, NL. B2B acquisition and onboarding flows, backed by experiments: 2x conversion, 15%+ more accounts.">
+	<meta name="twitter:image" content="https://mfgoes.github.io/portfolio-2026/assets/images/mendix/homepage.jpg">
 
 	<!--<script src="assets/components/modal_component.js"></script>-->
 	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
+	<link rel="stylesheet" href="assets/css/consulting.css?v=8" />
+	<!-- Set before first paint so animated elements don't flash in their final state -->
+	<script>document.documentElement.classList.add('co-js');</script>
 </head>
-<body class="dark-nav">
+<body class="dark-nav co-page">
     <!-- Bayer dithering background -->
 	<div id="dithering-canvas"></div>
 	<!-- Navbar -->
@@ -54,59 +58,49 @@
 	<div class="content">
 
 	<!-- HEADER SECTION - Introduction -->
-	<section class="section-spacing">
+	<section class="co-hero co-hero--home">
 		<div class="container">
-			<h1 class="text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">Hi, I'm Mischa<br>Design that moves revenue, not just pixels</h1>
-			<p class="text-center text-muted mt-3">2x conversion growth. 15%+ account creation lift. Built for teams who measure design in outcomes.</p>
-			<div class="d-grid gap-3 d-sm-flex justify-content-sm-center mt-4">
-				<a href="#work-section" class="btn btn-primary px-4">
-					See my work
-				</a>
-				<a href="#contact-container" class="btn btn-outline-dark px-4">
-					<i class="fas fa-envelope me-2"></i>Get in touch
-				</a>
+			<p class="co-eyebrow co-reveal">Hi, I'm Mischa</p>
+			<h1 class="co-display" data-split>Design that moves revenue, <em>not just pixels</em></h1>
+			<p class="co-lede co-reveal" style="--co-delay: 0.5s">2x conversion growth. 15%+ account creation lift. Built for teams who measure design in outcomes.</p>
+			<div class="co-reveal" style="--co-delay: 0.6s">
+				<a href="#work-section" class="btn btn-primary px-4 me-2 mb-2">See my work</a>
+				<a href="#contact-container" class="btn btn-outline-dark px-4 mb-2">Get in touch</a>
 			</div>
 		</div>
 	</section>
 
 	<!-- COMPANIES SECTION - Logos -->
-	<div class="container section-spacing">
-		<p class="text-muted mb-5 text-center">Companies I've worked at</p>
-		<div class="row justify-content-center text-center g-4">
-			<!-- Top row logos -->
-			<div class="col-6 col-md-3 d-flex justify-content-center align-items-center">
-				<div style="height: 80px; display: flex; align-items: center; padding: 0 15px;">
-					<img src="assets/images/client logos/postnl.png" alt="PostNL Logo" class="img-fluid company-logo" style="max-height: 100%; width: auto; max-width: 100%;">
+	<div class="co-logos">
+		<div class="container">
+			<div class="co-logos-grid">
+				<p class="co-eyebrow">Companies I've worked at</p>
+				<div class="company-logo-wrap co-reveal">
+					<img src="assets/images/client logos/postnl.png" alt="PostNL Logo" class="img-fluid company-logo">
 				</div>
-			</div>
-			<div class="col-6 col-md-3 d-flex justify-content-center align-items-center">
-				<div style="height: 80px; display: flex; align-items: center; padding: 0 15px;">
-					<img src="assets/images/client logos/mendix.png" alt="Mendix Logo" class="img-fluid company-logo" style="max-height: 100%; width: auto; max-width: 100%;">
+				<div class="company-logo-wrap co-reveal" style="--co-delay: 0.08s">
+					<img src="assets/images/client logos/mendix.png" alt="Mendix Logo" class="img-fluid company-logo">
 				</div>
-			</div>
-			<!-- Bottom row logos -->
-			<div class="col-6 col-md-3 d-flex justify-content-center align-items-center">
-				<div style="height: 80px; display: flex; align-items: center; padding: 0 15px;">
-					<img src="assets/images/client logos/crowdmedia.png" alt="Crowdmedia Logo" class="img-fluid company-logo" style="max-height: 100%; width: auto; max-width: 100%;">
+				<div class="company-logo-wrap co-reveal" style="--co-delay: 0.16s">
+					<img src="assets/images/client logos/crowdmedia.png" alt="Crowdmedia Logo" class="img-fluid company-logo">
 				</div>
-			</div>
-			<div class="col-6 col-md-3 d-flex justify-content-center align-items-center">
-				<div style="height: 80px; display: flex; align-items: center; padding: 0 15px;">
-					<img src="assets/images/client logos/mattmo.png" alt="Mattmo Logo" class="img-fluid company-logo" style="max-height: 100%; width: auto; max-width: 100%;">
+				<div class="company-logo-wrap co-reveal" style="--co-delay: 0.24s">
+					<img src="assets/images/client logos/mattmo.png" alt="Mattmo Logo" class="img-fluid company-logo">
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- PORTFOLIO SECTION - Jumbatron -->
-	<div id="work-section" class="container section-spacing">
+	<!-- PORTFOLIO SECTION -->
+	<div id="work-section" class="co-section">
     <div class="container" id="case-studies">
-
-		<h3 class="text-dark mb-4 text-center">Case Studies</h3>
-
+		<div class="co-head">
+			<p class="co-eyebrow"><span class="co-num">01</span>Work</p>
+			<h2 data-split>Case Studies</h2>
+		</div>
 
         <div id="cards-view" class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 co-reveal">
                 <div class="card">
                     <a href="ffm.html" class="card-link">
                         <div class="card-img-top">
@@ -126,7 +120,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 co-reveal">
                 <div class="card">
                     <a href="postnl-ibac.html" class="card-link">
                         <div class="card-img-top">
@@ -146,7 +140,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 co-reveal">
                 <div class="card">
                     <a href="mendix.html" class="card-link">
                         <div class="card-img-top">
@@ -166,7 +160,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 co-reveal">
                 <div class="card">
                     <a href="gamedev.html" class="card-link">
                         <div class="card-img-top">
@@ -191,239 +185,165 @@
 </div>
 
 	<!-- Services -->
-	<section class="bg-light section-spacing" id="services-container">
-		<div class="container text-center">
-			<h2 class="mb-3">What I bring to your team</h2>
-			<p class="text-muted mb-5">I optimize product metrics through user-centered design and data-driven experimentation.</p>
-			<div class="row g-4 justify-content-center">
-				<div class="col-lg-4 col-md-6">
-					<div class="card services-card">
-						<div class="text-center mb-4">
-							<img src="assets/icons/usp1.png" alt="Product-focused UX design" style="width: 64px; height: 64px; object-fit: contain;">
-						</div>
-						<div class="card-body p-0">
-							<h5 class="text-dark mb-3 services-title">Product-focused UX design</h5>
-							<p class="text-muted services-text">I design B2B interfaces that drive measurable business outcomes.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="card services-card">
-						<div class="text-center mb-4">
-							<img src="assets/icons/usp2.png" alt="Product development bridge" style="width: 64px; height: 64px; object-fit: contain;">
-						</div>
-						<div class="card-body p-0">
-							<h5 class="text-dark mb-3 services-title">Product development bridge</h5>
-							<p class="text-muted services-text">Streamline design-to-development workflows through systematic documentation and cross-functional collaboration.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="card services-card">
-						<div class="text-center mb-4">
-							<img src="assets/icons/usp3.png" alt="Growth through experimentation" style="width: 64px; height: 64px; object-fit: contain;">
-						</div>
-						<div class="card-body p-0">
-							<h5 class="text-dark mb-3 services-title">Growth through experimentation</h5>
-							<p class="text-muted services-text">Build testing culture and optimize key metrics through structured experimentation and stakeholder alignment.</p>
-						</div>
-					</div>
-				</div>
+	<section class="co-section" id="services-container">
+		<div class="container">
+			<div class="co-head">
+				<p class="co-eyebrow"><span class="co-num">02</span>Strengths</p>
+				<h2 data-split>What I bring to your team</h2>
+				<p class="co-head-note co-reveal" style="--co-delay: 0.3s">I optimize product metrics through user-centered design and data-driven experimentation.</p>
 			</div>
+			<ul class="co-why">
+				<li class="co-why-row co-reveal">
+					<h3 class="co-why-lead">Product-focused UX design</h3>
+					<p>I design B2B interfaces that drive measurable business outcomes.</p>
+				</li>
+				<li class="co-why-row co-reveal">
+					<h3 class="co-why-lead">Product development bridge</h3>
+					<p>Streamline design-to-development workflows through systematic documentation and cross-functional collaboration.</p>
+				</li>
+				<li class="co-why-row co-reveal">
+					<h3 class="co-why-lead">Growth through experimentation</h3>
+					<p>Build testing culture and optimize key metrics through structured experimentation and stakeholder alignment.</p>
+				</li>
+			</ul>
 		</div>
 	</section>
+
 <!-- ARTICLES SECTION -->
-<section class="section-spacing">
+<section class="co-section">
 	<div class="container">
-		<h3 class="text-center mb-2">Beyond the portfolio</h3>
-		<p class="text-center mb-5 services-text">Side projects and dev writing</p>
-		<div class="row g-4 justify-content-center">
-			<div class="col-12 col-md-6 col-lg-4">
-				<a href="quiet-network.html" class="text-decoration-none side-project-link">
-					<div class="services-card h-100">
-						<p class="services-text small mb-2 text-uppercase fw-semibold" style="letter-spacing: 0.05em;">Social App</p>
-						<h5 class="services-title mb-2">Quiet Network</h5>
-						<p class="services-text mb-0">A calm, ephemeral community platform for neighborhoods and interest groups — no ads, no algorithms, no permanent record.</p>
-						<div class="project-arrow">
-							<svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M6.34863 15.4998C5.79635 15.4998 5.34863 15.9476 5.34863 16.4998C5.34863 17.0521 5.79635 17.4998 6.34863 17.4998L6.34863 15.4998ZM30.0557 17.207C30.4463 16.8164 30.4463 16.1833 30.0557 15.7927L23.6918 9.42878C23.3013 9.03826 22.6681 9.03826 22.2776 9.42878C21.887 9.81931 21.887 10.4525 22.2776 10.843L27.9344 16.4998L22.2776 22.1567C21.887 22.5472 21.887 23.1804 22.2776 23.5709C22.6681 23.9614 23.3013 23.9614 23.6918 23.5709L30.0557 17.207ZM6.34863 17.4998L29.3486 17.4998L29.3486 15.4998L6.34863 15.4998L6.34863 17.4998Z"/>
-							</svg>
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="col-12 col-md-6 col-lg-4">
-				<a href="devboard.html" class="text-decoration-none side-project-link">
-					<div class="services-card h-100">
-						<p class="services-text small mb-2 text-uppercase fw-semibold" style="letter-spacing: 0.05em;">Tool</p>
-						<h5 class="services-title mb-2">DevBoard</h5>
-						<p class="services-text mb-0">A lightweight FigJam-style infinite canvas for solo devs. No accounts, no backend — everything lives in your browser.</p>
-						<div class="project-arrow">
-							<svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M6.34863 15.4998C5.79635 15.4998 5.34863 15.9476 5.34863 16.4998C5.34863 17.0521 5.79635 17.4998 6.34863 17.4998L6.34863 15.4998ZM30.0557 17.207C30.4463 16.8164 30.4463 16.1833 30.0557 15.7927L23.6918 9.42878C23.3013 9.03826 22.6681 9.03826 22.2776 9.42878C21.887 9.81931 21.887 10.4525 22.2776 10.843L27.9344 16.4998L22.2776 22.1567C21.887 22.5472 21.887 23.1804 22.2776 23.5709C22.6681 23.9614 23.3013 23.9614 23.6918 23.5709L30.0557 17.207ZM6.34863 17.4998L29.3486 17.4998L29.3486 15.4998L6.34863 15.4998L6.34863 17.4998Z"/>
-							</svg>
-						</div>
-					</div>
-				</a>
-			</div>
+		<div class="co-head">
+			<p class="co-eyebrow"><span class="co-num">03</span>Side projects</p>
+			<h2 data-split>Beyond the portfolio</h2>
+			<p class="co-head-note co-reveal" style="--co-delay: 0.3s">Side projects and dev writing</p>
+		</div>
+		<div class="co-links">
+			<a href="quiet-network.html" class="co-link-row co-reveal">
+				<span class="co-link-kind">Social App</span>
+				<span class="co-link-title">Quiet Network</span>
+				<span class="co-link-text">A calm, ephemeral community platform for neighborhoods and interest groups — no ads, no algorithms, no permanent record.</span>
+				<span class="co-link-arrow" aria-hidden="true">→</span>
+			</a>
+			<a href="devboard.html" class="co-link-row co-reveal">
+				<span class="co-link-kind">Tool</span>
+				<span class="co-link-title">DevBoard</span>
+				<span class="co-link-text">A lightweight FigJam-style infinite canvas for solo devs. No accounts, no backend — everything lives in your browser.</span>
+				<span class="co-link-arrow" aria-hidden="true">→</span>
+			</a>
 		</div>
 	</div>
 </section>
 
 <!-- ABOUT ME SECTION -->
-<section class="section-spacing">
+<section class="co-section">
 	<div class="container" id="contact-container">
-		<div class="row align-items-center g-5">
-			<div class="col-lg-5">
-				<img src="assets/images/about/LUV02016.jpg" alt="Mischa vd Goes" class="img-fluid rounded shadow">
+		<div class="co-about-intro">
+			<div>
+				<div class="co-head">
+					<p class="co-eyebrow"><span class="co-num">04</span>Contact</p>
+					<h2 data-split>Ready to scale your product impact?</h2>
+				</div>
+				<p class="co-lede co-reveal">I help scale-ups and growing companies optimize user acquisition, improve conversion flows, and build experimentation culture. Currently transitioning from UX to Product Management while available for strategic consulting.</p>
+				<div class="co-reveal" style="--co-delay: 0.1s">
+					<a href="mailto:mischavdgoes@gmail.com" class="btn btn-primary px-4 me-2 mb-2">Send email</a>
+					<a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank" rel="noopener" class="btn btn-outline-dark px-4 mb-2">Connect on LinkedIn</a>
+				</div>
 			</div>
-			<div class="col-lg-7">
-				<h2 class="text-dark mb-4">Ready to scale your product impact?</h2>
-				<p class="text-dark mb-4">
-					I help scale-ups and growing companies optimize user acquisition, improve conversion flows, and build experimentation culture. Currently transitioning from UX to Product Management while available for strategic consulting.
-				</p>
-
-
-
-
-					<div class="d-flex flex-wrap gap-3">
-						<a href="mailto:mischavdgoes@gmail.com" class="btn btn-primary">
-							<i class="fas fa-envelope me-2"></i>Send email
-						</a>
-						<a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank" class="btn btn-outline-dark">
-							<i class="fab fa-linkedin me-2"></i>Connect on LinkedIn
-						</a>
-					</div>
-
-			</div>
+			<figure class="co-portrait co-portrait--wide co-clip">
+				<img src="assets/images/about/LUV02016.jpg" alt="Mischa vd Goes">
+			</figure>
 		</div>
 	</div>
 </section>
 
 <!-- EXPERIENCE SECTION -->
-<section class="section-spacing">
+<section class="co-section">
 	<div class="container">
-		<h2 class="text-dark text-center mb-5">Experience</h2>
-
-		<div class="accordion accordion-flush" id="experienceAccordion">
-			<!-- PostNL -->
-			<div class="accordion-item bg-transparent border-bottom border-secondary">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#postnl">
-						<div class="w-100 d-flex justify-content-between align-items-center pe-3">
-							<div>
-								<h5 class="mb-1">PostNL</h5>
-								<p class="text-muted mb-0 small">UX Designer</p>
-							</div>
-							<span class="text-muted small">Jan 2024 - Present</span>
-						</div>
-					</button>
-				</h2>
-				<div id="postnl" class="accordion-collapse collapse" data-bs-parent="#experienceAccordion">
-					<div class="accordion-body text-dark">
-						<p class="mb-3">Redesigned high-traffic business acquisition flows, improving conversion and NPS through data-driven iterations.</p>
-						<ul>
-							<li>Drove UX experimentation culture by designing 50+ data-driven tests that scaled A/B testing volume by 150%, transforming PostNL's approach from evidence-based to evidence-driven design</li>
-							<li>Achieved 15%+ increase in account creations by simplifying user flows (reduced from 37 to 17 clicks) and boosted NPS by 12 points through targeted improvements for high-value user segments</li>
-							<li>Led usability research that aligned stakeholders on roadmap priorities, focusing design efforts on highest-impact opportunities</li>
-							<li>Streamlined cross-functional collaboration with marketing, brand, and development teams, reducing delivery time from 5 to 2 sprints for new digital assets through standardized design templates that became company benchmarks</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<!-- Mendix -->
-			<div class="accordion-item bg-transparent border-bottom border-secondary">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#mendix">
-						<div class="w-100 d-flex justify-content-between align-items-center pe-3">
-							<div>
-								<h5 class="mb-1">Mendix</h5>
-								<p class="text-muted mb-0 small">UX Designer</p>
-							</div>
-							<span class="text-muted small">Mar 2021 - Dec 2023</span>
-						</div>
-					</button>
-				</h2>
-				<div id="mendix" class="accordion-collapse collapse" data-bs-parent="#experienceAccordion">
-					<div class="accordion-body text-dark">
-						<p class="mb-3">Designed enterprise/business focused applications for 10+ teams in Siemens and Mendix, focusing on employee productivity.</p>
-						<ul>
-							<li>AuditON design lead: Led user research that identified key compliance bottlenecks for security teams. Designed streamlined workflow with automated validation that reduced error rates by 30%, using HEART framework to measure improvements in task success and user satisfaction</li>
-							<li>Design System Growth: Created 10+ reusable components, increasing team productivity by 40% and ensuring brand consistency across 20+ apps</li>
-							<li>Custom UI implementation: Shipped 10+ tailored applications using HTML/CSS overrides to elevate UX and quantitatively test out design impact</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<!-- Crowd Media -->
-			<div class="accordion-item bg-transparent border-bottom border-secondary">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#crowdmedia">
-						<div class="w-100 d-flex justify-content-between align-items-center pe-3">
-							<div>
-								<h5 class="mb-1">Crowd Media</h5>
-								<p class="text-muted mb-0 small">Junior Visual Designer</p>
-							</div>
-							<span class="text-muted small">Nov 2018 - Dec 2020</span>
-						</div>
-					</button>
-				</h2>
-				<div id="crowdmedia" class="accordion-collapse collapse" data-bs-parent="#experienceAccordion">
-					<div class="accordion-body text-dark">
-						<ul>
-							<li>Produced 100+ video ads for international brands, leading creative experimentation with diverse audio/visual approaches</li>
-							<li>Designed high-converting landing pages for personalized customer segments, implementing A/B testing to maximize conversion rates</li>
-							<li>Executed 10+ influencer campaigns with 1M+ combined reach for beauty/lifestyle clients</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+		<div class="co-head">
+			<p class="co-eyebrow"><span class="co-num">05</span>Experience</p>
+			<h2 data-split>Experience</h2>
 		</div>
 
-		<h3 class="text-dark text-center mt-5 mb-4">Internships</h3>
-
-		<div class="accordion accordion-flush" id="internshipsAccordion">
-			<!-- TravPro Mobile -->
-			<div class="accordion-item bg-transparent border-bottom border-secondary">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#travpro">
-						<div class="w-100 d-flex justify-content-between align-items-center pe-3">
-							<div>
-								<h5 class="mb-1">TravPro Mobile</h5>
-								<p class="text-muted mb-0 small">UX Design Internship</p>
-							</div>
-							<span class="text-muted small">Feb 2018 - Jun 2018</span>
-						</div>
-					</button>
-				</h2>
-				<div id="travpro" class="accordion-collapse collapse" data-bs-parent="#internshipsAccordion">
-					<div class="accordion-body text-dark">
-						UX design, thesis internship (Afstudeerstage).
-					</div>
+		<div class="co-xp">
+			<!-- PostNL -->
+			<details class="co-xp-item co-reveal" name="experience">
+				<summary>
+					<span class="co-xp-years">Jan 2024 – Present</span>
+					<span class="co-xp-role">PostNL <span class="co-xp-sub">UX Designer</span></span>
+					<span class="co-xp-toggle" aria-hidden="true"></span>
+				</summary>
+				<div class="co-xp-body">
+					<p>Redesigned high-traffic business acquisition flows, improving conversion and NPS through data-driven iterations.</p>
+					<ul>
+						<li>Drove UX experimentation culture by designing 50+ data-driven tests that scaled A/B testing volume by 150%, transforming PostNL's approach from evidence-based to evidence-driven design</li>
+						<li>Achieved 15%+ increase in account creations by simplifying user flows (reduced from 37 to 17 clicks) and boosted NPS by 12 points through targeted improvements for high-value user segments</li>
+						<li>Led usability research that aligned stakeholders on roadmap priorities, focusing design efforts on highest-impact opportunities</li>
+						<li>Streamlined cross-functional collaboration with marketing, brand, and development teams, reducing delivery time from 5 to 2 sprints for new digital assets through standardized design templates that became company benchmarks</li>
+						<li>Introduced reusable shipment presets for SMB customers for mobile &amp; desktop, defining a three-phase roadmap with PMs and engineers</li>
+					</ul>
 				</div>
-			</div>
+			</details>
+
+			<!-- Mendix -->
+			<details class="co-xp-item co-reveal" name="experience">
+				<summary>
+					<span class="co-xp-years">Mar 2021 – Dec 2023</span>
+					<span class="co-xp-role">Mendix <span class="co-xp-sub">UX Designer</span></span>
+					<span class="co-xp-toggle" aria-hidden="true"></span>
+				</summary>
+				<div class="co-xp-body">
+					<p>Designed enterprise/business focused applications for 10+ teams in Siemens and Mendix, focusing on employee productivity.</p>
+					<ul>
+						<li>AuditON design lead: Led user research that identified key compliance bottlenecks for security teams. Designed streamlined workflow with automated validation that reduced error rates by 30%, using HEART framework to measure improvements in task success and user satisfaction</li>
+						<li>Design System Growth: Created 10+ reusable components, increasing team productivity by 40% and ensuring brand consistency across 20+ apps</li>
+						<li>Custom UI implementation: Shipped 10+ tailored applications using HTML/CSS overrides to elevate UX and quantitatively test out design impact</li>
+					</ul>
+				</div>
+			</details>
+
+			<!-- Crowd Media -->
+			<details class="co-xp-item co-reveal" name="experience">
+				<summary>
+					<span class="co-xp-years">Nov 2018 – Dec 2020</span>
+					<span class="co-xp-role">Crowd Media <span class="co-xp-sub">Junior Visual Designer</span></span>
+					<span class="co-xp-toggle" aria-hidden="true"></span>
+				</summary>
+				<div class="co-xp-body">
+					<ul>
+						<li>Produced 100+ video ads for international brands, leading creative experimentation with diverse audio/visual approaches</li>
+						<li>Designed high-converting landing pages for personalized customer segments, implementing A/B testing to maximize conversion rates</li>
+						<li>Executed 10+ influencer campaigns with 1M+ combined reach for beauty/lifestyle clients</li>
+					</ul>
+				</div>
+			</details>
+		</div>
+
+		<p class="co-eyebrow co-xp-group">Internships</p>
+
+		<div class="co-xp">
+			<!-- TravPro Mobile -->
+			<details class="co-xp-item co-reveal" name="experience">
+				<summary>
+					<span class="co-xp-years">Feb 2018 – Jun 2018</span>
+					<span class="co-xp-role">TravPro Mobile <span class="co-xp-sub">UX Design Internship</span></span>
+					<span class="co-xp-toggle" aria-hidden="true"></span>
+				</summary>
+				<div class="co-xp-body">
+					<p>UX design, thesis internship (Afstudeerstage).</p>
+				</div>
+			</details>
 
 			<!-- Mattmo -->
-			<div class="accordion-item bg-transparent border-bottom border-secondary">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed bg-transparent text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#mattmo">
-						<div class="w-100 d-flex justify-content-between align-items-center pe-3">
-							<div>
-								<h5 class="mb-1">Mattmo Creative Agency</h5>
-								<p class="text-muted mb-0 small">Graphic Design Internship</p>
-							</div>
-							<span class="text-muted small">Sep 2016 - Jan 2017</span>
-						</div>
-					</button>
-				</h2>
-				<div id="mattmo" class="accordion-collapse collapse" data-bs-parent="#internshipsAccordion">
-					<div class="accordion-body text-dark">
-						Product packaging and design, contributive internship (Meewerkstage).
-					</div>
+			<details class="co-xp-item co-reveal" name="experience">
+				<summary>
+					<span class="co-xp-years">Sep 2016 – Jan 2017</span>
+					<span class="co-xp-role">Mattmo Creative Agency <span class="co-xp-sub">Graphic Design Internship</span></span>
+					<span class="co-xp-toggle" aria-hidden="true"></span>
+				</summary>
+				<div class="co-xp-body">
+					<p>Product packaging and design, contributive internship (Meewerkstage).</p>
 				</div>
-			</div>
+			</details>
 		</div>
 	</div>
 </section>
@@ -448,6 +368,7 @@
 	<!-- Then load features that depend on components -->
 	<script src="js/theme-toggle.js"></script> <!--waits for footer via EventBus-->
 	<script src="js/gradient-scroll.js"></script> <!--gradient fade on scroll-->
+	<script src="js/consulting.js?v=1"></script>
 
 	<!-- Bayer dithering effect -->
 	<script type="module" src="js/bayer-dithering.js"></script>

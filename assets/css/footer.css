@@ -1,14 +1,56 @@
+/* Sitewide footer: paper background, mono labels, oversized serif wordmark.
+   Tokens come from editorial.css; the fallbacks cover pages that don't load it. */
 .site-footer {
-    background-color: #131417;
-    color: #aaa;
+    --ft-bg: var(--cs-bg, #f4f3ee);
+    --ft-ink: var(--cs-ink, #1d1d1a);
+    --ft-muted: var(--cs-muted, #6f6e66);
+    --ft-line: var(--cs-line, #dcdacf);
+    --ft-serif: var(--cs-serif, "Newsreader", "Iowan Old Style", Georgia, serif);
+    --ft-mono: var(--cs-mono, "JetBrains Mono", ui-monospace, Menlo, monospace);
+    background-color: var(--ft-bg);
+    color: var(--ft-muted);
+    border-top: 1px solid var(--ft-line);
+    overflow: hidden;
 }
 
-.footer-col-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+[data-bs-theme="dark"] .site-footer {
+    --ft-bg: var(--cs-bg, #0d0d0f);
+    --ft-ink: var(--cs-ink, #efede6);
+    --ft-muted: var(--cs-muted, #94928a);
+    --ft-line: var(--cs-line, rgba(255, 255, 255, 0.13));
+}
+
+.footer-top {
+    display: grid;
+    gap: 3rem;
+    padding: clamp(3rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.site-footer .footer-statement {
+    font-family: var(--ft-serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--ft-ink);
+    max-width: 12em;
+    margin: 0;
+}
+
+.footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 1.5rem;
+}
+
+.site-footer .footer-col-label {
+    font-family: var(--ft-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--ft-muted);
     margin-bottom: 1rem;
 }
 
@@ -19,44 +61,156 @@
 }
 
 .footer-links li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.55rem;
 }
 
-.footer-links a {
-    color: #888;
+/* Underline draws in from the left on hover */
+.site-footer .footer-links a {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--ft-ink);
     text-decoration: none;
-    font-size: 0.875rem;
-    transition: color 0.2s;
-}
-
-.footer-links a:hover {
-    color: #fff;
-}
-
-.footer-theme-btn {
-    background: none;
-    border: 1px solid #333;
-    color: #888;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    font-size: 0.875rem;
-    transition: border-color 0.2s, color 0.2s;
-    margin-top: 2rem;
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    padding-bottom: 2px;
+    transition: background-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.footer-theme-btn:hover {
-    border-color: #5856D6;
-    color: #5856D6;
+.site-footer .footer-links a:hover,
+.site-footer .footer-links a:focus-visible {
+    color: var(--ft-ink);
+    text-decoration: none;
+    background-size: 100% 1px;
+}
+
+.site-footer .footer-links a[target="_blank"]::after {
+    content: "↗";
+    font-size: 0.8em;
+    margin-left: 0.3em;
+    color: var(--ft-muted);
+}
+
+.footer-copied {
+    font-family: var(--ft-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ft-muted);
+    margin-left: 0.6em;
+}
+
+/* Sized in container units so the name scales with the footer's width */
+.site-footer .container {
+    container-type: inline-size;
+}
+
+.site-footer .footer-wordmark {
+    font-family: var(--ft-serif);
+    font-size: clamp(2.75rem, 8.5cqw, 6.5rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    color: var(--ft-ink);
+    margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+    user-select: none;
+}
+
+.footer-wordmark > span {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding: 0.04em 0.05em 0.14em 0;
+    margin: -0.04em -0.05em -0.14em 0;
+}
+
+.footer-wordmark > span > span {
+    display: inline-block;
+    transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.footer-wordmark > span:nth-child(2) > span { transition-delay: 0.09s; }
+.footer-wordmark > span:nth-child(3) > span { transition-delay: 0.18s; }
+
+.footer-wordmark.is-armed > span > span {
+    transform: translateY(110%);
+}
+
+.footer-wordmark.is-armed.is-in > span > span {
+    transform: none;
 }
 
 .footer-bottom {
-    border-top: 1px solid #222;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.75rem 2rem;
+    border-top: 1px solid var(--ft-line);
     padding: 1.25rem 0;
-    font-size: 0.8rem;
-    color: #555;
+}
+
+.site-footer .footer-bottom,
+.site-footer .footer-bottom a,
+.footer-theme-btn {
+    font-family: var(--ft-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ft-muted);
+}
+
+.footer-bottom > span:first-child {
+    margin-right: auto;
+}
+
+.footer-theme-btn {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6em;
+    background: none;
+    border: 0;
+    /* a global button rule adds a top margin, which pushed this off the row */
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.site-footer .footer-bottom a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-theme-btn:hover,
+.site-footer .footer-bottom a:hover {
+    color: var(--ft-ink);
+    text-decoration: none;
+}
+
+.footer-theme-btn:focus-visible,
+.site-footer a:focus-visible {
+    outline: 2px solid var(--cs-accent, #6e56cf);
+    outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+    .footer-nav {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 992px) {
+    .footer-top {
+        grid-template-columns: 4fr 8fr;
+        column-gap: clamp(2rem, 5vw, 5rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-wordmark.is-armed > span > span {
+        transform: none;
+        transition: none;
+    }
 }

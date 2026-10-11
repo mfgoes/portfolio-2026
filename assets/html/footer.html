@@ -1,50 +1,53 @@
 <footer class="site-footer">
     <div class="container">
-        <div class="row g-5 py-5">
-            <!-- Projects -->
-            <div class="col-6 col-md-3">
-                <p class="footer-col-label">Projects</p>
-                <ul class="footer-links">
-                    <li><a href="postnl-ibac.html">B2B Onboarding and Care (PostNL)</a></li>
-                    <li><a href="ffm.html">Capturing the SMB market (PostNL)</a></li>
-                    <li><a href="mendix.html">Mendix: Internal Apps</a></li>
-                </ul>
-            </div>
-            <!-- Articles -->
-            <div class="col-6 col-md-3">
-                <p class="footer-col-label">Articles</p>
-                <ul class="footer-links">
-                    <li><a href="gamedev.html">Game Development</a></li>
-                    <li><a href="devboard.html">DevBoard</a></li>
-                    <li><a href="quiet-network.html">Quiet Network</a></li>
-                </ul>
-            </div>
-            <!-- Connect -->
-            <div class="col-12 col-md-3">
-                <p class="footer-col-label">Connect</p>
-                <ul class="footer-links">
-                    <li>
-                        <a id="copy-email-btn" style="cursor: pointer; position: relative;">
-                            Email
-                            <span id="copy-feedback" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style="display: none; font-size: 0.7rem;">Copied!</span>
-                        </a>
-                    </li>
-                    <li><a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li><a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener">Bluesky</a></li>
-                </ul>
-            </div>
-            <!-- Theme toggle -->
-            <div class="col-12 col-md-3 d-flex align-items-start justify-content-md-end">
-                <button id="theme-toggle" class="footer-theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
-                    <i id="theme-icon-light" class="fas fa-sun" style="display: none;"></i>
-                    <i id="theme-icon-dark" class="fas fa-moon"></i>
-                </button>
-            </div>
+        <div class="footer-top">
+            <p class="footer-statement">Product Designer &amp; Indie&nbsp;Developer</p>
+
+            <nav class="footer-nav" aria-label="Footer">
+                <!-- Projects -->
+                <div>
+                    <p class="footer-col-label">Projects</p>
+                    <ul class="footer-links">
+                        <li><a href="postnl-ibac.html">B2B Onboarding and Care (PostNL)</a></li>
+                        <li><a href="ffm.html">Capturing the SMB market (PostNL)</a></li>
+                        <li><a href="mendix.html">Mendix: Internal Apps</a></li>
+                    </ul>
+                </div>
+                <!-- Articles -->
+                <div>
+                    <p class="footer-col-label">Articles</p>
+                    <ul class="footer-links">
+                        <li><a href="gamedev.html">Game Development</a></li>
+                        <li><a href="devboard.html">DevBoard</a></li>
+                        <li><a href="quiet-network.html">Quiet Network</a></li>
+                    </ul>
+                </div>
+                <!-- Connect -->
+                <div>
+                    <p class="footer-col-label">Connect</p>
+                    <ul class="footer-links">
+                        <li>
+                            <a id="copy-email-btn" role="button" tabindex="0">Email</a>
+                            <span id="copy-feedback" class="footer-copied" role="status" style="display: none;">Copied</span>
+                        </li>
+                        <li><a href="https://www.linkedin.com/in/mischavandergoes/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener">Bluesky</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
 
+        <!-- Decorative wordmark; the name is already in the copyright line -->
+        <p class="footer-wordmark" aria-hidden="true"><span><span>Mischa</span></span> <span><span>vd</span></span> <span><span>Goes</span></span></p>
+
         <div class="footer-bottom">
-            <span>© 2026 Mischa van der Goes &nbsp;·&nbsp; Product Designer &amp; Indie Developer</span>
+            <span>© 2026 Mischa van der Goes</span>
+            <button id="theme-toggle" class="footer-theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+                <i id="theme-icon-light" class="fas fa-sun" style="display: none;"></i>
+                <i id="theme-icon-dark" class="fas fa-moon"></i>
+                <span id="theme-text">Dark Mode</span>
+            </button>
+            <a href="#" class="footer-top-link">Back to top <span aria-hidden="true">↑</span></a>
         </div>
     </div>
 </footer>
-

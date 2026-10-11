@@ -213,8 +213,28 @@ bsky-embed img[alt*="profile"] {
 }
 
 .related-card {
+	position: relative;
 	display: flex;
 	flex-direction: column;
+}
+
+/* The title link stretches over the whole card, so the image and text are
+   clickable too, while screen readers still get one link per card. */
+a.related-card-title::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+a.related-card-title:focus-visible {
+	outline: none;
+}
+
+.related-card:has(a.related-card-title:focus-visible) {
+	outline: 2px solid currentColor;
+	outline-offset: 6px;
+	border-radius: 4px;
 }
 
 .related-card-img {
@@ -255,7 +275,8 @@ bsky-embed img[alt*="profile"] {
 	display: block;
 }
 
-.related-card-title:hover {
+.related-card-title:hover,
+.related-card:hover .related-card-title {
 	color: #6d6d6d;
 }
 
@@ -365,7 +386,8 @@ bsky-embed img[alt*="profile"] {
 	color: #fff;
 }
 
-[data-bs-theme="dark"] .related-card-title:hover {
+[data-bs-theme="dark"] .related-card-title:hover,
+[data-bs-theme="dark"] .related-card:hover .related-card-title {
 	color: #ccc;
 }
 
@@ -388,4 +410,37 @@ bsky-embed img[alt*="profile"] {
 @media (max-width: 767px) {
 	.article-title          { font-size: 1.6rem; }
 	.article-sidebar-sticky { position: static; margin-top: 2rem; }
+}
+
+/* "In short" summary rows at the top of an article */
+.article-summary {
+	margin: 0;
+	border-top: 1px solid var(--cs-line, #dcdacf);
+}
+
+.article-summary > div {
+	display: grid;
+	gap: 0.25rem 1.5rem;
+	padding: 0.95rem 0;
+	border-bottom: 1px solid var(--cs-line, #dcdacf);
+}
+
+.article-summary dt {
+	font-family: var(--cs-mono, ui-monospace, Menlo, monospace);
+	font-size: 0.68rem;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-ink, #1d1d1a);
+	padding-top: 0.35em;
+}
+
+.article-summary dd {
+	margin: 0;
+}
+
+@media (min-width: 576px) {
+	.article-summary > div {
+		grid-template-columns: 9.5rem minmax(0, 1fr);
+	}
 }

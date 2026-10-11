@@ -2,6 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
+	<script src="js/theme-init.js"></script>
 	<title>Mischa vd Goes - DevBoard</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +54,9 @@
 						<span class="article-tag">Agentic Coding</span>
 					</div>
 
-					<p class="mb-4">DevBoard keeps notes, maps, and references in one local-first workspace, linked workspace so you can change modes without losing the thread. Connect notes or put them on a board.</p>
+					<p class="mb-4"><a href="https://mischa.itch.io/devboard" target="_blank" rel="noopener" class="btn btn-dark">Try Demo</a></p>
+
+					<p class="mb-4">DevBoard keeps notes, maps, and references in one local-first, linked workspace so you can change modes without losing the thread. Connect notes or put them on a board.</p>
 
 					<img src="assets/images/articles/devboard/animated_preview.gif" class="img-fluid rounded" alt="DevBoard in action">
 				</div>
@@ -112,6 +115,33 @@
 		</div>
 	</section>
 
+	<!-- In short: the whole story for someone who reads no further -->
+	<section class="py-4">
+		<div class="container">
+			<div style="max-width: 800px;">
+				<h3 class="mb-3">In short</h3>
+				<dl class="article-summary">
+					<div>
+						<dt>What</dt>
+						<dd>A free, offline-first notes app that fuses Notion and FigJam: write notes, connect them, or put them on a board.</dd>
+					</div>
+					<div>
+						<dt>Role</dt>
+						<dd>Solo side project. Product, design and build, using agentic coding.</dd>
+					</div>
+					<div>
+						<dt>Constraint</dt>
+						<dd>No backend, no build step, no accounts. It loads in under a second, and your board is still there next time.</dd>
+					</div>
+					<div>
+						<dt>Shipped</dt>
+						<dd>A web demo, plus native builds for Mac (Apple Silicon) and Windows that needed almost no architectural changes.</dd>
+					</div>
+				</dl>
+			</div>
+		</div>
+	</section>
+
 	<!-- Why I built it -->
 	<section class="py-4">
 		<div class="container">
@@ -129,56 +159,61 @@
 			<div style="max-width: 800px;">
 				<h3 class="mb-3">What's in v1</h3>
 				<p class="mb-3">Everything you need to think out loud, nothing you don't.</p>
-				<div class="row g-3 mb-3">
-					<div class="col-md-6">
-						<div class="p-3 border rounded">
-							<div class="d-flex align-items-start gap-2">
-								<i class="fas fa-check-circle text-success mt-1"></i>
-								<div>
-									<h6 class="mb-1 fw-bold">Infinite canvas</h6>
-									<p class="small text-muted mb-0">Pan, zoom, dot grid — no boundaries on your thinking</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="p-3 border rounded">
-							<div class="d-flex align-items-start gap-2">
-								<i class="fas fa-check-circle text-success mt-1"></i>
-								<div>
-									<h6 class="mb-1 fw-bold">Sticky notes</h6>
-									<p class="small text-muted mb-0">Color, edit, resize, copy/paste — full keyboard shortcuts</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="p-3 border rounded">
-							<div class="d-flex align-items-start gap-2">
-								<i class="fas fa-check-circle text-success mt-1"></i>
-								<div>
-									<h6 class="mb-1 fw-bold">Smart connectors</h6>
-									<p class="small text-muted mb-0">Bezier curves that snap between notes</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="p-3 border rounded">
-							<div class="d-flex align-items-start gap-2">
-								<i class="fas fa-check-circle text-success mt-1"></i>
-								<div>
-									<h6 class="mb-1 fw-bold">Offline first</h6>
-									<p class="small text-muted mb-0">Everything persists in your browser — no account, no sync</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<img src="assets/images/articles/devboard/main.png" class="img-fluid rounded mb-3" loading="lazy" alt="DevBoard sticky notes and canvas">
 
-				<img src="assets/images/articles/devboard/main.png" class="img-fluid rounded mb-3" alt="DevBoard sticky notes and canvas">
-				<img src="assets/images/articles/devboard/landing.png" class="img-fluid rounded mb-3" alt="DevBoard sticky notes and canvas">
-				<p class="small text-muted mb-0"><strong>Keyboard shortcuts:</strong> &nbsp;<kbd>V</kbd> Select &nbsp; <kbd>H</kbd> Pan &nbsp; <kbd>S</kbd> Sticky &nbsp; <kbd>L</kbd> Line &nbsp; <kbd>⌘C</kbd> / <kbd>⌘V</kbd> Copy/Paste</p>
+				<details class="case-details">
+					<summary>The four core features, and keyboard shortcuts</summary>
+					<div class="case-details-body">
+						<div class="row g-3 mb-3">
+							<div class="col-md-6">
+								<div class="p-3 border rounded">
+									<div class="d-flex align-items-start gap-2">
+										<i class="fas fa-check-circle text-success mt-1"></i>
+										<div>
+											<h6 class="mb-1 fw-bold">Infinite canvas</h6>
+											<p class="small text-muted mb-0">Pan, zoom, dot grid — no boundaries on your thinking</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="p-3 border rounded">
+									<div class="d-flex align-items-start gap-2">
+										<i class="fas fa-check-circle text-success mt-1"></i>
+										<div>
+											<h6 class="mb-1 fw-bold">Sticky notes</h6>
+											<p class="small text-muted mb-0">Color, edit, resize, copy/paste — full keyboard shortcuts</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="p-3 border rounded">
+									<div class="d-flex align-items-start gap-2">
+										<i class="fas fa-check-circle text-success mt-1"></i>
+										<div>
+											<h6 class="mb-1 fw-bold">Smart connectors</h6>
+											<p class="small text-muted mb-0">Bezier curves that snap between notes</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="p-3 border rounded">
+									<div class="d-flex align-items-start gap-2">
+										<i class="fas fa-check-circle text-success mt-1"></i>
+										<div>
+											<h6 class="mb-1 fw-bold">Offline first</h6>
+											<p class="small text-muted mb-0">Everything persists in your browser — no account, no sync</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<img src="assets/images/articles/devboard/landing.png" class="img-fluid rounded mb-3" loading="lazy" alt="DevBoard sticky notes and canvas">
+						<p class="small text-muted mb-0"><strong>Keyboard shortcuts:</strong> &nbsp;<kbd>V</kbd> Select &nbsp; <kbd>H</kbd> Pan &nbsp; <kbd>S</kbd> Sticky &nbsp; <kbd>L</kbd> Line &nbsp; <kbd>⌘C</kbd> / <kbd>⌘V</kbd> Copy/Paste</p>
+					</div>
+				</details>
 			</div>
 		</div>
 	</section>
@@ -200,15 +235,20 @@
 			<div style="max-width: 800px;">
 				<h3 class="mb-3">What changed in this update</h3>
 				<p class="mb-3">A lot of the "that's annoying" moments got fixed in this pass.</p>
-				<ul class="mb-3">
-					<li><strong>Undo/Redo</strong> — <kbd>Ctrl+Z</kbd> / <kbd>Shift+Z</kbd>. Finally mess up with confidence.</li>
-					<li><strong>Context-sensitive toolbar</strong> — the toolbar now shows only what's relevant. Select a sticky: get color swatches. Select text: get font options.</li>
-					<li><strong>Shapes & text blocks</strong> — rectangles, diamonds, ellipses, and free-text labels for proper diagrams.</li>
-					<li><strong>Sections</strong> — group items into labeled areas to keep large boards navigable.</li>
-					<li><strong>Fixed the blinking editor</strong> — the background of a note no longer disappears when you type into it.</li>
-				</ul>
+				<details class="case-details">
+					<summary>The five changes in this update</summary>
+					<div class="case-details-body">
+						<ul class="mb-3">
+							<li><strong>Undo/Redo</strong> — <kbd>Ctrl+Z</kbd> / <kbd>Shift+Z</kbd>. Finally mess up with confidence.</li>
+							<li><strong>Context-sensitive toolbar</strong> — the toolbar now shows only what's relevant. Select a sticky: get color swatches. Select text: get font options.</li>
+							<li><strong>Shapes & text blocks</strong> — rectangles, diamonds, ellipses, and free-text labels for proper diagrams.</li>
+							<li><strong>Sections</strong> — group items into labeled areas to keep large boards navigable.</li>
+							<li><strong>Fixed the blinking editor</strong> — the background of a note no longer disappears when you type into it.</li>
+						</ul>
+					</div>
+				</details>
 				<p class="mb-3"><strong>Coming next:</strong> pen/draw tool, export to PNG, multiplayer (maybe).</p>
-				<img src="assets/images/articles/devboard/secondary.png" class="img-fluid rounded" alt="DevBoard context toolbar">
+				<img src="assets/images/articles/devboard/secondary.png" class="img-fluid rounded" loading="lazy" alt="DevBoard context toolbar">
 			</div>
 		</div>
 	</section>
@@ -242,7 +282,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="related-card">
-						<img src="assets/images/thumbnails/thumbnail_ibac2.jpg" class="related-card-img" alt="PostNL IBAC project">
+						<img src="assets/images/thumbnails/thumbnail_ibac2.jpg" class="related-card-img" loading="lazy" alt="PostNL IBAC project">
 						<div class="related-card-meta">
 							<i class="far fa-clock"></i>
 							<span>2025</span>

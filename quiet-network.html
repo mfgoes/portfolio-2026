@@ -2,7 +2,8 @@
 <html data-bs-theme="light">
 
 <head>
-	<title>Mischa vd Goes - Quiet Network</title>
+	<script src="js/theme-init.js"></script>
+	<title>Mischa vd Goes - Quiet Network: building a calmer social network on my own time</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
@@ -11,6 +12,8 @@
 	<link rel="stylesheet" href="assets/css/custom.css" />
 	<link rel="stylesheet" href="assets/css/navbar.css" />
 	<link rel="stylesheet" href="assets/css/theme-dark.css" />
+	<link rel="stylesheet" href="assets/css/article.css" />
+	<link rel="stylesheet" href="assets/css/case-study.css?v=3" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -22,7 +25,7 @@
 	<meta name="author" content="Mischa vd Goes">
 
 	<!-- Description -->
-	<meta name="description" content="">
+	<meta name="description" content="Side project: Quiet Network, a calm social platform for neighbourhoods and interest groups that I build on my own time. How I found a design direction, solved the empty-feed problem with real data, and questioned my own concept.">
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -30,346 +33,214 @@
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
 </head>
-<body class="dark-nav">
+<body class="light-nav case-study">
+	<div class="cs-progress" aria-hidden="true"></div>
+
 	<!-- Navbar -->
 	<div id="navbar-container"></div>
 
-	
-	<!-- Section 1: Header -->
-	<section class="pt-5 pb-4">
+	<!-- Hero -->
+	<header class="cs-hero">
 		<div class="container">
-			<div class="row g-5">
-				<div class="col-lg-9 col-md-8">
-					<h1 class="mb-3">Quiet Network</h1>
-					<p class="fw-semibold mb-4">Building a Minimalist Social Platform from Concept to Launch (Hobby project)</p>
-					<img src="assets/images/quiet-network/qn-hero-phones.png" class="img-fluid" alt="Quiet Network Mockup">
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<p class="fw-bold mb-1">Responsibilities</p>
-					<p class="mb-0">Product Strategy</p>
-					<p class="mb-0">Development (AI-assisted)</p>
-					<p class="mb-0">Project Management</p>
-					<p class="mb-4">UX Design</p>
-					<p class="fw-bold mb-1">Timeline</p>
-					<p class="mb-4">Q1 2026</p>
-					<p class="fw-bold mb-1">Client</p>
-					<p class="mb-0">Personal Project</p>
-				</div>
+			<p class="cs-eyebrow">Side project &middot; Quiet Network &middot; 2026</p>
+			<h1 class="cs-title">Building a calmer social network, on my own time.</h1>
+			<p class="cs-lede">Quiet Network is a small social platform for neighbourhoods and interest groups: no ads, no follower counts, posts that fade. It doesn't have a real user base yet, so this isn't a results story. It's how I make product calls when I'm the whole team.</p>
+
+			<div class="cs-actions">
+				<a href="https://quiet-network.vercel.app/" target="_blank" rel="noopener" class="cs-btn">Visit Quiet Network <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+				<a href="https://github.com/mfgoes/quiet-network" target="_blank" rel="noopener" class="cs-btn cs-btn--ghost">Source code <i class="fab fa-github" aria-hidden="true"></i></a>
 			</div>
+
+			<div class="cs-badges">
+				<span class="cs-badge cs-badge--solid">Entrepreneurship</span>
+				<span class="cs-badge">Product</span>
+				<span class="cs-badge">UX / UI</span>
+				<span class="cs-badge">Full-stack build</span>
+			</div>
+
+			<dl class="cs-meta">
+				<div>
+					<dt>Role</dt>
+					<dd>Founder: product, design, build</dd>
+				</div>
+				<div>
+					<dt>Team</dt>
+					<dd>Solo, evenings and weekends</dd>
+				</div>
+				<div>
+					<dt>Timeline</dt>
+					<dd>Jan 2026 &ndash; ongoing</dd>
+				</div>
+				<div>
+					<dt>Stack</dt>
+					<dd>Next.js, Supabase, Tailwind, Claude Code</dd>
+				</div>
+			</dl>
+
+			<figure class="cs-figure cs-reveal">
+				<img src="assets/images/quiet-network/qn-hero-phones.png" width="2112" height="1300" alt="Quiet Network on desktop and mobile: the home feed with circles in the sidebar, a member profile and the public homepage, in a linen-and-ink visual style">
+				<figcaption><span class="cs-fig">Fig. 01</span><span>The current app: the home feed on desktop, a member profile and the public homepage on mobile.</span></figcaption>
+			</figure>
 		</div>
-	</section>
+	</header>
 
-
-
-
-
-	<!-- Strategic Impact -->
-	<section class="py-5 bg-light">
-		<div class="container">
-			<div class="row justify-content-center mb-3">
-				<div class="col-lg-8 text-center">
-					<h2>Impact & Results</h2>
-					<!--<p>The redesigned onboarding flow delivered measurable business impact and strategic value:</p>
-				-->
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it yellow">
-						<div class="mb-3">
-							<img src="assets/icons/person_yellow.png" alt="" class="card-icon">
-						</div>
-						<h3 class="mb-3">Rapid Iteration</h3>
-						<p>Shipped working prototype in 8 weeks through focused scope management and modern tooling</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it blue">
-						<div class="mb-3">
-							<img src="assets/icons/clock_blue.png" alt="" class="card-icon">
-						</div>
-						<h3 class="mb-3">Full Product Ownership</h3>
-						<p>End-to-end execution from concept sketches to deployed application with zero external dependencies</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 mb-4">
-					<div class="post-it red">
-						<div class="mb-3">
-							<img src="assets/icons/money_red.png" alt="" class="card-icon">
-						</div>
-						<h3 class="mb-3"><span class="metric-number">Technical Learning</h3>
-						<p>Gained knowledge in modern web stack (Supabase auth, real-time subscriptions, Vercel deployment) through hands-on building</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<!-- Section 3: The challenge -->
-	<section class="py-5 intro-section">
-		<div class="container">
-		<div class="row align-items-center">
-			<div class="col-md-6 mb-4 mb-md-0">
-
-			<h2>The Challenge</h2>
-			<p class="intro-highlight">
-				Most social platforms today optimize for engagement through algorithmic feeds and infinite scroll. This creates addictive patterns that don't serve users' best interests.
-			</p>
-			<p>Community became a commodity: your attention is the product, your words are permanent inventory, and your identity is a data profile to be sold. The result is familiar: amplified outrage, performative posting, and the anxiety of a permanent record.</p>
-			<a class="btn btn-primary" href="https://quiet-network.vercel.app" target="_blank">View Demo</a>
-			
-			</div>
-			<div class="col-md-6">
-				<img src="assets/images/quiet-network/qn-home-2026.jpg" alt="Quiet Network home feed on desktop and mobile" class="img-fluid rounded">
-			</div>
-		</div>
-		</div>
-	</section>
-
-	<!-- The Opportunity -->
-	<section class="py-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<h2>The Opportunity</h2>
-
-					<h5 class="mt-4 mb-2">User Problem</h5>
-					<p>People need private spaces to ask questions, share local information, and discuss interests without algorithmic feeds, permanent records, or exposure. Existing platforms (Facebook, Reddit, Discord) force you to choose: either join a massive public forum with bots and spam, or create a private chat without discoverability.</p>
-
-					<h5 class="mt-4 mb-2">The Bet</h5>
-					<p>Quiet Network is a bet that people don't actually want infinite scroll. They want to ask their neighbors where to get a good coffee, or talk about the show they're obsessed with without building a personal brand around it, and then log off. Calm by design isn't a tagline. It's the constraint every decision was optimised toward.</p>
-
-					<h5 class="mt-4 mb-3">How Quiet Network Works</h5>
-				</div>
-			</div>
-
-			<div class="row mb-4">
-				<div class="col-md-6 col-lg-6 mb-3">
-					<div class="feature-card">
-						<h6 class="mb-2">Ephemeral Posts</h6>
-						<p>Posts expire after 48h/7d/30d. Remove the permanence problem — speak freely without creating a searchable record.</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-6 mb-3">
-					<div class="feature-card">
-						<h6 class="mb-2">Pseudonymous</h6>
-						<p>No profile pictures, bios, or follower counts. Participation isn't about personal brand, it's about conversation.</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-6 mb-3">
-					<div class="feature-card">
-						<h6 class="mb-2">Organized by Place/Interest</h6>
-						<p>Communities for neighborhoods and fan groups, not algorithm feeds. You see what's relevant, not what maximizes engagement.</p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-6 mb-3">
-					<div class="feature-card">
-						<h6 class="mb-2">No Ads or Tracking</h6>
-						<p>The business model doesn't depend on extracting your attention or data. Privacy is the default.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row g-4 mb-4">
-				<div class="col-md-6">
-					<img src="assets/images/quiet-network/qn-bulletin-notices.png" alt="Haarlem bulletin feed with official local notices" class="img-fluid rounded">
-				</div>
-				<div class="col-md-6">
-					<img src="assets/images/quiet-network/qn-side-hustles.png" alt="Side hustle cards for local services" class="img-fluid rounded">
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-lg-8">
-
-					<h5 class="mt-4 mb-2">User Segments</h5>
-					<p>Neighborhoods coordinating locally, fan communities avoiding Reddit moderation chaos, hobby groups replacing abandoned Facebook groups, and anyone needing to ask questions without digital permanence.</p>
-
-				</div>
-			</div>
-
-		</div>
-	</section>
-
-	<section class="full-bleed-section">
-		<video src="assets/images/quiet-network/demo-account-creation.mp4" autoplay muted loop></video>
-	</section>
-
-	<!-- My Role -->
-	<section class="py-5 bg-light">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-md-6 mb-4 mb-md-0">
-					<img src="assets/images/quiet-network/qn-design-system.png" alt="Quiet Network design system: typography and colour palette" class="img-fluid rounded">
-				</div>
-				<div class="col-md-6">
-					<h2>My Role</h2>
-					<p class="intro-highlight">
-						As the sole product owner and developer, I handled every aspect of bringing Quiet Network to life:
-					</p>
-					<div class="accordion mt-4" id="roleAccordion">
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#productDefinition" aria-expanded="true" aria-controls="productDefinition">
-									Product Definition
-								</button>
-							</h2>
-							<div id="productDefinition" class="accordion-collapse collapse show" data-bs-parent="#roleAccordion">
-								<div class="accordion-body">
-									<ul class="mb-0">
-										<li>Analyzed existing platforms (Reddit, Discord, traditional forums) to identify core value proposition</li>
-										<li>Created initial concept mockups in Figma to visualize user flows</li>
-										<li>Defined phased roadmap balancing ambition with realistic solo-dev timeline</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalImplementation" aria-expanded="false" aria-controls="technicalImplementation">
-									Technical Implementation
-								</button>
-							</h2>
-							<div id="technicalImplementation" class="accordion-collapse collapse" data-bs-parent="#roleAccordion">
-								<div class="accordion-body">
-									<ul class="mb-0">
-										<li>Selected Supabase for backend (authentication, database, real-time) to accelerate development</li>
-										<li>Built React frontend with Tailwind CSS for rapid UI iteration</li>
-										<li>Implemented responsive design supporting mobile-first usage patterns</li>
-										<li>Deployed via Vercel for continuous deployment workflow</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectManagement" aria-expanded="false" aria-controls="projectManagement">
-									Project Management
-								</button>
-							</h2>
-							<div id="projectManagement" class="accordion-collapse collapse" data-bs-parent="#roleAccordion">
-								<div class="accordion-body">
-									<ul class="mb-0">
-										<li>Structured work into discrete phases using Notion task board</li>
-										<li>Prioritized features based on core user journey (signup → post → engage)</li>
-										<li>Made scope trade-offs to ship functional product vs. feature creep</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Design Process -->
-	<section class="py-5">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-md-6 mb-4 mb-md-0">
-					<h2>Design Process</h2>
-					<p>Used Notion to track: Feature specifications, Technical implementation notes, and design decisions. Kept general project roadmap as .md file.</p>
-				</div>
-				<div class="col-md-6">
-					<img src="assets/images/quiet-network/Tasks showcase.png" alt="Notion Board Tasks Showcase" class="img-fluid rounded shadow-sm">
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<!-- Learnings & Next Steps -->
-	<section class="py-5">
-		<div class="container">
-			<h2 class="text-center mb-5">Learnings & Next Steps</h2>
-			<div class="row">
-				<div class="col-md-6 mb-4 mb-md-0">
-					<h4 class="mb-4">What Worked Well</h4>
-					<ul class="learnings-list">
-						<li>Starting with minimal scope allowed rapid iteration</li>
-						<li>Supabase eliminated months of backend development</li>
-						<li>Notion task management kept project organized as solo builder</li>
-						<li>Mobile-first design prevented late-stage responsive headaches</li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<h4 class="mb-4">What I'd Do Differently</h4>
-					<ul class="learnings-list">
-						<li>Define content moderation strategy earlier (critical for social platforms)</li>
-						<li>Add analytics from day one to understand user behavior</li>
-						<li>Build admin dashboard sooner for operational visibility</li>
-						<li>Consider monetization model before feature decisions</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="full-bleed-section">
-		<img src="assets/images/quiet-network/qn-app-pages.png" alt="Quiet Network mobile pages: public home, feed, profile and about">
-	</section>
-
-	<!-- Conclusion -->
-	<section class="py-5 bg-light">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8">
-					<h2 class="text-center mb-4">Conclusion</h2>
-					<p class="mb-4">
-						Quiet Network represents a full-cycle product development effort - from initial concept through design, implementation, and deployment.
-					</p>
-					<h5 class="mb-3">Key Takeaways:</h5>
-					<ul>
-						<li>Shipped functional full-stack application as solo builder</li>
-						<li>Made strategic scope decisions to balance ambition with delivery</li>
-						<li>Learned modern web technologies through hands-on implementation</li>
-						<li>Practiced product planning discipline using structured task management</li>
-					</ul>
-					
-					<div class="mt-4 pt-3 border-top">
-						<p class="mb-2"><strong>Live Demo:</strong> <a href="https://quiet-network.vercel.app/" target="_blank" rel="noopener noreferrer">quiet-network.vercel.app</a></p>
-						<p class="mb-2"><strong>Source Code:</strong> <a href="https://github.com/mfgoes/quiet-network" target="_blank" rel="noopener noreferrer">github.com/mfgoes/quiet-network</a></p>
-						<p class="mb-0"><strong>Tech Stack:</strong> React, Supabase, Tailwind CSS, Vercel</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Section - Up Next -->
-	<section class="bg-white py-4">
 	<div class="container">
-		<!-- Horizontal line above the section -->
-		<hr class="section-line">
-		
-		<div class="up-next-header mb-4">
-			<h3>Recommended projects</h3>
+		<div class="cs-layout">
+			<main class="cs-main">
+
+				<!-- 01 Why -->
+				<section class="cs-section cs-reveal" id="why">
+					<p class="cs-eyebrow"><span class="cs-num">01</span>Why I'm building it</p>
+					<h2>Local connection, then log off</h2>
+					<p>Most social platforms make money from attention, so they reward outrage and keep everything you say forever. I wanted to test the opposite: a place to ask your neighbours about a good bike shop, or talk about a hobby, without building a personal brand around it.</p>
+					<p>Quiet Network is organised in circles (a neighbourhood, a chess club, a reading group), uses pseudonyms, has no follower counts, and lets posts fade after a while. It's hosted in the EU, with no ads and no tracking.</p>
+					<blockquote class="cs-quote">
+						&ldquo;Calm by design isn't a tagline. It's the constraint every decision gets tested against.&rdquo;
+						<cite>The principle behind the product</cite>
+					</blockquote>
+				</section>
+
+				<!-- 02 Direction -->
+				<section class="cs-section cs-reveal" id="direction">
+					<p class="cs-eyebrow"><span class="cs-num">02</span>Design direction</p>
+					<h2>Features weren't the problem. It looked like a template.</h2>
+					<p class="cs-tldr">After the first build, everything worked but nothing felt like <em>Quiet</em> Network. I compared it with a friend's private photo app that commits to one idea in every detail, and rebuilt the visual system around <strong>calm</strong>.</p>
+					<ul class="cs-rows">
+						<li class="cs-row">
+							<span class="cs-row-key">Roles, not colours</span>
+							<p>Design tokens named for what they do (paper, ink, line, accent) instead of raw palette classes, so one change restyles the whole app and dark mode comes almost free.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Two voices</span>
+							<p>An editorial serif for things people say, a monospace for things the system labels: time, roles, sources.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Hairlines, not boxes</span>
+							<p>One 2px radius, no shadows, and a ruled feed instead of stacked cards. One accent colour, used sparingly.</p>
+						</li>
+					</ul>
+					<figure class="cs-figure">
+						<img src="assets/images/quiet-network/qn-design-system.png" width="1600" height="1000" loading="lazy" alt="Quiet Network design system: Newsreader serif and IBM Plex Mono type specimens, outlined badges, and light and dark colour swatches">
+						<figcaption><span class="cs-fig">Fig. 02</span><span>The system: type pairing, badges, and the light and dark palettes.</span></figcaption>
+					</figure>
+					<figure class="cs-figure">
+						<img src="assets/images/quiet-network/qn-app-pages.png" width="1600" height="1000" loading="lazy" alt="Four mobile screens: public homepage, personal feed, member profile and About page, all in the same visual style">
+						<figcaption><span class="cs-fig">Fig. 03</span><span>Public home, feed, profile and About, rebuilt on the same tokens.</span></figcaption>
+					</figure>
+				</section>
+
+				<!-- 03 Decisions -->
+				<section class="cs-section cs-reveal" id="decisions">
+					<p class="cs-eyebrow"><span class="cs-num">03</span>Product decisions</p>
+					<h2>Four calls, and why</h2>
+					<div class="cs-ba">
+						<div class="cs-ba-head" aria-hidden="true">
+							<span>Decision</span>
+							<span>Before</span>
+							<span>After</span>
+						</div>
+						<div class="cs-ba-row">
+							<h3><i class="fas fa-landmark" aria-hidden="true"></i>Real data over fake neighbours</h3>
+							<p class="cs-ba-before" data-label="Before">An empty feed, padded with AI-written posts that read like a tourist guide and sometimes invented places.</p>
+							<p data-label="After">A clearly labelled bulletin posts real municipal notices (events, road works, tree felling), street level only, and each one fades when the event is over.</p>
+						</div>
+						<div class="cs-ba-row">
+							<h3><i class="fas fa-hourglass-half" aria-hidden="true"></i>Questioning my own concept</h3>
+							<p class="cs-ba-before" data-label="Before">Every post showed a countdown. Fading was the pitch, but the clock added pressure.</p>
+							<p data-label="After">Posts still fade, but only the author sees when. Time is shown only where it means something, like an event's date.</p>
+						</div>
+						<div class="cs-ba-row">
+							<h3><i class="fas fa-store" aria-hidden="true"></i>A reason to post</h3>
+							<p class="cs-ba-before" data-label="Before">Nothing gave people a reason to post first.</p>
+							<p data-label="After">Side-hustle announcements, like a &ldquo;new job&rdquo; post for what you make at home, each with its own texture and a direct message button.</p>
+						</div>
+						<div class="cs-ba-row">
+							<h3><i class="fas fa-door-open" aria-hidden="true"></i>Open by default</h3>
+							<p class="cs-ba-before" data-label="Before">Comparable apps close everything to control hosting costs.</p>
+							<p data-label="After">Public, read-only pages stay open as the growth bet. Text is cheap to host; cost is a problem worth having later.</p>
+						</div>
+					</div>
+					<figure class="cs-figure">
+						<img src="assets/images/quiet-network/qn-bulletin-notices.png" width="1600" height="1000" loading="lazy" alt="Two phones showing bulletin posts from official municipal notices, in light and dark mode">
+						<figcaption><span class="cs-fig">Fig. 04</span><span>Bulletin posts from official notices, in light and dark mode.</span></figcaption>
+					</figure>
+					<figure class="cs-figure">
+						<img src="assets/images/quiet-network/qn-side-hustles.png" width="1600" height="1000" loading="lazy" alt="Side-hustle cards, each with a texture for its category: layer lines for 3D printing, dots for baking, hatching for repairs">
+						<figcaption><span class="cs-fig">Fig. 05</span><span>One texture per craft: layer lines for 3D printing, a dot grid for baking, hatching for repairs.</span></figcaption>
+					</figure>
+				</section>
+
+				<!-- 04 Learnings -->
+				<section class="cs-section cs-reveal" id="learnings">
+					<p class="cs-eyebrow"><span class="cs-num">04</span>What I've learned</p>
+					<h2>Lessons from being the whole team</h2>
+					<ul class="cs-rows">
+						<li class="cs-row">
+							<span class="cs-row-key">Direction first</span>
+							<p>Weeks of features built on defaults changed the product less than a week spent on a clear visual direction.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Content is the product</span>
+							<p>For a community app the real risk is an empty room, not a missing feature. Solve cold start with real, trustworthy content before thinking about growth.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Kill your darlings</span>
+							<p>The countdown was part of my original pitch. Taking it away from readers made the product calmer without losing the idea behind it.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Directing AI</span>
+							<p>I build with Claude Code as an engineering partner. I set direction and acceptance criteria, and I check every screen myself before anything ships.</p>
+						</li>
+					</ul>
+					<p>Next: a small pilot in Haarlem, and a map of what's happening nearby. Until there are real users, Quiet Network stays what it is: a place to practise building a product end to end.</p>
+					<div class="cs-actions">
+						<a href="https://quiet-network.vercel.app/" target="_blank" rel="noopener" class="cs-btn">Visit Quiet Network <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+					</div>
+				</section>
+			</main>
+
+			<!-- "On this page" rail: built by js/case-study.js -->
+			<aside class="cs-rail" data-share data-byline="Designer &amp; founder" data-date="October 2026"></aside>
 		</div>
-		
-		<div class="up-next-list">
-			<div class="up-next-item mb-4">
-				<img src="assets/images/thumbnails/ffm_thumbnail.png" class="up-next-thumb rounded" alt="Mendix project">
-				<div class="up-next-content">
-					<h4 class="mb-2">PostNL: B2B client acquisition for PostNL</h4>
-					<p class="mb-2">Putting user needs first to optimise client conversion.</p>
-					<a href="ffm.html" class="text-primary">View Project</a>
+	</div>
+
+	<!-- Related Articles (news style) -->
+	<div class="related-articles-section">
+		<div class="container">
+			<h2>Related content</h2>
+			<div class="row g-4">
+				<div class="col-md-6">
+					<div class="related-card">
+						<img src="assets/images/articles/kosmograd/capsule-main.png" class="related-card-img" alt="Kosmograd">
+						<div class="related-card-meta">
+							<i class="far fa-clock"></i>
+							<span>2025&ndash;2026</span>
+							<span>•</span>
+							<span class="related-card-category">Game Development</span>
+						</div>
+						<a href="gamedev.html" class="related-card-title">Kosmograd: Running a Solo Game Like a Product</a>
+						<p class="related-card-excerpt">Playtest-driven prioritisation, a quest-log redesign and scope cuts on the road to a Steam demo.</p>
+					</div>
 				</div>
-			</div>
-			
-			<div class="up-next-item mb-4">
-				<img src="assets/images/thumbnails/mendix-siemenslogo.png" class="up-next-thumb rounded" alt="Crowd Media project">
-				<div class="up-next-content">
-					<h4 class="mb-2">Mendix (a Siemens company)</h4>
-					<p class="mb-2">B2B Workflow optimisation, made for Mendix, with Mendix</p>
-					<a href="mendix.html" class="text-primary">View Project</a>
+				<div class="col-md-6">
+					<div class="related-card">
+						<img src="assets/images/articles/devboard/animated_preview.gif" class="related-card-img" alt="DevBoard whiteboard tool">
+						<div class="related-card-meta">
+							<i class="far fa-clock"></i>
+							<span>March 2026</span>
+							<span>•</span>
+							<span class="related-card-category">Developer Tools</span>
+						</div>
+						<a href="devboard.html" class="related-card-title">DevBoard: A Whiteboard That Stays Out of Your Way</a>
+						<p class="related-card-excerpt">Building a lightweight, offline-first infinite canvas for developers — no accounts, no backend, opens in under a second.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
-	<div id="footer-container"></div>
+
+	<!-- Article Footer (news style) -->
+	<div id="article-footer-container"></div>
 
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -377,18 +248,15 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-	<script src="js/impact-cards-animation.js"></script> <!--scroll-triggered animations for impact cards-->
-
 	<!-- Core utilities (load first - required by other scripts) -->
 	<script src="js/core/utils.js"></script>
 	<script src="js/core/event-bus.js"></script>
 	<script src="js/core/component-loader.js"></script>
-
-	<!--set up snippets>-->
+	<!--set up snippets-->
 	<script src="assets/components/navbar.js"></script>
-	<script src="assets/components/footer.js"></script>
+	<script src="assets/components/article-footer.js"></script>
 	<script src="js/theme-toggle.js"></script>
-	<script src="js/slider-handling.js"></script> <!--ensures carousel active state is correctly styled-->
+	<script src="js/slider-handling.js"></script>
+	<script src="js/case-study.js?v=3"></script>
 </body>
 </html>

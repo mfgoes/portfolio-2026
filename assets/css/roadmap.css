@@ -1,0 +1,319 @@
+/* ==========================================================================
+   Roadmap (Gantt) component
+   Markup: see the "Testing roadmap" section in mendix.html.
+   Each item sets --start / --end in months from the left edge (0–18).
+   Desktop: bars on a quarter grid. Under 640px: stacked rows with a mini track.
+   Behaviour (filters, detail panel, reveal) lives in js/roadmap.js; without JS
+   the chart still reads as a static timeline.
+   ========================================================================== */
+
+.rm {
+	--rm-cols: 18;
+	--rm-ink: var(--cs-ink, #1d1d1a);
+	--rm-muted: var(--cs-muted, #6f6e66);
+	--rm-line: var(--cs-line, #dcdacf);
+	--rm-surface: var(--cs-raised, #faf9f5);
+	--rm-mono: var(--cs-mono, ui-monospace, Menlo, monospace);
+	margin: 0.5rem 0 0;
+	text-align: left;
+}
+
+/* HEART dimensions: one hue each, used for the bar fill and the chip dot */
+.rm [data-dim="task"]       { --hue: #2e7d5b; }
+.rm [data-dim="happiness"]  { --hue: #6e56cf; }
+.rm [data-dim="engagement"] { --hue: #2f6f9f; }
+.rm [data-dim="experiment"] { --hue: #b07a22; }
+
+/* ---------- Filters ---------- */
+.rm-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin: 0 0 1.25rem;
+	padding: 0;
+	list-style: none;
+}
+
+.rm-filter {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	padding: 0.4rem 0.7rem;
+	font-size: 0.8rem;
+	line-height: 1;
+	color: var(--rm-muted);
+	background: transparent;
+	border: 1px solid var(--rm-line);
+	border-radius: 999px;
+	cursor: pointer;
+	transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.rm-filter::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--hue, var(--rm-ink));
+}
+
+.rm-filter[data-dim="all"]::before {
+	display: none;
+}
+
+.rm-filter:hover {
+	color: var(--rm-ink);
+	border-color: var(--rm-ink);
+	background: transparent;
+}
+
+.rm-filter[aria-pressed="true"],
+.rm-filter[aria-pressed="true"]:hover {
+	color: var(--rm-ink);
+	border-color: var(--rm-ink);
+	background: var(--rm-surface);
+}
+
+/* ---------- Chart ---------- */
+.rm-chart {
+	position: relative;
+	padding-bottom: 0.25rem;
+}
+
+.rm-axis,
+.rm-items > li {
+	display: grid;
+	grid-template-columns: repeat(var(--rm-cols), minmax(0, 1fr));
+}
+
+.rm-axis {
+	margin: 0 0 0.6rem;
+	padding: 0;
+	list-style: none;
+	border-bottom: 1px solid var(--rm-line);
+}
+
+.rm-axis li {
+	grid-column: span 3;
+	padding: 0 0 0.45rem;
+	font-family: var(--rm-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.12em;
+	color: var(--rm-muted);
+}
+
+.rm-axis li + li {
+	border-left: 1px solid var(--rm-line);
+	padding-left: 0.5rem;
+}
+
+.rm-axis .rm-year {
+	opacity: 0.6;
+}
+
+/* Quarter gridlines behind the bars */
+.rm-items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-image: repeating-linear-gradient(to right, var(--rm-line) 0 1px, transparent 1px calc(100% / 6));
+}
+
+.rm-items > li {
+	padding: 0.3rem 0;
+}
+
+.rm-bar {
+	grid-column: calc(var(--start) + 1) / calc(var(--end) + 1);
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	min-height: 2.6rem;
+	padding: 0.5rem 0.85rem;
+	font-size: 0.86rem;
+	line-height: 1.3;
+	text-align: left;
+	color: var(--rm-ink);
+	background: color-mix(in srgb, var(--hue) 16%, var(--rm-surface));
+	border: 1px solid color-mix(in srgb, var(--hue) 35%, transparent);
+	border-radius: 6px;
+	cursor: pointer;
+	transform-origin: left center;
+	transition: opacity 0.25s ease, filter 0.25s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.6s cubic-bezier(.2, .8, .2, 1);
+}
+
+.rm-bar:hover {
+	border-color: var(--hue);
+	background: color-mix(in srgb, var(--hue) 16%, var(--rm-surface));
+}
+
+.rm-bar:focus-visible {
+	outline: 2px solid var(--rm-ink);
+	outline-offset: 2px;
+}
+
+.rm-bar[aria-expanded="true"] {
+	border-color: var(--hue);
+	box-shadow: inset 3px 0 0 var(--hue);
+}
+
+.rm-when {
+	flex: none;
+	font-family: var(--rm-mono);
+	font-size: 0.66rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--rm-muted);
+}
+
+/* Filtered out */
+.rm-items > li.is-dimmed .rm-bar {
+	opacity: 0.28;
+	filter: grayscale(1);
+}
+
+/* Reveal: bars grow from their start date (only with JS + motion allowed) */
+.rm.is-waiting .rm-bar {
+	transform: scaleX(0.04);
+}
+
+/* ---------- Detail panel ---------- */
+.rm-detail {
+	margin-top: 1rem;
+	padding: 1rem 1.1rem;
+	border: 1px solid var(--rm-line);
+	border-left: 3px solid var(--hue, var(--rm-ink));
+	border-radius: 6px;
+	background: var(--rm-surface);
+}
+
+.rm-detail[hidden] {
+	display: none;
+}
+
+.rm-detail-kicker {
+	font-family: var(--rm-mono);
+	font-size: 0.68rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--hue, var(--rm-muted));
+	margin: 0 0 0.35rem;
+}
+
+.rm-detail h3 {
+	font-size: 1.05rem;
+	margin: 0 0 0.6rem;
+}
+
+.rm-detail dl {
+	display: grid;
+	grid-template-columns: 6rem minmax(0, 1fr);
+	gap: 0.35rem 1rem;
+	margin: 0;
+	font-size: 0.9rem;
+}
+
+.rm-detail dt {
+	font-family: var(--rm-mono);
+	font-size: 0.68rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--rm-muted);
+	padding-top: 0.2rem;
+}
+
+.rm-detail dd {
+	margin: 0;
+}
+
+/* Per-item details are the data source for the panel */
+.rm-info {
+	display: none;
+}
+
+/* ---------- Small screens: stacked rows with a mini track ---------- */
+@media (max-width: 639.98px) {
+	.rm-axis {
+		display: none;
+	}
+
+	.rm-items {
+		background: none;
+		border-top: 1px solid var(--rm-line);
+	}
+
+	.rm-items > li {
+		display: block;
+		padding: 0;
+		border-bottom: 1px solid var(--rm-line);
+	}
+
+	.rm-bar {
+		width: 100%;
+		flex-wrap: wrap;
+		gap: 0.2rem 0.75rem;
+		padding: 0.8rem 0 1.4rem;
+		background: none;
+		-webkit-tap-highlight-color: transparent;
+		border: none;
+		border-radius: 0;
+	}
+
+	.rm-bar:hover,
+	.rm-bar[aria-expanded="true"] {
+		background: none;
+		box-shadow: none;
+	}
+
+	.rm-bar[aria-expanded="true"] .rm-label {
+		text-decoration: underline;
+		text-decoration-color: var(--hue);
+		text-underline-offset: 3px;
+	}
+
+	/* the mini timeline: full-width track, coloured span for this item */
+	.rm-bar::before,
+	.rm-bar::after {
+		content: "";
+		position: absolute;
+		bottom: 0.65rem;
+		height: 4px;
+		border-radius: 2px;
+	}
+
+	.rm-bar::before {
+		left: 0;
+		right: 0;
+		background: var(--rm-line);
+	}
+
+	.rm-bar::after {
+		left: calc(var(--start) / var(--rm-cols) * 100%);
+		width: calc((var(--end) - var(--start)) / var(--rm-cols) * 100%);
+		background: var(--hue);
+	}
+
+	.rm.is-waiting .rm-bar {
+		transform: none;
+	}
+
+	.rm-detail dl {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.rm-detail dt {
+		padding-top: 0.5rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rm-bar {
+		transition: none;
+	}
+
+	.rm.is-waiting .rm-bar {
+		transform: none;
+	}
+}

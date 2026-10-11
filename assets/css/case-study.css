@@ -132,10 +132,6 @@ body.case-study {
 }
 
 .cs-badge--solid { color: var(--cs-ink); border-color: var(--cs-ink); }
-.cs-badge--ok    { color: var(--cs-ok);   border-color: color-mix(in srgb, var(--cs-ok) 45%, transparent); }
-.cs-badge--warn  { color: var(--cs-warn); border-color: color-mix(in srgb, var(--cs-warn) 45%, transparent); }
-.cs-badge--cut   { color: var(--cs-cut);  border-color: color-mix(in srgb, var(--cs-cut) 45%, transparent); }
-.cs-badge--accent { color: var(--cs-accent); border-color: color-mix(in srgb, var(--cs-accent) 45%, transparent); }
 
 .cs-actions {
 	display: flex;
@@ -330,6 +326,11 @@ body.case-study {
 	display: none;
 }
 
+/* The rail is filled in by js/case-study.js; without JS it stays out of the way */
+.cs-rail:empty {
+	display: none !important;
+}
+
 @media (min-width: 1100px) {
 	.cs-layout {
 		grid-template-columns: minmax(0, 740px) 210px;
@@ -363,14 +364,11 @@ body.case-study {
 		width: 190px;
 		padding: 0;
 		transform: translateY(-50%);
+		transition: opacity 0.25s ease, visibility 0.25s ease;
 	}
 
 	.cs-rail--float .cs-toc {
 		margin-bottom: 0;
-	}
-
-	.cs-rail--float {
-		transition: opacity 0.25s ease, visibility 0.25s ease;
 	}
 
 	.cs-rail--float.is-hidden {
@@ -628,39 +626,6 @@ body.case-study {
 	margin: 0;
 }
 
-/* ---------- Process strip ---------- */
-.cs-steps {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	margin: 1.75rem 0;
-	padding: 0;
-	list-style: none;
-	counter-reset: step;
-	border-top: 1px solid var(--cs-ink);
-}
-
-.cs-steps li {
-	counter-increment: step;
-	padding: 0.9rem 1rem 0 0;
-	font-size: 0.9rem;
-	line-height: 1.5;
-	color: var(--cs-muted);
-}
-
-.cs-steps li::before {
-	content: "0" counter(step);
-	display: block;
-	font-family: var(--cs-mono);
-	font-size: 0.66rem;
-	letter-spacing: 0.14em;
-	color: var(--cs-muted);
-	margin-bottom: 0.35rem;
-}
-
-.cs-steps strong {
-	display: block;
-}
-
 /* ---------- Tier list ---------- */
 .cs-tiers {
 	margin: 1.5rem 0 0;
@@ -831,54 +796,6 @@ body.case-study {
 	to   { opacity: 1; transform: none; }
 }
 
-/* ---------- Timeline ---------- */
-.cs-timeline {
-	margin: 1.5rem 0 0;
-	padding: 0;
-	list-style: none;
-	border-top: 1px solid var(--cs-line);
-}
-
-.cs-timeline li {
-	display: grid;
-	grid-template-columns: 6.5rem 0.6rem minmax(0, 1fr);
-	gap: 0 1rem;
-	align-items: baseline;
-	padding: 0.8rem 0;
-	border-bottom: 1px solid var(--cs-line);
-}
-
-.cs-timeline time {
-	font-family: var(--cs-mono);
-	font-size: 0.7rem;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--cs-muted);
-}
-
-.cs-timeline li::before {
-	content: "";
-	grid-column: 2;
-	grid-row: 1;
-	width: 7px;
-	height: 7px;
-	border-radius: 50%;
-	background: var(--cs-ink);
-	transform: translateY(-1px);
-}
-
-.cs-timeline time { grid-column: 1; grid-row: 1; }
-.cs-timeline span { grid-column: 3; grid-row: 1; }
-
-.cs-timeline li.is-planned::before {
-	background: transparent;
-	border: 1px solid var(--cs-ink);
-}
-
-.cs-timeline li.is-planned span {
-	color: var(--cs-muted);
-}
-
 /* ---------- Dev feed, related ---------- */
 .case-study .bsky-sidebar-box {
 	border-color: var(--cs-line);
@@ -907,19 +824,6 @@ body.case-study {
 	font-size: 1.7rem;
 	font-weight: 400;
 	max-width: none;
-}
-
-.case-study .related-card-img {
-	border: 1px solid var(--cs-line);
-	transition: transform 0.35s ease;
-}
-
-.case-study .related-card:hover .related-card-img {
-	transform: translateY(-3px);
-}
-
-.case-study .related-card-title {
-	color: var(--cs-ink);
 }
 
 /* ---------- Motion ---------- */
@@ -1001,15 +905,6 @@ body.case-study {
 		border-top: 1px solid var(--cs-line);
 	}
 
-	.cs-steps {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
-	.cs-steps li:nth-child(n + 3) {
-		margin-top: 0.9rem;
-		border-top: 1px solid var(--cs-line);
-	}
-
 	.cs-tier {
 		grid-template-columns: minmax(0, 1fr) auto;
 	}
@@ -1030,10 +925,5 @@ body.case-study {
 
 	.cs-ba-row [data-label]::before {
 		display: block;
-	}
-
-	.cs-timeline li {
-		grid-template-columns: 5.25rem 0.6rem minmax(0, 1fr);
-		gap: 0 0.75rem;
 	}
 }

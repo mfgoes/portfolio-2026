@@ -2,6 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
+	<script src="js/theme-init.js"></script>
 	<title>Mischa vd Goes - Kosmograd case study: running a solo game like a product</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +13,7 @@
 	<link rel="stylesheet" href="assets/css/navbar.css" />
 	<link rel="stylesheet" href="assets/css/theme-dark.css" />
 	<link rel="stylesheet" href="assets/css/article.css" />
-	<link rel="stylesheet" href="assets/css/case-study.css?v=2" />
+	<link rel="stylesheet" href="assets/css/case-study.css?v=3" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -85,20 +86,20 @@
 
 			<div class="cs-stats">
 				<div class="cs-stat">
-					<div class="cs-stat-value"><span data-count="15">15</span>+</div>
-					<div class="cs-stat-label">buildings, from survival basics to production</div>
-				</div>
-				<div class="cs-stat">
-					<div class="cs-stat-value"><span data-count="10">10</span>+</div>
-					<div class="cs-stat-label">quests guiding the run</div>
+					<div class="cs-stat-value"><span data-count="18">18</span></div>
+					<div class="cs-stat-label">reported symptoms traced to a root cause in one playtest round</div>
 				</div>
 				<div class="cs-stat">
 					<div class="cs-stat-value">3</div>
-					<div class="cs-stat-label">biomes across randomised, seeded levels</div>
+					<div class="cs-stat-label">complaints removed by a single fix once the cause was found</div>
 				</div>
 				<div class="cs-stat">
-					<div class="cs-stat-value">3</div>
-					<div class="cs-stat-label">crew members with their own voice lines and abilities</div>
+					<div class="cs-stat-value">4</div>
+					<div class="cs-stat-label">things cut or reversed to make the Journal clearer</div>
+				</div>
+				<div class="cs-stat">
+					<div class="cs-stat-value"><span data-count="10">10</span><small>min</small></div>
+					<div class="cs-stat-label">first play that every fix is ranked against</div>
 				</div>
 			</div>
 		</div>
@@ -108,34 +109,60 @@
 		<div class="cs-layout">
 			<main class="cs-main">
 
-				<!-- 01 Overview -->
-				<section class="cs-section cs-reveal" id="overview">
-					<p class="cs-eyebrow"><span class="cs-num">01</span>Overview</p>
-					<h2>The product, and my part in it</h2>
-					<p>Kosmograd is a colony sim for people who like their survival games small and tense. The pitch, as it reads on the <a href="https://mfgoes.github.io/redshiftlabs/" target="_blank" rel="noopener">game's site</a>:</p>
+				<!-- 01 Takeaways: first, so a skim reader gets the point without scrolling the whole study -->
+				<section class="cs-section cs-reveal" id="takeaways" data-toc="Takeaways">
+					<p class="cs-eyebrow"><span class="cs-num">01</span>Takeaways</p>
+					<h2>What I'd bring to a product team</h2>
 
 					<ul class="cs-rows">
 						<li class="cs-row">
-							<span class="cs-row-key">Survive the moon</span>
-							<p>Keep a tiny colony alive through oxygen shortages, power failures, scarce resources and brutal lunar storms.</p>
+							<span class="cs-row-key">Trace, then rank</span>
+							<p>A backlog of symptoms overstates the work. One root cause accounted for three complaints, and it only showed up because I investigated before estimating.</p>
 						</li>
 						<li class="cs-row">
-							<span class="cs-row-key">Build a living outpost</span>
-							<p>Design and automate a self-sufficient Soviet-inspired moon base, from basic survival systems to advanced production.</p>
+							<span class="cs-row-key">Weigh evidence</span>
+							<p>A three-minute session and a full playthrough are not the same data point. I log signal quality next to the feedback and let weak signals become watch items.</p>
 						</li>
 						<li class="cs-row">
-							<span class="cs-row-key">Every day is a crisis</span>
-							<p>Balance limited resources, unreliable machinery and unpredictable events, where one failure can cascade into disaster.</p>
+							<span class="cs-row-key">Cutting is design</span>
+							<p>The Journal got better when I removed a duplicate entry point, an oversized card, two extra names and a filter. Most of the clarity came from what left.</p>
 						</li>
 					</ul>
-
-					<p>I build it alone, so it's where I practise the whole product cycle end to end: discovery, prioritisation, design, delivery and launch.</p>
-					<p>I own the roadmap, the playtest programme, the UX and the pixel art. The code is Godot 4 and GDScript, built with Claude Code as an engineering partner: I set direction and acceptance criteria, it works in small batches, and I test and own every call.</p>
 				</section>
 
-				<!-- 02 Problem -->
+				<!-- 02 Overview -->
+				<section class="cs-section cs-reveal" id="overview">
+					<p class="cs-eyebrow"><span class="cs-num">02</span>Overview</p>
+					<h2>The product, and my part in it</h2>
+					<p>Kosmograd is a colony sim for people who like their survival games small and tense.</p>
+					<p>I build it alone, so it's where I practise the whole product cycle end to end: discovery, prioritisation, design, delivery and launch.</p>
+					<p>I own the roadmap, the playtest programme, the UX and the pixel art. The code is Godot 4 and GDScript, built with Claude Code as an engineering partner: I set direction and acceptance criteria, it works in small batches, and I test and own every call.</p>
+
+					<details class="case-details">
+						<summary>The game's pitch, in three lines</summary>
+						<div class="case-details-body">
+							<ul class="cs-rows">
+								<li class="cs-row">
+									<span class="cs-row-key">Survive the moon</span>
+									<p>Keep a tiny colony alive through oxygen shortages, power failures, scarce resources and brutal lunar storms.</p>
+								</li>
+								<li class="cs-row">
+									<span class="cs-row-key">Build a living outpost</span>
+									<p>Design and automate a self-sufficient Soviet-inspired moon base, from basic survival systems to advanced production.</p>
+								</li>
+								<li class="cs-row">
+									<span class="cs-row-key">Every day is a crisis</span>
+									<p>Balance limited resources, unreliable machinery and unpredictable events, where one failure can cascade into disaster.</p>
+								</li>
+							</ul>
+							<p>As it reads on the <a href="https://mfgoes.github.io/redshiftlabs/" target="_blank" rel="noopener">game's site</a>.</p>
+						</div>
+					</details>
+				</section>
+
+				<!-- 03 Problem -->
 				<section class="cs-section cs-reveal" id="problem">
-					<p class="cs-eyebrow"><span class="cs-num">02</span>The problem</p>
+					<p class="cs-eyebrow"><span class="cs-num">03</span>The problem</p>
 					<h2>Playtests kept stalling on day 2</h2>
 					<p class="cs-tldr">First the game was <strong>too punishing</strong>, then it was <strong>too aimless</strong>. Both came down to one product problem: players who don't understand a system can't make real choices in it.</p>
 
@@ -156,9 +183,9 @@
 					</blockquote>
 				</section>
 
-				<!-- 03 Discovery -->
+				<!-- 04 Discovery -->
 				<section class="cs-section cs-reveal" id="discovery">
-					<p class="cs-eyebrow"><span class="cs-num">03</span>Discovery and prioritisation</p>
+					<p class="cs-eyebrow"><span class="cs-num">04</span>Discovery and prioritisation</p>
 					<h2>From loose feedback to a ranked plan</h2>
 					<p class="cs-tldr">I run playtests as think-aloud user tests, transcribe every session, and trace each issue to a root cause before deciding anything. Then I rank by <strong>impact on a 10-minute first play, per hour of work</strong>, because most testers play exactly once.</p>
 
@@ -169,26 +196,31 @@
 						<figcaption><span class="cs-fig">Fig. 02</span><span>A recorded playtest. Testers are asked to think out loud, so the recording captures what they expected as well as what they did.</span></figcaption>
 					</figure>
 
-					<p>I run playtests the way I'd run a usability test, with testers from Discord swap-testing and itch.io:</p>
+					<p>I run playtests the way I'd run a usability test, with testers from Discord swap-testing and itch.io.</p>
 
-					<ul class="cs-rows">
-						<li class="cs-row">
-							<span class="cs-row-key">Prime</span>
-							<p>Testers get a short brief before they start: record the session and say what you're thinking as you play. I don't explain the game, because the confusion is the data.</p>
-						</li>
-						<li class="cs-row">
-							<span class="cs-row-key">Transcribe</span>
-							<p>Every session is transcribed in full, not summarised from memory. A sigh or a &ldquo;wait, what?&rdquo; at minute four is easy to forget and often matters more than the written feedback.</p>
-						</li>
-						<li class="cs-row">
-							<span class="cs-row-key">Synthesise</span>
-							<p>I go through the transcripts with AI as a second reader. It clusters issues across sessions, drafts a priority order, and flags cues I missed. I check its findings against the recording and make the calls myself.</p>
-						</li>
-						<li class="cs-row">
-							<span class="cs-row-key">Weigh</span>
-							<p>Not every session counts the same. A three-minute play with no audio and the tutorial skipped is low-signal: it gave me a fullscreen nudge for web players, but it didn't get to change the design. Anything seen once is a watch item until a second tester hits it.</p>
-						</li>
-					</ul>
+					<details class="case-details">
+						<summary>How I run a playtest, in four steps</summary>
+						<div class="case-details-body">
+							<ul class="cs-rows">
+								<li class="cs-row">
+									<span class="cs-row-key">Prime</span>
+									<p>Testers get a short brief before they start: record the session and say what you're thinking as you play. I don't explain the game, because the confusion is the data.</p>
+								</li>
+								<li class="cs-row">
+									<span class="cs-row-key">Transcribe</span>
+									<p>Every session is transcribed in full, not summarised from memory. A sigh or a &ldquo;wait, what?&rdquo; at minute four is easy to forget and often matters more than the written feedback.</p>
+								</li>
+								<li class="cs-row">
+									<span class="cs-row-key">Synthesise</span>
+									<p>I go through the transcripts with AI as a second reader. It clusters issues across sessions, drafts a priority order, and flags cues I missed. I check its findings against the recording and make the calls myself.</p>
+								</li>
+								<li class="cs-row">
+									<span class="cs-row-key">Weigh</span>
+									<p>Not every session counts the same. A three-minute play with no audio and the tutorial skipped is low-signal: it gave me a fullscreen nudge for web players, but it didn't get to change the design. Anything seen once is a watch item until a second tester hits it.</p>
+								</li>
+							</ul>
+						</div>
+					</details>
 
 					<p>Then I trace each issue to its root cause, and that changes the plan. For one round before the demo I traced 18 reported symptoms, and some &ldquo;big&rdquo; complaints turned out to be one-line bugs. A single fix removed three of them at once: a credits payout on the landing screen, a random crew line before the intro, and a quest that completed itself on frame one.</p>
 					<p>The plan that came out of that round:</p>
@@ -221,9 +253,9 @@
 					</ul>
 				</section>
 
-				<!-- 04 Design -->
-				<section class="cs-section cs-reveal" id="journal">
-					<p class="cs-eyebrow"><span class="cs-num">04</span>UX deep dive</p>
+				<!-- 05 Design -->
+				<section class="cs-section cs-reveal" id="journal" data-toc="Quest list to Journal">
+					<p class="cs-eyebrow"><span class="cs-num">05</span>UX deep dive</p>
 					<h2>From a flat quest list to a Journal</h2>
 					<p class="cs-tldr">The fix for &ldquo;day 2, now what?&rdquo; was mostly information architecture. A flat quest list became a Journal with <strong>one pinned goal, a clear priority order and four tabs</strong>, so players always know what matters next.</p>
 
@@ -270,9 +302,9 @@
 					</details>
 				</section>
 
-				<!-- 05 Trust -->
+				<!-- 06 Trust -->
 				<section class="cs-section cs-reveal" id="trust">
-					<p class="cs-eyebrow"><span class="cs-num">05</span>Interface trust</p>
+					<p class="cs-eyebrow"><span class="cs-num">06</span>Interface trust</p>
 					<h2>Small fixes that make the UI believable</h2>
 					<p>In a survival game, players have to trust the interface to tell them the truth. These are the same patterns I use in B2B products.</p>
 
@@ -305,9 +337,9 @@
 					</div>
 				</section>
 
-				<!-- 06 First impressions -->
+				<!-- 07 First impressions -->
 				<section class="cs-section cs-reveal" id="launch">
-					<p class="cs-eyebrow"><span class="cs-num">06</span>Brand and go-to-market</p>
+					<p class="cs-eyebrow"><span class="cs-num">07</span>Brand and go-to-market</p>
 					<h2>The first thirty seconds</h2>
 					<p class="cs-tldr">Most people will meet Kosmograd as a thumbnail on Steam and a main menu. I treat both as product surfaces: <strong>they set the tone, and they're where the feedback loop starts</strong>.</p>
 
@@ -322,25 +354,10 @@
 					</figure>
 				</section>
 
-				<!-- 07 Takeaways -->
+				<!-- 08 What's next -->
 				<section class="cs-section cs-reveal" id="next">
-					<p class="cs-eyebrow"><span class="cs-num">07</span>Takeaways and what's next</p>
-					<h2>What I'd bring to a product team</h2>
-
-					<ul class="cs-rows">
-						<li class="cs-row">
-							<span class="cs-row-key">Trace, then rank</span>
-							<p>A backlog of symptoms overstates the work. One root cause accounted for three complaints, and it only showed up because I investigated before estimating.</p>
-						</li>
-						<li class="cs-row">
-							<span class="cs-row-key">Weigh evidence</span>
-							<p>A three-minute session and a full playthrough are not the same data point. I log signal quality next to the feedback and let weak signals become watch items.</p>
-						</li>
-						<li class="cs-row">
-							<span class="cs-row-key">Cutting is design</span>
-							<p>The Journal got better when I removed a duplicate entry point, an oversized card, two extra names and a filter. Most of the clarity came from what left.</p>
-						</li>
-					</ul>
+					<p class="cs-eyebrow"><span class="cs-num">08</span>What's next</p>
+					<h2>Towards the Steam demo</h2>
 
 					<p>The Steam demo is planned for <strong>January 2027</strong>. Until then: full playthroughs of the new Journal and weather systems, and more playtest rounds, each closing the loop with a devlog.</p>
 
@@ -365,31 +382,8 @@
 				</section>
 			</main>
 
-			<!-- Sticky rail: contents + share -->
-			<aside class="cs-rail" aria-label="On this page">
-				<div class="cs-rail-inner">
-					<p class="cs-rail-label">On this page</p>
-					<ul class="cs-toc">
-						<li><a href="#overview">Overview</a></li>
-						<li><a href="#problem">The problem</a></li>
-						<li><a href="#discovery">Discovery and prioritisation</a></li>
-						<li><a href="#journal">Quest list to Journal</a></li>
-						<li><a href="#trust">Interface trust</a></li>
-						<li><a href="#launch">Brand and go-to-market</a></li>
-						<li><a href="#next">Takeaways</a></li>
-					</ul>
-
-					<p class="cs-rail-label">Share</p>
-					<div class="cs-share">
-						<a href="mailto:?subject=Kosmograd%3A%20Running%20a%20Solo%20Game%20Like%20a%20Product&body=https://mischavdgoes.com/gamedev.html" title="Share via email" aria-label="Share via email"><i class="fas fa-envelope"></i></a>
-						<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mischavdgoes.com/gamedev.html" target="_blank" rel="noopener" title="Share on LinkedIn" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-						<a href="https://twitter.com/intent/tweet?url=https://mischavdgoes.com/gamedev.html&text=Kosmograd%3A%20Running%20a%20Solo%20Game%20Like%20a%20Product" target="_blank" rel="noopener" title="Share on X" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
-						<button type="button" data-copy-link title="Copy link" aria-label="Copy link"><i class="fas fa-link"></i></button>
-					</div>
-
-					<p class="cs-byline"><strong>Mischa van der Goes</strong>PM &amp; indie developer<br>October 2026</p>
-				</div>
-			</aside>
+			<!-- "On this page" rail: built by js/case-study.js -->
+			<aside class="cs-rail" data-share data-byline="PM &amp; indie developer" data-date="October 2026"></aside>
 		</div>
 	</div>
 
@@ -400,7 +394,7 @@
 			<div class="row g-4">
 				<div class="col-md-6">
 					<div class="related-card">
-						<img src="assets/images/thumbnails/thumbnail_ibac2.jpg" class="related-card-img" alt="PostNL IBAC project">
+						<img src="assets/images/thumbnails/thumbnail_ibac2.jpg" class="related-card-img" loading="lazy" alt="PostNL IBAC project">
 						<div class="related-card-meta">
 							<i class="far fa-clock"></i>
 							<span>2025</span>
@@ -413,7 +407,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="related-card">
-						<img src="assets/images/articles/devboard/animated_preview.gif" class="related-card-img" alt="DevBoard whiteboard tool">
+						<img src="assets/images/articles/devboard/animated_preview.gif" class="related-card-img" loading="lazy" alt="DevBoard whiteboard tool">
 						<div class="related-card-meta">
 							<i class="far fa-clock"></i>
 							<span>March 2026</span>
@@ -449,6 +443,6 @@
 	<script src="assets/components/article-footer.js"></script>
 	<script src="js/theme-toggle.js"></script>
 	<script src="js/slider-handling.js"></script>
-	<script src="js/case-study.js?v=2"></script>
+	<script src="js/case-study.js?v=3"></script>
 </body>
 </html>
