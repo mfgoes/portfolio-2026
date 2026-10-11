@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@500&family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 .bg-brand {
-  background-color: #5856D6;
+  background-color: var(--cs-ink);
 }
 
 .dark-section {
@@ -80,7 +80,7 @@ h5 {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #5856D6;
+  color: var(--cs-ink);
   margin-bottom: 0.6rem;
 }
 
@@ -93,8 +93,8 @@ h5 {
 }
 
 .btn-primary {
-  background-color: #5856D6;
-  border-color: #5856D6;
+  background-color: var(--cs-ink);
+  border-color: var(--cs-ink);
 }
 .btn-primary:hover, .btn-primary:focus {
   background-color: #4c4ac3;
@@ -102,12 +102,12 @@ h5 {
 }
 
 .btn-outline-primary {
-  border-color: #5856D6;
-  color: #5856D6;
+  border-color: var(--cs-ink);
+  color: var(--cs-ink);
 }
 .btn-outline-primary:hover, .btn-outline-primary:focus {
-  background-color: #5856D6;
-  border-color: #5856D6;
+  background-color: var(--cs-ink);
+  border-color: var(--cs-ink);
   color: #ffffff;
 }
 
@@ -269,14 +269,14 @@ input[type=text], textarea {
 button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--cs-ink);
+  color: var(--cs-bg);
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: var(--cs-body);
 }
 
 @media (max-width: 767px) {
@@ -306,7 +306,7 @@ button:hover {
   color: inherit;
 }
 .side-project-link:hover .project-arrow {
-  background-color: #5856D6;
+  background-color: var(--cs-ink);
   margin-right: 0;
   transition: 0.3s;
 }

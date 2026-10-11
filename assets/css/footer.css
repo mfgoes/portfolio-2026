@@ -5,6 +5,7 @@
     --ft-ink: var(--cs-ink, #1d1d1a);
     --ft-muted: var(--cs-muted, #6f6e66);
     --ft-line: var(--cs-line, #dcdacf);
+    --ft-cut: var(--cs-cut, #b3423a);
     --ft-serif: var(--cs-serif, "Newsreader", "Iowan Old Style", Georgia, serif);
     --ft-mono: var(--cs-mono, "JetBrains Mono", ui-monospace, Menlo, monospace);
     background-color: var(--ft-bg);
@@ -18,6 +19,7 @@
     --ft-ink: var(--cs-ink, #efede6);
     --ft-muted: var(--cs-muted, #94928a);
     --ft-line: var(--cs-line, rgba(255, 255, 255, 0.13));
+    --ft-cut: var(--cs-cut, #f08a80);
 }
 
 .footer-top {
@@ -35,6 +37,12 @@
     color: var(--ft-ink);
     max-width: 12em;
     margin: 0;
+}
+
+/* Same red italic cut as the homepage headline */
+.site-footer .footer-statement em {
+    font-style: italic;
+    color: var(--ft-cut);
 }
 
 .footer-nav {
@@ -64,14 +72,14 @@
     margin-bottom: 0.55rem;
 }
 
-/* Underline draws in from the left on hover */
+/* Red underline draws in from the left on hover */
 .site-footer .footer-links a {
     font-size: 0.95rem;
     line-height: 1.45;
     color: var(--ft-ink);
     text-decoration: none;
     cursor: pointer;
-    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    background: linear-gradient(var(--ft-cut), var(--ft-cut)) 0 100% / 0 1px no-repeat;
     padding-bottom: 2px;
     transition: background-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -86,8 +94,16 @@
 .site-footer .footer-links a[target="_blank"]::after {
     content: "↗";
     font-size: 0.8em;
+    display: inline-block;
     margin-left: 0.3em;
     color: var(--ft-muted);
+    transition: color 0.2s ease, transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.site-footer .footer-links a[target="_blank"]:hover::after,
+.site-footer .footer-links a[target="_blank"]:focus-visible::after {
+    color: var(--ft-cut);
+    transform: translate(2px, -2px);
 }
 
 .footer-copied {
@@ -189,9 +205,19 @@
     text-decoration: none;
 }
 
+.footer-top-link span {
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.footer-top-link:hover span {
+    color: var(--ft-cut);
+    transform: translateY(-3px);
+}
+
 .footer-theme-btn:focus-visible,
 .site-footer a:focus-visible {
-    outline: 2px solid var(--cs-accent, #6e56cf);
+    outline: 2px solid var(--cs-accent, var(--cs-ink));
     outline-offset: 3px;
 }
 
@@ -212,5 +238,11 @@
     .footer-wordmark.is-armed > span > span {
         transform: none;
         transition: none;
+    }
+
+    .site-footer .footer-links a[target="_blank"]:hover::after,
+    .site-footer .footer-links a[target="_blank"]:focus-visible::after,
+    .footer-top-link:hover span {
+        transform: none;
     }
 }

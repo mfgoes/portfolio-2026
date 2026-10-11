@@ -713,6 +713,31 @@
 	border-top: 1px solid var(--cs-line);
 	color: inherit;
 	text-decoration: none;
+	position: relative;
+}
+
+/* Red rule draws across the row's top hairline on hover */
+.co-page .co-link-row::before {
+	content: "";
+	position: absolute;
+	top: -1px;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: var(--cs-cut);
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.co-page .co-link-row:hover::before,
+.co-page .co-link-row:focus-visible::before {
+	transform: scaleX(1);
+}
+
+.co-link-row:hover .co-link-arrow,
+.co-link-row:focus-visible .co-link-arrow {
+	color: var(--cs-cut);
 }
 
 .co-link-kind {
@@ -747,7 +772,7 @@
 	font-size: 1.5rem;
 	line-height: 1;
 	color: var(--cs-ink);
-	transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+	transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.2s ease;
 }
 
 .co-page .co-link-row:focus-visible {
@@ -877,6 +902,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.co-page .co-link-row::before {
+		transition: none;
+	}
+
 	.co-js .co-reveal,
 	.co-js .co-clip img,
 	.co-w > span,

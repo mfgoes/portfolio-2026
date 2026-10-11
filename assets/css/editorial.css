@@ -14,7 +14,7 @@
 	--cs-body: #3a3a35;
 	--cs-muted: #6f6e66;
 	--cs-line: #dcdacf;
-	--cs-accent: #6e56cf;
+	--cs-accent: #1d1d1a;
 	--cs-cut: #b3423a;
 	--cs-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
 	--cs-sans: "Onest", system-ui, sans-serif;
@@ -30,7 +30,7 @@
 	--cs-body: #c9c7bf;
 	--cs-muted: #94928a;
 	--cs-line: rgba(255, 255, 255, 0.13);
-	--cs-accent: #a594f9;
+	--cs-accent: #efede6;
 	--cs-cut: #f08a80;
 }
 
@@ -293,6 +293,7 @@ body .article-tags {
 
 /* ---------- Links ---------- */
 body main a:not(.btn):not(.cs-btn),
+body section p a:not(.btn):not(.cs-btn),
 body .up-next-content a,
 body .share-link {
 	color: var(--cs-ink);

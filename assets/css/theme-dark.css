@@ -52,7 +52,7 @@
 }
 
 [data-bs-theme="dark"] #cards-view .card-link:hover .card-arrow {
-    background-color: #5856D6;
+    background-color: var(--cs-ink);
 }
 
 [data-bs-theme="dark"] #cards-view .card-link:hover .card-arrow svg {
@@ -144,7 +144,7 @@
 }
 
 [data-bs-theme="dark"] .accordion-button:not(.collapsed) {
-    background-color: rgba(88, 86, 214, 0.1);
+    background-color: var(--cs-surface);
     color: #e4e4e7;
 }
 
@@ -178,7 +178,7 @@
 
 [data-bs-theme="dark"] #theme-toggle:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    border-color: #5856D6;
+    border-color: var(--cs-ink);
 }
 
 /* === IMAGES === */
@@ -215,11 +215,11 @@
 /* === DROPDOWN MENU (Navbar Projects) === */
 [data-bs-theme="dark"] .project-dropdown {
     background: rgba(19, 20, 23, 0.98);
-    border-color: rgba(110, 86, 207, 0.3);
+    border-color: var(--cs-line);
 }
 
 [data-bs-theme="dark"] .project-preview-item:hover {
-    background-color: rgba(110, 86, 207, 0.1);
+    background-color: var(--cs-surface);
 }
 
 [data-bs-theme="dark"] .project-title {
@@ -297,17 +297,6 @@ svg {
 }
 
 /* Keep purple card styling in dark mode */
-[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] {
-    background-color: #5856D6 !important;
-}
-
-[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] h4,
-[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] h5,
-[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] p,
-[data-bs-theme="dark"] #rates-section .card[style*="background-color: #5856D6"] li {
-    color: #ffffff !important;
-}
-
 /* Testimonials */
 [data-bs-theme="dark"] #testimonials-container .card {
     background-color: #1a1a1f !important;
@@ -358,12 +347,12 @@ svg {
 
 /* Accordion overrides for dark mode */
 [data-bs-theme="dark"] .accordion .accordion-button:not(.collapsed) {
-    background-color: rgba(88, 86, 214, 0.1);
+    background-color: var(--cs-surface);
     color: #e4e4e7;
 }
 
 [data-bs-theme="dark"] .accordion .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(88, 86, 214, 0.25);
+    box-shadow: 0 0 0 0.25rem var(--cs-line);
 }
 
 /* === SIDE PROJECT CARDS === */
@@ -376,7 +365,7 @@ svg {
 }
 
 [data-bs-theme="dark"] .side-project-link:hover .project-arrow {
-    background-color: #5856D6;
+    background-color: var(--cs-ink);
 }
 
 [data-bs-theme="dark"] .side-project-link:hover .project-arrow svg {

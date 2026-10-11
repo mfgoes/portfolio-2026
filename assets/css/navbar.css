@@ -82,26 +82,26 @@ body.dark-nav .navbar.nav-scrolled {
     border-bottom-color: transparent;
 }
 
-/* Override Bootstrap default blue with purple theme */
+/* Override Bootstrap default blue */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-    color: #6e56cf !important;
+    color: var(--cs-ink) !important;
 }
 
 .navbar-nav .nav-link.active {
-    color: #6e56cf !important;
+    color: var(--cs-ink) !important;
 }
 
 /* Override hamburger menu button hover */
 .navbar-toggler:hover {
     background-color: transparent !important;
-    border-color: rgba(110, 86, 207, 0.5) !important;
+    border-color: var(--cs-line) !important;
 }
 
 .navbar-toggler:focus {
     background-color: transparent !important;
-    border-color: #6e56cf !important;
-    box-shadow: 0 0 0 0.2rem rgba(110, 86, 207, 0.25) !important;
+    border-color: var(--cs-ink) !important;
+    box-shadow: 0 0 0 0.2rem var(--cs-line) !important;
 }
 
 /* Project Dropdown Mega Menu */
@@ -110,7 +110,7 @@ body.dark-nav .navbar.nav-scrolled {
     max-width: 450px;
     padding: 0.5rem;
     background: rgba(19, 20, 23, 0.98); /* #131417 */
-    border: 1px solid rgba(110, 86, 207, 0.2); /* Deep Purple accent border */
+    border: 1px solid var(--cs-line);
     border-radius: 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
@@ -134,13 +134,13 @@ body.dark-nav .navbar.nav-scrolled {
 }
 
 .project-preview-item:hover {
-    background: rgba(110, 86, 207, 0.1) !important;
+    background: var(--cs-surface) !important;
     transform: translateX(4px);
 }
 
 .project-preview-item:active,
 .project-preview-item.active {
-    background: rgba(110, 86, 207, 0.2) !important;
+    background: var(--cs-line) !important;
 }
 
 /* Project Preview Layout */
@@ -188,7 +188,7 @@ body.dark-nav .navbar.nav-scrolled {
 
 /* Hover Effects for Project Info */
 .project-preview-item:hover .project-title {
-    color: #6e56cf;
+    color: var(--cs-ink);
 }
 
 .project-preview-item:hover .project-description {
@@ -213,7 +213,7 @@ body.dark-nav .navbar.nav-scrolled {
         float: none;
         width: auto;
         margin-top: 0;
-        border: 1px solid rgba(110, 86, 207, 0.2);
+        border: 1px solid var(--cs-line);
     }
 
     /* Only show when Bootstrap adds .show class on click */
@@ -280,7 +280,7 @@ body.dark-nav .navbar.nav-scrolled {
 
 /* Accessibility: Focus States */
 .project-preview-item:focus {
-    outline: 2px solid #6e56cf;
+    outline: 2px solid var(--cs-ink);
     outline-offset: 2px;
 }
 

@@ -31,21 +31,6 @@ body.theme-dark {
   pointer-events: none;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 1;
-  background: linear-gradient(135deg, rgba(111, 206, 250, 0.12) 0%, rgba(138, 103, 235, 0.134) 25%, rgba(34, 67, 57, 0.1) 50%, rgba(88, 86, 214, 0.2) 75%, rgba(45, 65, 94, 0.12) 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
-}
-
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -82,7 +67,7 @@ body.theme-dark {
 }
 
 .navbar-dark .nav-link:hover {
-  color: #5856D6 !important;
+  color: var(--cs-ink) !important;
 }
 
 [data-bs-theme=dark] .navbar-dark .navbar-brand,
@@ -91,5 +76,5 @@ body.theme-dark {
 }
 
 [data-bs-theme=dark] .navbar-dark .nav-link:hover {
-  color: #818cf8 !important;
+  color: var(--cs-ink) !important;
 }

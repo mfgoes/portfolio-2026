@@ -117,9 +117,16 @@ function progress(label, pair) {
 
 // ---------- Screens ----------
 function screenAudits() {
-	const ready = AUDITS.filter((a) => a.status === 'ready').length;
+	const count = (status) => AUDITS.filter((a) => a.status === status).length;
+	const stat = (n, label, tone = '') => `<div class="ao-stat ${tone}"><b>${n}</b><span>${label}</span></div>`;
+	const summary = `<div class="ao-summary ao-hide-mobile">
+		${stat(AUDITS.length, 'Ongoing audits')}
+		${stat(count('ready'), 'Ready for sign-off', 'ready')}
+		${stat(count('review'), 'Under review', 'review')}
+		${stat(AUDITS.filter((a) => a.priority).length, 'High priority', 'priority')}
+	</div>`;
 	const cards = AUDITS.map((a) => `
-		<a class="ao-card ao-audit" href="?screen=control">
+		<a class="ao-card ao-audit is-${a.status}" href="?screen=control">
 			<h3>${a.name}${a.priority ? icon('priority', 'sm') : ''}</h3>
 			${progress('Controls', a.controls)}
 			${progress('Evidence', a.evidence)}
@@ -141,11 +148,12 @@ function screenAudits() {
 			<div class="ao-tabs"><button class="ao-tab on" type="button">Ongoing Audits<span class="ao-count">${AUDITS.length}</span></button><button class="ao-tab" type="button">Past Audits</button></div>
 		</div></section>
 		<section class="ao-body"><div class="ao-wrap">
+			${summary}
 			<div class="ao-filters">
 				<div class="ao-field"><label>Search</label><div class="ao-input placeholder">Status, app name, etc${icon('search', 'sm')}</div></div>
 				<div class="ao-hide-mobile">${select('Filter apps', 'All audits')}</div>
 				<div class="ao-hide-mobile">${select('Sort by', 'Priority')}</div>
-				<div class="ao-filters-end ao-hide-mobile"><span>${ready} audits are ready</span><div class="ao-toggle"><span class="on">${icon('grid', 'sm')}</span><span>${icon('list', 'sm')}</span></div></div>
+				<div class="ao-filters-end ao-hide-mobile"><div class="ao-toggle"><span class="on">${icon('grid', 'sm')}</span><span>${icon('list', 'sm')}</span></div></div>
 			</div>
 			<div class="ao-grid">${cards}</div>
 		</div></section>`;
@@ -274,7 +282,7 @@ function drawer(e, tab) {
 
 function barChart(bars, { max, step, color, decimals = 0 }) {
 	const ticks = [];
-	for (let v = 0; v <= max + 1e-9; v += step) ticks.push(`<span>${v.toFixed(decimals)}</span>`);
+	for (let v = 0; v <= max + 1e-9; v += step) ticks.push(`<span style="--at:${v / max}">${v.toFixed(decimals)}</span>`);
 	const cols = bars.map(([label, value]) => `<div class="ao-col"><i style="height:${(value / max) * 100}%"></i><em style="bottom:${(value / max) * 100}%">${value}</em><span>${label}</span></div>`).join('');
 	return `<div class="ao-chart"><div class="ao-ticks">${ticks.join('')}</div><div class="ao-plot" style="--steps:${max / step};--bar:${color}">${cols}</div></div>`;
 }

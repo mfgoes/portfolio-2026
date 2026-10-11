@@ -13,7 +13,7 @@
 
 .ic-indigo {
   background: rgba(99, 102, 241, 0.12);
-  color: #818cf8;
+  color: var(--cs-ink);
 }
 
 .ic-purple {
@@ -135,7 +135,7 @@
   color: inherit;
 }
 #cards-view .card .card-link:hover .card-arrow {
-  background-color: #5856D6;
+  background-color: var(--cs-ink);
   margin-right: 0;
   transition: 0.3s;
 }

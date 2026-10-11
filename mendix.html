@@ -30,7 +30,7 @@
 	<link rel="alternate icon" href="favicon.ico">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
-	<link rel="stylesheet" href="assets/css/case-study.css?v=3" />
+	<link rel="stylesheet" href="assets/css/case-study.css?v=7" />
 	<link rel="stylesheet" href="assets/css/roadmap.css" />
 </head>
 <body class="dark-nav">
@@ -48,7 +48,9 @@
 				<div class="col-lg-9 col-md-8">
 					<h1 class="mb-3">Simplifying Security Audits at Mendix</h1>
 					<p class="fw-semibold mb-4">How I identified and tackled inefficiencies within the security auditing flow to improve the workflow of compliance teams.</p>
-					<img src="assets/images/mendix/homepage.jpg" class="img-fluid" alt="Mendix Security Audits">
+					<figure class="cs-figure mb-0">
+						<img src="assets/images/mendix/hero-focus.webp" width="2400" height="1500" alt="Close-up of the AuditON My Audits screen: audit cards with progress on controls and evidence, and a flagged evidence file marked as outside the audit period">
+					</figure>
 				</div>
 				<div class="col-lg-3 col-md-4">
 					<p class="fw-bold mb-1">Responsibilities</p>
@@ -71,28 +73,20 @@
 			<div class="col-md-6 mb-4 mb-md-0">
 			
 			<h2>Ensuring enterprise-grade security by improving efficiencies</h2>
-			<p class="intro-highlight">
-				
-			</p>
 			<p>
 				At Mendix, the low-code platform powering critical systems for ABN Amro and PostNL, security audits were becoming a bottleneck. With no centralized tracking, communication scattered across platforms, and inconsistent validation methods, their certification process was at risk. This case explores how we transformed their fragmented compliance system into a streamlined security framework.
 			</p>
 			
 			</div>
 			<div class="col-md-6">
-				<img src="assets/images/mendix/auditon_clean.png" alt="Production and Color" class="img-fluid">
+				<div class="cs-shots cs-shots--phones" style="--cs-shots: 2">
+					<figure class="cs-figure"><img src="assets/images/mendix/recreated/mobile-login.webp" width="780" height="1688" loading="lazy" alt="AuditON sign-in screen on a phone"></figure>
+					<figure class="cs-figure"><img src="assets/images/mendix/recreated/mobile-audits.webp" width="780" height="1688" loading="lazy" alt="AuditON My Audits list on a phone"></figure>
+				</div>
 			</div>
 		</div>
 		</div>
 	</section>
-
-	<!-- Process section -->
-	<section class="py-5 bg-light">
-		<div class="container">
-			<img src="assets/images/mendix/process.png" alt="Production and Color" class="img-fluid">
-		</div>
-	</section>
-	
 
 <!-- Challenges addressed -->
 <section class="py-5" id="challenges" data-toc="Challenges">
@@ -143,7 +137,9 @@
 					</ul>				
 				</div>
 				<div class="col-md-6">
-					<img src="assets/images/mendix/dashboard.jpg" alt="Production Details" class="img-fluid">
+					<figure class="cs-figure my-0">
+						<img src="assets/images/mendix/recreated/insights.webp" width="2720" height="1700" loading="lazy" alt="AuditON Security Insights dashboard with response time and maturity per domain">
+					</figure>
 				</div>
 			</div>
 		</div>
@@ -154,7 +150,16 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-6 mb-4 mb-md-0">
-					<img src="assets/images/mendix/audit process.png" alt="Production and Color" class="img-fluid">
+					<div class="cs-flow">
+						<p class="cs-flow-title">Updated flow</p>
+						<ol>
+							<li><i class="fa-solid fa-folder-plus" aria-hidden="true"></i>Create audit from a template</li>
+							<li><i class="fa-regular fa-bell" aria-hidden="true"></i>Notify everyone involved</li>
+							<li><i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i>Upload and validate evidence</li>
+							<li><i class="fa-regular fa-envelope" aria-hidden="true"></i>Notify the auditor</li>
+							<li class="is-done"><i class="fa-regular fa-circle-check" aria-hidden="true"></i>Receive certificate</li>
+						</ol>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<h2>Key findings</h2>
@@ -224,17 +229,59 @@
 		</div>
 	</section>
 
-	<!-- Full images -->
+	<!-- Final design screens (recreated: see prototypes/auditon) -->
 	<section class="py-5 bg-white">
 		<div class="container">
-			<div class="row justify-content-center mb-4">
-				<div class="col-md-10 text-center">
-					<img src="assets/images/mendix/sidepanel.png" alt="Audit Process" class="img-fluid rounded-3">
-				</div>
-			</div>
 			<div class="row justify-content-center">
-				<div class="col-md-10 text-center">
-					<img src="assets/images/mendix/audit_home.png" alt="Audit Process" class="img-fluid rounded-3">
+				<div class="col-lg-10">
+					<figure class="cs-figure cs-annotated mt-0">
+						<div class="cs-annotated-frame">
+							<img src="assets/images/mendix/recreated/audits.webp" width="2720" height="1700" loading="lazy" alt="AuditON My Audits screen: nine ongoing audits as cards, each with progress on controls and evidence, a status and an owner">
+							<span class="cs-pin" style="left: 15.5%; top: 41.5%" aria-hidden="true">1</span>
+							<span class="cs-pin" style="left: 55%; top: 47%" aria-hidden="true">2</span>
+							<span class="cs-pin" style="left: 91.8%; top: 47%" aria-hidden="true">3</span>
+							<span class="cs-pin" style="left: 74.2%; top: 29.3%" aria-hidden="true">4</span>
+						</div>
+						<ol class="cs-pin-legend">
+							<li><strong>Progress per audit.</strong> Controls and evidence are counted separately, so a stalled audit is visible without opening it.</li>
+							<li><strong>Status.</strong> In progress, under review or ready, in one consistent place on every card.</li>
+							<li><strong>Owner.</strong> The responsible security officer is on the card, so there's no question who to ask.</li>
+							<li><strong>What's ready.</strong> A count of audits ready for sign-off, above the grid.</li>
+						</ol>
+					</figure>
+
+					<figure class="cs-figure">
+						<img src="assets/images/mendix/recreated/control-flagged.webp" width="2720" height="1700" loading="lazy" alt="Control RM03 with the evidence panel open: a file flagged as outside the audit period and a message thread about it">
+						<figcaption><span class="cs-fig">Evidence panel</span><span>Everything about one piece of evidence in one place: status, owner, deadline, the files and the conversation. The outdated file is flagged automatically, and the security officer tags the app owner to replace it.</span></figcaption>
+					</figure>
+
+					<div class="cs-shots">
+						<figure class="cs-figure">
+							<img src="assets/images/mendix/recreated/panel-1-empty.webp" width="880" height="1604" loading="lazy" alt="Evidence panel, empty: no assignee, no deadline, no files">
+							<figcaption><span class="cs-fig">1</span><span>Requested. Nothing uploaded, nobody assigned yet.</span></figcaption>
+						</figure>
+						<figure class="cs-figure">
+							<img src="assets/images/mendix/recreated/panel-2-uploaded.webp" width="880" height="1604" loading="lazy" alt="Evidence panel with two validated files, an assignee and a deadline">
+							<figcaption><span class="cs-fig">2</span><span>Supplied. Files pass validation and the evidence is marked ready.</span></figcaption>
+						</figure>
+						<figure class="cs-figure">
+							<img src="assets/images/mendix/recreated/panel-3-flagged.webp" width="880" height="1604" loading="lazy" alt="Evidence panel with a flagged file and a three-message thread">
+							<figcaption><span class="cs-fig">3</span><span>Flagged. A wrong file is caught and sorted out in the thread, not over email.</span></figcaption>
+						</figure>
+					</div>
+
+					<figure class="cs-figure">
+						<img src="assets/images/mendix/recreated/officer-home.webp" width="2720" height="1700" loading="lazy" alt="AuditON home for security officers: ongoing audits with due dates and status, plus frameworks and controls">
+						<figcaption><span class="cs-fig">Officer home</span><span>Security officers see every ongoing audit, its due date and its status without opening a spreadsheet.</span></figcaption>
+					</figure>
+
+					<div class="cs-shots cs-shots--phones">
+						<figure class="cs-figure"><img src="assets/images/mendix/recreated/mobile-audits.webp" width="780" height="1688" loading="lazy" alt="My Audits on a phone"></figure>
+						<figure class="cs-figure"><img src="assets/images/mendix/recreated/mobile-control.webp" width="780" height="1688" loading="lazy" alt="Control RM03 on a phone, evidence shown as a list"></figure>
+						<figure class="cs-figure"><img src="assets/images/mendix/recreated/mobile-evidence.webp" width="780" height="1688" loading="lazy" alt="Evidence panel on a phone, with the flagged file and message thread"></figure>
+					</div>
+
+					<p class="cs-shots-note">The original design files no longer exist, so I rebuilt these screens in HTML and CSS from screenshots of the product. Names and numbers are sample data. <a href="prototypes/auditon/index.html?screen=control" target="_blank" rel="noopener">Open the clickable prototype</a></p>
 				</div>
 			</div>
 		</div>
@@ -336,10 +383,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Include Bootstrap JS for the modal functionality -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 	<!-- Core utilities (load first - required by other scripts) -->
@@ -352,7 +395,6 @@
 	<script src="assets/components/contact-cta.js"></script>
 	<script src="assets/components/footer.js"></script>
 	<script src="js/theme-toggle.js"></script>
-	<script src="js/slider-handling.js"></script> <!--ensures carousel active state is correctly styled-->
 	<script src="js/roadmap.js"></script>
 	<script src="js/case-study.js?v=3"></script>
 </body>

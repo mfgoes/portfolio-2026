@@ -445,6 +445,48 @@ button {
 	color: var(--ao-muted);
 }
 
+/* Refinement for the case study: totals at a glance above the grid */
+.ao-summary {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	margin-bottom: 20px;
+	background: var(--ao-surface);
+	border: 1px solid var(--ao-line);
+	border-radius: var(--ao-radius);
+}
+
+.ao-stat {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	padding: 14px 18px;
+	font-size: 13px;
+	color: var(--ao-muted);
+}
+
+.ao-stat + .ao-stat {
+	border-left: 1px solid var(--ao-line);
+}
+
+.ao-stat b {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1;
+	color: var(--ao-text);
+}
+
+.ao-stat.ready b {
+	color: #1f7a3a;
+}
+
+.ao-stat.review b {
+	color: #8a6400;
+}
+
+.ao-stat.priority b {
+	color: #d92d20;
+}
+
 .ao-filters {
 	display: flex;
 	align-items: flex-end;
@@ -498,6 +540,19 @@ button {
 	border-left: 3px solid var(--ao-navy);
 	color: inherit;
 	transition: box-shadow 0.15s ease;
+}
+
+/* Refinement for the case study: the card edge carries the audit's status */
+.ao-audit.is-progress {
+	border-left-color: var(--ao-blue);
+}
+
+.ao-audit.is-ready {
+	border-left-color: #2a9d4a;
+}
+
+.ao-audit.is-review {
+	border-left-color: #d9a400;
 }
 
 .ao-audit:hover {
@@ -993,22 +1048,16 @@ button {
 }
 
 .ao-ticks {
-	display: flex;
-	flex-direction: column-reverse;
-	justify-content: space-between;
-	padding-bottom: 22px;
+	position: relative;
 	font-size: 11px;
 	color: var(--ao-muted);
-	text-align: right;
-	padding-right: 8px;
 }
 
 .ao-ticks span {
+	position: absolute;
+	right: 8px;
+	bottom: calc(22px + (100% - 22px) * var(--at));
 	line-height: 1;
-	transform: translateY(-50%);
-}
-
-.ao-ticks span:first-child {
 	transform: translateY(50%);
 }
 
@@ -1061,7 +1110,7 @@ button {
 .ao-col em {
 	position: absolute;
 	left: 50%;
-	transform: translate(-50%, -100%);
+	transform: translateX(-50%);
 	font-style: normal;
 	font-size: 11px;
 	font-weight: 600;
