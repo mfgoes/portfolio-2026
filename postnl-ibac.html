@@ -24,11 +24,30 @@
 	<!-- Description -->
 	<meta name="description" content="">
 	<!-- Favicons -->
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
-	
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+	<link rel="alternate icon" href="favicon.ico">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="assets/css/case-study.css?v=2" />
+	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
 </head>
 <body class="dark-nav">
 	<!-- Navbar -->
+	<div class="cs-progress" aria-hidden="true"></div>
+
+	<!-- Floating contents rail (wide screens) -->
+	<aside class="cs-rail cs-rail--float" aria-label="On this page">
+		<p class="cs-rail-label">On this page</p>
+		<ul class="cs-toc">
+			<li><a href="#results">Impact and results</a></li>
+			<li><a href="#challenge">Challenge and role</a></li>
+			<li><a href="#decisions">Decisions and trade-offs</a></li>
+			<li><a href="#features">Account creation</a></li>
+			<li><a href="#research">Research methods</a></li>
+			<li><a href="#retro">What I'd do differently</a></li>
+		</ul>
+	</aside>
+
 	<div id="navbar-container"></div>
 
 	
@@ -61,7 +80,7 @@
 
 
 	<!-- Strategic Impact -->
-	<section class="py-5 bg-light">
+	<section class="py-5 bg-light" id="results">
 		<div class="container">
 			<div class="row justify-content-center mb-3">
 				<div class="col-lg-8 text-center">
@@ -74,7 +93,7 @@
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="post-it yellow">
 						<div class="mb-3">
-							<img src="assets/icons/person_yellow.png" alt="" class="card-icon">
+							<i class="fa-solid fa-arrow-trend-up tile-icon" aria-hidden="true"></i>
 						</div>
 						<h3 class="mb-3"><span class="metric-number">73%</span> Conversion Increase</h3>
 						<p>Improved from 4.7% to 8.4%</p>
@@ -83,7 +102,7 @@
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="post-it blue">
 						<div class="mb-3">
-							<img src="assets/icons/clock_blue.png" alt="" class="card-icon">
+							<i class="fa-solid fa-stopwatch tile-icon" aria-hidden="true"></i>
 						</div>
 						<h3 class="mb-3"><span class="metric-number">67%</span> Faster Onboarding</h3>
 						<p>Avg. from 3.25 days to 1 day</p>
@@ -92,7 +111,7 @@
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="post-it red">
 						<div class="mb-3">
-							<img src="assets/icons/money_red.png" alt="" class="card-icon">
+							<i class="fa-solid fa-euro-sign tile-icon" aria-hidden="true"></i>
 						</div>
 						<h3 class="mb-3"><span class="metric-number">€500K</span> Revenue Impact</h3>
 						<p>Projected revenue lift from increased conversions and customer retention</p>
@@ -104,12 +123,12 @@
 
 
 	<!-- Section 3: The challenge -->
-	<section class="py-5 intro-section">
+	<section class="py-5 intro-section" id="challenge">
 		<div class="container">
 		<div class="row align-items-center">
 			<div class="col-md-6 mb-4 mb-md-0">
 
-			<h2>The Challenge</h2>
+			<h2>The Challenge & My Role</h2>
 			<p class="intro-highlight">
 				PostNL's B2B customer acquisition was stagnant. Three product teams ran isolated experiments with no shared roadmap, leading to:
 			</p>
@@ -118,6 +137,8 @@
 						<li>No testing culture (only 4 experiments in 2022)</li>
 						<li>Conflicting priorities across Sales, Product, and Marketing</li>
 					</ul>
+			<h3 class="mt-4">My role</h3>
+			<p class="mb-0">Led experimentation strategy for PostNL's B2B acquisition team. Coordinated with engineering, marketing, and CRO to prioritize tests, analyze results, and scale wins across the funnel.</p>
 			</div>
 			<div class="col-md-6">
 				<img src="assets/images/IBAC/image_1.jpg" alt="PostNL Challenge Overview" class="img-fluid">
@@ -126,25 +147,8 @@
 		</div>
 	</section>
 
-	<!-- My Role -->
-	<section class="py-5 bg-light">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-md-6 mb-4 mb-md-0">
-					<img src="assets/images/IBAC/image_3.jpg" alt="From Insights to Strategy" class="img-fluid">
-				</div>
-				<div class="col-md-6">
-					<h2>My Role</h2>
-					<p>
-						Led experimentation strategy for PostNL's B2B acquisition team. Coordinated with engineering, marketing, and CRO to prioritize tests, analyze results, and scale wins across the funnel.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- Strategic Decisions -->
-	<section class="py-5 bg-light">
+	<section class="py-5 bg-light" id="decisions">
 		<div class="container">
 			<h2 class="text-center mb-5">Strategic Decisions & Trade-offs</h2>
 
@@ -191,35 +195,14 @@
 		</div>
 	</section>
 
-	<!-- Intro examples -->
-	<section class="py-5 pb-0">
+	<!-- Account creation flow -->
+	<section class="py-5" id="features">
 		<div class="container">
 			<div class="row">
-				<div class="col-12">
-					<h2>Major Features & Optimizations</h2>
-					<p>Key product improvements spanning strategic segmentation, flow optimization, and preference capture.</p>
-				</div>
-			</div>
-
-		</div>
-	</section>
-
-	<!-- Account Creation Flow -->
-	<section class="py-2 bg-light">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h3>Streamlined Account Creation Flow (2024)</h3>
-					<p><strong>Reducing Friction Through Step Elimination</strong></p>
-					<p>Completely redesigned the account creation process, reducing required steps from 18 to 9 while maintaining all essential verification and setup requirements. Combined related actions into logical groupings and eliminated redundant data entry points that were causing customer abandonment.</p>
-
-					<p><strong>Results:</strong></p>
-					<ul>
-						<li>50% step reduction from 18 to 9 required steps</li>
-						<li>Reduced cognitive load through logical step grouping and progressive disclosure</li>
-						<li>Eliminated redundant verification and duplicate data entry points</li>
-						<li>Contributed to overall IBAC improvements including 94.5% activation rates (vs 77%) and 22.6% faster time-to-shipment</li>
-					</ul>
+				<div class="col-lg-9">
+					<h2>Streamlined Account Creation</h2>
+					<p>The biggest single change in 2024: I redesigned account creation from 18 required steps to 9, keeping every essential verification and setup requirement. Related actions were grouped, with progressive disclosure, and redundant data entry was removed.</p>
+					<p class="mb-0"><strong>Result:</strong> it contributed to 94.5% activation (up from 77%) and 22.6% faster time-to-shipment.</p>
 				</div>
 			</div>
 		</div>
@@ -230,7 +213,7 @@
 	</section>
 
 	<!-- Research section -->
-	<section class="py-5 mt-5 bg-light">
+	<section class="py-5 bg-light" id="research">
 		<div class="container">
 			<div class="row justify-content-center mb-3">
 				<div class="col-lg-8 text-center">
@@ -241,28 +224,28 @@
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="post-it white">
 						<div class="mb-3">
-							<img src="assets/icons/message_white.png" alt="" class="card-icon">
+							<i class="fa-solid fa-binoculars tile-icon" aria-hidden="true"></i>
 						</div>
 						<h4 class="mb-3">In-Field Research (Klantsafari)</h4>
-						<p>Visited clients in their natural work environments to observe real PostNL platform usage. Uncovered critical gaps between designed workflows and actual user behavior that desk research missed.</p>
+						<p>Visited clients at work to watch real platform use. Found gaps between designed workflows and actual behaviour that desk research missed.</p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="post-it white">
 						<div class="mb-3">
-							<img src="assets/icons/eye_white.png" alt="" class="card-icon">
+							<i class="fa-solid fa-code-compare tile-icon" aria-hidden="true"></i>
 						</div>
-						<h4 class="mb-3">A/B Testing & Conversion Optimization</h4>
-						<p>Systematic testing of layouts, copy, and interaction patterns to validate design decisions. Analyzed DHL and DPD competitor flows for differentiation opportunities.</p>
+						<h4 class="mb-3">A/B Testing & CRO</h4>
+						<p>Tested layouts, copy and interaction patterns to validate decisions. Benchmarked DHL and DPD flows for ways to differentiate.</p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="post-it white">
 						<div class="mb-3">
-							<img src="assets/icons/person_white.png" alt="" class="card-icon">
+							<i class="fa-solid fa-hand-pointer tile-icon" aria-hidden="true"></i>
 						</div>
 						<h4 class="mb-3">Prototype Testing</h4>
-						<p>Created and tested interactive prototypes with target users throughout iterations. Identified friction points before development, reducing costly rework.</p>
+						<p>Tested interactive prototypes with target users every iteration, catching friction before development.</p>
 					</div>
 				</div>
 			</div>
@@ -270,7 +253,7 @@
 	</section>
 
 	<!-- What I'd Do Differently -->
-	<section class="py-5 bg-light">
+	<section class="py-5 bg-light" id="retro">
 		<div class="container">
 			<div class="row justify-content-center mb-4">
 				<div class="col-lg-8 text-center">
@@ -281,28 +264,28 @@
 				<div class="col-md-4 mb-3">
 					<div class="post-it white">
 						<div class="mb-3">
-							<img src="assets/icons/icon_alert_bubble.png" alt="" class="card-icon">
+							<i class="fa-solid fa-mobile-screen-button tile-icon" aria-hidden="true"></i>
 						</div>
 						<h4 class="mb-3">Start Mobile-First</h4>
-						<p>60% of traffic was mobile, but I optimized desktop first due to legacy stakeholder focus. Should've led with mobile data from day one—would've prioritized differently and shipped faster.</p>
+						<p>60% of traffic was mobile, but I optimised desktop first because stakeholders did. Leading with mobile data would have changed priorities and shipped faster.</p>
 					</div>
 				</div>
 				<div class="col-md-4 mb-3">
 					<div class="post-it white">
 						<div class="mb-3">
-							<img src="assets/icons/icon_alert_bubble.png" alt="" class="card-icon">
+							<i class="fa-solid fa-file-lines tile-icon" aria-hidden="true"></i>
 						</div>
 						<h4 class="mb-3">Build Testing Templates Earlier</h4>
-						<p>Spent too much time in status meetings explaining the 'why'. A clear document would have freed 5+ hours/week for actual design/dev work.</p>
+						<p>Too many status meetings explaining the 'why'. One clear document would have freed 5+ hours a week.</p>
 					</div>
 				</div>
 				<div class="col-md-4 mb-3">
 					<div class="post-it white">
 						<div class="mb-3">
-							<img src="assets/icons/icon_alert_bubble.png" alt="" class="card-icon">
+							<i class="fa-solid fa-layer-group tile-icon" aria-hidden="true"></i>
 						</div>
 						<h4 class="mb-3">More Concurrent Tests</h4>
-						<p>We often ran tests one after another. In hindsight, could've tested multiple non-overlapping flows simultaneously. Would've saved 2 months and increased velocity.</p>
+						<p>We ran tests one after another. Running non-overlapping flows in parallel would have saved about 2 months.</p>
 					</div>
 				</div>
 			</div>
@@ -353,8 +336,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-	<!--code to set things up-->
-	<script src="js/main.js"></script>
 	<script src="js/impact-cards-animation.js"></script> <!--scroll-triggered animations for impact cards-->
 
 	<!-- Core utilities (load first - required by other scripts) -->
@@ -369,5 +350,6 @@
 	<script src="assets/components/footer.js"></script>
 	<script src="js/theme-toggle.js"></script>
 	<script src="js/slider-handling.js"></script> <!--ensures carousel active state is correctly styled-->
+	<script src="js/case-study.js?v=2"></script>
 </body>
 </html>

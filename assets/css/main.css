@@ -279,13 +279,6 @@ button:hover {
   background-color: #0056b3;
 }
 
-#watches-table img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
 @media (max-width: 767px) {
   .container {
     padding-left: 1rem;
@@ -298,6 +291,7 @@ button:hover {
   width: 100%;
   padding: 0;
   overflow: hidden;
+  flex-shrink: 0; /* body is a fixed-height flex column; overflow:hidden would let this collapse to 0 */
 }
 
 .full-bleed-section img,

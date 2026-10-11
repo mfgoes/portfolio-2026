@@ -37,7 +37,7 @@ class ThemeManager {
 
     updateDitheringColor(theme) {
         if (window.ditheringUniforms) {
-            const color = theme === 'dark' ? '#222233' : '#e8e8ff';
+            const color = theme === 'dark' ? '#2e2e44' : '#dedcd0';
             window.ditheringUniforms.uColor.value.setStyle(color);
         }
     }

@@ -1,4 +1,3 @@
-@import url("sidepanel.css");
 @import url("cards.css"); /*specifically for the homepage*/
 @import url("project-page.css"); /*specifically for the project page*/
 @import url("footer.css");
@@ -79,4 +78,73 @@
 [data-bs-theme="dark"] .pricing-badge {
   color: #7c7aff;
   background-color: rgba(124, 122, 255, 0.15);
+}
+/* ===== Case study accordion (native <details>) =====
+   Usage:
+   <details class="case-details">
+   	<summary>Read more: how I prioritised</summary>
+   	<div class="case-details-body"> ...content... </div>
+   </details>
+*/
+.case-details {
+	border-top: 1px solid #e5e7eb;
+	border-bottom: 1px solid #e5e7eb;
+	margin: 1rem 0;
+}
+.case-details + .case-details {
+	margin-top: -1rem;
+	border-top: none;
+}
+.case-details > summary {
+	list-style: none;
+	cursor: pointer;
+	padding: 0.75rem 0;
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: #6e56cf;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+.case-details > summary::-webkit-details-marker {
+	display: none;
+}
+.case-details > summary::after {
+	content: "+";
+	font-size: 1.25rem;
+	font-weight: 300;
+	line-height: 1;
+	transition: transform 0.2s ease;
+}
+.case-details[open] > summary::after {
+	transform: rotate(45deg);
+}
+.case-details > summary:hover {
+	color: #5a43b8;
+}
+.case-details > summary:focus-visible {
+	outline: 2px solid #6e56cf;
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+.case-details-body {
+	padding: 0 0 1rem;
+}
+.case-details-body > :last-child {
+	margin-bottom: 0;
+}
+.case-tldr {
+	font-size: 1.05rem;
+	line-height: 1.6;
+}
+
+[data-bs-theme="dark"] .case-details {
+	border-color: rgba(255, 255, 255, 0.12);
+}
+[data-bs-theme="dark"] .case-details > summary {
+	color: #a594f9;
+}
+[data-bs-theme="dark"] .case-details > summary:hover {
+	color: #c4b8ff;
 }

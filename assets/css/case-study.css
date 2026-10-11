@@ -1,0 +1,1039 @@
+/* ===== Case study template =====
+   Opt in with <body class="case-study">. Tokens and base type come from editorial.css.
+   Editorial look: warm paper background, serif display headings,
+   mono uppercase labels, hairline dividers instead of boxed cards.
+   Motion lives in js/case-study.js and is disabled for reduced-motion users.
+*/
+body.case-study {
+	background-color: var(--cs-bg);
+	color: var(--cs-body);
+	font-family: var(--cs-sans);
+}
+
+/* ---------- Reading progress ---------- */
+.cs-progress {
+	position: fixed;
+	inset: 0 0 auto 0;
+	height: 2px;
+	z-index: 1100;
+	background: var(--cs-ink);
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	pointer-events: none;
+}
+
+/* ---------- Type ---------- */
+.case-study h1,
+.case-study h2,
+.case-study .cs-quote {
+	font-family: var(--cs-serif);
+	font-weight: 400;
+	color: var(--cs-ink);
+}
+
+.cs-title {
+	font-size: clamp(2.25rem, 5.2vw, 4rem);
+	line-height: 1.04;
+	letter-spacing: -0.025em;
+	max-width: 16ch;
+	margin-bottom: 1.25rem;
+}
+
+.cs-lede {
+	font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+	line-height: 1.5;
+	color: var(--cs-muted);
+	max-width: 34em;
+	margin-bottom: 1.75rem;
+}
+
+.case-study h2 {
+	font-size: clamp(1.7rem, 3vw, 2.35rem);
+	line-height: 1.12;
+	letter-spacing: -0.02em;
+	margin-bottom: 1.1rem;
+	max-width: 22ch;
+}
+
+.case-study h3 {
+	font-family: var(--cs-sans);
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: 0;
+	color: var(--cs-ink);
+	margin-bottom: 0.35rem;
+}
+
+.case-study p,
+.case-study li {
+	line-height: 1.65;
+}
+
+.case-study strong {
+	color: var(--cs-ink);
+	font-weight: 600;
+}
+
+.case-study .cs-main a:not(.cs-btn) {
+	color: var(--cs-ink);
+	text-decoration: underline;
+	text-decoration-color: var(--cs-line);
+	text-underline-offset: 3px;
+	transition: text-decoration-color 0.2s ease;
+}
+
+.case-study .cs-main a:not(.cs-btn):hover {
+	text-decoration-color: var(--cs-ink);
+}
+
+.cs-eyebrow {
+	font-family: var(--cs-mono);
+	font-size: 0.72rem;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+	margin-bottom: 0.9rem;
+}
+
+.cs-eyebrow .cs-num {
+	color: var(--cs-ink);
+	margin-right: 0.6em;
+}
+
+.cs-tldr {
+	font-size: 1.12rem;
+	line-height: 1.6;
+	color: var(--cs-ink);
+}
+
+/* ---------- Badges and buttons ---------- */
+.cs-badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+}
+
+.cs-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	line-height: 1;
+	white-space: nowrap;
+	color: var(--cs-muted);
+	border: 1px solid var(--cs-line);
+	border-radius: 3px;
+	padding: 0.38em 0.6em;
+}
+
+.cs-badge--solid { color: var(--cs-ink); border-color: var(--cs-ink); }
+.cs-badge--ok    { color: var(--cs-ok);   border-color: color-mix(in srgb, var(--cs-ok) 45%, transparent); }
+.cs-badge--warn  { color: var(--cs-warn); border-color: color-mix(in srgb, var(--cs-warn) 45%, transparent); }
+.cs-badge--cut   { color: var(--cs-cut);  border-color: color-mix(in srgb, var(--cs-cut) 45%, transparent); }
+.cs-badge--accent { color: var(--cs-accent); border-color: color-mix(in srgb, var(--cs-accent) 45%, transparent); }
+
+.cs-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+}
+
+.cs-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	font-family: var(--cs-sans);
+	font-size: 0.95rem;
+	font-weight: 500;
+	text-decoration: none;
+	color: var(--cs-bg);
+	background: var(--cs-ink);
+	border: 1px solid var(--cs-ink);
+	border-radius: 4px;
+	padding: 0.6rem 1.1rem;
+	transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.cs-btn i {
+	font-size: 0.75em;
+	transition: transform 0.2s ease;
+}
+
+.cs-btn:hover {
+	color: var(--cs-bg);
+	transform: translateY(-1px);
+}
+
+.cs-btn:hover i {
+	transform: translate(2px, -2px);
+}
+
+.cs-btn--ghost {
+	color: var(--cs-ink);
+	background: transparent;
+	border-color: var(--cs-line);
+}
+
+.cs-btn--ghost:hover {
+	color: var(--cs-ink);
+	border-color: var(--cs-ink);
+}
+
+.cs-btn:focus-visible,
+.cs-toc a:focus-visible,
+.cs-share a:focus-visible {
+	outline: 2px solid var(--cs-accent);
+	outline-offset: 2px;
+}
+
+/* ---------- Hero ---------- */
+.cs-hero {
+	padding: 3.5rem 0 0;
+}
+
+.cs-hero .cs-badges {
+	margin-top: 1.5rem;
+}
+
+.cs-meta {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	margin: 2.5rem 0 0;
+	border-top: 1px solid var(--cs-line);
+}
+
+.cs-meta > div {
+	padding: 0.9rem 1rem 0.9rem 0;
+}
+
+.cs-meta dt {
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+	margin-bottom: 0.25rem;
+}
+
+.cs-meta dd {
+	margin: 0;
+	font-size: 0.95rem;
+	color: var(--cs-ink);
+}
+
+/* ---------- Figures ---------- */
+.cs-figure {
+	margin: 1.75rem 0;
+}
+
+.cs-figure img,
+.cs-figure video {
+	height: auto;
+}
+
+.cs-figure img,
+.cs-figure video,
+.cs-figure .ratio {
+	display: block;
+	width: 100%;
+	border: 1px solid var(--cs-line);
+	border-radius: 6px;
+	background: #0b0c10;
+}
+
+.cs-figure .ratio {
+	overflow: hidden;
+}
+
+.cs-figure .cs-pixel {
+	image-rendering: pixelated;
+}
+
+.cs-figure figcaption {
+	display: flex;
+	gap: 0.9em;
+	margin-top: 0.6rem;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	color: var(--cs-muted);
+}
+
+.cs-figure figcaption .cs-fig {
+	flex: none;
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-ink);
+	padding-top: 0.28em;
+}
+
+.cs-hero .cs-figure {
+	margin: 1.5rem 0 0;
+}
+
+/* ---------- Stats strip ---------- */
+.cs-stats {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	margin: 2.5rem 0 0;
+	border-top: 1px solid var(--cs-line);
+	border-bottom: 1px solid var(--cs-line);
+}
+
+.cs-stat {
+	padding: 1.4rem 1.25rem 1.3rem 0;
+}
+
+.cs-stat + .cs-stat {
+	padding-left: 1.25rem;
+	border-left: 1px solid var(--cs-line);
+}
+
+.cs-stat-value {
+	font-family: var(--cs-serif);
+	font-size: clamp(2rem, 4vw, 3rem);
+	line-height: 1;
+	letter-spacing: -0.02em;
+	color: var(--cs-ink);
+	font-variant-numeric: tabular-nums;
+}
+
+.cs-stat-value small {
+	font-size: 0.45em;
+	letter-spacing: 0;
+	color: var(--cs-muted);
+	margin-left: 0.15em;
+}
+
+.cs-stat-label {
+	margin-top: 0.5rem;
+	font-size: 0.85rem;
+	line-height: 1.4;
+	color: var(--cs-muted);
+}
+
+/* ---------- Body layout: content + sticky rail ---------- */
+.cs-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 3rem;
+}
+
+.cs-rail {
+	display: none;
+}
+
+@media (min-width: 1100px) {
+	.cs-layout {
+		grid-template-columns: minmax(0, 740px) 210px;
+		justify-content: space-between;
+	}
+
+	.cs-rail {
+		display: block;
+		padding-top: 4.5rem;
+	}
+
+	.cs-rail-inner {
+		position: sticky;
+		top: 96px;
+	}
+}
+
+/* Floating variant: for pages built from full-width section bands, where the
+   rail can't sit in a grid column. It lives in the right-hand page margin. */
+.cs-rail--float {
+	display: none;
+}
+
+@media (min-width: 1100px) {
+	.cs-rail--float {
+		display: block;
+		position: fixed;
+		top: 50%;
+		right: 14px;
+		z-index: 1000;
+		width: 190px;
+		padding: 0;
+		transform: translateY(-50%);
+	}
+
+	.cs-rail--float .cs-toc {
+		margin-bottom: 0;
+	}
+
+	.cs-rail--float {
+		transition: opacity 0.25s ease, visibility 0.25s ease;
+	}
+
+	.cs-rail--float.is-hidden {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+}
+
+/* Not enough margin for labels: collapse to tick marks, expand on hover/focus */
+@media (min-width: 1100px) and (max-width: 1439.98px) {
+	.cs-rail--float {
+		width: auto;
+		padding: 0.75rem 0.5rem 0.75rem 0.75rem;
+		border-radius: var(--cs-radius);
+		transition: background-color 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.cs-rail--float .cs-rail-label {
+		display: none;
+	}
+
+	.cs-rail--float .cs-toc {
+		border-left: none;
+	}
+
+	.cs-rail--float .cs-toc a {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 0.6rem;
+		margin: 0;
+		padding: 0.3rem 0;
+		border: none;
+		max-width: 22px;
+		overflow: hidden;
+		white-space: nowrap;
+		font-size: 0.8rem;
+		color: transparent;
+		transition: max-width 0.25s ease, color 0.2s ease;
+	}
+
+	.cs-rail--float .cs-toc a::after {
+		content: "";
+		flex: none;
+		width: 12px;
+		height: 1px;
+		background: var(--cs-muted);
+		transition: width 0.2s ease, background-color 0.2s ease;
+	}
+
+	.cs-rail--float .cs-toc a.is-active {
+		padding-left: 0;
+	}
+
+	.cs-rail--float .cs-toc a.is-active::after {
+		width: 22px;
+		height: 2px;
+		background: var(--cs-ink);
+	}
+
+	.cs-rail--float:hover,
+	.cs-rail--float:focus-within {
+		background: var(--cs-raised);
+		box-shadow: 0 0 0 1px var(--cs-line);
+	}
+
+	.cs-rail--float:hover .cs-toc a,
+	.cs-rail--float:focus-within .cs-toc a {
+		max-width: 240px;
+		color: var(--cs-muted);
+	}
+
+	.cs-rail--float:hover .cs-toc a.is-active,
+	.cs-rail--float:hover .cs-toc a:hover,
+	.cs-rail--float:focus-within .cs-toc a.is-active {
+		color: var(--cs-ink);
+	}
+}
+
+@media (min-width: 1440px) {
+	.cs-rail--float {
+		right: max(14px, calc((100vw - 1000px) / 2 - 215px));
+	}
+}
+
+.cs-section {
+	padding: 4.5rem 0 0;
+	scroll-margin-top: 40px;
+}
+
+.cs-section > :last-child {
+	margin-bottom: 0;
+}
+
+.cs-main > .cs-section:last-child {
+	padding-bottom: 5rem;
+}
+
+/* ---------- Rail: contents + share ---------- */
+.cs-rail-label {
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+	margin-bottom: 0.75rem;
+}
+
+.cs-toc {
+	list-style: none;
+	margin: 0 0 2rem;
+	padding: 0;
+	border-left: 1px solid var(--cs-line);
+}
+
+.cs-toc a {
+	display: block;
+	margin-left: -1px;
+	padding: 0.3rem 0 0.3rem 0.9rem;
+	border-left: 1px solid transparent;
+	font-size: 0.86rem;
+	line-height: 1.35;
+	color: var(--cs-muted);
+	text-decoration: none;
+	transition: color 0.2s ease, border-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.cs-toc a:hover {
+	color: var(--cs-ink);
+}
+
+.cs-toc a.is-active {
+	color: var(--cs-ink);
+	border-left-color: var(--cs-ink);
+	padding-left: 1.15rem;
+}
+
+.cs-share {
+	display: flex;
+	gap: 0.4rem;
+	margin-bottom: 1.5rem;
+}
+
+.cs-share a,
+.cs-share button {
+	flex: none;
+	width: 34px;
+	height: 34px;
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.8rem;
+	color: var(--cs-muted);
+	background: transparent;
+	border: 1px solid var(--cs-line);
+	border-radius: 4px;
+	text-decoration: none;
+	transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.cs-share a:hover,
+.cs-share button:hover {
+	color: var(--cs-ink);
+	border-color: var(--cs-ink);
+	transform: translateY(-1px);
+}
+
+.cs-byline {
+	font-size: 0.82rem;
+	line-height: 1.45;
+	color: var(--cs-muted);
+	margin: 0;
+}
+
+.cs-byline strong {
+	display: block;
+	font-weight: 600;
+}
+
+/* ---------- Definition rows (ownership, takeaways) ---------- */
+.cs-rows {
+	margin: 1.5rem 0;
+	padding: 0;
+	list-style: none;
+	border-top: 1px solid var(--cs-line);
+}
+
+.cs-row {
+	display: grid;
+	grid-template-columns: 9.5rem minmax(0, 1fr);
+	gap: 0.25rem 1.5rem;
+	padding: 0.95rem 0;
+	border-bottom: 1px solid var(--cs-line);
+}
+
+.cs-row-key {
+	font-family: var(--cs-mono);
+	font-size: 0.68rem;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-ink);
+	padding-top: 0.35em;
+}
+
+.cs-row p {
+	margin: 0;
+}
+
+/* ---------- Quote ---------- */
+.cs-quote {
+	margin: 2.25rem 0;
+	padding: 0 0 0 1.25rem;
+	border-left: 2px solid var(--cs-ink);
+	font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+	font-style: italic;
+	line-height: 1.3;
+	letter-spacing: -0.01em;
+}
+
+.cs-quote cite {
+	display: block;
+	margin-top: 0.75rem;
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	font-style: normal;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+}
+
+/* ---------- Two-up phases ---------- */
+.cs-pair {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0 2rem;
+	margin: 1.75rem 0;
+	border-top: 1px solid var(--cs-line);
+}
+
+.cs-pair > div {
+	padding: 1.1rem 0 0;
+}
+
+.cs-pair .cs-badge {
+	margin-bottom: 0.75rem;
+}
+
+.cs-pair p {
+	font-size: 0.95rem;
+	margin: 0;
+}
+
+/* ---------- Process strip ---------- */
+.cs-steps {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	margin: 1.75rem 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: step;
+	border-top: 1px solid var(--cs-ink);
+}
+
+.cs-steps li {
+	counter-increment: step;
+	padding: 0.9rem 1rem 0 0;
+	font-size: 0.9rem;
+	line-height: 1.5;
+	color: var(--cs-muted);
+}
+
+.cs-steps li::before {
+	content: "0" counter(step);
+	display: block;
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	letter-spacing: 0.14em;
+	color: var(--cs-muted);
+	margin-bottom: 0.35rem;
+}
+
+.cs-steps strong {
+	display: block;
+}
+
+/* ---------- Tier list ---------- */
+.cs-tiers {
+	margin: 1.5rem 0 0;
+	padding: 0;
+	list-style: none;
+	border-top: 1px solid var(--cs-line);
+}
+
+.cs-tier {
+	display: grid;
+	grid-template-columns: 6.5rem minmax(0, 1fr) auto;
+	gap: 0.25rem 1.25rem;
+	align-items: baseline;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--cs-line);
+	transition: padding-left 0.25s ease;
+}
+
+.cs-tier:hover {
+	padding-left: 0.4rem;
+}
+
+.cs-tier p {
+	grid-column: 2 / -1;
+	margin: 0;
+	font-size: 0.93rem;
+	color: var(--cs-muted);
+}
+
+.cs-tier h3 {
+	margin: 0;
+}
+
+.cs-tier-effort {
+	font-family: var(--cs-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+	white-space: nowrap;
+}
+
+/* ---------- Before / after table ---------- */
+.cs-ba {
+	margin: 1.5rem 0 0;
+	border-top: 1px solid var(--cs-ink);
+}
+
+.cs-ba-head,
+.cs-ba-row {
+	display: grid;
+	grid-template-columns: 11rem minmax(0, 1fr) minmax(0, 1fr);
+	gap: 0.5rem 1.5rem;
+}
+
+.cs-ba-head {
+	padding: 0.6rem 0;
+	border-bottom: 1px solid var(--cs-line);
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+}
+
+.cs-ba-row {
+	padding: 1.1rem 0;
+	border-bottom: 1px solid var(--cs-line);
+	font-size: 0.93rem;
+}
+
+.cs-ba-row h3 {
+	margin: 0;
+	font-size: 0.95rem;
+}
+
+.cs-ba-row h3 i {
+	width: 1.4em;
+	font-size: 0.85em;
+	color: var(--cs-muted);
+}
+
+.cs-ba-row p {
+	margin: 0;
+	line-height: 1.55;
+}
+
+.cs-ba-before {
+	color: var(--cs-muted);
+}
+
+.cs-ba-row [data-label]::before {
+	display: none;
+	content: attr(data-label);
+	font-family: var(--cs-mono);
+	font-size: 0.62rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+	margin-bottom: 0.15rem;
+}
+
+/* ---------- Plain and cut lists ---------- */
+.cs-list {
+	margin: 1.25rem 0;
+	padding: 0;
+	list-style: none;
+}
+
+.cs-list li {
+	position: relative;
+	padding: 0 0 0.75rem 1.4rem;
+}
+
+.cs-list li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.72em;
+	width: 0.6rem;
+	height: 1px;
+	background: var(--cs-muted);
+}
+
+.cs-list--cut li::before {
+	content: "\00d7";
+	top: 0;
+	width: auto;
+	height: auto;
+	background: none;
+	font-family: var(--cs-mono);
+	color: var(--cs-cut);
+}
+
+/* ---------- Accordion (extends .case-details from custom.css) ---------- */
+.case-study .case-details {
+	border-color: var(--cs-line);
+}
+
+.case-study .case-details > summary {
+	font-family: var(--cs-mono);
+	font-size: 0.72rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--cs-ink);
+	padding: 0.95rem 0;
+	transition: padding-left 0.2s ease;
+}
+
+.case-study .case-details > summary:hover {
+	color: var(--cs-ink);
+	padding-left: 0.3rem;
+}
+
+.case-study .case-details > summary::after {
+	font-family: var(--cs-mono);
+	font-size: 1rem;
+	color: var(--cs-muted);
+}
+
+.case-study .case-details[open] > .case-details-body {
+	animation: cs-open 0.35s ease both;
+}
+
+@keyframes cs-open {
+	from { opacity: 0; transform: translateY(-6px); }
+	to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Timeline ---------- */
+.cs-timeline {
+	margin: 1.5rem 0 0;
+	padding: 0;
+	list-style: none;
+	border-top: 1px solid var(--cs-line);
+}
+
+.cs-timeline li {
+	display: grid;
+	grid-template-columns: 6.5rem 0.6rem minmax(0, 1fr);
+	gap: 0 1rem;
+	align-items: baseline;
+	padding: 0.8rem 0;
+	border-bottom: 1px solid var(--cs-line);
+}
+
+.cs-timeline time {
+	font-family: var(--cs-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+}
+
+.cs-timeline li::before {
+	content: "";
+	grid-column: 2;
+	grid-row: 1;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--cs-ink);
+	transform: translateY(-1px);
+}
+
+.cs-timeline time { grid-column: 1; grid-row: 1; }
+.cs-timeline span { grid-column: 3; grid-row: 1; }
+
+.cs-timeline li.is-planned::before {
+	background: transparent;
+	border: 1px solid var(--cs-ink);
+}
+
+.cs-timeline li.is-planned span {
+	color: var(--cs-muted);
+}
+
+/* ---------- Dev feed, related ---------- */
+.case-study .bsky-sidebar-box {
+	border-color: var(--cs-line);
+	border-radius: 6px;
+	margin-top: 2.5rem;
+}
+
+.case-study .bsky-sidebar-header {
+	background: var(--cs-surface);
+	border-bottom-color: var(--cs-line);
+}
+
+.case-study .bsky-sidebar-label {
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	color: var(--cs-ink);
+}
+
+.case-study .related-articles-section {
+	border-top-color: var(--cs-line);
+}
+
+.case-study .related-articles-section h2 {
+	font-size: 1.7rem;
+	font-weight: 400;
+	max-width: none;
+}
+
+.case-study .related-card-img {
+	border: 1px solid var(--cs-line);
+	transition: transform 0.35s ease;
+}
+
+.case-study .related-card:hover .related-card-img {
+	transform: translateY(-3px);
+}
+
+.case-study .related-card-title {
+	color: var(--cs-ink);
+}
+
+/* ---------- Motion ---------- */
+.cs-js .cs-reveal {
+	opacity: 0;
+	transform: translateY(14px);
+	transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+	transition-delay: var(--cs-delay, 0s);
+}
+
+.cs-js .cs-reveal.is-in {
+	opacity: 1;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cs-js .cs-reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+
+	.case-study h1,
+	.case-study .case-details[open] > .case-details-body {
+		animation: none;
+		opacity: 1;
+		transform: none;
+	}
+
+	.cs-progress {
+		display: none;
+	}
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 767.98px) {
+	.cs-hero {
+		padding-top: 2rem;
+	}
+
+	.cs-section {
+		padding-top: 3.25rem;
+	}
+
+	.cs-meta,
+	.cs-stats {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.cs-meta > div:nth-child(n + 3) {
+		border-top: 1px solid var(--cs-line);
+	}
+
+	.cs-stat {
+		padding: 1.1rem 1rem 1rem 0;
+	}
+
+	.cs-stat:nth-child(odd) {
+		padding-left: 0;
+		border-left: none;
+	}
+
+	.cs-stat:nth-child(even) {
+		padding-left: 1rem;
+	}
+
+	.cs-stat:nth-child(n + 3) {
+		border-top: 1px solid var(--cs-line);
+	}
+
+	.cs-row,
+	.cs-pair,
+	.cs-ba-row {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.cs-pair > div + div {
+		margin-top: 1.1rem;
+		border-top: 1px solid var(--cs-line);
+	}
+
+	.cs-steps {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.cs-steps li:nth-child(n + 3) {
+		margin-top: 0.9rem;
+		border-top: 1px solid var(--cs-line);
+	}
+
+	.cs-tier {
+		grid-template-columns: minmax(0, 1fr) auto;
+	}
+
+	.cs-tier .cs-badge {
+		grid-column: 1 / -1;
+		justify-self: start;
+		margin-bottom: 0.35rem;
+	}
+
+	.cs-tier p {
+		grid-column: 1 / -1;
+	}
+
+	.cs-ba-head {
+		display: none;
+	}
+
+	.cs-ba-row [data-label]::before {
+		display: block;
+	}
+
+	.cs-timeline li {
+		grid-template-columns: 5.25rem 0.6rem minmax(0, 1fr);
+		gap: 0 0.75rem;
+	}
+}

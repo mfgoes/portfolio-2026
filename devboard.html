@@ -23,8 +23,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="author" content="Mischa vd Goes">
 	<meta name="description" content="DevBoard: a lightweight FigJam-style infinite canvas for solo devs and small teams. No accounts, no backend — everything lives in your browser.">
-	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/Favicon.jpg">
-
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+	<link rel="alternate icon" href="favicon.ico">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
 </head>
 <body class="light-nav">
 	<!-- Navbar -->
@@ -226,15 +229,15 @@
 			<div class="row g-4">
 				<div class="col-md-6">
 					<div class="related-card">
-						<img src="assets/images/articles/screenshot_noUI.png" class="related-card-img" alt="Kosmograd game">
+						<img src="assets/images/articles/kosmograd/gameplay-main.png" class="related-card-img" alt="Kosmograd game">
 						<div class="related-card-meta">
 							<i class="far fa-clock"></i>
-							<span>March 2026</span>
+							<span>October 2026</span>
 							<span>•</span>
 							<span class="related-card-category">Game Development</span>
 						</div>
-						<a href="gamedev.html" class="related-card-title">Kosmograd: Solo-Building a Lunar RTS</a>
-						<p class="related-card-excerpt">What shipping a strategy game solo teaches you about product management — scope, pivots, and the moment you stop adding features.</p>
+						<a href="gamedev.html" class="related-card-title">Kosmograd: Running a Solo Game Like a Product</a>
+						<p class="related-card-excerpt">A case study in playtest-driven prioritisation, a quest-log redesign and scope cuts on the way to a Steam demo.</p>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -284,7 +287,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-	<script src="js/main.js"></script>
 	<script src="js/core/utils.js"></script>
 	<script src="js/core/event-bus.js"></script>
 	<script src="js/core/component-loader.js"></script>

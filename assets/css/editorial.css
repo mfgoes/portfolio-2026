@@ -1,0 +1,629 @@
+/* ===== Editorial theme (sitewide) =====
+   Load last on every page. Sets the shared design tokens and restyles the
+   existing components to one look: warm paper background, serif display
+   headings, mono uppercase labels, flat surfaces with hairline borders.
+   Page-specific components for long-form case studies live in case-study.css.
+*/
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap");
+
+:root {
+	--cs-bg: #f4f3ee;
+	--cs-surface: #eceae2;
+	--cs-raised: #faf9f5;
+	--cs-ink: #1d1d1a;
+	--cs-body: #3a3a35;
+	--cs-muted: #6f6e66;
+	--cs-line: #dcdacf;
+	--cs-accent: #6e56cf;
+	--cs-warn: #a85a17;
+	--cs-ok: #2e6b4d;
+	--cs-cut: #b3423a;
+	--cs-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+	--cs-sans: "Onest", system-ui, sans-serif;
+	--cs-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+	--cs-radius: 6px;
+}
+
+[data-bs-theme="dark"] {
+	--cs-bg: #0d0d0f;
+	--cs-surface: #17171a;
+	--cs-raised: #141416;
+	--cs-ink: #efede6;
+	--cs-body: #c9c7bf;
+	--cs-muted: #94928a;
+	--cs-line: rgba(255, 255, 255, 0.13);
+	--cs-accent: #a594f9;
+	--cs-warn: #e0a05c;
+	--cs-ok: #6fc79c;
+	--cs-cut: #f08a80;
+}
+
+/* ---------- Base ---------- */
+html body {
+	background: var(--cs-bg);
+	color: var(--cs-body);
+}
+
+body,
+body p,
+body li,
+body table,
+body th {
+	font-family: var(--cs-sans);
+}
+
+body {
+	font-weight: 400;
+}
+
+body h1,
+body h2,
+body .display-4 {
+	font-family: var(--cs-serif);
+	font-weight: 400;
+	letter-spacing: -0.02em;
+	color: var(--cs-ink);
+}
+
+body h1 {
+	line-height: 1.06;
+	letter-spacing: -0.025em;
+}
+
+body h1 strong,
+body h1 b,
+body h2 strong,
+body h2 b {
+	font-weight: 500;
+}
+
+body h3,
+body h4,
+body h5,
+body h6 {
+	font-family: var(--cs-sans);
+	font-weight: 600;
+	letter-spacing: -0.005em;
+	color: var(--cs-ink);
+}
+
+body strong,
+body b {
+	font-weight: 600;
+	color: var(--cs-ink);
+}
+
+body .text-muted,
+body .text-secondary,
+body .text-gray-brand {
+	color: var(--cs-muted) !important;
+}
+
+body .text-dark {
+	color: var(--cs-ink) !important;
+}
+
+body .text-primary {
+	color: var(--cs-ink) !important;
+}
+
+body img {
+	border-radius: var(--cs-radius);
+}
+
+body hr,
+body .section-line {
+	background-color: var(--cs-line);
+	border-color: var(--cs-line);
+	opacity: 1;
+}
+
+body .border,
+body .border-top,
+body .border-bottom {
+	border-color: var(--cs-line) !important;
+}
+
+body .shadow,
+body .shadow-sm,
+body .shadow-lg {
+	box-shadow: none !important;
+	border: 1px solid var(--cs-line);
+}
+
+/* Section bands */
+body .bg-light,
+body .bg-muted,
+body .bg-paper {
+	background-color: var(--cs-surface) !important;
+	color: inherit;
+}
+
+body .bg-white {
+	background-color: transparent !important;
+}
+
+/* Full-width sections all sit on the same paper: alternating bands read as
+   patchy when sections are short or butt up against each other. */
+body section.bg-light,
+body section.bg-muted,
+body section.bg-paper {
+	background-color: transparent !important;
+}
+
+/* ---------- Mono labels ---------- */
+body .section-eyebrow,
+body .article-meta,
+body .related-card-meta,
+body .related-card-category,
+body .specs-subheader,
+body .up-next-header h3,
+body .bsky-sidebar-label,
+body .share-sidebar h6,
+body .pricing-badge,
+body .label,
+body .cs-label {
+	font-family: var(--cs-mono);
+	font-size: 0.68rem;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--cs-muted);
+}
+
+body .article-meta i,
+body .related-card-meta i {
+	display: none;
+}
+
+body .article-tag,
+body .pricing-badge,
+body .label-outline {
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	line-height: 1;
+	color: var(--cs-muted);
+	background: transparent;
+	border: 1px solid var(--cs-line);
+	border-radius: 3px;
+	padding: 0.38em 0.6em;
+}
+
+body .article-tags {
+	gap: 0.4rem;
+}
+
+/* ---------- Links ---------- */
+body main a:not(.btn):not(.cs-btn),
+body .up-next-content a,
+body .share-link {
+	color: var(--cs-ink);
+}
+
+body .share-link:hover {
+	color: var(--cs-muted);
+}
+
+/* ---------- Buttons ---------- */
+body .btn {
+	font-family: var(--cs-sans);
+	font-weight: 500;
+	font-size: 0.95rem;
+	border-radius: 4px;
+	padding: 0.6rem 1.1rem;
+	transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+body .btn-lg {
+	padding: 0.75rem 1.4rem;
+	font-size: 1rem;
+}
+
+body .btn-primary,
+body .btn-dark {
+	color: var(--cs-bg);
+	background-color: var(--cs-ink);
+	border-color: var(--cs-ink);
+}
+
+body .btn-primary:hover,
+body .btn-primary:focus,
+body .btn-primary:active,
+body .btn-dark:hover,
+body .btn-dark:focus,
+body .btn-dark:active {
+	color: var(--cs-bg);
+	background-color: var(--cs-ink);
+	border-color: var(--cs-ink);
+	transform: translateY(-1px);
+}
+
+body .btn-outline-dark,
+body .btn-outline-primary,
+body .btn-outline-secondary,
+body .btn-light {
+	color: var(--cs-ink);
+	background-color: transparent;
+	border-color: var(--cs-line);
+}
+
+body .btn-outline-dark:hover,
+body .btn-outline-dark:focus,
+body .btn-outline-primary:hover,
+body .btn-outline-primary:focus,
+body .btn-outline-secondary:hover,
+body .btn-light:hover {
+	color: var(--cs-ink);
+	background-color: transparent;
+	border-color: var(--cs-ink);
+}
+
+body .btn:focus-visible {
+	outline: 2px solid var(--cs-accent);
+	outline-offset: 2px;
+	box-shadow: none;
+}
+
+/* ---------- Cards and surfaces ---------- */
+body .card,
+body #cards-view .card,
+body .services-card,
+body .pricing-card,
+body .feature-card,
+body .testimonials,
+body .post-it {
+	background-color: var(--cs-raised);
+	border: 1px solid var(--cs-line);
+	border-radius: var(--cs-radius);
+	box-shadow: none;
+	color: var(--cs-body);
+}
+
+body #cards-view .card:hover,
+body .testimonials:hover {
+	background-color: var(--cs-raised);
+	border-color: var(--cs-ink);
+}
+
+body #cards-view .card,
+body .services-card,
+body .pricing-card {
+	transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+body #cards-view .card:hover,
+body .side-project-link:hover .services-card,
+body .pricing-card:hover {
+	transform: translateY(-2px);
+	box-shadow: none;
+	border-color: var(--cs-ink);
+}
+
+body #cards-view .card .card-img-top img {
+	border-radius: 5px 5px 0 0;
+}
+
+body #cards-view .card .card-body h1,
+body #cards-view .card .card-body h2,
+body #cards-view .card .card-body h4,
+body #cards-view .card .card-body h5,
+body .services-card .services-title {
+	font-family: var(--cs-sans);
+	font-weight: 600;
+	color: var(--cs-ink);
+}
+
+body #cards-view .card .card-body p,
+body .services-card .services-text,
+body .services-text,
+body .pricing-card ul li {
+	color: var(--cs-muted);
+}
+
+body .services-card {
+	padding: 2rem 1.75rem;
+}
+
+body .pricing-card-featured {
+	border-color: var(--cs-ink);
+}
+
+body .price-tag {
+	font-family: var(--cs-serif);
+	font-weight: 400;
+	font-size: 1.6rem;
+	color: var(--cs-ink);
+}
+
+/* Arrow chips on cards */
+body #cards-view .card .card-arrow,
+body .project-arrow {
+	background-color: transparent;
+	border: 1px solid var(--cs-line);
+	border-radius: 4px;
+}
+
+body #cards-view .card .card-arrow svg,
+body .project-arrow svg {
+	fill: var(--cs-ink);
+}
+
+body #cards-view .card .card-link:hover .card-arrow,
+body .side-project-link:hover .project-arrow {
+	background-color: var(--cs-ink);
+	border-color: var(--cs-ink);
+}
+
+body #cards-view .card .card-link:hover .card-arrow svg,
+body .side-project-link:hover .project-arrow svg {
+	fill: var(--cs-bg);
+}
+
+/* Icon tiles: one neutral treatment instead of a colour per card */
+body .services-icon-wrap {
+	background: transparent;
+	border: 1px solid var(--cs-line);
+	border-radius: 4px;
+	color: var(--cs-ink);
+}
+
+/* Metric / insight cards on project pages */
+body .post-it {
+	font-family: var(--cs-sans);
+	padding: 1.5rem;
+	border-left: 1px solid var(--cs-line);
+	border-top: 2px solid var(--cs-ink);
+	border-radius: 0 0 var(--cs-radius) var(--cs-radius);
+}
+
+/* Tiles size to their content and match their row, instead of a fixed tall minimum */
+body .post-it,
+body .post-it.white,
+body .post-it.yellow,
+body .post-it.blue,
+body .post-it.red {
+	min-height: 0;
+	height: 100%;
+}
+
+body .post-it p:last-child {
+	margin-bottom: 0;
+}
+
+body .post-it .tile-icon {
+	display: block;
+	font-size: 1.05rem;
+	line-height: 1;
+	color: var(--cs-ink);
+}
+
+body .post-it:hover {
+	transform: none;
+	box-shadow: none;
+}
+
+body .post-it .metric-number,
+body .metric-number {
+	font-family: var(--cs-serif);
+	font-size: 2rem;
+	font-weight: 400;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: var(--cs-ink);
+}
+
+body .post-it h3,
+body .post-it h4 {
+	font-weight: 600;
+	color: var(--cs-ink);
+}
+
+body .post-it p {
+	color: var(--cs-muted);
+}
+
+/* ---------- Project page intro ---------- */
+body .intro-section .intro-highlight {
+	font-family: var(--cs-serif);
+	font-size: 1.45rem;
+	font-weight: 400;
+	line-height: 1.35;
+	letter-spacing: -0.01em;
+	color: var(--cs-ink);
+	border-left: 2px solid var(--cs-ink);
+	padding-left: 1.25rem;
+}
+
+body .up-next-content h4 {
+	font-weight: 600;
+}
+
+body .up-next-content p {
+	color: var(--cs-muted);
+}
+
+/* ---------- Accordion ---------- */
+body .accordion {
+	--bs-accordion-bg: transparent;
+	--bs-accordion-border-color: var(--cs-line);
+	--bs-accordion-active-bg: transparent;
+	--bs-accordion-active-color: var(--cs-ink);
+	--bs-accordion-btn-color: var(--cs-ink);
+	--bs-accordion-btn-focus-box-shadow: none;
+	--bs-accordion-color: var(--cs-body);
+	--bs-accordion-border-radius: 0;
+	--bs-accordion-inner-border-radius: 0;
+}
+
+body .accordion-item {
+	background-color: transparent;
+	border-color: var(--cs-line) !important;
+}
+
+body .accordion-button,
+body .accordion-button:not(.collapsed) {
+	font-family: var(--cs-sans);
+	font-weight: 500;
+	color: var(--cs-ink);
+	background-color: transparent;
+	box-shadow: none;
+}
+
+/* ---------- Article template ---------- */
+body .article-title {
+	font-family: var(--cs-serif);
+	font-size: clamp(2.1rem, 4.4vw, 3.25rem);
+	font-weight: 400;
+	line-height: 1.06;
+	color: var(--cs-ink);
+}
+
+body .article-subtitle {
+	font-weight: 400;
+	color: var(--cs-muted);
+}
+
+body .share-sidebar {
+	background-color: transparent;
+	border: 1px solid var(--cs-line);
+	border-radius: var(--cs-radius);
+}
+
+body .share-sidebar h6 {
+	color: var(--cs-ink);
+}
+
+body .share-divider {
+	background-color: var(--cs-line);
+}
+
+body .share-icon-btn,
+body .share-icon-btn.email,
+body .share-icon-btn.linkedin,
+body .share-icon-btn.twitter,
+body .share-icon-btn.facebook,
+body .share-icon-btn.reddit {
+	width: 34px;
+	height: 34px;
+	color: var(--cs-muted);
+	background-color: transparent;
+	border: 1px solid var(--cs-line);
+	border-radius: 4px;
+}
+
+body .share-icon-btn:hover {
+	color: var(--cs-ink);
+	background-color: transparent;
+	border-color: var(--cs-ink);
+}
+
+body .bsky-sidebar-box {
+	border-color: var(--cs-line);
+	border-radius: var(--cs-radius);
+}
+
+body .bsky-sidebar-header {
+	background-color: var(--cs-surface);
+	border-bottom-color: var(--cs-line);
+}
+
+body .related-articles-section {
+	border-top-color: var(--cs-line);
+}
+
+body .related-articles-section h2 {
+	font-size: 1.7rem;
+	font-weight: 400;
+	color: var(--cs-ink);
+}
+
+body .related-card-img {
+	border: 1px solid var(--cs-line);
+	border-radius: var(--cs-radius);
+	transition: transform 0.35s ease;
+}
+
+body .related-card:hover .related-card-img {
+	transform: translateY(-3px);
+}
+
+body .related-card-title {
+	font-weight: 600;
+	color: var(--cs-ink);
+}
+
+body .related-card-title:hover {
+	color: var(--cs-muted);
+}
+
+body .related-card-excerpt {
+	color: var(--cs-muted);
+}
+
+/* Native <details> accordion from custom.css */
+body .case-details {
+	border-color: var(--cs-line);
+}
+
+body .case-details > summary,
+body .case-details > summary:hover {
+	color: var(--cs-ink);
+}
+
+/* ---------- Forms ---------- */
+body .form-control,
+body input[type="text"],
+body input[type="email"],
+body textarea {
+	background-color: var(--cs-raised);
+	border: 1px solid var(--cs-line);
+	border-radius: 4px;
+	color: var(--cs-ink);
+}
+
+body .form-control:focus {
+	border-color: var(--cs-ink);
+	box-shadow: none;
+}
+
+/* ---------- Homepage hero backdrop ---------- */
+body .overlay {
+	opacity: 0.45;
+}
+
+/* ---------- Contact CTA band ---------- */
+html body .bg-brand,
+html[data-bs-theme="dark"] body .bg-brand {
+	background-color: var(--cs-surface) !important;
+	border-top: 1px solid var(--cs-line);
+}
+
+body #contact-cta-container .card {
+	background-color: var(--cs-raised) !important;
+	border: 1px solid var(--cs-line);
+}
+
+body #contact-cta-container .card h3 {
+	font-family: var(--cs-serif);
+	font-size: 1.7rem;
+	font-weight: 400 !important;
+	letter-spacing: -0.02em;
+}
+
+body #contact-cta-container .card p {
+	color: var(--cs-body);
+}
+
+body .btn-link {
+	color: var(--cs-ink);
+	text-decoration-color: var(--cs-line);
+	text-underline-offset: 3px;
+}
+
+body .btn-link:hover {
+	color: var(--cs-ink);
+	text-decoration-color: var(--cs-ink);
+}

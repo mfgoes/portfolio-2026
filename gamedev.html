@@ -2,7 +2,7 @@
 <html data-bs-theme="light">
 
 <head>
-	<title>Mischa vd Goes - Kosmograd Development</title>
+	<title>Mischa vd Goes - Kosmograd case study: running a solo game like a product</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="assets/css/navbar.css" />
 	<link rel="stylesheet" href="assets/css/theme-dark.css" />
 	<link rel="stylesheet" href="assets/css/article.css" />
+	<link rel="stylesheet" href="assets/css/case-study.css?v=2" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -26,78 +27,328 @@
 	<meta name="author" content="Mischa vd Goes">
 
 	<!-- Description -->
-	<meta name="description" content="Product management learnings from building Kosmograd, a Soviet lunar colony RTS in Godot Engine">
+	<meta name="description" content="Case study: how I run Kosmograd, a solo-built lunar colony game, as a product manager and UX designer. Playtest-driven prioritisation, a quest-log redesign, scope cuts and the road to a Steam demo.">
 	<!-- Favicons -->
-	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/Favicon.jpg">
-
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+	<link rel="alternate icon" href="favicon.ico">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
 </head>
-<body class="light-nav">
+<body class="light-nav case-study">
+	<div class="cs-progress" aria-hidden="true"></div>
+
 	<!-- Navbar -->
 	<div id="navbar-container"></div>
 
-
-	<!-- Article Header -->
-	<section class="py-5"">
+	<!-- Hero -->
+	<header class="cs-hero">
 		<div class="container">
-			<div class="row">
-				<!-- Article content -->
-				<div class="col-lg-8 col-xl-8 mb-4">
-					<div class="article-meta">
-						<i class="far fa-clock"></i>
-						<span>March 2026</span>
-					</div>
+			<p class="cs-eyebrow">Case study &middot; Kosmograd &middot; 2025&ndash;2026</p>
+			<h1 class="cs-title">Running a solo game like a product.</h1>
+			<p class="cs-lede">Kosmograd is a tiny lunar colony sim about keeping three people alive on a hostile moon. I build it solo and run it like a product, starting from one playtest note that kept coming back: &ldquo;day 2, now what?&rdquo;</p>
 
-					<h1 class="article-title">Kosmograd: Solo-Building a Lunar RTS</h1>
-					<p class="article-subtitle">What shipping a strategy game solo teaches you about product management</p>
+			<div class="cs-actions">
+				<a href="https://mischa.itch.io/kosmograd" target="_blank" rel="noopener" class="cs-btn">Play the playtest build <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+			</div>
 
-					<div class="article-tags">
-						<span class="article-tag">Game Development</span>
-						<span class="article-tag">Product Management</span>
-						<span class="article-tag">Agentic Coding</span>
-					</div>
+			<div class="cs-badges">
+				<span class="cs-badge cs-badge--solid">Product management</span>
+				<span class="cs-badge">UX / UI</span>
+				<span class="cs-badge">Go-to-market</span>
+				<span class="cs-badge">Agentic coding</span>
+			</div>
 
-					<p class="mb-3">A casual lunar colony survival RTS I'm building solo in Godot 4.3+. Manage oxygen-starved cosmonauts, construct pressurized habitats, and balance power grids during the Cold War space race. Think RimWorld's emergent chaos meets Command & Conquer's base-building with Oxygen Not Included's survival pressure.</p>
-
-					
-				<video class="img-fluid rounded" autoplay loop muted playsinline>
-					<source src="assets/images/articles/m2-res_1080p.mp4" type="video/mp4">
-				</video>
+			<dl class="cs-meta">
+				<div>
+					<dt>Role</dt>
+					<dd>Product, UX/UI, build, art</dd>
 				</div>
+				<div>
+					<dt>Team</dt>
+					<dd>Solo, part-time</dd>
+				</div>
+				<div>
+					<dt>Timeline</dt>
+					<dd>Mar 2025 &ndash; ongoing</dd>
+				</div>
+				<div>
+					<dt>Stack</dt>
+					<dd>Godot 4, GDScript, Claude Code</dd>
+				</div>
+			</dl>
 
-				<!-- Share sidebar -->
-				<div class="col-lg-4 col-xl-3 offset-xl-1">
-					<div class="article-sidebar-sticky">
-					<div class="share-sidebar mb-3">
-						<h6>SHARE THIS ARTICLE</h6>
-						<div class="share-icons mb-3">
-							<a href="mailto:?subject=Kosmograd%3A%20Solo-Building%20a%20Lunar%20RTS&body=https://mischavdgoes.com/gamedev.html" class="share-icon-btn email" title="Share via Email" aria-label="Share via email">
-								<i class="fas fa-envelope"></i>
-							</a>
-							<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mischavdgoes.com/gamedev.html" target="_blank" rel="noopener" class="share-icon-btn linkedin" title="Share on LinkedIn" aria-label="Share on LinkedIn">
-								<i class="fab fa-linkedin-in"></i>
-							</a>
-							<a href="https://twitter.com/intent/tweet?url=https://mischavdgoes.com/gamedev.html&text=Kosmograd%3A%20Solo-Building%20a%20Lunar%20RTS" target="_blank" rel="noopener" class="share-icon-btn twitter" title="Share on X" aria-label="Share on X">
-								<i class="fab fa-x-twitter"></i>
-							</a>
-							<a href="https://www.reddit.com/submit?url=https://mischavdgoes.com/gamedev.html&title=Kosmograd%3A%20Solo-Building%20a%20Lunar%20RTS" target="_blank" rel="noopener" class="share-icon-btn reddit" title="Share on Reddit" aria-label="Share on Reddit">
-								<i class="fab fa-reddit-alien"></i>
-							</a>
+			<figure class="cs-figure cs-reveal">
+				<img src="assets/images/articles/kosmograd/gameplay-main.png" class="cs-pixel" width="1920" height="1080" alt="Kosmograd gameplay: a small lunar base seen from above, with resource counters along the top, the tracked goal in the top-left corner and a line of crew dialogue from Katya at the bottom">
+				<figcaption><span class="cs-fig">Fig. 01</span><span>The current build. Resources, power and oxygen along the top, the tracked goal top-left, and the crew talking you through it at the bottom.</span></figcaption>
+			</figure>
+
+			<div class="cs-stats">
+				<div class="cs-stat">
+					<div class="cs-stat-value"><span data-count="15">15</span>+</div>
+					<div class="cs-stat-label">buildings, from survival basics to production</div>
+				</div>
+				<div class="cs-stat">
+					<div class="cs-stat-value"><span data-count="10">10</span>+</div>
+					<div class="cs-stat-label">quests guiding the run</div>
+				</div>
+				<div class="cs-stat">
+					<div class="cs-stat-value">3</div>
+					<div class="cs-stat-label">biomes across randomised, seeded levels</div>
+				</div>
+				<div class="cs-stat">
+					<div class="cs-stat-value">3</div>
+					<div class="cs-stat-label">crew members with their own voice lines and abilities</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="cs-layout">
+			<main class="cs-main">
+
+				<!-- 01 Overview -->
+				<section class="cs-section cs-reveal" id="overview">
+					<p class="cs-eyebrow"><span class="cs-num">01</span>Overview</p>
+					<h2>The product, and my part in it</h2>
+					<p>Kosmograd is a colony sim for people who like their survival games small and tense. The pitch, as it reads on the <a href="https://mfgoes.github.io/redshiftlabs/" target="_blank" rel="noopener">game's site</a>:</p>
+
+					<ul class="cs-rows">
+						<li class="cs-row">
+							<span class="cs-row-key">Survive the moon</span>
+							<p>Keep a tiny colony alive through oxygen shortages, power failures, scarce resources and brutal lunar storms.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Build a living outpost</span>
+							<p>Design and automate a self-sufficient Soviet-inspired moon base, from basic survival systems to advanced production.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Every day is a crisis</span>
+							<p>Balance limited resources, unreliable machinery and unpredictable events, where one failure can cascade into disaster.</p>
+						</li>
+					</ul>
+
+					<p>I build it alone, so it's where I practise the whole product cycle end to end: discovery, prioritisation, design, delivery and launch.</p>
+					<p>I own the roadmap, the playtest programme, the UX and the pixel art. The code is Godot 4 and GDScript, built with Claude Code as an engineering partner: I set direction and acceptance criteria, it works in small batches, and I test and own every call.</p>
+				</section>
+
+				<!-- 02 Problem -->
+				<section class="cs-section cs-reveal" id="problem">
+					<p class="cs-eyebrow"><span class="cs-num">02</span>The problem</p>
+					<h2>Playtests kept stalling on day 2</h2>
+					<p class="cs-tldr">First the game was <strong>too punishing</strong>, then it was <strong>too aimless</strong>. Both came down to one product problem: players who don't understand a system can't make real choices in it.</p>
+
+					<div class="cs-pair">
+						<div>
+							<span class="cs-badge">Jan 2026 &middot; Too punishing</span>
+							<p>Players died on day 1 or 2. Oxygen ran out too fast, power failed before they could react, and the learning curve was brutal. I wanted &ldquo;harsh but fair&rdquo; and had built frustration, not tension. I slowed oxygen depletion, added starting buildings that prevent instant death, and gave a little more starting stock.</p>
 						</div>
-
-						<div class="share-divider"></div>
-
-						<a href="#" class="share-link" onclick="navigator.clipboard.writeText(window.location.href); this.innerHTML='<i class=\'fas fa-check\'></i> Copied!'; setTimeout(()=>this.innerHTML='<i class=\'fas fa-link\'></i> Copy link', 2000); return false;">
-							<i class="fas fa-link"></i> Copy link
-						</a>
-
-						<div class="share-divider"></div>
-
-						<p class="small text-muted mb-1" style="font-size: 0.8rem;">Published by</p>
-						<p class="small fw-semibold mb-0" style="color: #333;">Mischa van der Goes</p>
-						<p class="small text-muted mb-0" style="font-size: 0.8rem;">PM & Indie Developer</p>
+						<div>
+							<span class="cs-badge">Sep 2026 &middot; Too aimless</span>
+							<p>Now players survived the first night, sorted out food, sat through a storm, and then asked &ldquo;day 2, now what?&rdquo; The game had an end goal the whole time. Players just weren't told about it until around day 4, and from day 2 the tracker showed an open-ended side goal instead of the story.</p>
+						</div>
 					</div>
 
-					<div class="bsky-sidebar-box d-none d-lg-block">
+					<blockquote class="cs-quote">
+						&ldquo;Survival should never be automatic, but every problem should have a readable, satisfying solution.&rdquo;
+						<cite>The principle I test every feature against</cite>
+					</blockquote>
+				</section>
+
+				<!-- 03 Discovery -->
+				<section class="cs-section cs-reveal" id="discovery">
+					<p class="cs-eyebrow"><span class="cs-num">03</span>Discovery and prioritisation</p>
+					<h2>From loose feedback to a ranked plan</h2>
+					<p class="cs-tldr">I run playtests as think-aloud user tests, transcribe every session, and trace each issue to a root cause before deciding anything. Then I rank by <strong>impact on a 10-minute first play, per hour of work</strong>, because most testers play exactly once.</p>
+
+					<figure class="cs-figure">
+						<div class="ratio ratio-16x9">
+							<iframe src="https://www.youtube-nocookie.com/embed/erDdF5u9zJI" title="Kosmograd playtest session" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+						</div>
+						<figcaption><span class="cs-fig">Fig. 02</span><span>A recorded playtest. Testers are asked to think out loud, so the recording captures what they expected as well as what they did.</span></figcaption>
+					</figure>
+
+					<p>I run playtests the way I'd run a usability test, with testers from Discord swap-testing and itch.io:</p>
+
+					<ul class="cs-rows">
+						<li class="cs-row">
+							<span class="cs-row-key">Prime</span>
+							<p>Testers get a short brief before they start: record the session and say what you're thinking as you play. I don't explain the game, because the confusion is the data.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Transcribe</span>
+							<p>Every session is transcribed in full, not summarised from memory. A sigh or a &ldquo;wait, what?&rdquo; at minute four is easy to forget and often matters more than the written feedback.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Synthesise</span>
+							<p>I go through the transcripts with AI as a second reader. It clusters issues across sessions, drafts a priority order, and flags cues I missed. I check its findings against the recording and make the calls myself.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Weigh</span>
+							<p>Not every session counts the same. A three-minute play with no audio and the tutorial skipped is low-signal: it gave me a fullscreen nudge for web players, but it didn't get to change the design. Anything seen once is a watch item until a second tester hits it.</p>
+						</li>
+					</ul>
+
+					<p>Then I trace each issue to its root cause, and that changes the plan. For one round before the demo I traced 18 reported symptoms, and some &ldquo;big&rdquo; complaints turned out to be one-line bugs. A single fix removed three of them at once: a credits payout on the landing screen, a random crew line before the intro, and a quest that completed itself on frame one.</p>
+					<p>The plan that came out of that round:</p>
+
+					<ul class="cs-tiers">
+						<li class="cs-tier">
+							<span class="cs-badge">Tier 1</span>
+							<h3>Cheap fixes</h3>
+							<span class="cs-tier-effort">1&ndash;2 days</span>
+							<p>Small edits that remove most &ldquo;this feels broken&rdquo; moments from the first 10 minutes. Ship to testers straight away.</p>
+						</li>
+						<li class="cs-tier">
+							<span class="cs-badge">Tier 2</span>
+							<h3>Storm rework</h3>
+							<span class="cs-tier-effort">3&ndash;5 days</span>
+							<p>The demo's only recurring crisis read as &ldquo;orange screen, random breakage, frozen colonists&rdquo;. Mechanics first, visuals second.</p>
+						</li>
+						<li class="cs-tier">
+							<span class="cs-badge">Tier 3</span>
+							<h3>Core UX</h3>
+							<span class="cs-tier-effort">2&ndash;3 days</span>
+							<p>Crew management, multi-select, enemy visibility, save prompts and notification throttling.</p>
+						</li>
+						<li class="cs-tier">
+							<span class="cs-badge">Deferred</span>
+							<h3>Past the demo</h3>
+							<span class="cs-tier-effort">Later</span>
+							<p>Housing and mood, a storyteller system, upgrades, food varieties, custom music. All real design work, none of it demo-blocking.</p>
+						</li>
+					</ul>
+				</section>
+
+				<!-- 04 Design -->
+				<section class="cs-section cs-reveal" id="journal">
+					<p class="cs-eyebrow"><span class="cs-num">04</span>UX deep dive</p>
+					<h2>From a flat quest list to a Journal</h2>
+					<p class="cs-tldr">The fix for &ldquo;day 2, now what?&rdquo; was mostly information architecture. A flat quest list became a Journal with <strong>one pinned goal, a clear priority order and four tabs</strong>, so players always know what matters next.</p>
+
+					<figure class="cs-figure">
+						<img src="assets/images/articles/kosmograd/quest-rework.gif" class="cs-pixel" width="800" height="453" loading="lazy" alt="Animated walkthrough of the Journal: opening it from the toolbar, the Story tab with the pinned main goal Signal Earth and a chapter list, then the Requests, Milestones and Messages tabs">
+						<figcaption><span class="cs-fig">Fig. 03</span><span>The Journal. The main goal stays pinned above the chapter list, and upcoming chapters show as &ldquo;???&rdquo; so players see how much is left without spoilers.</span></figcaption>
+					</figure>
+
+					<p>The old quest log was one list where story steps, optional jobs and long-term achievements all looked the same. What changed:</p>
+
+					<ul class="cs-rows">
+						<li class="cs-row">
+							<span class="cs-row-key">Goal first</span>
+							<p>The run opens with a mission brief from a mothership in orbit. Its goal, <em>Signal Earth</em>, stays pinned for the whole run with a count of the components you've recovered.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">One priority rule</span>
+							<p>The tracker shows the current story chapter first, then urgent events, then optional jobs. Long-term achievements never take it over.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Four tabs, four jobs</span>
+							<p><em>Story</em> is the main path. <em>Requests</em> holds optional jobs, grouped by the crew member who asked. <em>Milestones</em> pay out and stay quiet. <em>Messages</em> keeps every notification, so nothing is lost.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Progressive disclosure</span>
+							<p>Finished chapters shrink to a ticked line. The current one is a full card, the next shows a one-line teaser, and the rest stay hidden.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">A human voice</span>
+							<p>Every quest comes from a person (Yuri, Katya, Boris or the mothership) who asks for it out loud and reacts when it's done.</p>
+						</li>
+					</ul>
+
+					<details class="case-details">
+						<summary>Four things I cut or reversed</summary>
+						<div class="case-details-body">
+							<ul class="cs-list cs-list--cut">
+								<li><strong>Story quests on the Requests tab.</strong> The same quest showed up in two places. Story now lives on the Story tab only.</li>
+								<li><strong>A big goal card.</strong> The first version explained all three steps at once and took up half the tab. Now only the current step explains itself.</li>
+								<li><strong>Three names for one goal.</strong> The tracker, Journal and final chapter each named it differently. It's &ldquo;Signal Earth&rdquo; everywhere now.</li>
+								<li><strong>A filter for completed quests.</strong> With seven chapters, there's nothing to filter.</li>
+							</ul>
+						</div>
+					</details>
+				</section>
+
+				<!-- 05 Trust -->
+				<section class="cs-section cs-reveal" id="trust">
+					<p class="cs-eyebrow"><span class="cs-num">05</span>Interface trust</p>
+					<h2>Small fixes that make the UI believable</h2>
+					<p>In a survival game, players have to trust the interface to tell them the truth. These are the same patterns I use in B2B products.</p>
+
+					<div class="cs-ba">
+						<div class="cs-ba-head" aria-hidden="true">
+							<span>Pattern</span>
+							<span>Before</span>
+							<span>After</span>
+						</div>
+						<div class="cs-ba-row">
+							<h3><i class="fas fa-bell-slash" aria-hidden="true"></i>Alert fatigue</h3>
+							<p class="cs-ba-before" data-label="Before">&ldquo;LOW OXYGEN!&rdquo; fired for any colonist outdoors, even at 100%. Players learned to ignore it.</p>
+							<p data-label="After">It only fires when oxygen is actually low, and a real low-reserve moment gets a loud warning at 30% and 15%.</p>
+						</div>
+						<div class="cs-ba-row">
+							<h3><i class="fas fa-hourglass-half" aria-hidden="true"></i>Actionable numbers</h3>
+							<p class="cs-ba-before" data-label="Before">The ice counter (your air supply) showed a raw amount.</p>
+							<p data-label="After">It shows days of air left, turning orange under 3 days and red under 1. A number players can act on.</p>
+						</div>
+						<div class="cs-ba-row">
+							<h3><i class="fas fa-computer-mouse" aria-hidden="true"></i>Explained actions</h3>
+							<p class="cs-ba-before" data-label="Before">Right-clicking a broken building did nothing and gave no reason.</p>
+							<p data-label="After">A menu shows who will go, what it costs, and who gets pulled off another job. If nobody is free, the option is greyed out and says why.</p>
+						</div>
+						<div class="cs-ba-row">
+							<h3><i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i>Agency in a crisis</h3>
+							<p class="cs-ba-before" data-label="Before">During storms, colonists just froze in the hub.</p>
+							<p data-label="After">Players choose whether the crew shelters or keeps working, trading safety for progress.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 06 First impressions -->
+				<section class="cs-section cs-reveal" id="launch">
+					<p class="cs-eyebrow"><span class="cs-num">06</span>Brand and go-to-market</p>
+					<h2>The first thirty seconds</h2>
+					<p class="cs-tldr">Most people will meet Kosmograd as a thumbnail on Steam and a main menu. I treat both as product surfaces: <strong>they set the tone, and they're where the feedback loop starts</strong>.</p>
+
+					<figure class="cs-figure">
+						<img src="assets/images/articles/kosmograd/mainmenu.gif" class="cs-pixel" width="600" height="340" loading="lazy" alt="Animated capture of the Kosmograd main menu, shown on a monitor inside the lander, and the Load Game list where each save shows its colony name, day, food and minerals">
+						<figcaption><span class="cs-fig">Fig. 04</span><span>The main menu sits on a monitor inside the lander. Each save shows its colony name, day, food and minerals, and a &ldquo;Give feedback&rdquo; link is on screen before the game even starts.</span></figcaption>
+					</figure>
+
+					<figure class="cs-figure">
+						<img src="assets/images/articles/kosmograd/capsule-main.png" class="cs-pixel" width="1888" height="696" loading="lazy" alt="Kosmograd Steam capsule art: the logo over a lunar landscape, with a small base and antenna on the right and Earth in the sky">
+						<figcaption><span class="cs-fig">Fig. 05</span><span>The Steam capsule (October 2026). Pixel art and layout by me, checked at every capsule size down to the smallest thumbnail.</span></figcaption>
+					</figure>
+				</section>
+
+				<!-- 07 Takeaways -->
+				<section class="cs-section cs-reveal" id="next">
+					<p class="cs-eyebrow"><span class="cs-num">07</span>Takeaways and what's next</p>
+					<h2>What I'd bring to a product team</h2>
+
+					<ul class="cs-rows">
+						<li class="cs-row">
+							<span class="cs-row-key">Trace, then rank</span>
+							<p>A backlog of symptoms overstates the work. One root cause accounted for three complaints, and it only showed up because I investigated before estimating.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Weigh evidence</span>
+							<p>A three-minute session and a full playthrough are not the same data point. I log signal quality next to the feedback and let weak signals become watch items.</p>
+						</li>
+						<li class="cs-row">
+							<span class="cs-row-key">Cutting is design</span>
+							<p>The Journal got better when I removed a duplicate entry point, an oversized card, two extra names and a filter. Most of the clarity came from what left.</p>
+						</li>
+					</ul>
+
+					<p>The Steam demo is planned for <strong>January 2027</strong>. Until then: full playthroughs of the new Journal and weather systems, and more playtest rounds, each closing the loop with a devlog.</p>
+
+					<div class="cs-actions">
+						<a href="https://mischa.itch.io/kosmograd" target="_blank" rel="noopener" class="cs-btn">Play the playtest build <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+					</div>
+
+					<div class="bsky-sidebar-box">
 						<div class="bsky-sidebar-header">
 							<span class="bsky-sidebar-label">Dev feed</span>
 							<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener" class="bsky-sidebar-handle">@mishotofu.bsky.social</a>
@@ -107,113 +358,40 @@
 								id="bskyEmbed"
 								limit="2"
 								mode="light"
-								username="mishotofu.bsky.social"
-								custom-styles="@media (min-width: 992px) and (max-width: 1199.98px) { :host { --base-text-size: 0.88rem; } .avatar, img[alt*='avatar'], img[alt*='profile'] { width: 40px !important; height: 40px !important; min-width: 40px !important; min-height: 40px !important; } }">
+								username="mishotofu.bsky.social">
 							</bsky-embed>
 						</div>
 					</div>
-					</div> <!-- /.article-sidebar-sticky -->
-				</div>
-			</div>
-		</div>
-	</section>
+				</section>
+			</main>
 
-	<!-- The Problem -->
-	<section class="py-4">
-		<div class="container">
-			<div style="max-width: 800px;">
-			<h3 class="mb-3">The complexity of RTS</h3>
-			<p class="mb-2">RTS games demand interconnected systems, pathfinding, resource economies, (often) combat balance—that studios usually assign to entire teams. Add part-time development and zero art budget, and scope management becomes critical.</p>
-			<p class="mb-2"><strong>Core challenges:</strong></p>
-			<ul class="mb-2">
-				<li><strong>System complexity:</strong> Unit movement → power consumption → oxygen production → worker assignments. Break one, cascade failure.</li>
-				<li><strong>Visual constraints:</strong> No 3D artist means stylized 2D and creative camera work.</li>
-				<li><strong>Difficulty balancing:</strong> Too hard = frustration. Too easy = boring.</li>
-				<li><strong>Scope creep:</strong> Every "cool idea" adds 40 hours. Ice mining? Vehicles? Fire hazards? All deferred.</li>
-			</ul>
-			<p>Studied RimWorld, Total War, C&C, and ONI to make smart UX decisions that create fun without hand-holding.</p>
-			</div>
-			
-		</div>
-		
-	</section>
+			<!-- Sticky rail: contents + share -->
+			<aside class="cs-rail" aria-label="On this page">
+				<div class="cs-rail-inner">
+					<p class="cs-rail-label">On this page</p>
+					<ul class="cs-toc">
+						<li><a href="#overview">Overview</a></li>
+						<li><a href="#problem">The problem</a></li>
+						<li><a href="#discovery">Discovery and prioritisation</a></li>
+						<li><a href="#journal">Quest list to Journal</a></li>
+						<li><a href="#trust">Interface trust</a></li>
+						<li><a href="#launch">Brand and go-to-market</a></li>
+						<li><a href="#next">Takeaways</a></li>
+					</ul>
 
-	<!-- What Got Built -->
-	<section class="py-4">
-		<div class="container">
-			<div style="max-width: 800px;">
-			<h3 class="mb-3">What I Shipped</h3>
-			<p class="mb-3">Shipped the core loop end-to-end using Godot's node system, GDScript, and Claude Code for technical acceleration.</p>
-			<p class="mb-2"><strong>Key systems:</strong></p>
-			<div class="row g-3 mb-3">
-				<div class="col-md-6">
-					<div class="p-3 border rounded">
-						<div class="d-flex align-items-start gap-2">
-							<i class="fas fa-check-circle text-success mt-1"></i>
-							<div>
-								<h6 class="mb-1 fw-bold">Worker Assignment</h6>
-								<p class="small text-muted mb-0">Drag colonists between mining/construction/research</p>
-							</div>
-						</div>
+					<p class="cs-rail-label">Share</p>
+					<div class="cs-share">
+						<a href="mailto:?subject=Kosmograd%3A%20Running%20a%20Solo%20Game%20Like%20a%20Product&body=https://mischavdgoes.com/gamedev.html" title="Share via email" aria-label="Share via email"><i class="fas fa-envelope"></i></a>
+						<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mischavdgoes.com/gamedev.html" target="_blank" rel="noopener" title="Share on LinkedIn" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+						<a href="https://twitter.com/intent/tweet?url=https://mischavdgoes.com/gamedev.html&text=Kosmograd%3A%20Running%20a%20Solo%20Game%20Like%20a%20Product" target="_blank" rel="noopener" title="Share on X" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
+						<button type="button" data-copy-link title="Copy link" aria-label="Copy link"><i class="fas fa-link"></i></button>
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="p-3 border rounded">
-						<div class="d-flex align-items-start gap-2">
-							<i class="fas fa-check-circle text-success mt-1"></i>
-							<div>
-								<h6 class="mb-1 fw-bold">Grid-Based Building</h6>
-								<p class="small text-muted mb-0">Oxygen radius visualization for habitat placement</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="p-3 border rounded">
-						<div class="d-flex align-items-start gap-2">
-							<i class="fas fa-check-circle text-success mt-1"></i>
-							<div>
-								<h6 class="mb-1 fw-bold">Survival Pressure</h6>
-								<p class="small text-muted mb-0">Balance oxygen production and power grids</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="p-3 border rounded">
-						<div class="d-flex align-items-start gap-2">
-							<i class="fas fa-check-circle text-success mt-1"></i>
-							<div>
-								<h6 class="mb-1 fw-bold">Quest Framework</h6>
-								<p class="small text-muted mb-0">Guidance without railroading player decisions</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<p class="mb-2"><strong>Critical pivot:</strong> Early playtesting showed everything worked but felt identical. Players followed linear quest paths with no meaningful choices.</p>
-			<p><strong>Solution:</strong> Stopped adding features. Made existing systems interesting. Deferred new resources/vehicles to Q2. Focused on variance—randomized starts, branching quests, exploration incentives before base commitment.</p>
-			</div>
-		</div>
-	</section>
 
-	<!-- What's Next -->
-	<section class="py-4">
-		<div class="container">
-			<div style="max-width: 800px;">
-				<h3 class="mb-3">What's Next</h3>
-				<p class="mb-2">Refining for Q2 2026 Steam launch. The core works; now it needs to feel alive.</p>
-				<p class="mb-2"><strong>Current focus:</strong></p>
-				<ul class="mb-3">
-					<li>Transform checklist quests into immersive narrative with tradeoffs</li>
-					<li>Resource variance that forces scouting</li>
-					<li>Environmental storytelling (abandoned equipment, cosmonaut logs, artifacts)</li>
-					<li>More playtesting, balance passes, Steam page, trailer</li>
-				</ul>
-				<a href="https://mischa.itch.io/kosmograd" target="_blank" class="btn btn-dark">Play now</a>
-			</div>
+					<p class="cs-byline"><strong>Mischa van der Goes</strong>PM &amp; indie developer<br>October 2026</p>
+				</div>
+			</aside>
 		</div>
-	</section>
+	</div>
 
 	<!-- Related Articles (news style) -->
 	<div class="related-articles-section">
@@ -250,27 +428,6 @@
 		</div>
 	</div>
 
-	<section class="py-4 d-lg-none">
-		<div class="container">
-			<div style="max-width: 800px;">
-				<div class="bsky-sidebar-box">
-					<div class="bsky-sidebar-header">
-						<span class="bsky-sidebar-label">Dev feed</span>
-						<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener" class="bsky-sidebar-handle">@mishotofu.bsky.social</a>
-					</div>
-					<div class="bsky-feed-container">
-						<bsky-embed
-							id="bskyEmbedMobile"
-							limit="2"
-							mode="light"
-							username="mishotofu.bsky.social">
-						</bsky-embed>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- Article Footer (news style) -->
 	<div id="article-footer-container"></div>
 
@@ -281,8 +438,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-	<!--code to set things up-->
-	<script src="js/main.js"></script>
 
 	<!-- Core utilities (load first - required by other scripts) -->
 	<script src="js/core/utils.js"></script>
@@ -294,5 +449,6 @@
 	<script src="assets/components/article-footer.js"></script>
 	<script src="js/theme-toggle.js"></script>
 	<script src="js/slider-handling.js"></script>
+	<script src="js/case-study.js?v=2"></script>
 </body>
 </html>
