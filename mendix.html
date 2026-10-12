@@ -29,6 +29,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 	<link rel="alternate icon" href="favicon.ico">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="assets/css/article.css" />
 	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
 	<link rel="stylesheet" href="assets/css/case-study.css?v=7" />
 	<link rel="stylesheet" href="assets/css/roadmap.css" />
@@ -59,7 +60,7 @@
 					<p class="fw-bold mb-1">Date</p>
 					<p class="mb-4">Q1 2024</p>
 					<p class="fw-bold mb-1">Client</p>
-					<p class="mb-0">Mendix</p>
+					<p class="mb-0">Mendix (a Siemens company)</p>
 				</div>
 			</div>
 		</div>
@@ -74,7 +75,7 @@
 			
 			<h2>Ensuring enterprise-grade security by improving efficiencies</h2>
 			<p>
-				At Mendix, the low-code platform powering critical systems for ABN Amro and PostNL, security audits were becoming a bottleneck. With no centralized tracking, communication scattered across platforms, and inconsistent validation methods, their certification process was at risk. This case explores how we transformed their fragmented compliance system into a streamlined security framework.
+				At Mendix, the low-code platform powering critical systems for ABN Amro and PostNL, security audits were becoming a bottleneck, both for Mendix itself and for its parent company Siemens. With no centralized tracking, communication scattered across platforms, and inconsistent validation methods, their certification process was at risk. This case explores how we transformed their fragmented compliance system into a streamlined security framework.
 			</p>
 			
 			</div>
@@ -138,7 +139,7 @@
 				</div>
 				<div class="col-md-6">
 					<figure class="cs-figure my-0">
-						<img src="assets/images/mendix/recreated/insights.webp" width="2720" height="1700" loading="lazy" alt="AuditON Security Insights dashboard with response time and maturity per domain">
+						<img src="assets/images/mendix/recreated/insights.webp" width="2720" height="1700" loading="lazy" alt="AuditON Security Insights dashboard: four KPI tiles with trend lines, response time per domain over twelve weeks against a two-hour target, domain maturity last year and now, evidence status per audit, evidence reuse per year and a list of items that need attention">
 					</figure>
 				</div>
 			</div>
@@ -236,17 +237,17 @@
 				<div class="col-lg-10">
 					<figure class="cs-figure cs-annotated mt-0">
 						<div class="cs-annotated-frame">
-							<img src="assets/images/mendix/recreated/audits.webp" width="2720" height="1700" loading="lazy" alt="AuditON My Audits screen: nine ongoing audits as cards, each with progress on controls and evidence, a status and an owner">
-							<span class="cs-pin" style="left: 15.5%; top: 41.5%" aria-hidden="true">1</span>
-							<span class="cs-pin" style="left: 55%; top: 47%" aria-hidden="true">2</span>
-							<span class="cs-pin" style="left: 91.8%; top: 47%" aria-hidden="true">3</span>
-							<span class="cs-pin" style="left: 74.2%; top: 29.3%" aria-hidden="true">4</span>
+							<img src="assets/images/mendix/recreated/audits.webp" width="2720" height="1700" loading="lazy" alt="AuditON My Audits screen: a summary row with totals, then nine ongoing audits as cards, each with progress on controls and evidence, a status and an owner">
+							<span class="cs-pin" style="left: 8.8%; top: 49.1%" aria-hidden="true">1</span>
+							<span class="cs-pin" style="left: 54.8%; top: 54.5%" aria-hidden="true">2</span>
+							<span class="cs-pin" style="left: 91%; top: 54.5%" aria-hidden="true">3</span>
+							<span class="cs-pin" style="left: 29.4%; top: 27%" aria-hidden="true">4</span>
 						</div>
 						<ol class="cs-pin-legend">
 							<li><strong>Progress per audit.</strong> Controls and evidence are counted separately, so a stalled audit is visible without opening it.</li>
-							<li><strong>Status.</strong> In progress, under review or ready, in one consistent place on every card.</li>
+							<li><strong>Status.</strong> In progress, under review or ready, in the same place on every card and repeated in the colour of the card's edge.</li>
 							<li><strong>Owner.</strong> The responsible security officer is on the card, so there's no question who to ask.</li>
-							<li><strong>What's ready.</strong> A count of audits ready for sign-off, above the grid.</li>
+							<li><strong>Totals at a glance.</strong> How many audits are ongoing, ready for sign-off, under review and high priority, before reading a single card.</li>
 						</ol>
 					</figure>
 
@@ -275,13 +276,18 @@
 						<figcaption><span class="cs-fig">Officer home</span><span>Security officers see every ongoing audit, its due date and its status without opening a spreadsheet.</span></figcaption>
 					</figure>
 
+					<figure class="cs-figure">
+						<img src="assets/images/mendix/recreated/profile.webp" width="2720" height="1700" loading="lazy" alt="AuditON profile page for a security officer: a header with name, role, team and email, notification settings per event with email and in-app switches, the three audits they own, and their domains and permissions">
+						<figcaption><span class="cs-fig">Profile</span><span>Each person picks which audit events reach them by email or in the app, next to the audits they own and what they're allowed to do in them.</span></figcaption>
+					</figure>
+
 					<div class="cs-shots cs-shots--phones">
 						<figure class="cs-figure"><img src="assets/images/mendix/recreated/mobile-audits.webp" width="780" height="1688" loading="lazy" alt="My Audits on a phone"></figure>
 						<figure class="cs-figure"><img src="assets/images/mendix/recreated/mobile-control.webp" width="780" height="1688" loading="lazy" alt="Control RM03 on a phone, evidence shown as a list"></figure>
 						<figure class="cs-figure"><img src="assets/images/mendix/recreated/mobile-evidence.webp" width="780" height="1688" loading="lazy" alt="Evidence panel on a phone, with the flagged file and message thread"></figure>
 					</div>
 
-					<p class="cs-shots-note">The original design files no longer exist, so I rebuilt these screens in HTML and CSS from screenshots of the product. Names and numbers are sample data. <a href="prototypes/auditon/index.html?screen=control" target="_blank" rel="noopener">Open the clickable prototype</a></p>
+					<p class="cs-shots-note">The original design files no longer exist, so I rebuilt these screens in HTML and CSS from screenshots of the product. Names and numbers are sample data. The My Audits screen includes two refinements I made for this case study: the summary row above the grid and status-coloured card edges. Security Insights shows more panels and richer sample data than the original dashboard. No screenshot of the profile page survived, so that screen is redrawn with the same components instead of copied. <a href="prototypes/auditon/index.html?screen=control" target="_blank" rel="noopener">Open the clickable prototype</a></p>
 				</div>
 			</div>
 		</div>
@@ -344,37 +350,40 @@
 	</section>
 
 
-	<!-- Section - Up Next -->
-	<section class="bg-white py-4">
-	<div class="container">
-		<!-- Horizontal line above the section -->
-		<hr class="section-line">
-
-		<div class="up-next-header mb-4">
-			<h3>Recommended projects</h3>
-		</div>
-
-		<div class="up-next-list">
-			<div class="up-next-item mb-4">
-				<img src="assets/images/thumbnails/ffm_thumbnail.png" class="up-next-thumb rounded" alt="PostNL project">
-				<div class="up-next-content">
-					<h4 class="mb-2">PostNL: B2B client acquisition for PostNL</h4>
-					<p class="mb-2">Putting user needs first to optimise client conversion.</p>
-					<a href="ffm.html" class="text-primary">View Project</a>
+	<!-- Related content -->
+	<div class="related-articles-section">
+		<div class="container">
+			<h2>Related content</h2>
+			<div class="row g-4">
+				<div class="col-md-6">
+					<div class="related-card">
+						<img src="assets/images/thumbnails/ffm_thumbnail.png" class="related-card-img" loading="lazy" alt="PostNL B2B acquisition project">
+						<div class="related-card-meta">
+							<i class="far fa-clock"></i>
+							<span>2024 – 2026</span>
+							<span>•</span>
+							<span class="related-card-category">UX Research</span>
+						</div>
+						<a href="ffm.html" class="related-card-title">PostNL: B2B Acquisition</a>
+						<p class="related-card-excerpt">Data-driven testing drove €5M revenue and 2x conversion growth.</p>
+					</div>
 				</div>
-			</div>
-
-			<div class="up-next-item mb-4">
-				<img src="assets/images/thumbnails/quiet-network-thumb.png" class="up-next-thumb rounded" alt="Quiet Network project">
-				<div class="up-next-content">
-					<h4 class="mb-2">Quiet Network</h4>
-					<p class="mb-2">Building a Minimalist Social Platform from Concept to Launch</p>
-					<a href="quiet-network.html" class="text-primary">View Project</a>
+				<div class="col-md-6">
+					<div class="related-card">
+						<img src="assets/images/quiet-network/qn-home-2026.jpg" class="related-card-img" loading="lazy" alt="Quiet Network">
+						<div class="related-card-meta">
+							<i class="far fa-clock"></i>
+							<span>February 2026</span>
+							<span>•</span>
+							<span class="related-card-category">Side Project</span>
+						</div>
+						<a href="quiet-network.html" class="related-card-title">Quiet Network: Your Neighborhood Without the Noise</a>
+						<p class="related-card-excerpt">A minimalist social platform built for local communities — from concept to launch, solo.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
 	<!-- Section 7: Get in touch snippet -->
 	<div id="contact-cta-container"></div>
 

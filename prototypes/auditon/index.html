@@ -17,7 +17,7 @@
 		for the portfolio case study (mendix.html). All names and data are fictional.
 
 		URL parameters:
-		  screen = audits | home | control | insights | login
+		  screen = audits | home | control | insights | profile | login
 		  ev     = E01 | E02 | E03   (control screen: opens the evidence panel)
 		  tab    = upload | chat     (which panel tab is open)
 	-->
@@ -27,7 +27,7 @@
 			<a class="ao-brand" href="?screen=audits"><span class="ao-mx">mx</span>AuditON</a>
 			<span class="ao-top-spacer"></span>
 			<button class="ao-icon-btn" type="button" aria-label="Help" data-icon="help"></button>
-			<button class="ao-icon-btn" type="button" aria-label="Account" data-icon="user"></button>
+			<a class="ao-icon-btn" href="?screen=profile" aria-label="Account" data-icon="user"></a>
 		</header>
 		<main id="view"></main>
 	</div>

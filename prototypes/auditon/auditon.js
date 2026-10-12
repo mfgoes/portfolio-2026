@@ -28,6 +28,8 @@ const ICONS = {
 	priority: '<path d="m7 12 5-5 5 5M7 17l5-5 5 5"/>',
 	contact: '<rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7.5 17a5 5 0 0 1 9 0"/>',
 	clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+	up: '<path d="M12 19V5M6 11l6-6 6 6"/>',
+	arrowdown: '<path d="M12 5v14M6 13l6 6 6-6"/>',
 	shield: '<path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="m8.8 12 2.3 2.3 4.2-4.6"/>',
 };
 
@@ -99,6 +101,59 @@ const CONTROL = {
 			],
 		},
 		{ id: 'E03', name: 'Approved by management', status: 'awaiting', assignee: null, deadline: null, files: [], thread: [] },
+	],
+};
+
+// Security Insights. Weekly hours to supply evidence per domain, oldest first, and maturity as [last year, this year].
+const DOMAINS = [
+	{ name: 'Support', maturity: [1.8, 2.1], hours: [3.1, 2.9, 3.0, 2.6, 2.7, 2.4, 2.5, 2.1, 2.2, 1.9, 1.9, 1.8] },
+	{ name: 'R&D', maturity: [2.4, 2.9], hours: [3.4, 3.6, 3.2, 3.3, 2.9, 3.1, 2.8, 2.9, 2.6, 2.7, 2.5, 2.4] },
+	{ name: 'Privacy', maturity: [3.0, 3.2], hours: [2.2, 2.4, 2.1, 2.3, 2.0, 1.9, 2.1, 1.8, 1.9, 1.7, 1.7, 1.6] },
+	{ name: 'Security', maturity: [3.4, 3.8], hours: [1.6, 1.5, 1.7, 1.4, 1.3, 1.4, 1.2, 1.1, 1.2, 1.0, 1.1, 1.0] },
+];
+
+const INSIGHTS = {
+	completed: 4,
+	approved: 412,
+	declined: 23,
+	late: 8,
+	lastYear: { rate: 92.6, late: 13 },
+	targetHours: 2,
+	targetMaturity: 4,
+	trend: {
+		audits: [4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9],
+		rate: [91.8, 92.4, 92.1, 93.0, 92.8, 93.5, 93.9, 93.6, 94.2, 94.0, 94.5, 94.7],
+		late: [2, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0],
+	},
+	// Evidence still open per audit as [in review, flagged]; approved and total come from AUDITS
+	open: {
+		'ISO 27001 Surveillance 2023': [31, 7],
+		'PCI DSS 4.0': [22, 4],
+		'SOC 2 Type II': [16, 1],
+		'ISAE 3000 Type II': [0, 0],
+	},
+	reuse: [['2020', 6], ['2021', 14], ['2022', 29], ['2023', 47]],
+	reuseShare: 34,
+	attention: [
+		{ control: CONTROL.id, name: CONTROL.evidence[1].name, note: CONTROL.evidence[1].alert.title, status: 'attention', who: CONTROL.evidence[1].assignee, href: '?screen=control&ev=E02&tab=chat' },
+		{ control: 'AC07', name: 'Quarterly access review', note: '4 days overdue', status: 'awaiting', who: 'TH', href: '#' },
+		{ control: 'BC02', name: 'Recovery test report', note: 'Declined twice', status: 'attention', who: 'JB', href: '#' },
+		{ control: 'SD11', name: 'Secure coding training log', note: 'Due in 2 days', status: 'awaiting', who: 'TH', href: '#' },
+	],
+};
+
+// The signed-in user. Their audits come from AUDITS, so the profile can't drift from the other screens.
+const PROFILE = {
+	id: 'SV',
+	email: 'sanne.devries@example.com',
+	team: CONTROL.team,
+	domains: ['Security', 'Privacy'],
+	can: ['Start and close audits', 'Approve or decline evidence', 'Assign evidence to app owners'],
+	notify: [
+		{ id: 'mention', label: 'Mentions', text: 'Someone tags you in an evidence thread.', email: true, app: true },
+		{ id: 'flagged', label: 'Flagged evidence', text: 'A file fails validation in one of your audits.', email: true, app: true },
+		{ id: 'deadline', label: 'Deadline reminders', text: 'Evidence is due within three days.', email: false, app: true },
+		{ id: 'summary', label: 'Weekly summary', text: 'Progress across your audits, every Monday.', email: true, app: false },
 	],
 };
 
@@ -280,15 +335,87 @@ function drawer(e, tab) {
 		</aside>`;
 }
 
-function barChart(bars, { max, step, color, decimals = 0 }) {
-	const ticks = [];
-	for (let v = 0; v <= max + 1e-9; v += step) ticks.push(`<span style="--at:${v / max}">${v.toFixed(decimals)}</span>`);
-	const cols = bars.map(([label, value]) => `<div class="ao-col"><i style="height:${(value / max) * 100}%"></i><em style="bottom:${(value / max) * 100}%">${value}</em><span>${label}</span></div>`).join('');
-	return `<div class="ao-chart"><div class="ao-ticks">${ticks.join('')}</div><div class="ao-plot" style="--steps:${max / step};--bar:${color}">${cols}</div></div>`;
+// ---------- Charts ----------
+const mean = (values) => values.reduce((sum, v) => sum + v, 0) / values.length;
+const path = (pts) => pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+
+function sparkline(values) {
+	const w = 88, h = 30, lo = Math.min(...values), hi = Math.max(...values);
+	const pts = values.map((v, i) => [4 + (i / (values.length - 1)) * (w - 9), 5 + (1 - (v - lo) / (hi - lo || 1)) * (h - 10)]);
+	const [x, y] = pts[pts.length - 1];
+	return `<svg class="ao-spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${path(pts)}"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5"/></svg>`;
+}
+
+// One small multiple per domain, all on the same 0 to 4 hour scale
+function trendChart(d) {
+	const w = 140, h = 112, left = 16, right = 133, top = 8, bottom = 88, max = 4;
+	const y = (v) => bottom - (v / max) * (bottom - top);
+	const pts = d.hours.map((v, i) => [left + (i / (d.hours.length - 1)) * (right - left), y(v)]);
+	const [ex, ey] = pts[pts.length - 1];
+	const grid = [0, 2, 4].map((v) => `<line class="${v === INSIGHTS.targetHours ? 'target' : ''}" x1="${left}" x2="${w}" y1="${y(v)}" y2="${y(v)}"/><text x="0" y="${y(v) + 3.5}">${v}</text>`).join('');
+	const hits = pts.map(([px, py], i) => `<circle class="hit" cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="7"><title>${d.name}, week ${i + 1}: ${d.hours[i].toFixed(1)} h</title></circle>`).join('');
+	return `<svg class="ao-trend" viewBox="0 0 ${w} ${h}" role="img" aria-label="${d.name}: ${d.hours[0].toFixed(1)} to ${d.hours[d.hours.length - 1].toFixed(1)} hours over 12 weeks">
+		${grid}
+		<polygon points="${left},${bottom} ${path(pts)} ${right},${bottom}"/>
+		<polyline points="${path(pts)}"/>
+		<circle class="end" cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="4"/>
+		${hits}
+		<text x="${left}" y="${h - 6}">12 wks ago</text><text x="${w}" y="${h - 6}" text-anchor="end">Now</text>
+	</svg>`;
+}
+
+// Last year to this year per domain, on the 1 to 5 maturity scale
+function maturityChart() {
+	const w = 424, h = 146, x = (v) => 86 + ((v - 1) / 4) * 250;
+	const ticks = [1, 2, 3, 4, 5].map((v) => `<line class="${v === INSIGHTS.targetMaturity ? 'target' : ''}" x1="${x(v)}" x2="${x(v)}" y1="18" y2="124"/><text x="${x(v)}" y="140" text-anchor="middle">${v}</text>`).join('');
+	const rows = DOMAINS.map((d, i) => {
+		const [was, now] = d.maturity, y = 32 + i * 28;
+		return `<g><title>${d.name}: ${was.toFixed(1)} last year, ${now.toFixed(1)} now</title>
+			<text class="name" x="0" y="${y + 4}">${d.name}</text>
+			<line class="link" x1="${x(was)}" x2="${x(now)}" y1="${y}" y2="${y}"/>
+			<circle class="was" cx="${x(was)}" cy="${y}" r="5.5"/><circle class="now" cx="${x(now)}" cy="${y}" r="5.5"/>
+			<text class="value" x="356" y="${y + 4}">${now.toFixed(1)}</text><text x="424" y="${y + 4}" text-anchor="end">+${(now - was).toFixed(1)}</text></g>`;
+	}).join('');
+	return `<svg class="ao-dumbbell" viewBox="0 0 ${w} ${h}" role="img" aria-label="Maturity per domain, last year and now">
+		${ticks}<text x="${x(INSIGHTS.targetMaturity)}" y="10" text-anchor="middle">Target</text>${rows}
+	</svg>`;
+}
+
+function reuseChart() {
+	const w = 228, h = 104, base = 82, max = Math.max(...INSIGHTS.reuse.map(([, n]) => n));
+	const cols = INSIGHTS.reuse.map(([year, n], i) => {
+		const cx = 28 + i * 57, top = base - (n / max) * 62, last = i === INSIGHTS.reuse.length - 1;
+		return `<g><title>${year}: ${n} pieces reused</title>
+			<path class="${last ? 'now' : ''}" d="M${cx - 11},${base}V${top + 4}a4,4 0 0 1 4,-4h14a4,4 0 0 1 4,4V${base}z"/>
+			<text class="value" x="${cx}" y="${top - 6}" text-anchor="middle">${n}</text><text x="${cx}" y="${h - 4}" text-anchor="middle">${year}</text></g>`;
+	}).join('');
+	return `<svg class="ao-columns" viewBox="0 0 ${w} ${h}" role="img" aria-label="Evidence pieces reused per year"><line x1="0" x2="${w}" y1="${base}" y2="${base}"/>${cols}</svg>`;
 }
 
 function screenInsights() {
-	const stat = (i, label, value) => `<div class="ao-card ao-stat"><span class="ao-tile-icon">${icon(i)}</span><div>${label}<b>${value}</b></div></div>`;
+	const now = mean(DOMAINS.map((d) => d.hours[d.hours.length - 1]));
+	const before = mean(DOMAINS.map((d) => d.hours[0]));
+	const weekly = DOMAINS[0].hours.map((_, i) => mean(DOMAINS.map((d) => d.hours[i])));
+	const rate = (INSIGHTS.approved / (INSIGHTS.approved + INSIGHTS.declined)) * 100;
+	const good = (text) => `<span class="ao-delta">${icon('arrowdown', 'sm')}${text}</span>`;
+	const kpi = (label, value, note, values) => `<div class="ao-card ao-kpi" style="--span:3"><div><span>${label}</span><b>${value}</b>${note}</div>${sparkline(values)}</div>`;
+
+	const trends = DOMAINS.map((d) => {
+		const last = d.hours[d.hours.length - 1];
+		return `<div><div class="ao-trend-head"><strong>${d.name}</strong><b>${last.toFixed(1)} h</b></div>${trendChart(d)}</div>`;
+	}).join('');
+
+	const SEGMENTS = [['approved', 'Approved'], ['review', 'In review'], ['flagged', 'Flagged'], ['awaiting', 'Awaiting']];
+	const stacks = AUDITS.filter((a) => INSIGHTS.open[a.name]).map((a) => {
+		const [done, total] = a.evidence, [review, flagged] = INSIGHTS.open[a.name];
+		const counts = { approved: done, review, flagged, awaiting: total - done - review - flagged };
+		const bar = SEGMENTS.filter(([key]) => counts[key]).map(([key, label]) => `<i class="${key}" style="flex-grow:${counts[key]}" title="${label}: ${counts[key]}"></i>`).join('');
+		return `<div class="ao-stack-row"><span>${a.name}</span><b>${done} of ${total}</b><div class="ao-stack-bar">${bar}</div></div>`;
+	}).join('');
+
+	const attention = INSIGHTS.attention.map((t) => `
+		<a class="ao-att" href="${t.href}">${icon(t.status === 'attention' ? 'alert' : 'clock', t.status)}<div><strong><span class="ao-ev-id">${t.control}</span>${t.name}</strong>${t.note}</div>${avatar(t.who)}</a>`).join('');
+
 	return `
 		<section class="ao-head"><div class="ao-wrap">
 			<div class="ao-head-row">
@@ -297,32 +424,80 @@ function screenInsights() {
 					<h1>Security Insights</h1>
 					<p class="ao-head-sub">Identify potential risks and improve the overall security posture through KPIs and general data.</p>
 				</div>
-				<div class="ao-stats">${stat('clipboard', 'Audits in progress', AUDITS.length)}${stat('check', 'Audits completed', 4)}</div>
+				<div class="ao-head-actions ao-hide-mobile"><div class="ao-input ao-period">${icon('calendar', 'sm')}Last 12 weeks${icon('down', 'sm')}</div><button class="ao-btn" type="button">${icon('download', 'sm')}Export</button></div>
 			</div>
 		</div></section>
-		<section class="ao-body"><div class="ao-wrap ao-cols">
-			<div class="ao-card ao-panel-card">
-				<div class="ao-card-head"><h2>Domain average response time</h2><span>Hours to supply evidence</span></div>
-				${barChart([['Support', 1.7], ['R&D', 2.4], ['Privacy', 1.6], ['Security', 0.9]], { max: 3, step: 0.5, color: '#7f9be6', decimals: 1 })}
+		<section class="ao-body"><div class="ao-wrap ao-dash">
+			${kpi('Audits in progress', AUDITS.length, `<span>${INSIGHTS.completed} completed this year</span>`, INSIGHTS.trend.audits)}
+			${kpi('Average response time', `${now.toFixed(1)} h`, good(`${(before - now).toFixed(1)} h in 12 weeks`), weekly)}
+			${kpi('Approval rate', `${rate.toFixed(1)}%`, `<span class="ao-delta">${icon('up', 'sm')}${(rate - INSIGHTS.lastYear.rate).toFixed(1)} pts on last year</span>`, INSIGHTS.trend.rate)}
+			${kpi('Provided after deadline', INSIGHTS.late, good(`${INSIGHTS.lastYear.late - INSIGHTS.late} fewer than last year`), INSIGHTS.trend.late)}
+
+			<div class="ao-card ao-panel-card" style="--span:7">
+				<div class="ao-card-head"><h2>Response time by domain</h2><span class="ao-key"><i class="line"></i>Target ${INSIGHTS.targetHours} h · hours to supply evidence</span></div>
+				<div class="ao-trends">${trends}</div>
 			</div>
-			<div class="ao-card ao-panel-card">
-				<div class="ao-card-head"><h2>Domain maturity</h2><span>Scale of 1 to 5</span></div>
-				${barChart([['Support', 2.1], ['R&D', 2.9], ['Privacy', 3.2], ['Security', 3.8]], { max: 5, step: 1, color: '#3d4f8f' })}
+			<div class="ao-card ao-panel-card" style="--span:5">
+				<div class="ao-card-head"><h2>Domain maturity</h2><span class="ao-key"><i class="was"></i>Last year<i class="now"></i>Now · scale of 1 to 5</span></div>
+				${maturityChart()}
 			</div>
-			<div class="ao-card ao-panel-card">
-				<div class="ao-card-head"><h2>Efficiency</h2><span>Compared with last year</span></div>
-				<div class="ao-reuse">
-					${stat('layers', 'Evidence pieces reused', 47)}
-					<div class="ao-stack">Reused in ongoing audits<div class="ao-bar"><i style="width:34%"></i></div>34% of this year's evidence came from an earlier audit.</div>
+
+			<div class="ao-card ao-panel-card" style="--span:5">
+				<div class="ao-card-head"><h2>Evidence by audit</h2><span>Approved of requested</span></div>
+				<div class="ao-key">${SEGMENTS.map(([key, label]) => `<i class="${key}"></i>${label}`).join('')}</div>
+				${stacks}
+			</div>
+			<div class="ao-card ao-panel-card" style="--span:3">
+				<div class="ao-card-head"><h2>Evidence reuse</h2></div>
+				<div class="ao-meter"><b>${INSIGHTS.reuseShare}%</b> of evidence reused this year<div class="ao-bar"><i style="width:${INSIGHTS.reuseShare}%"></i></div></div>
+				${reuseChart()}
+			</div>
+			<div class="ao-card ao-panel-card" style="--span:4">
+				<div class="ao-card-head"><h2>Needs attention</h2><span>${INSIGHTS.attention.length} open</span></div>
+				<div class="ao-rows">${attention}</div>
+			</div>
+		</div></section>`;
+}
+
+function screenProfile() {
+	const me = PEOPLE[PROFILE.id];
+	const mine = AUDITS.filter((a) => a.officer === PROFILE.id);
+	const toggle = (n, channel, name) => `<button class="ao-switch" type="button" role="switch" aria-checked="${n[channel]}" aria-label="${n.label}, ${name}" data-pref="${n.id}:${channel}"></button>`;
+
+	const prefs = PROFILE.notify.map((n) => `
+		<div class="ao-pref"><div><strong>${n.label}</strong>${n.text}</div>${toggle(n, 'email', 'email')}${toggle(n, 'app', 'in app')}</div>`).join('');
+
+	const audits = mine.map((a) => `
+		<a class="ao-fw" href="?screen=control"><div><strong>${a.name}</strong>${pill(a.status)}</div><span>Due: ${a.due}</span>${icon('right', 'sm')}</a>`).join('');
+
+	return `
+		<section class="ao-head ao-profile-head">
+			<div class="ao-cover"><div class="ao-wrap"><a href="?screen=audits">${icon('back', 'sm')}Back to My Audits</a></div></div>
+			<div class="ao-wrap">
+				<div class="ao-head-row">
+					<div class="ao-profile-id">
+						<span class="ao-avatar xl ${me.tone}">${PROFILE.id}</span>
+						<div><h1>${me.name}</h1><p class="ao-head-sub">${me.role} · ${PROFILE.team} · ${PROFILE.email}</p></div>
+					</div>
+					<div class="ao-head-actions"><button class="ao-btn" type="button">Edit profile</button><a class="ao-link" href="?screen=login">Sign out</a></div>
 				</div>
 			</div>
-			<div class="ao-card ao-panel-card">
-				<div class="ao-card-head"><h2>General insights</h2><span>All audits</span></div>
-				<div class="ao-mini">
-					${stat('clock', 'Supplier average response time', '1.72 hours')}
-					${stat('calendar', 'Provided after deadline', 8)}
-					${stat('check', 'Approved evidence', 412)}
-					${stat('alert', 'Declined evidence', 23)}
+		</section>
+		<section class="ao-body"><div class="ao-wrap ao-split">
+			<div>
+				<h2 class="ao-section-title">Notifications</h2>
+				<div class="ao-card ao-prefs">
+					<div class="ao-pref ao-pref-head"><span>Tell me when</span><span>Email</span><span>In app</span></div>
+					${prefs}
+				</div>
+			</div>
+			<div>
+				<h2 class="ao-section-title">My audits</h2>
+				<div class="ao-card ao-rows ao-block">${audits}</div>
+				<h2 class="ao-section-title">Access</h2>
+				<div class="ao-card ao-access">
+					<div><span class="ao-label">Domains</span>${PROFILE.domains.join(', ')}</div>
+					<div><span class="ao-label">Permissions</span><ul>${PROFILE.can.map((c) => `<li>${icon('check', 'sm')}${c}</li>`).join('')}</ul></div>
 				</div>
 			</div>
 		</div></section>`;
@@ -341,7 +516,7 @@ function screenLogin() {
 }
 
 // ---------- Router ----------
-const SCREENS = { audits: screenAudits, home: screenHome, control: screenControl, insights: screenInsights, login: screenLogin };
+const SCREENS = { audits: screenAudits, home: screenHome, control: screenControl, insights: screenInsights, profile: screenProfile, login: screenLogin };
 const params = new URLSearchParams(location.search);
 const state = {
 	screen: SCREENS[params.get('screen')] ? params.get('screen') : 'audits',
@@ -360,7 +535,13 @@ document.querySelectorAll('[data-icon]').forEach((el) => { el.innerHTML = icon(e
 view.addEventListener('click', (e) => {
 	const row = e.target.closest('[data-ev]');
 	const tab = e.target.closest('[data-tab]');
+	const pref = e.target.closest('[data-pref]');
 	if (e.target.closest('[data-close]')) state.ev = null;
+	else if (pref) {
+		const [id, channel] = pref.dataset.pref.split(':');
+		const n = PROFILE.notify.find((x) => x.id === id);
+		n[channel] = !n[channel];
+	}
 	else if (tab) state.tab = tab.dataset.tab;
 	else if (row) { state.ev = row.dataset.ev; state.tab = 'upload'; }
 	else return;

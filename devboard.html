@@ -17,7 +17,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<!-- Bluesky Embed -->
-	<script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
 
 	<!-- Basic Meta -->
 	<meta charset="UTF-8">
@@ -28,7 +27,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 	<link rel="alternate icon" href="favicon.ico">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
+	<link rel="stylesheet" href="assets/css/editorial.css?v=6" />
 </head>
 <body class="light-nav">
 	<!-- Navbar -->
@@ -54,7 +53,7 @@
 						<span class="article-tag">Agentic Coding</span>
 					</div>
 
-					<p class="mb-4"><a href="https://mischa.itch.io/devboard" target="_blank" rel="noopener" class="btn btn-dark">Try Demo</a></p>
+					<p class="mb-4"><a href="https://mfgoes.github.io/Devboard/app.html" target="_blank" rel="noopener" class="btn btn-dark">Try Demo</a></p>
 
 					<p class="mb-4">DevBoard keeps notes, maps, and references in one local-first, linked workspace so you can change modes without losing the thread. Connect notes or put them on a board.</p>
 
@@ -94,21 +93,6 @@
 							<p class="small text-muted mb-0" style="font-size: 0.8rem;">PM & Indie Developer</p>
 						</div>
 
-						<div class="bsky-sidebar-box d-none d-lg-block">
-							<div class="bsky-sidebar-header">
-								<span class="bsky-sidebar-label">Dev feed</span>
-								<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener" class="bsky-sidebar-handle">@mishotofu.bsky.social</a>
-							</div>
-							<div class="bsky-feed-container">
-								<bsky-embed
-									id="bskyEmbed"
-									limit="2"
-									mode="light"
-									username="mishotofu.bsky.social"
-									custom-styles="@media (min-width: 992px) and (max-width: 1199.98px) { :host { --base-text-size: 0.88rem; } .avatar, img[alt*='avatar'], img[alt*='profile'] { width: 40px !important; height: 40px !important; min-width: 40px !important; min-height: 40px !important; } }">
-								</bsky-embed>
-							</div>
-						</div>
 					</div> <!-- /.article-sidebar-sticky -->
 				</div>
 			</div>
@@ -157,11 +141,11 @@
 	<section class="py-4">
 		<div class="container">
 			<div style="max-width: 800px;">
-				<h3 class="mb-3">What's in v1</h3>
+				<h3 class="mb-3">What it does</h3>
 				<p class="mb-3">Everything you need to think out loud, nothing you don't.</p>
-				<img src="assets/images/devboard/mockups/mockup-notes-to-canvas.png" class="img-fluid rounded mb-3" loading="lazy" alt="A DevBoard note with linked mentions beside the same notes mapped on a canvas">
+				<img src="assets/images/devboard/mockups/mockup-notes-to-canvas.png" class="img-fluid rounded" loading="lazy" alt="A DevBoard note with linked mentions beside the same notes mapped on a canvas">
 
-				<details class="case-details">
+				<details class="case-details" hidden>
 					<summary>The four core features, and keyboard shortcuts</summary>
 					<div class="case-details-body">
 						<div class="row g-3 mb-3">
@@ -230,14 +214,63 @@
 		</div>
 	</section>
 
-	<!-- What changed -->
-	<section class="py-4">
+	<!-- What's on the canvas today (hidden: close-up screenshots are inconsistent in size) -->
+	<section class="py-4" hidden>
 		<div class="container">
 			<div style="max-width: 800px;">
-				<h3 class="mb-3">What changed in this update</h3>
-				<p class="mb-3">A lot of the "that's annoying" moments got fixed in this pass.</p>
+				<h3 class="mb-3">What's on the canvas today</h3>
+				<p class="mb-3">The canvas started as sticky notes on a grid. It now covers most of what I reach for when a note stops being enough, without turning into a diagramming tool.</p>
+				<img src="assets/images/devboard/screens/desktop/desktop-16-canvas-flow-shapes.png" class="img-fluid rounded border mb-4" loading="lazy" alt="A DevBoard canvas with a sticky-note flow, stickers and three labelled shapes">
+				<div class="row g-4 mb-4">
+					<div class="col-md-6">
+						<figure class="mb-0">
+							<img src="assets/images/devboard/closeups/closeup-toolbar-shape-picker.png" class="img-fluid rounded border" loading="lazy" alt="Canvas toolbar with the shape picker open">
+							<figcaption class="small text-muted mt-2"><strong>Eight tools, one row.</strong> Select, pan, sticky, shape, text, note, section, image. Each has a single-key shortcut, and shapes stop at four: rectangle, ellipse, diamond, triangle. Enough for a flow, not enough to get lost in.</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<figure class="mb-0">
+							<img src="assets/images/devboard/closeups/closeup-shape-context-toolbar.png" class="img-fluid rounded border" loading="lazy" alt="A selected diamond shape with its context toolbar">
+							<figcaption class="small text-muted mt-2"><strong>Options appear where you are working.</strong> Select a shape and its type, fill, stroke and text settings show up above it. Nothing is docked permanently, so the board stays the biggest thing on screen.</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<figure class="mb-0">
+							<img src="assets/images/devboard/closeups/closeup-fill-palette.png" class="img-fluid rounded border" loading="lazy" alt="Fill colour palette with thirteen swatches and a no-fill option">
+							<figcaption class="small text-muted mt-2"><strong>A fixed palette instead of a colour picker.</strong> Thirteen fills that work together in light and dark mode. Choosing a colour is one click, and boards end up looking consistent without any effort.</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<figure class="mb-0">
+							<img src="assets/images/devboard/closeups/closeup-insert-menu.png" class="img-fluid rounded border" loading="lazy" alt="Insert menu listing task card, code block, sticker, table and link">
+							<figcaption class="small text-muted mt-2"><strong>Heavier blocks sit one level down.</strong> Task cards, code blocks, stickers, tables and links live behind the plus button, so the main toolbar stays short for the things used every minute.</figcaption>
+						</figure>
+					</div>
+				</div>
+
+				<h5 class="mb-2">Starting points</h5>
+				<p class="mb-3">A blank canvas is the hardest screen in any whiteboard app. New canvases can start from a template: a gameplay loop, a mission flow, a kanban board, a timeline.</p>
+				<img src="assets/images/devboard/screens/desktop/desktop-15-new-canvas-templates.png" class="img-fluid rounded border mb-4" loading="lazy" alt="New canvas dialog with a blank option and seven templates">
+
+				<h5 class="mb-2">Getting your work back out</h5>
+				<p class="mb-3">Notes are already Markdown files in a folder you chose, so export is mostly a convenience. A note can leave as Markdown, PDF or plain text, and a canvas as a PNG.</p>
+				<div class="row g-4 mb-4">
+					<div class="col-md-6">
+						<figure class="mb-0">
+							<img src="assets/images/devboard/closeups/closeup-export-menu.png" class="img-fluid rounded border" loading="lazy" alt="Export menu with Markdown, PDF, text and PNG options">
+							<figcaption class="small text-muted mt-2"><strong>Four formats, one menu.</strong> The note options switch on when a note is open; the canvas option when a canvas is.</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<figure class="mb-0">
+							<img src="assets/images/devboard/closeups/export-result-canvas.png" class="img-fluid rounded border" loading="lazy" alt="The PNG produced by exporting the flow canvas">
+							<figcaption class="small text-muted mt-2"><strong>What the PNG export produces.</strong> The board without the app around it, ready to paste into a doc or a chat.</figcaption>
+						</figure>
+					</div>
+				</div>
+				<img src="assets/images/devboard/mockups/mockup-light-dark.png" class="img-fluid rounded mb-3" loading="lazy" alt="DevBoard canvas in light and dark mode">
 				<details class="case-details">
-					<summary>The five changes in this update</summary>
+					<summary>Smaller fixes along the way: undo, sections, a calmer editor</summary>
 					<div class="case-details-body">
 						<ul class="mb-3">
 							<li><strong>Undo/Redo</strong> — <kbd>Ctrl+Z</kbd> / <kbd>Shift+Z</kbd>. Finally mess up with confidence.</li>
@@ -248,8 +281,20 @@
 						</ul>
 					</div>
 				</details>
-				<p class="mb-3"><strong>Coming next:</strong> pen/draw tool, export to PNG, multiplayer (maybe).</p>
-				<img src="assets/images/devboard/mockups/mockup-light-dark.png" class="img-fluid rounded" loading="lazy" alt="DevBoard canvas in light and dark mode">
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing -->
+	<section class="py-4">
+		<div class="container">
+			<div style="max-width: 800px;">
+				<h3 class="mb-3">Pricing: free where it's local</h3>
+				<p class="mb-2">The pricing follows the architecture. Everything that runs on your machine costs me nothing to provide, so it is free and needs no account: unlimited local workspaces, notes, canvases and export.</p>
+				<p class="mb-3">The only part with a running cost is sync, so that is the only part with a price. It is free during the beta and expected to land around €4–€5 a month, for up to ten synced workspaces with EU-hosted storage and automatic backup. Local workspaces stay free either way.</p>
+				<img src="assets/images/devboard/closeups/landing-pricing.png" class="img-fluid rounded border" loading="lazy" alt="DevBoard pricing: a free local tier and a sync tier at four to five euros a month, free during beta">
+				<p class="mb-3" hidden>That split also sets the positioning: more than a notes file, less setup than a full workspace tool.</p>
+				<img hidden src="assets/images/devboard/closeups/landing-comparison.png" class="img-fluid rounded border" loading="lazy" alt="Comparison of DevBoard with a notes file, Obsidian and Notion">
 			</div>
 		</div>
 	</section>
@@ -258,7 +303,7 @@
 	<section class="py-4">
 		<div class="container">
 			<div style="max-width: 800px;">
-				<a href="https://mischa.itch.io/devboard" target="_blank" class="btn btn-dark">Try Demo</a>
+				<a href="https://mfgoes.github.io/Devboard/app.html" target="_blank" class="btn btn-dark">Try Demo</a>
 			</div>
 		</div>
 	</section>
@@ -297,27 +342,6 @@
 			</div>
 		</div>
 	</div>
-
-	<section class="py-4 d-lg-none">
-		<div class="container">
-			<div style="max-width: 800px;">
-				<div class="bsky-sidebar-box">
-					<div class="bsky-sidebar-header">
-						<span class="bsky-sidebar-label">Dev feed</span>
-						<a href="https://bsky.app/profile/mishotofu.bsky.social" target="_blank" rel="noopener" class="bsky-sidebar-handle">@mishotofu.bsky.social</a>
-					</div>
-					<div class="bsky-feed-container">
-						<bsky-embed
-							id="bskyEmbedMobile"
-							limit="2"
-							mode="light"
-							username="mishotofu.bsky.social">
-						</bsky-embed>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- Article Footer -->
 	<div id="article-footer-container"></div>

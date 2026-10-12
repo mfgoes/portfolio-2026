@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="assets/css/navbar.css" />
 	<link rel="stylesheet" href="assets/css/theme-dark.css" />
 	<link rel="stylesheet" href="assets/css/article.css" />
-	<link rel="stylesheet" href="assets/css/case-study.css?v=7" />
+	<link rel="stylesheet" href="assets/css/case-study.css?v=9" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -119,60 +119,159 @@
 							<p>One 2px radius, no shadows, and a ruled feed instead of stacked cards. One accent colour, used sparingly.</p>
 						</li>
 					</ul>
-					<figure class="cs-figure">
-						<img src="assets/images/quiet-network/qn-design-system.png" width="1600" height="1000" loading="lazy" alt="Quiet Network design system: Newsreader serif and IBM Plex Mono type specimens, outlined badges, and light and dark colour swatches">
-						<figcaption><span class="cs-fig">Fig. 02</span><span>The system: type pairing, badges, and the light and dark palettes.</span></figcaption>
-					</figure>
-					<figure class="cs-figure">
-						<img src="assets/images/quiet-network/qn-app-pages.png" width="1600" height="1000" loading="lazy" alt="Four mobile screens: public homepage, personal feed, member profile and About page, all in the same visual style">
-						<figcaption><span class="cs-fig">Fig. 03</span><span>Public home, feed, profile and About, rebuilt on the same tokens.</span></figcaption>
-					</figure>
-				</section>
-
-				<!-- 03 Decisions -->
-				<section class="cs-section cs-reveal" id="decisions">
-					<p class="cs-eyebrow"><span class="cs-num">03</span>Product decisions</p>
-					<h2>Four calls, and why</h2>
-					<div class="cs-ba">
-						<div class="cs-ba-head" aria-hidden="true">
-							<span>Decision</span>
-							<span>Before</span>
-							<span>After</span>
+					<div class="cs-tabs" data-tabs aria-label="Design system views">
+						<div class="cs-tabpanel" data-tab="The system">
+							<figure class="cs-figure">
+								<img src="assets/images/quiet-network/qn-design-system.png" width="1600" height="1000" loading="lazy" alt="Quiet Network design system: Newsreader serif and IBM Plex Mono type specimens, outlined badges, and light and dark colour swatches">
+								<figcaption><span class="cs-fig">Fig. 02</span><span>The system: type pairing, badges, and the light and dark palettes.</span></figcaption>
+							</figure>
 						</div>
-						<div class="cs-ba-row">
-							<h3><i class="fas fa-landmark" aria-hidden="true"></i>Real data over fake neighbours</h3>
-							<p class="cs-ba-before" data-label="Before">An empty feed, padded with AI-written posts that read like a tourist guide and sometimes invented places.</p>
-							<p data-label="After">A clearly labelled bulletin posts real municipal notices (events, road works, tree felling), street level only, and each one fades when the event is over.</p>
-						</div>
-						<div class="cs-ba-row">
-							<h3><i class="fas fa-hourglass-half" aria-hidden="true"></i>Questioning my own concept</h3>
-							<p class="cs-ba-before" data-label="Before">Every post showed a countdown. Fading was the pitch, but the clock added pressure.</p>
-							<p data-label="After">Posts still fade, but only the author sees when. Time is shown only where it means something, like an event's date.</p>
-						</div>
-						<div class="cs-ba-row">
-							<h3><i class="fas fa-store" aria-hidden="true"></i>A reason to post</h3>
-							<p class="cs-ba-before" data-label="Before">Nothing gave people a reason to post first.</p>
-							<p data-label="After">Side-hustle announcements, like a &ldquo;new job&rdquo; post for what you make at home, each with its own texture and a direct message button.</p>
-						</div>
-						<div class="cs-ba-row">
-							<h3><i class="fas fa-door-open" aria-hidden="true"></i>Open by default</h3>
-							<p class="cs-ba-before" data-label="Before">Comparable apps close everything to control hosting costs.</p>
-							<p data-label="After">Public, read-only pages stay open as the growth bet. Text is cheap to host; cost is a problem worth having later.</p>
+						<div class="cs-tabpanel" data-tab="Applied to the app">
+							<figure class="cs-figure">
+								<img src="assets/images/quiet-network/qn-app-pages.png" width="1600" height="1000" loading="lazy" alt="Four mobile screens: public homepage, personal feed, member profile and About page, all in the same visual style">
+								<figcaption><span class="cs-fig">Fig. 03</span><span>Public home, feed, profile and About, rebuilt on the same tokens.</span></figcaption>
+							</figure>
 						</div>
 					</div>
-					<figure class="cs-figure">
-						<img src="assets/images/quiet-network/qn-bulletin-notices.png" width="1600" height="1000" loading="lazy" alt="Two phones showing bulletin posts from official municipal notices, in light and dark mode">
-						<figcaption><span class="cs-fig">Fig. 04</span><span>Bulletin posts from official notices, in light and dark mode.</span></figcaption>
-					</figure>
-					<figure class="cs-figure">
-						<img src="assets/images/quiet-network/qn-side-hustles.png" width="1600" height="1000" loading="lazy" alt="Side-hustle cards, each with a texture for its category: layer lines for 3D printing, dots for baking, hatching for repairs">
-						<figcaption><span class="cs-fig">Fig. 05</span><span>One texture per craft: layer lines for 3D printing, a dot grid for baking, hatching for repairs.</span></figcaption>
-					</figure>
 				</section>
 
-				<!-- 04 Learnings -->
+				<!-- 03 Journey -->
+				<section class="cs-section cs-reveal" id="journey">
+					<p class="cs-eyebrow"><span class="cs-num">03</span>How it spreads</p>
+					<h2>One shared link, three kinds of neighbour</h2>
+					<p class="cs-tldr">With no ads and no feed algorithm, the only way in is a neighbour passing a link along. There are no users to measure yet, so this is the loop I'm <strong>designing for</strong>, not one I've observed.</p>
+					<p>I split people by the part they play in that loop rather than by age or interest, because each part needs something different from the product.</p>
+					<figure class="cs-figure cs-journey-fig">
+						<div class="cs-journey-board">
+							<ol class="cs-journey">
+								<li class="cs-journey-step">
+									<div class="cs-journey-scene" aria-hidden="true">
+										<div class="cs-jv-card">
+											<span class="cs-jv-tex"></span>
+											<span class="cs-jv-mono">Side hustle &middot; Baking</span>
+											<span class="cs-jv-title">Sourdough, baked Fridays</span>
+											<span class="cs-jv-btn">Message</span>
+										</div>
+									</div>
+									<span class="cs-journey-act"><span class="cs-num">01</span>Posts</span>
+									<h3>The maker</h3>
+									<p>A hobbyist who bakes, repairs bikes or 3D prints at home.</p>
+									<p class="cs-journey-needs"><span>Needs</span>A reason to post first</p>
+								</li>
+								<li class="cs-journey-step">
+									<div class="cs-journey-scene" aria-hidden="true">
+										<div class="cs-jv-chat">
+											<span class="cs-jv-bubble">Anyone know a good baker nearby?</span>
+											<span class="cs-jv-bubble cs-jv-bubble--me">Two doors down from you<span class="cs-jv-link"><i class="fas fa-link"></i>quietnetwork.app</span></span>
+										</div>
+									</div>
+									<span class="cs-journey-act"><span class="cs-num">02</span>Shares</span>
+									<h3>The connector</h3>
+									<p>The active neighbour who already runs the street group chat.</p>
+									<p class="cs-journey-needs"><span>Needs</span>A link that opens for anyone</p>
+								</li>
+								<li class="cs-journey-step">
+									<div class="cs-journey-scene" aria-hidden="true">
+										<div class="cs-jv-page">
+											<span class="cs-jv-bar"><i></i><i></i><i></i><b>quietnetwork.app</b></span>
+											<span class="cs-jv-mono">Reading as guest</span>
+											<span class="cs-jv-title">Sourdough, baked Fridays</span>
+											<span class="cs-jv-lines"></span>
+											<span class="cs-jv-btn cs-jv-btn--solid">Join to reply</span>
+										</div>
+									</div>
+									<span class="cs-journey-act"><span class="cs-num">03</span>Reads</span>
+									<h3>The quiet majority</h3>
+									<p>Reads without an account, and signs up only to reply.</p>
+									<p class="cs-journey-needs"><span>Needs</span>Nothing asked up front</p>
+								</li>
+							</ol>
+							<p class="cs-journey-loop"><span><i class="fas fa-rotate-left" aria-hidden="true"></i>A reader who joins is the next maker or connector</span></p>
+						</div>
+						<figcaption><span class="cs-fig">Fig. 04</span><span>The loop I'm designing for: one post, passed along by hand, read without a login.</span></figcaption>
+					</figure>
+					<p>The pilot in Haarlem is where this gets tested. The step I trust least is the second: whether a connector shares a link to a new place, or just retypes the news into the chat they already have.</p>
+				</section>
+
+				<!-- 04 Decisions -->
+				<section class="cs-section cs-reveal" id="decisions">
+					<p class="cs-eyebrow"><span class="cs-num">04</span>Product decisions</p>
+					<h2>Four calls, and why</h2>
+					<div class="cs-accordion">
+						<details class="case-details case-details--title" name="qn-decisions" open>
+							<summary><span><i class="fas fa-landmark" aria-hidden="true"></i>Real data over fake neighbours</span></summary>
+							<div class="case-details-body">
+						<div class="cs-pair">
+							<div>
+								<span class="cs-badge">Before</span>
+								<p>An empty feed, padded with AI-written posts that read like a tourist guide and sometimes invented places.</p>
+							</div>
+							<div>
+								<span class="cs-badge cs-badge--solid">After</span>
+								<p>A clearly labelled bulletin posts real municipal notices (events, road works, tree felling), street level only, and each one fades when the event is over.</p>
+							</div>
+						</div>
+						<figure class="cs-figure">
+							<img src="assets/images/quiet-network/qn-bulletin-notices.png" width="1600" height="1000" loading="lazy" alt="Two phones showing bulletin posts from official municipal notices, in light and dark mode">
+							<figcaption><span class="cs-fig">Fig. 05</span><span>Bulletin posts from official notices, in light and dark mode.</span></figcaption>
+						</figure>
+							</div>
+						</details>
+						<details class="case-details case-details--title" name="qn-decisions">
+							<summary><span><i class="fas fa-hourglass-half" aria-hidden="true"></i>Questioning my own concept</span></summary>
+							<div class="case-details-body">
+						<div class="cs-pair">
+							<div>
+								<span class="cs-badge">Before</span>
+								<p>Every post showed a countdown. Fading was the pitch, but the clock added pressure.</p>
+							</div>
+							<div>
+								<span class="cs-badge cs-badge--solid">After</span>
+								<p>Posts still fade, but only the author sees when. Time is shown only where it means something, like an event's date.</p>
+							</div>
+						</div>
+							</div>
+						</details>
+						<details class="case-details case-details--title" name="qn-decisions">
+							<summary><span><i class="fas fa-store" aria-hidden="true"></i>A reason to post</span></summary>
+							<div class="case-details-body">
+						<div class="cs-pair">
+							<div>
+								<span class="cs-badge">Before</span>
+								<p>Nothing gave people a reason to post first.</p>
+							</div>
+							<div>
+								<span class="cs-badge cs-badge--solid">After</span>
+								<p>Side-hustle announcements, like a &ldquo;new job&rdquo; post for what you make at home, each with its own texture and a direct message button.</p>
+							</div>
+						</div>
+						<figure class="cs-figure">
+							<img src="assets/images/quiet-network/qn-side-hustles.png" width="1600" height="1000" loading="lazy" alt="Side-hustle cards, each with a texture for its category: layer lines for 3D printing, dots for baking, hatching for repairs">
+							<figcaption><span class="cs-fig">Fig. 06</span><span>One texture per craft: layer lines for 3D printing, a dot grid for baking, hatching for repairs.</span></figcaption>
+						</figure>
+							</div>
+						</details>
+						<details class="case-details case-details--title" name="qn-decisions">
+							<summary><span><i class="fas fa-door-open" aria-hidden="true"></i>Open by default</span></summary>
+							<div class="case-details-body">
+						<div class="cs-pair">
+							<div>
+								<span class="cs-badge">Before</span>
+								<p>Comparable apps close everything to control hosting costs.</p>
+							</div>
+							<div>
+								<span class="cs-badge cs-badge--solid">After</span>
+								<p>Public, read-only pages stay open as the growth bet. Text is cheap to host; cost is a problem worth having later.</p>
+							</div>
+						</div>
+							</div>
+						</details>
+					</div>
+				</section>
+
+				<!-- 05 Learnings -->
 				<section class="cs-section cs-reveal" id="learnings">
-					<p class="cs-eyebrow"><span class="cs-num">04</span>What I've learned</p>
+					<p class="cs-eyebrow"><span class="cs-num">05</span>What I've learned</p>
 					<h2>Lessons from being the whole team</h2>
 					<ul class="cs-rows">
 						<li class="cs-row">
@@ -224,15 +323,15 @@
 				</div>
 				<div class="col-md-6">
 					<div class="related-card">
-						<img src="assets/images/articles/devboard/animated_preview.gif" class="related-card-img" alt="DevBoard whiteboard tool">
+						<img src="assets/images/thumbnails/devboard-thumb.webp" class="related-card-img" alt="DevBoard: Write it down. Link it. Map it.">
 						<div class="related-card-meta">
 							<i class="far fa-clock"></i>
 							<span>March 2026</span>
 							<span>•</span>
 							<span class="related-card-category">Developer Tools</span>
 						</div>
-						<a href="devboard.html" class="related-card-title">DevBoard: A Whiteboard That Stays Out of Your Way</a>
-						<p class="related-card-excerpt">Building a lightweight, offline-first infinite canvas for developers — no accounts, no backend, opens in under a second.</p>
+						<a href="devboard.html" class="related-card-title">DevBoard: Write Notes, Connect Ideas, See the Bigger Picture</a>
+						<p class="related-card-excerpt">A local-first notes app with a canvas attached. Free, no account needed.</p>
 					</div>
 				</div>
 			</div>
@@ -252,6 +351,6 @@
 	<script src="assets/components/navbar.js"></script>
 	<script src="assets/components/article-footer.js"></script>
 	<script src="js/theme-toggle.js"></script>
-	<script src="js/case-study.js?v=3"></script>
+	<script src="js/case-study.js?v=4"></script>
 </body>
 </html>

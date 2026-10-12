@@ -179,6 +179,54 @@
         update();
     }
 
+    // Tabs: <div data-tabs> wrapping .cs-tabpanel[data-tab="Label"] children.
+    // Without JS every panel simply shows in order.
+    function initTabs() {
+        document.querySelectorAll('[data-tabs]').forEach((group, g) => {
+            const panels = Array.from(group.querySelectorAll(':scope > .cs-tabpanel'));
+            if (panels.length < 2) return;
+
+            const list = el('div', { class: 'cs-tablist', role: 'tablist' });
+            if (group.getAttribute('aria-label')) list.setAttribute('aria-label', group.getAttribute('aria-label'));
+            group.removeAttribute('aria-label');
+
+            const tabs = panels.map((panel, i) => {
+                const id = `cs-tab-${g}-${i}`;
+                const tab = el('button', { class: 'cs-tab', type: 'button', role: 'tab', id, 'aria-controls': `${id}-panel` });
+                tab.textContent = panel.dataset.tab;
+                panel.id = `${id}-panel`;
+                panel.setAttribute('role', 'tabpanel');
+                panel.setAttribute('aria-labelledby', id);
+                list.appendChild(tab);
+                return tab;
+            });
+
+            const select = (index, focus = false) => {
+                tabs.forEach((tab, i) => {
+                    const on = i === index;
+                    tab.setAttribute('aria-selected', on);
+                    tab.tabIndex = on ? 0 : -1;
+                    panels[i].hidden = !on;
+                });
+                if (focus) tabs[index].focus();
+            };
+
+            tabs.forEach((tab, i) => tab.addEventListener('click', () => select(i)));
+            list.addEventListener('keydown', (event) => {
+                const current = tabs.indexOf(document.activeElement);
+                if (current < 0) return;
+                const step = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
+                if (step) { event.preventDefault(); select((current + step + tabs.length) % tabs.length, true); }
+                if (event.key === 'Home') { event.preventDefault(); select(0, true); }
+                if (event.key === 'End') { event.preventDefault(); select(tabs.length - 1, true); }
+            });
+
+            group.prepend(list);
+            group.classList.add('is-ready');
+            select(0);
+        });
+    }
+
     function initCopyLink() {
         const button = document.querySelector('[data-copy-link]');
         if (!button) return;
@@ -201,5 +249,6 @@
         initProgress();
         initContents();
         initCopyLink();
+        initTabs();
     });
 })();
