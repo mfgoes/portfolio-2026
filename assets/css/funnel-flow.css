@@ -1,0 +1,231 @@
+/* ===== Funnel flow (animated Sankey) =====
+   A <figure class="ff"> holding a JSON data block; js/funnel-flow.js draws the
+   chart into .ff-chart. Neutral ink for traffic, one accent for conversions.
+*/
+.ff {
+	--ff-win: #2e7d5b;
+	margin: 0;
+	padding: 1.5rem;
+	background: var(--cs-raised);
+	border: 1px solid var(--cs-line);
+	border-radius: var(--cs-radius);
+}
+
+[data-bs-theme="dark"] .ff {
+	--ff-win: #63c598;
+}
+
+.ff-head {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+body .ff .ff-title {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.3;
+	color: var(--cs-ink);
+}
+
+body .ff .ff-sub {
+	margin: 0.15rem 0 0;
+	font-size: 0.875rem;
+	line-height: 1.4;
+	color: var(--cs-muted);
+}
+
+.ff-toggle {
+	flex: none;
+	font-family: var(--cs-mono);
+	font-size: 0.66rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	line-height: 1;
+	color: var(--cs-muted);
+	background: transparent;
+	border: 1px solid var(--cs-line);
+	border-radius: 3px;
+	padding: 0.5em 0.7em;
+	cursor: pointer;
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.ff-toggle:hover {
+	color: var(--cs-ink);
+	border-color: var(--cs-ink);
+}
+
+.ff-toggle:focus-visible {
+	outline: 2px solid var(--cs-accent);
+	outline-offset: 2px;
+}
+
+/* ---------- Chart ---------- */
+.ff-svg {
+	display: block;
+	overflow: visible;
+}
+
+.ff-link {
+	fill: none;
+	stroke: var(--cs-ink);
+	stroke-opacity: 0.08;
+	transition: stroke-opacity 0.25s ease;
+}
+
+.ff-link.is-win {
+	stroke: var(--ff-win);
+	stroke-opacity: 0.55;
+}
+
+.ff-svg.has-active .ff-link {
+	stroke-opacity: 0.04;
+}
+
+.ff-svg.has-active .ff-link.is-on {
+	stroke-opacity: 0.2;
+}
+
+.ff-svg.has-active .ff-link.is-win {
+	stroke-opacity: 0.2;
+}
+
+.ff-svg.has-active .ff-link.is-win.is-on {
+	stroke-opacity: 0.8;
+}
+
+.ff-node {
+	opacity: 0;
+	cursor: pointer;
+	outline: none;
+	transition: opacity 0.4s ease;
+}
+
+.ff-node.is-in {
+	opacity: 1;
+}
+
+.ff-svg.has-active .ff-node.is-in:not(.is-on) {
+	opacity: 0.35;
+}
+
+.ff-bar {
+	fill: var(--cs-ink);
+}
+
+.ff-node.is-exit .ff-bar {
+	fill: var(--cs-muted);
+	fill-opacity: 0.55;
+}
+
+.ff-node.is-win .ff-bar {
+	fill: var(--ff-win);
+}
+
+/* Labels keep to ink; a halo in the surface colour lifts them off the bands */
+.ff-label {
+	pointer-events: none;
+	paint-order: stroke;
+	stroke: var(--cs-raised);
+	stroke-width: 3px;
+	stroke-linejoin: round;
+}
+
+.ff-name {
+	font-family: var(--cs-sans);
+	font-size: 12.5px;
+	font-weight: 600;
+	fill: var(--cs-ink);
+}
+
+.ff-value {
+	font-family: var(--cs-mono);
+	font-size: 11px;
+	font-weight: 500;
+	fill: var(--cs-muted);
+}
+
+.ff-col {
+	font-family: var(--cs-mono);
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	fill: var(--cs-muted);
+}
+
+.ff-hit {
+	fill: transparent;
+	stroke: none;
+}
+
+.ff-node:focus-visible .ff-hit {
+	stroke: var(--cs-ink);
+	stroke-width: 1.5px;
+}
+
+.ff-dot {
+	fill: var(--cs-ink);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.ff-dot.is-win {
+	fill: var(--ff-win);
+}
+
+/* ---------- Readout ---------- */
+body .ff .ff-readout {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.15rem 0.75rem;
+	min-height: 3.4em;
+	margin: 0.75rem 0 0;
+	padding-top: 0.75rem;
+	border-top: 1px solid var(--cs-line);
+	font-size: 0.875rem;
+	line-height: 1.4;
+}
+
+.ff-readout-name {
+	font-weight: 600;
+	color: var(--cs-ink);
+}
+
+.ff-readout-value {
+	font-family: var(--cs-mono);
+	font-size: 0.78rem;
+	color: var(--cs-ink);
+}
+
+.ff-readout-note {
+	color: var(--cs-muted);
+}
+
+@media (max-width: 575.98px) {
+	.ff {
+		padding: 1.1rem;
+	}
+
+	.ff-name {
+		font-size: 11.5px;
+	}
+
+	.ff-value {
+		font-size: 10.5px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ff-link,
+	.ff-node,
+	.ff-toggle {
+		transition: none;
+	}
+}

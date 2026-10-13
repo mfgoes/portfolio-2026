@@ -31,6 +31,7 @@
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<link rel="stylesheet" href="assets/css/article.css" />
 	<link rel="stylesheet" href="assets/css/editorial.css?v=3" />
+	<link rel="stylesheet" href="assets/css/funnel-flow.css" />
 </head>
 <body class="dark-nav">
 	<!-- Navbar -->
@@ -125,7 +126,54 @@
 					</ul>
 			</div>
 			<div class="col-md-6">
-				<img src="assets/images/FFM/funnel.png" alt="Funnel overview" class="img-fluid">
+				<figure class="ff">
+					<figcaption class="ff-head">
+						<div>
+							<p class="ff-title">Conversion funnel</p>
+							<p class="ff-sub">High dropoff and scattered focus · illustrative volumes</p>
+						</div>
+						<button type="button" class="ff-toggle" hidden>Pause</button>
+					</figcaption>
+					<div class="ff-chart"></div>
+					<p class="ff-readout" aria-hidden="true"></p>
+					<noscript><img src="assets/images/FFM/funnel.png" alt="Funnel overview" class="img-fluid"></noscript>
+					<!-- Each link is [from, to, visitors], listed in the order it stacks on its nodes -->
+					<script type="application/json" class="ff-data">
+					{
+						"unit": "visitors",
+						"columns": ["Source", "Landing", "Subpages", "Outcome"],
+						"nodes": [
+							{ "id": "meta", "col": 0, "label": "Meta", "group": "Paid social" },
+							{ "id": "linkedin", "col": 0, "label": "LinkedIn", "group": "Paid social" },
+							{ "id": "tiktok", "col": 0, "label": "TikTok", "group": "Paid social" },
+							{ "id": "organic", "col": 0, "label": "Organic" },
+							{ "id": "home", "col": 1, "label": "Homepage" },
+							{ "id": "tarieven", "col": 2, "label": "Tarieven" },
+							{ "id": "pakket", "col": 2, "label": "Pakket versturen" },
+							{ "id": "other", "col": 2, "label": "Other" },
+							{ "id": "noclick", "col": 2, "label": "No click", "kind": "exit" },
+							{ "id": "converted", "col": 3, "label": "Converted", "kind": "win" },
+							{ "id": "exit", "col": 3, "label": "Exit", "kind": "exit" }
+						],
+						"links": [
+							["meta", "home", 25000],
+							["linkedin", "home", 20000],
+							["tiktok", "home", 10000],
+							["organic", "home", 45000],
+							["home", "tarieven", 30000],
+							["home", "pakket", 25000],
+							["home", "other", 25000],
+							["home", "noclick", 20000],
+							["tarieven", "converted", 1500],
+							["tarieven", "exit", 28500],
+							["pakket", "converted", 500],
+							["pakket", "exit", 24500],
+							["other", "exit", 25000],
+							["noclick", "exit", 20000]
+						]
+					}
+					</script>
+				</figure>
 			</div>
 		</div>
 		</div>
@@ -328,6 +376,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 	<script src="js/impact-cards-animation.js"></script> <!--scroll-triggered animations for impact cards-->
+	<script src="js/funnel-flow.js"></script> <!--animated funnel in The Challenge-->
 
 	<!-- Core utilities (load first - required by other scripts) -->
 	<script src="js/core/utils.js"></script>
